@@ -1,3 +1,3 @@
-# BDGTableViewController
+# Blaze
 
-Awesome basic tableviewcontroller framework
+Awesome Tableviewcontroller framework to develop any screen blazingly fast!
