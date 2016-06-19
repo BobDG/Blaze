@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="BlazeTilesTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="118"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbj-rb-cds">
+                        <rect key="frame" x="10" y="0.0" width="300" height="118"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KIa-hJ-awS" customClass="BlazeTilesCollectionView">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="118"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="1" minimumInteritemSpacing="1" id="DGc-e1-Cdk">
+                                    <size key="itemSize" width="118" height="118"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="KIa-hJ-awS" secondAttribute="bottom" id="8Q3-26-oJx"/>
+                            <constraint firstItem="KIa-hJ-awS" firstAttribute="leading" secondItem="zbj-rb-cds" secondAttribute="leading" id="P9N-Fx-jQz"/>
+                            <constraint firstItem="KIa-hJ-awS" firstAttribute="top" secondItem="zbj-rb-cds" secondAttribute="top" id="U8S-pV-hyd"/>
+                            <constraint firstAttribute="height" constant="118" id="bHM-lG-86g"/>
+                            <constraint firstAttribute="trailing" secondItem="KIa-hJ-awS" secondAttribute="trailing" id="ly7-p7-I2R"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="zbj-rb-cds" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Gla-Nk-gR6"/>
+                    <constraint firstAttribute="bottom" secondItem="zbj-rb-cds" secondAttribute="bottom" id="HBC-Fb-c7r"/>
+                    <constraint firstAttribute="trailing" secondItem="zbj-rb-cds" secondAttribute="trailing" constant="10" id="UEr-u2-kYI"/>
+                    <constraint firstItem="zbj-rb-cds" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ia1-pa-CbR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="collectionView" destination="KIa-hJ-awS" id="qQJ-eO-3Zi"/>
+            </connections>
+            <point key="canvasLocation" x="320" y="357.5"/>
+        </tableViewCell>
+    </objects>
+</document>

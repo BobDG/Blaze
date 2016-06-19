@@ -1,0 +1,11 @@
+platform :ios, '8.0'
+use_frameworks!
+inhibit_all_warnings!
+
+target "BlazeExample" do
+    pod 'BDGViews'
+    pod 'BDGMacros'
+    pod 'AFNetworking'
+    pod 'DZNEmptyDataSet'
+    pod 'JVFloatLabeledTextField'
+end

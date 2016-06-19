@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BlazeTableHeaderFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5rh-9C-ahv">
+                    <rect key="frame" x="10" y="0.0" width="300" height="34"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="loj-ns-guj" userLabel="BackgroundImageView">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="ILf-w2-7QW"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="TitleLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcZ-cG-hIH">
+                            <rect key="frame" x="14" y="8" width="272" height="19"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="bcZ-cG-hIH" firstAttribute="centerY" secondItem="5rh-9C-ahv" secondAttribute="centerY" id="0gT-g4-50B"/>
+                        <constraint firstItem="bcZ-cG-hIH" firstAttribute="centerY" secondItem="5rh-9C-ahv" secondAttribute="centerY" id="15R-f7-z5e"/>
+                        <constraint firstItem="bcZ-cG-hIH" firstAttribute="top" secondItem="5rh-9C-ahv" secondAttribute="top" constant="8" id="AHv-w0-cMK"/>
+                        <constraint firstAttribute="bottom" secondItem="bcZ-cG-hIH" secondAttribute="bottom" constant="7" id="CHQ-6S-VfE"/>
+                        <constraint firstAttribute="trailing" secondItem="bcZ-cG-hIH" secondAttribute="trailing" constant="14" id="Epw-GV-AvQ"/>
+                        <constraint firstAttribute="bottom" secondItem="bcZ-cG-hIH" secondAttribute="bottom" constant="7" id="J6V-mO-3Dd"/>
+                        <constraint firstItem="loj-ns-guj" firstAttribute="leading" secondItem="5rh-9C-ahv" secondAttribute="leading" id="Lyf-xg-9tL"/>
+                        <constraint firstItem="bcZ-cG-hIH" firstAttribute="leading" secondItem="5rh-9C-ahv" secondAttribute="leading" constant="14" id="Z4P-Ba-KAW"/>
+                        <constraint firstAttribute="trailing" secondItem="loj-ns-guj" secondAttribute="trailing" id="ZJ9-0T-ait"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="buD-I3-SMB"/>
+                        <constraint firstItem="loj-ns-guj" firstAttribute="top" secondItem="5rh-9C-ahv" secondAttribute="top" id="dF3-Z9-iqH"/>
+                        <constraint firstAttribute="bottom" secondItem="loj-ns-guj" secondAttribute="bottom" id="hYp-gx-v04"/>
+                        <constraint firstItem="bcZ-cG-hIH" firstAttribute="top" secondItem="5rh-9C-ahv" secondAttribute="top" constant="7" id="lLZ-7A-Vgf"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="0gT-g4-50B"/>
+                            <exclude reference="15R-f7-z5e"/>
+                            <exclude reference="J6V-mO-3Dd"/>
+                            <exclude reference="lLZ-7A-Vgf"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="5rh-9C-ahv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="X1D-7M-qVX"/>
+                <constraint firstAttribute="bottom" secondItem="5rh-9C-ahv" secondAttribute="bottom" id="ahV-fK-q8r"/>
+                <constraint firstAttribute="trailing" secondItem="5rh-9C-ahv" secondAttribute="trailing" constant="10" id="eWe-ja-CtV"/>
+                <constraint firstItem="5rh-9C-ahv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="w1v-B2-nBq"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backgroundImageView" destination="loj-ns-guj" id="3mP-IG-SME"/>
+                <outlet property="titleLabel" destination="bcZ-cG-hIH" id="kOy-BY-sMQ"/>
+            </connections>
+            <point key="canvasLocation" x="247" y="261"/>
+        </view>
+    </objects>
+</document>

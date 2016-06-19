@@ -1,0 +1,776 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AFA93F01117D37C9C3CCD745 /* Pods_BlazeExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C00BA881BB68741859570A3 /* Pods_BlazeExample.framework */; };
+		ED0297031D1729220039AA41 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E11D1729220039AA41 /* ButtonTableViewCell.xib */; };
+		ED0297041D1729220039AA41 /* DateFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E21D1729220039AA41 /* DateFieldTableViewCell.xib */; };
+		ED0297051D1729220039AA41 /* EmptySpaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E31D1729220039AA41 /* EmptySpaceTableViewCell.xib */; };
+		ED0297061D1729220039AA41 /* FloatTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E41D1729220039AA41 /* FloatTextFieldTableViewCell.xib */; };
+		ED0297071D1729220039AA41 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E51D1729220039AA41 /* ImageTableViewCell.xib */; };
+		ED0297081D1729220039AA41 /* PickerFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E61D1729220039AA41 /* PickerFieldTableViewCell.xib */; };
+		ED0297091D1729220039AA41 /* SegmentedControlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E71D1729220039AA41 /* SegmentedControlTableViewCell.xib */; };
+		ED02970A1D1729220039AA41 /* SliderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E81D1729220039AA41 /* SliderTableViewCell.xib */; };
+		ED02970B1D1729220039AA41 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E91D1729220039AA41 /* SwitchTableViewCell.xib */; };
+		ED02970C1D1729220039AA41 /* TextArrowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296EA1D1729220039AA41 /* TextArrowTableViewCell.xib */; };
+		ED02970D1D1729220039AA41 /* TextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296EB1D1729220039AA41 /* TextTableViewCell.xib */; };
+		ED02970E1D1729220039AA41 /* TextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296EC1D1729220039AA41 /* TextViewTableViewCell.xib */; };
+		ED02970F1D1729220039AA41 /* TableFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296EE1D1729220039AA41 /* TableFooterView.xib */; };
+		ED0297101D1729220039AA41 /* TableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296EF1D1729220039AA41 /* TableHeaderView.xib */; };
+		ED0297111D1729220039AA41 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0296F21D1729220039AA41 /* BaseTableViewController.m */; };
+		ED0297121D1729220039AA41 /* BasicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0296F41D1729220039AA41 /* BasicTableViewController.m */; };
+		ED0297131D1729220039AA41 /* CellTypesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0296F61D1729220039AA41 /* CellTypesTableViewController.m */; };
+		ED0297141D1729220039AA41 /* DynamicRowsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0296F81D1729220039AA41 /* DynamicRowsTableViewController.m */; };
+		ED0297151D1729220039AA41 /* EmptyStateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0296FA1D1729220039AA41 /* EmptyStateTableViewController.m */; };
+		ED0297161D1729220039AA41 /* RowHeightsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0296FC1D1729220039AA41 /* RowHeightsTableViewController.m */; };
+		ED0297171D1729220039AA41 /* TextViewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0296FE1D1729220039AA41 /* TextViewsTableViewController.m */; };
+		ED0297181D1729220039AA41 /* ZoomHeaderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297001D1729220039AA41 /* ZoomHeaderTableViewController.m */; };
+		ED0297191D1729220039AA41 /* ZoomHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0297021D1729220039AA41 /* ZoomHeaderView.xib */; };
+		ED0297581D1729370039AA41 /* BlazeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02971C1D1729370039AA41 /* BlazeTableViewController.m */; };
+		ED0297591D1729370039AA41 /* NSObject+PropertyName.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02971F1D1729370039AA41 /* NSObject+PropertyName.m */; };
+		ED02975A1D1729370039AA41 /* BlazeTileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297221D1729370039AA41 /* BlazeTileCollectionViewCell.m */; };
+		ED02975B1D1729370039AA41 /* BlazeTileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0297231D1729370039AA41 /* BlazeTileCollectionViewCell.xib */; };
+		ED02975C1D1729370039AA41 /* BlazeTilesCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297261D1729370039AA41 /* BlazeTilesCollectionView.m */; };
+		ED02975D1D1729370039AA41 /* BlazeInputTile.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297291D1729370039AA41 /* BlazeInputTile.m */; };
+		ED02975E1D1729370039AA41 /* BlazeTableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02972B1D1729370039AA41 /* BlazeTableRow.m */; };
+		ED02975F1D1729370039AA41 /* BlazeTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02972D1D1729370039AA41 /* BlazeTableSection.m */; };
+		ED0297601D1729370039AA41 /* Arrow_Left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED02972F1D1729370039AA41 /* Arrow_Left@2x.png */; };
+		ED0297611D1729370039AA41 /* Arrow_Right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0297301D1729370039AA41 /* Arrow_Right@2x.png */; };
+		ED0297621D1729370039AA41 /* BlazeDateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297331D1729370039AA41 /* BlazeDateTableViewCell.m */; };
+		ED0297631D1729370039AA41 /* BlazeDateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0297341D1729370039AA41 /* BlazeDateTableViewCell.xib */; };
+		ED0297641D1729370039AA41 /* BlazePickerViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297361D1729370039AA41 /* BlazePickerViewTableViewCell.m */; };
+		ED0297651D1729370039AA41 /* BlazePickerViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0297371D1729370039AA41 /* BlazePickerViewTableViewCell.xib */; };
+		ED0297661D1729370039AA41 /* BlazeSegmentedControlTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297391D1729370039AA41 /* BlazeSegmentedControlTableViewCell.m */; };
+		ED0297671D1729370039AA41 /* BlazeSegmentedControlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED02973A1D1729370039AA41 /* BlazeSegmentedControlTableViewCell.xib */; };
+		ED0297681D1729370039AA41 /* BlazeSliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02973C1D1729370039AA41 /* BlazeSliderTableViewCell.m */; };
+		ED0297691D1729370039AA41 /* BlazeSliderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED02973D1D1729370039AA41 /* BlazeSliderTableViewCell.xib */; };
+		ED02976A1D1729370039AA41 /* BlazeSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02973F1D1729370039AA41 /* BlazeSwitchTableViewCell.m */; };
+		ED02976B1D1729370039AA41 /* BlazeSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0297401D1729370039AA41 /* BlazeSwitchTableViewCell.xib */; };
+		ED02976C1D1729370039AA41 /* BlazeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297421D1729370039AA41 /* BlazeTableViewCell.m */; };
+		ED02976D1D1729370039AA41 /* BlazeTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297441D1729370039AA41 /* BlazeTextFieldTableViewCell.m */; };
+		ED02976E1D1729370039AA41 /* BlazeTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0297451D1729370039AA41 /* BlazeTextFieldTableViewCell.xib */; };
+		ED02976F1D1729370039AA41 /* BlazeTextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297471D1729370039AA41 /* BlazeTextViewTableViewCell.m */; };
+		ED0297701D1729370039AA41 /* BlazeTextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0297481D1729370039AA41 /* BlazeTextViewTableViewCell.xib */; };
+		ED0297711D1729370039AA41 /* BlazeTilesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02974A1D1729370039AA41 /* BlazeTilesTableViewCell.m */; };
+		ED0297721D1729370039AA41 /* BlazeTilesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED02974B1D1729370039AA41 /* BlazeTilesTableViewCell.xib */; };
+		ED0297731D1729370039AA41 /* BlazeTableHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02974E1D1729370039AA41 /* BlazeTableHeaderFooterView.m */; };
+		ED0297741D1729370039AA41 /* BlazeTableHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED02974F1D1729370039AA41 /* BlazeTableHeaderFooterView.xib */; };
+		ED0297751D1729370039AA41 /* BlazeDatePickerField.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297521D1729370039AA41 /* BlazeDatePickerField.m */; };
+		ED0297761D1729370039AA41 /* BlazePickerViewField.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297541D1729370039AA41 /* BlazePickerViewField.m */; };
+		ED0297771D1729370039AA41 /* BlazeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297571D1729370039AA41 /* BlazeTextView.m */; };
+		ED933E021D1728A100B8155F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED933E011D1728A100B8155F /* main.m */; };
+		ED933E051D1728A100B8155F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED933E041D1728A100B8155F /* AppDelegate.m */; };
+		ED933E0B1D1728A100B8155F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED933E091D1728A100B8155F /* Main.storyboard */; };
+		ED933E0D1D1728A100B8155F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED933E0C1D1728A100B8155F /* Assets.xcassets */; };
+		ED933E101D1728A100B8155F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED933E0E1D1728A100B8155F /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5C00BA881BB68741859570A3 /* Pods_BlazeExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlazeExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7414ACEAFC2C6C62B2C372A6 /* Pods-BlazeExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlazeExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample.debug.xcconfig"; sourceTree = "<group>"; };
+		9117633E2828C62B6A0A0603 /* Pods-BlazeExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlazeExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample.release.xcconfig"; sourceTree = "<group>"; };
+		ED0296DF1D1729220039AA41 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		ED0296E11D1729220039AA41 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
+		ED0296E21D1729220039AA41 /* DateFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateFieldTableViewCell.xib; sourceTree = "<group>"; };
+		ED0296E31D1729220039AA41 /* EmptySpaceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptySpaceTableViewCell.xib; sourceTree = "<group>"; };
+		ED0296E41D1729220039AA41 /* FloatTextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatTextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		ED0296E51D1729220039AA41 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
+		ED0296E61D1729220039AA41 /* PickerFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerFieldTableViewCell.xib; sourceTree = "<group>"; };
+		ED0296E71D1729220039AA41 /* SegmentedControlTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlTableViewCell.xib; sourceTree = "<group>"; };
+		ED0296E81D1729220039AA41 /* SliderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderTableViewCell.xib; sourceTree = "<group>"; };
+		ED0296E91D1729220039AA41 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
+		ED0296EA1D1729220039AA41 /* TextArrowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextArrowTableViewCell.xib; sourceTree = "<group>"; };
+		ED0296EB1D1729220039AA41 /* TextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextTableViewCell.xib; sourceTree = "<group>"; };
+		ED0296EC1D1729220039AA41 /* TextViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewTableViewCell.xib; sourceTree = "<group>"; };
+		ED0296EE1D1729220039AA41 /* TableFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableFooterView.xib; sourceTree = "<group>"; };
+		ED0296EF1D1729220039AA41 /* TableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableHeaderView.xib; sourceTree = "<group>"; };
+		ED0296F11D1729220039AA41 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		ED0296F21D1729220039AA41 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		ED0296F31D1729220039AA41 /* BasicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicTableViewController.h; sourceTree = "<group>"; };
+		ED0296F41D1729220039AA41 /* BasicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicTableViewController.m; sourceTree = "<group>"; };
+		ED0296F51D1729220039AA41 /* CellTypesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellTypesTableViewController.h; sourceTree = "<group>"; };
+		ED0296F61D1729220039AA41 /* CellTypesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellTypesTableViewController.m; sourceTree = "<group>"; };
+		ED0296F71D1729220039AA41 /* DynamicRowsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicRowsTableViewController.h; sourceTree = "<group>"; };
+		ED0296F81D1729220039AA41 /* DynamicRowsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicRowsTableViewController.m; sourceTree = "<group>"; };
+		ED0296F91D1729220039AA41 /* EmptyStateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyStateTableViewController.h; sourceTree = "<group>"; };
+		ED0296FA1D1729220039AA41 /* EmptyStateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyStateTableViewController.m; sourceTree = "<group>"; };
+		ED0296FB1D1729220039AA41 /* RowHeightsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowHeightsTableViewController.h; sourceTree = "<group>"; };
+		ED0296FC1D1729220039AA41 /* RowHeightsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RowHeightsTableViewController.m; sourceTree = "<group>"; };
+		ED0296FD1D1729220039AA41 /* TextViewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewsTableViewController.h; sourceTree = "<group>"; };
+		ED0296FE1D1729220039AA41 /* TextViewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewsTableViewController.m; sourceTree = "<group>"; };
+		ED0296FF1D1729220039AA41 /* ZoomHeaderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomHeaderTableViewController.h; sourceTree = "<group>"; };
+		ED0297001D1729220039AA41 /* ZoomHeaderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomHeaderTableViewController.m; sourceTree = "<group>"; };
+		ED0297021D1729220039AA41 /* ZoomHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZoomHeaderView.xib; sourceTree = "<group>"; };
+		ED02971B1D1729370039AA41 /* BlazeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTableViewController.h; sourceTree = "<group>"; };
+		ED02971C1D1729370039AA41 /* BlazeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTableViewController.m; sourceTree = "<group>"; };
+		ED02971E1D1729370039AA41 /* NSObject+PropertyName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PropertyName.h"; sourceTree = "<group>"; };
+		ED02971F1D1729370039AA41 /* NSObject+PropertyName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PropertyName.m"; sourceTree = "<group>"; };
+		ED0297211D1729370039AA41 /* BlazeTileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTileCollectionViewCell.h; sourceTree = "<group>"; };
+		ED0297221D1729370039AA41 /* BlazeTileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTileCollectionViewCell.m; sourceTree = "<group>"; };
+		ED0297231D1729370039AA41 /* BlazeTileCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlazeTileCollectionViewCell.xib; sourceTree = "<group>"; };
+		ED0297251D1729370039AA41 /* BlazeTilesCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTilesCollectionView.h; sourceTree = "<group>"; };
+		ED0297261D1729370039AA41 /* BlazeTilesCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTilesCollectionView.m; sourceTree = "<group>"; };
+		ED0297281D1729370039AA41 /* BlazeInputTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeInputTile.h; sourceTree = "<group>"; };
+		ED0297291D1729370039AA41 /* BlazeInputTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeInputTile.m; sourceTree = "<group>"; };
+		ED02972A1D1729370039AA41 /* BlazeTableRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTableRow.h; sourceTree = "<group>"; };
+		ED02972B1D1729370039AA41 /* BlazeTableRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTableRow.m; sourceTree = "<group>"; };
+		ED02972C1D1729370039AA41 /* BlazeTableSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTableSection.h; sourceTree = "<group>"; };
+		ED02972D1D1729370039AA41 /* BlazeTableSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTableSection.m; sourceTree = "<group>"; };
+		ED02972F1D1729370039AA41 /* Arrow_Left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow_Left@2x.png"; sourceTree = "<group>"; };
+		ED0297301D1729370039AA41 /* Arrow_Right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow_Right@2x.png"; sourceTree = "<group>"; };
+		ED0297321D1729370039AA41 /* BlazeDateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeDateTableViewCell.h; sourceTree = "<group>"; };
+		ED0297331D1729370039AA41 /* BlazeDateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeDateTableViewCell.m; sourceTree = "<group>"; };
+		ED0297341D1729370039AA41 /* BlazeDateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlazeDateTableViewCell.xib; sourceTree = "<group>"; };
+		ED0297351D1729370039AA41 /* BlazePickerViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePickerViewTableViewCell.h; sourceTree = "<group>"; };
+		ED0297361D1729370039AA41 /* BlazePickerViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePickerViewTableViewCell.m; sourceTree = "<group>"; };
+		ED0297371D1729370039AA41 /* BlazePickerViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlazePickerViewTableViewCell.xib; sourceTree = "<group>"; };
+		ED0297381D1729370039AA41 /* BlazeSegmentedControlTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeSegmentedControlTableViewCell.h; sourceTree = "<group>"; };
+		ED0297391D1729370039AA41 /* BlazeSegmentedControlTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeSegmentedControlTableViewCell.m; sourceTree = "<group>"; };
+		ED02973A1D1729370039AA41 /* BlazeSegmentedControlTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlazeSegmentedControlTableViewCell.xib; sourceTree = "<group>"; };
+		ED02973B1D1729370039AA41 /* BlazeSliderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeSliderTableViewCell.h; sourceTree = "<group>"; };
+		ED02973C1D1729370039AA41 /* BlazeSliderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeSliderTableViewCell.m; sourceTree = "<group>"; };
+		ED02973D1D1729370039AA41 /* BlazeSliderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlazeSliderTableViewCell.xib; sourceTree = "<group>"; };
+		ED02973E1D1729370039AA41 /* BlazeSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeSwitchTableViewCell.h; sourceTree = "<group>"; };
+		ED02973F1D1729370039AA41 /* BlazeSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeSwitchTableViewCell.m; sourceTree = "<group>"; };
+		ED0297401D1729370039AA41 /* BlazeSwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlazeSwitchTableViewCell.xib; sourceTree = "<group>"; };
+		ED0297411D1729370039AA41 /* BlazeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTableViewCell.h; sourceTree = "<group>"; };
+		ED0297421D1729370039AA41 /* BlazeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTableViewCell.m; sourceTree = "<group>"; };
+		ED0297431D1729370039AA41 /* BlazeTextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTextFieldTableViewCell.h; sourceTree = "<group>"; };
+		ED0297441D1729370039AA41 /* BlazeTextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTextFieldTableViewCell.m; sourceTree = "<group>"; };
+		ED0297451D1729370039AA41 /* BlazeTextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlazeTextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		ED0297461D1729370039AA41 /* BlazeTextViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTextViewTableViewCell.h; sourceTree = "<group>"; };
+		ED0297471D1729370039AA41 /* BlazeTextViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTextViewTableViewCell.m; sourceTree = "<group>"; };
+		ED0297481D1729370039AA41 /* BlazeTextViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlazeTextViewTableViewCell.xib; sourceTree = "<group>"; };
+		ED0297491D1729370039AA41 /* BlazeTilesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTilesTableViewCell.h; sourceTree = "<group>"; };
+		ED02974A1D1729370039AA41 /* BlazeTilesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTilesTableViewCell.m; sourceTree = "<group>"; };
+		ED02974B1D1729370039AA41 /* BlazeTilesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlazeTilesTableViewCell.xib; sourceTree = "<group>"; };
+		ED02974D1D1729370039AA41 /* BlazeTableHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTableHeaderFooterView.h; sourceTree = "<group>"; };
+		ED02974E1D1729370039AA41 /* BlazeTableHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTableHeaderFooterView.m; sourceTree = "<group>"; };
+		ED02974F1D1729370039AA41 /* BlazeTableHeaderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlazeTableHeaderFooterView.xib; sourceTree = "<group>"; };
+		ED0297511D1729370039AA41 /* BlazeDatePickerField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeDatePickerField.h; sourceTree = "<group>"; };
+		ED0297521D1729370039AA41 /* BlazeDatePickerField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeDatePickerField.m; sourceTree = "<group>"; };
+		ED0297531D1729370039AA41 /* BlazePickerViewField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePickerViewField.h; sourceTree = "<group>"; };
+		ED0297541D1729370039AA41 /* BlazePickerViewField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePickerViewField.m; sourceTree = "<group>"; };
+		ED0297561D1729370039AA41 /* BlazeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTextView.h; sourceTree = "<group>"; };
+		ED0297571D1729370039AA41 /* BlazeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTextView.m; sourceTree = "<group>"; };
+		ED933DFD1D1728A100B8155F /* BlazeExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlazeExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED933E011D1728A100B8155F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ED933E031D1728A100B8155F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ED933E041D1728A100B8155F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ED933E0A1D1728A100B8155F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ED933E0C1D1728A100B8155F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ED933E0F1D1728A100B8155F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ED933E111D1728A100B8155F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED933DFA1D1728A000B8155F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFA93F01117D37C9C3CCD745 /* Pods_BlazeExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		130A59C13C95E139E3B27F1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7414ACEAFC2C6C62B2C372A6 /* Pods-BlazeExample.debug.xcconfig */,
+				9117633E2828C62B6A0A0603 /* Pods-BlazeExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7663389E12C8FFDD17386FD1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C00BA881BB68741859570A3 /* Pods_BlazeExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED0296E01D1729220039AA41 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				ED0296E11D1729220039AA41 /* ButtonTableViewCell.xib */,
+				ED0296E21D1729220039AA41 /* DateFieldTableViewCell.xib */,
+				ED0296E31D1729220039AA41 /* EmptySpaceTableViewCell.xib */,
+				ED0296E41D1729220039AA41 /* FloatTextFieldTableViewCell.xib */,
+				ED0296E51D1729220039AA41 /* ImageTableViewCell.xib */,
+				ED0296E61D1729220039AA41 /* PickerFieldTableViewCell.xib */,
+				ED0296E71D1729220039AA41 /* SegmentedControlTableViewCell.xib */,
+				ED0296E81D1729220039AA41 /* SliderTableViewCell.xib */,
+				ED0296E91D1729220039AA41 /* SwitchTableViewCell.xib */,
+				ED0296EA1D1729220039AA41 /* TextArrowTableViewCell.xib */,
+				ED0296EB1D1729220039AA41 /* TextTableViewCell.xib */,
+				ED0296EC1D1729220039AA41 /* TextViewTableViewCell.xib */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		ED0296ED1D1729220039AA41 /* TableViewHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				ED0296EE1D1729220039AA41 /* TableFooterView.xib */,
+				ED0296EF1D1729220039AA41 /* TableHeaderView.xib */,
+			);
+			path = TableViewHeaders;
+			sourceTree = "<group>";
+		};
+		ED0296F01D1729220039AA41 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ED0296F11D1729220039AA41 /* BaseTableViewController.h */,
+				ED0296F21D1729220039AA41 /* BaseTableViewController.m */,
+				ED0296F31D1729220039AA41 /* BasicTableViewController.h */,
+				ED0296F41D1729220039AA41 /* BasicTableViewController.m */,
+				ED0296F51D1729220039AA41 /* CellTypesTableViewController.h */,
+				ED0296F61D1729220039AA41 /* CellTypesTableViewController.m */,
+				ED0296F71D1729220039AA41 /* DynamicRowsTableViewController.h */,
+				ED0296F81D1729220039AA41 /* DynamicRowsTableViewController.m */,
+				ED0296F91D1729220039AA41 /* EmptyStateTableViewController.h */,
+				ED0296FA1D1729220039AA41 /* EmptyStateTableViewController.m */,
+				ED0296FB1D1729220039AA41 /* RowHeightsTableViewController.h */,
+				ED0296FC1D1729220039AA41 /* RowHeightsTableViewController.m */,
+				ED0296FD1D1729220039AA41 /* TextViewsTableViewController.h */,
+				ED0296FE1D1729220039AA41 /* TextViewsTableViewController.m */,
+				ED0296FF1D1729220039AA41 /* ZoomHeaderTableViewController.h */,
+				ED0297001D1729220039AA41 /* ZoomHeaderTableViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ED0297011D1729220039AA41 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED0297021D1729220039AA41 /* ZoomHeaderView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ED02971A1D1729370039AA41 /* Blaze */ = {
+			isa = PBXGroup;
+			children = (
+				ED02971B1D1729370039AA41 /* BlazeTableViewController.h */,
+				ED02971C1D1729370039AA41 /* BlazeTableViewController.m */,
+				ED02971D1D1729370039AA41 /* Categories */,
+				ED0297201D1729370039AA41 /* CollectionViewCells */,
+				ED0297241D1729370039AA41 /* CollectionViews */,
+				ED0297271D1729370039AA41 /* Objects */,
+				ED02972E1D1729370039AA41 /* Resources */,
+				ED0297311D1729370039AA41 /* TableViewCells */,
+				ED02974C1D1729370039AA41 /* TableViewHeaders */,
+				ED0297501D1729370039AA41 /* TextFields */,
+				ED0297551D1729370039AA41 /* TextViews */,
+			);
+			name = Blaze;
+			path = ../../Blaze;
+			sourceTree = "<group>";
+		};
+		ED02971D1D1729370039AA41 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				ED02971E1D1729370039AA41 /* NSObject+PropertyName.h */,
+				ED02971F1D1729370039AA41 /* NSObject+PropertyName.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		ED0297201D1729370039AA41 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				ED0297211D1729370039AA41 /* BlazeTileCollectionViewCell.h */,
+				ED0297221D1729370039AA41 /* BlazeTileCollectionViewCell.m */,
+				ED0297231D1729370039AA41 /* BlazeTileCollectionViewCell.xib */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		ED0297241D1729370039AA41 /* CollectionViews */ = {
+			isa = PBXGroup;
+			children = (
+				ED0297251D1729370039AA41 /* BlazeTilesCollectionView.h */,
+				ED0297261D1729370039AA41 /* BlazeTilesCollectionView.m */,
+			);
+			path = CollectionViews;
+			sourceTree = "<group>";
+		};
+		ED0297271D1729370039AA41 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				ED0297281D1729370039AA41 /* BlazeInputTile.h */,
+				ED0297291D1729370039AA41 /* BlazeInputTile.m */,
+				ED02972A1D1729370039AA41 /* BlazeTableRow.h */,
+				ED02972B1D1729370039AA41 /* BlazeTableRow.m */,
+				ED02972C1D1729370039AA41 /* BlazeTableSection.h */,
+				ED02972D1D1729370039AA41 /* BlazeTableSection.m */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		ED02972E1D1729370039AA41 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ED02972F1D1729370039AA41 /* Arrow_Left@2x.png */,
+				ED0297301D1729370039AA41 /* Arrow_Right@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		ED0297311D1729370039AA41 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				ED0297321D1729370039AA41 /* BlazeDateTableViewCell.h */,
+				ED0297331D1729370039AA41 /* BlazeDateTableViewCell.m */,
+				ED0297341D1729370039AA41 /* BlazeDateTableViewCell.xib */,
+				ED0297351D1729370039AA41 /* BlazePickerViewTableViewCell.h */,
+				ED0297361D1729370039AA41 /* BlazePickerViewTableViewCell.m */,
+				ED0297371D1729370039AA41 /* BlazePickerViewTableViewCell.xib */,
+				ED0297381D1729370039AA41 /* BlazeSegmentedControlTableViewCell.h */,
+				ED0297391D1729370039AA41 /* BlazeSegmentedControlTableViewCell.m */,
+				ED02973A1D1729370039AA41 /* BlazeSegmentedControlTableViewCell.xib */,
+				ED02973B1D1729370039AA41 /* BlazeSliderTableViewCell.h */,
+				ED02973C1D1729370039AA41 /* BlazeSliderTableViewCell.m */,
+				ED02973D1D1729370039AA41 /* BlazeSliderTableViewCell.xib */,
+				ED02973E1D1729370039AA41 /* BlazeSwitchTableViewCell.h */,
+				ED02973F1D1729370039AA41 /* BlazeSwitchTableViewCell.m */,
+				ED0297401D1729370039AA41 /* BlazeSwitchTableViewCell.xib */,
+				ED0297411D1729370039AA41 /* BlazeTableViewCell.h */,
+				ED0297421D1729370039AA41 /* BlazeTableViewCell.m */,
+				ED0297431D1729370039AA41 /* BlazeTextFieldTableViewCell.h */,
+				ED0297441D1729370039AA41 /* BlazeTextFieldTableViewCell.m */,
+				ED0297451D1729370039AA41 /* BlazeTextFieldTableViewCell.xib */,
+				ED0297461D1729370039AA41 /* BlazeTextViewTableViewCell.h */,
+				ED0297471D1729370039AA41 /* BlazeTextViewTableViewCell.m */,
+				ED0297481D1729370039AA41 /* BlazeTextViewTableViewCell.xib */,
+				ED0297491D1729370039AA41 /* BlazeTilesTableViewCell.h */,
+				ED02974A1D1729370039AA41 /* BlazeTilesTableViewCell.m */,
+				ED02974B1D1729370039AA41 /* BlazeTilesTableViewCell.xib */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		ED02974C1D1729370039AA41 /* TableViewHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				ED02974D1D1729370039AA41 /* BlazeTableHeaderFooterView.h */,
+				ED02974E1D1729370039AA41 /* BlazeTableHeaderFooterView.m */,
+				ED02974F1D1729370039AA41 /* BlazeTableHeaderFooterView.xib */,
+			);
+			path = TableViewHeaders;
+			sourceTree = "<group>";
+		};
+		ED0297501D1729370039AA41 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				ED0297511D1729370039AA41 /* BlazeDatePickerField.h */,
+				ED0297521D1729370039AA41 /* BlazeDatePickerField.m */,
+				ED0297531D1729370039AA41 /* BlazePickerViewField.h */,
+				ED0297541D1729370039AA41 /* BlazePickerViewField.m */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		ED0297551D1729370039AA41 /* TextViews */ = {
+			isa = PBXGroup;
+			children = (
+				ED0297561D1729370039AA41 /* BlazeTextView.h */,
+				ED0297571D1729370039AA41 /* BlazeTextView.m */,
+			);
+			path = TextViews;
+			sourceTree = "<group>";
+		};
+		ED933DF41D1728A000B8155F = {
+			isa = PBXGroup;
+			children = (
+				ED933DFF1D1728A100B8155F /* BlazeExample */,
+				ED933DFE1D1728A100B8155F /* Products */,
+				130A59C13C95E139E3B27F1C /* Pods */,
+				7663389E12C8FFDD17386FD1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		ED933DFE1D1728A100B8155F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED933DFD1D1728A100B8155F /* BlazeExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED933DFF1D1728A100B8155F /* BlazeExample */ = {
+			isa = PBXGroup;
+			children = (
+				ED0296DF1D1729220039AA41 /* Constants.h */,
+				ED933E031D1728A100B8155F /* AppDelegate.h */,
+				ED933E041D1728A100B8155F /* AppDelegate.m */,
+				ED02971A1D1729370039AA41 /* Blaze */,
+				ED0296E01D1729220039AA41 /* TableViewCells */,
+				ED0296ED1D1729220039AA41 /* TableViewHeaders */,
+				ED0296F01D1729220039AA41 /* ViewControllers */,
+				ED0297011D1729220039AA41 /* Views */,
+				ED933E091D1728A100B8155F /* Main.storyboard */,
+				ED933E0E1D1728A100B8155F /* LaunchScreen.storyboard */,
+				ED933E0C1D1728A100B8155F /* Assets.xcassets */,
+				ED933E001D1728A100B8155F /* Supporting Files */,
+			);
+			path = BlazeExample;
+			sourceTree = "<group>";
+		};
+		ED933E001D1728A100B8155F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ED933E111D1728A100B8155F /* Info.plist */,
+				ED933E011D1728A100B8155F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED933DFC1D1728A000B8155F /* BlazeExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED933E141D1728A100B8155F /* Build configuration list for PBXNativeTarget "BlazeExample" */;
+			buildPhases = (
+				D7BE52F67072EB1814534BBD /* 📦 Check Pods Manifest.lock */,
+				ED933DF91D1728A000B8155F /* Sources */,
+				ED933DFA1D1728A000B8155F /* Frameworks */,
+				ED933DFB1D1728A000B8155F /* Resources */,
+				5A67A0752BD11611DA9D56FB /* 📦 Embed Pods Frameworks */,
+				A0B23A4B9D7100C5B5D12A92 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlazeExample;
+			productName = BlazeExample;
+			productReference = ED933DFD1D1728A100B8155F /* BlazeExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED933DF51D1728A000B8155F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = GraafICT;
+				TargetAttributes = {
+					ED933DFC1D1728A000B8155F = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = ED933DF81D1728A000B8155F /* Build configuration list for PBXProject "BlazeExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ED933DF41D1728A000B8155F;
+			productRefGroup = ED933DFE1D1728A100B8155F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED933DFC1D1728A000B8155F /* BlazeExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ED933DFB1D1728A000B8155F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED0297611D1729370039AA41 /* Arrow_Right@2x.png in Resources */,
+				ED0297041D1729220039AA41 /* DateFieldTableViewCell.xib in Resources */,
+				ED02970E1D1729220039AA41 /* TextViewTableViewCell.xib in Resources */,
+				ED0297651D1729370039AA41 /* BlazePickerViewTableViewCell.xib in Resources */,
+				ED02976B1D1729370039AA41 /* BlazeSwitchTableViewCell.xib in Resources */,
+				ED933E101D1728A100B8155F /* LaunchScreen.storyboard in Resources */,
+				ED02970D1D1729220039AA41 /* TextTableViewCell.xib in Resources */,
+				ED0297061D1729220039AA41 /* FloatTextFieldTableViewCell.xib in Resources */,
+				ED0297051D1729220039AA41 /* EmptySpaceTableViewCell.xib in Resources */,
+				ED02976E1D1729370039AA41 /* BlazeTextFieldTableViewCell.xib in Resources */,
+				ED0297721D1729370039AA41 /* BlazeTilesTableViewCell.xib in Resources */,
+				ED0297191D1729220039AA41 /* ZoomHeaderView.xib in Resources */,
+				ED02970F1D1729220039AA41 /* TableFooterView.xib in Resources */,
+				ED02975B1D1729370039AA41 /* BlazeTileCollectionViewCell.xib in Resources */,
+				ED0297741D1729370039AA41 /* BlazeTableHeaderFooterView.xib in Resources */,
+				ED02970A1D1729220039AA41 /* SliderTableViewCell.xib in Resources */,
+				ED02970C1D1729220039AA41 /* TextArrowTableViewCell.xib in Resources */,
+				ED0297671D1729370039AA41 /* BlazeSegmentedControlTableViewCell.xib in Resources */,
+				ED0297631D1729370039AA41 /* BlazeDateTableViewCell.xib in Resources */,
+				ED933E0D1D1728A100B8155F /* Assets.xcassets in Resources */,
+				ED0297081D1729220039AA41 /* PickerFieldTableViewCell.xib in Resources */,
+				ED0297101D1729220039AA41 /* TableHeaderView.xib in Resources */,
+				ED0297701D1729370039AA41 /* BlazeTextViewTableViewCell.xib in Resources */,
+				ED0297071D1729220039AA41 /* ImageTableViewCell.xib in Resources */,
+				ED0297601D1729370039AA41 /* Arrow_Left@2x.png in Resources */,
+				ED933E0B1D1728A100B8155F /* Main.storyboard in Resources */,
+				ED02970B1D1729220039AA41 /* SwitchTableViewCell.xib in Resources */,
+				ED0297091D1729220039AA41 /* SegmentedControlTableViewCell.xib in Resources */,
+				ED0297691D1729370039AA41 /* BlazeSliderTableViewCell.xib in Resources */,
+				ED0297031D1729220039AA41 /* ButtonTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5A67A0752BD11611DA9D56FB /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0B23A4B9D7100C5B5D12A92 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7BE52F67072EB1814534BBD /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED933DF91D1728A000B8155F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED0297771D1729370039AA41 /* BlazeTextView.m in Sources */,
+				ED0297711D1729370039AA41 /* BlazeTilesTableViewCell.m in Sources */,
+				ED02975F1D1729370039AA41 /* BlazeTableSection.m in Sources */,
+				ED0297121D1729220039AA41 /* BasicTableViewController.m in Sources */,
+				ED02976D1D1729370039AA41 /* BlazeTextFieldTableViewCell.m in Sources */,
+				ED02976C1D1729370039AA41 /* BlazeTableViewCell.m in Sources */,
+				ED02976A1D1729370039AA41 /* BlazeSwitchTableViewCell.m in Sources */,
+				ED02975D1D1729370039AA41 /* BlazeInputTile.m in Sources */,
+				ED0297181D1729220039AA41 /* ZoomHeaderTableViewController.m in Sources */,
+				ED0297171D1729220039AA41 /* TextViewsTableViewController.m in Sources */,
+				ED0297591D1729370039AA41 /* NSObject+PropertyName.m in Sources */,
+				ED0297151D1729220039AA41 /* EmptyStateTableViewController.m in Sources */,
+				ED02976F1D1729370039AA41 /* BlazeTextViewTableViewCell.m in Sources */,
+				ED0297681D1729370039AA41 /* BlazeSliderTableViewCell.m in Sources */,
+				ED0297581D1729370039AA41 /* BlazeTableViewController.m in Sources */,
+				ED933E051D1728A100B8155F /* AppDelegate.m in Sources */,
+				ED0297731D1729370039AA41 /* BlazeTableHeaderFooterView.m in Sources */,
+				ED02975E1D1729370039AA41 /* BlazeTableRow.m in Sources */,
+				ED0297621D1729370039AA41 /* BlazeDateTableViewCell.m in Sources */,
+				ED0297111D1729220039AA41 /* BaseTableViewController.m in Sources */,
+				ED933E021D1728A100B8155F /* main.m in Sources */,
+				ED0297661D1729370039AA41 /* BlazeSegmentedControlTableViewCell.m in Sources */,
+				ED02975A1D1729370039AA41 /* BlazeTileCollectionViewCell.m in Sources */,
+				ED0297131D1729220039AA41 /* CellTypesTableViewController.m in Sources */,
+				ED0297641D1729370039AA41 /* BlazePickerViewTableViewCell.m in Sources */,
+				ED02975C1D1729370039AA41 /* BlazeTilesCollectionView.m in Sources */,
+				ED0297161D1729220039AA41 /* RowHeightsTableViewController.m in Sources */,
+				ED0297761D1729370039AA41 /* BlazePickerViewField.m in Sources */,
+				ED0297141D1729220039AA41 /* DynamicRowsTableViewController.m in Sources */,
+				ED0297751D1729370039AA41 /* BlazeDatePickerField.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ED933E091D1728A100B8155F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED933E0A1D1728A100B8155F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ED933E0E1D1728A100B8155F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED933E0F1D1728A100B8155F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ED933E121D1728A100B8155F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ED933E131D1728A100B8155F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ED933E151D1728A100B8155F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7414ACEAFC2C6C62B2C372A6 /* Pods-BlazeExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BlazeExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = template.BlazeExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		ED933E161D1728A100B8155F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9117633E2828C62B6A0A0603 /* Pods-BlazeExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BlazeExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = template.BlazeExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ED933DF81D1728A000B8155F /* Build configuration list for PBXProject "BlazeExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED933E121D1728A100B8155F /* Debug */,
+				ED933E131D1728A100B8155F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED933E141D1728A100B8155F /* Build configuration list for PBXNativeTarget "BlazeExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED933E151D1728A100B8155F /* Debug */,
+				ED933E161D1728A100B8155F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ED933DF51D1728A000B8155F /* Project object */;
+}

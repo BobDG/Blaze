@@ -1,0 +1,38 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - BDGMacros (0.0.16)
+  - BDGViews (0.0.1)
+  - DZNEmptyDataSet (1.8.1)
+  - JVFloatLabeledTextField (1.1.0)
+
+DEPENDENCIES:
+  - AFNetworking
+  - BDGMacros
+  - BDGViews
+  - DZNEmptyDataSet
+  - JVFloatLabeledTextField
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  BDGMacros: e2018adfb2fd00c4ab41fbb3bc93c38e5165da92
+  BDGViews: db364b96a02d02b8b5aba3f0b3dea798506d683f
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  JVFloatLabeledTextField: ea4a3d8387ddd43724c472bb2b8ab39b79af05d4
+
+PODFILE CHECKSUM: 9ec54db5e23b319bd6319f231a0d35b4a1329052
+
+COCOAPODS: 1.0.0
