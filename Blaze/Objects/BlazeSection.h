@@ -1,5 +1,5 @@
 //
-//  BlazeTableSection.h
+//  BlazeSection.h
 //  Blaze
 //
 //  Created by Bob de Graaf on 16-04-15.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@interface BlazeTableSection : NSObject
+@interface BlazeSection : NSObject
 {
     
 }

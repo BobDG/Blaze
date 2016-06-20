@@ -32,7 +32,7 @@
 -(void)loadTable
 {
     //Section
-    BlazeTableSection *section = [[BlazeTableSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Blaze comes with a draggable zoom header view with 1 line of code!"];
+    BlazeSection *section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Blaze comes with a draggable zoom header view with 1 line of code!"];
     [self addSection:section];
 }
 

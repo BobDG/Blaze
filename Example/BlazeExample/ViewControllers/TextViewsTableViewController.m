@@ -31,25 +31,25 @@
 -(void)loadTable
 {
     //Row & Section
-    BlazeTableRow *row;
-    BlazeTableSection *section;
+    BlazeRow *row;
+    BlazeSection *section;
     
     //Textview
-    section = [[BlazeTableSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"In Blaze textviews automagically increase their own cellheight dynamically while typing."];
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"In Blaze textviews automagically increase their own cellheight dynamically while typing."];
     [self addSection:section];
     
     //Textview 1
-    row = [[BlazeTableRow alloc] initWithXibName:kTextViewTableViewCell rowType:BlazeRowTextView title:@"Textview below"];
+    row = [[BlazeRow alloc] initWithXibName:kTextViewTableViewCell rowType:BlazeRowTextView title:@"Textview below"];
     row.placeholder = @"Textview 1";
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textViewValue1)]];
     [section addRow:row];
     
     //Textview 2
-    section = [[BlazeTableSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Oh yeah, these textviews also have placeholders! (They normally don't...)"];
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Oh yeah, these textviews also have placeholders! (They normally don't...)"];
     [self addSection:section];
     
     //Textview 2
-    row = [[BlazeTableRow alloc] initWithXibName:kTextViewTableViewCell rowType:BlazeRowTextView title:@"Textview below"];
+    row = [[BlazeRow alloc] initWithXibName:kTextViewTableViewCell rowType:BlazeRowTextView title:@"Textview below"];
     row.placeholder = @"Placeholder awesomeness";
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textViewValue2)]];
     [section addRow:row];

@@ -16,6 +16,7 @@
 #define kButtonTableViewCell            @"ButtonTableViewCell"
 #define kSliderTableViewCell            @"SliderTableViewCell"
 #define kSwitchTableViewCell            @"SwitchTableViewCell"
+#define kCheckboxTableViewCell          @"CheckboxTableViewCell"
 #define kTextViewTableViewCell          @"TextViewTableViewCell"
 #define kDateFieldTableViewCell         @"DateFieldTableViewCell"
 #define kTextArrowTableViewCell         @"TextArrowTableViewCell"

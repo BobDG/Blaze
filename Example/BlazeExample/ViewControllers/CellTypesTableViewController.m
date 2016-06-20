@@ -18,6 +18,7 @@
 
 @property(nonatomic,strong) NSNumber *switchValue;
 @property(nonatomic,strong) NSNumber *sliderValue;
+@property(nonatomic,strong) NSNumber *checkBoxValue;
 @property(nonatomic,strong) NSNumber *segmentedControlValue;
 
 @property(nonatomic,strong) NSString *pickerValue;
@@ -38,15 +39,15 @@
 -(void)loadTable
 {    
     //Row & Section
-    BlazeTableRow *row;
-    BlazeTableSection *section;
+    BlazeRow *row;
+    BlazeSection *section;
     
     //Textfield
-    section = [[BlazeTableSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Now an awesome float-label textfield - check automatic prev/next buttons."];
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Now an awesome float-label textfield - check automatic prev/next buttons."];
     [self addSection:section];
     
     //Textfield
-    row = [[BlazeTableRow alloc] initWithXibName:kFloatTextFieldTableViewCell rowType:BlazeRowTextField];
+    row = [[BlazeRow alloc] initWithXibName:kFloatTextFieldTableViewCell rowType:BlazeRowTextField];
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textfieldValue)]];
     row.placeholder = @"Float title placeholder";
     [row setValueChanged:^{
@@ -55,11 +56,11 @@
     [section addRow:row];
     
     //Date & Picker
-    section = [[BlazeTableSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Dates and pickerviews"];
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Dates and pickerviews"];
     [self addSection:section];
     
     //Date
-    row = [[BlazeTableRow alloc] initWithXibName:kDateFieldTableViewCell rowType:BlazeRowDate title:@"Datefield"];
+    row = [[BlazeRow alloc] initWithXibName:kDateFieldTableViewCell rowType:BlazeRowDate title:@"Datefield"];
     row.placeholder = @"Date placeholder";
     row.datePickerMode = UIDatePickerModeDate;
     NSDateFormatter *df = [NSDateFormatter new];
@@ -69,18 +70,18 @@
     [section addRow:row];
     
     //Picker
-    row = [[BlazeTableRow alloc] initWithXibName:kPickerFieldTableViewCell rowType:BlazeRowPicker title:@"Pickerfield"];
+    row = [[BlazeRow alloc] initWithXibName:kPickerFieldTableViewCell rowType:BlazeRowPicker title:@"Pickerfield"];
     row.placeholder = NSLocalizedString(@"Picker placeholder", @"");
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(pickerValue)]];
     row.selectorOptions = @[@"Automatic next/previous", @"buttons always work", @"Doesn't matter if you", @"use textfields", @"or datepickers", @"or pickerviews", @"or multiple sections"];
     [section addRow:row];
     
     //Button
-    section = [[BlazeTableSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Button with completion block"];
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Button with completion block"];
     [self addSection:section];
     
     //Button
-    row = [[BlazeTableRow alloc] initWithXibName:kButtonTableViewCell rowType:BlazeRowBasic];
+    row = [[BlazeRow alloc] initWithXibName:kButtonTableViewCell rowType:BlazeRowBasic];
     row.buttonCenterTitle = @"Title can be attributed";
     [row setButtonCenterTapped:^{
         showM1(@"Button tapped!");
@@ -88,12 +89,12 @@
     [section addRow:row];
     
     //Slider
-    section = [[BlazeTableSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Slider"];
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Slider"];
     [self addSection:section];
     
     //Slider
     self.sliderValue = @(7);
-    row = [[BlazeTableRow alloc] initWithXibName:kSliderTableViewCell rowType:BlazeRowSlider];
+    row = [[BlazeRow alloc] initWithXibName:kSliderTableViewCell rowType:BlazeRowSlider];
     row.sliderMin = 0;
     row.sliderMax = 17;
     row.sliderLeftText = @"Min";
@@ -106,23 +107,33 @@
     [section addRow:row];
     
     //Slider
-    section = [[BlazeTableSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Switch"];
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Switch or checkbox"];
     [self addSection:section];
     
     //Switch
-    row = [[BlazeTableRow alloc] initWithXibName:kSwitchTableViewCell rowType:BlazeRowSwitch title:@"Switcheroo"];
+    row = [[BlazeRow alloc] initWithXibName:kSwitchTableViewCell rowType:BlazeRowSwitch title:@"Switcheroo"];
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(switchValue)]];
     [row setValueChanged:^{
         DLog(@"Switch changed: %@", [self.switchValue boolValue] ? @"ON" : @"OFF");
     }];
     [section addRow:row];
     
+    //Checkbox
+    row = [[BlazeRow alloc] initWithXibName:kCheckboxTableViewCell rowType:BlazeRowCheckbox title:@"Checkycheck"];
+    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(checkBoxValue)]];
+    row.checkboxImageActive = @"Checkbox_Active";
+    row.checkboxImageInactive = @"Checkbox_Inactive";
+    [row setValueChanged:^{
+        DLog(@"Checkbox changed: %@", [self.checkBoxValue boolValue] ? @"ON" : @"OFF");
+    }];
+    [section addRow:row];
+    
     //Slider
-    section = [[BlazeTableSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Segmented control"];
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Segmented control"];
     [self addSection:section];
     
     //SegmentedControl
-    row = [[BlazeTableRow alloc] initWithXibName:kSegmentedControlTableViewCell rowType:BlazeRowSegmentedControl title:@"Segmented control"];
+    row = [[BlazeRow alloc] initWithXibName:kSegmentedControlTableViewCell rowType:BlazeRowSegmentedControl title:@"Segmented control"];
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(segmentedControlValue)]];
     row.selectorOptions = @[@"This control", @"Is dynamically", @"Filled"];
     [row setValueChanged:^{
@@ -131,11 +142,11 @@
     [section addRow:row];
     
     //Image
-    section = [[BlazeTableSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Let's finish with an image!"];
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Let's finish with an image!"];
     [self addSection:section];
     
     //SegmentedControl
-    row = [[BlazeTableRow alloc] initWithXibName:kImageTableViewCell];
+    row = [[BlazeRow alloc] initWithXibName:kImageTableViewCell];
     row.imageNameCenter = @"Blaze_Logo";
     [section addRow:row];
     

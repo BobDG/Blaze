@@ -35,7 +35,7 @@
     //To be overridden
 }
 
--(void)setRow:(BlazeTableRow *)row
+-(void)setRow:(BlazeRow *)row
 {
     _row = row;
     
@@ -119,6 +119,7 @@
         label.text = @"";
     }
 }
+
 -(void)updateButton:(UIButton *)button withText:(NSString *)text attributedText:(NSAttributedString *)attributedText
 {
     if(attributedText.length) {

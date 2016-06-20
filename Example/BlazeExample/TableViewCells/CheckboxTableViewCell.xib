@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="euL-QY-Och" customClass="BlazeTableViewCell">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="euL-QY-Och" customClass="BlazeCheckboxTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="euL-QY-Och" id="GFc-ku-Fj8">
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0E-Kd-SzV">
-                                <rect key="frame" x="20" y="10" width="280" height="20"/>
+                                <rect key="frame" x="20" y="10" width="240" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="lhU-Km-KXL"/>
                                 </constraints>
@@ -31,21 +31,28 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checkbox_Inactive" translatesAutoresizingMaskIntoConstraints="NO" id="umY-Gz-8jM">
+                                <rect key="frame" x="274" y="7" width="26" height="26"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="K0E-Kd-SzV" firstAttribute="leading" secondItem="Dze-SA-vhE" secondAttribute="leading" constant="20" id="0jU-04-ePV"/>
                             <constraint firstItem="K0E-Kd-SzV" firstAttribute="centerY" secondItem="Dze-SA-vhE" secondAttribute="centerY" id="4tn-3O-R9M"/>
                             <constraint firstItem="K0E-Kd-SzV" firstAttribute="top" secondItem="Dze-SA-vhE" secondAttribute="top" constant="10" id="5ba-Jm-f7W"/>
+                            <constraint firstItem="umY-Gz-8jM" firstAttribute="leading" secondItem="Dze-SA-vhE" secondAttribute="leading" constant="16" id="5w0-ww-Gmw"/>
                             <constraint firstAttribute="bottom" secondItem="K0E-Kd-SzV" secondAttribute="bottom" constant="10" id="DAK-M2-sEb"/>
-                            <constraint firstAttribute="trailing" secondItem="K0E-Kd-SzV" secondAttribute="trailing" constant="20" id="I17-Ss-NH9"/>
+                            <constraint firstAttribute="trailing" secondItem="K0E-Kd-SzV" secondAttribute="trailing" constant="60" id="I17-Ss-NH9"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="RwL-ja-DrL"/>
+                            <constraint firstItem="umY-Gz-8jM" firstAttribute="centerY" secondItem="Dze-SA-vhE" secondAttribute="centerY" id="XKc-EQ-elZ"/>
                             <constraint firstItem="K0E-Kd-SzV" firstAttribute="leading" secondItem="Dze-SA-vhE" secondAttribute="leading" constant="20" id="pwb-yq-qUM"/>
+                            <constraint firstAttribute="trailing" secondItem="umY-Gz-8jM" secondAttribute="trailing" constant="20" id="whY-5I-lex"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="4tn-3O-R9M"/>
                                 <exclude reference="pwb-yq-qUM"/>
+                                <exclude reference="5w0-ww-Gmw"/>
                             </mask>
                         </variation>
                     </view>
@@ -58,9 +65,13 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="checkboxImageView" destination="umY-Gz-8jM" id="noT-yJ-mKz"/>
                 <outlet property="titleLabel" destination="K0E-Kd-SzV" id="0f5-Ns-VDq"/>
             </connections>
-            <point key="canvasLocation" x="217" y="142"/>
+            <point key="canvasLocation" x="217" y="141.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Checkbox_Inactive" width="26" height="26"/>
+    </resources>
 </document>

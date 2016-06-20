@@ -28,6 +28,7 @@
                                 kButtonTableViewCell,
                                 kSliderTableViewCell,
                                 kSwitchTableViewCell,
+                                kCheckboxTableViewCell,
                                 kTextViewTableViewCell,
                                 kDateFieldTableViewCell,
                                 kTextArrowTableViewCell,

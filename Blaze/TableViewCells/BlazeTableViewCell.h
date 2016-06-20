@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "BlazeTableRow.h"
+#import "BlazeRow.h"
 
 @interface BlazeTableViewCell : UITableViewCell
 {
@@ -30,7 +30,7 @@
 -(IBAction)previousField:(UIBarButtonItem *)sender;
 
 //Properties
-@property(nonatomic,strong) BlazeTableRow *row;
+@property(nonatomic,strong) BlazeRow *row;
 
 //Labels
 @property(nonatomic,weak) IBOutlet UILabel *titleLabel;

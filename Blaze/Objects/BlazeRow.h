@@ -1,5 +1,5 @@
 //
-//  BlazeTableRow.h
+//  BlazeRow.h
 //  Blaze
 //
 //  Created by Bob de Graaf on 16-04-15.
@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, BlazeTableRowType) {
+typedef NS_ENUM(NSInteger, BlazeRowType) {
     BlazeRowBasic,
     BlazeRowSwitch,
     BlazeRowDate,
     BlazeRowTextField,
     BlazeRowTextView,
     BlazeRowSegmentedControl,
+    BlazeRowCheckbox,
     BlazeRowTiles,
     BlazeRowPicker,
     BlazeRowSlider,
@@ -26,7 +27,7 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
     InputAccessoryViewCancelSave,
 };
 
-@interface BlazeTableRow : NSObject
+@interface BlazeRow : NSObject
 {
     
 }
@@ -34,25 +35,25 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 //Constructors
 -(id)initWithID:(int)ID;
 -(id)initWithID:(int)ID title:(NSString *)title;
--(id)initWithID:(int)ID rowType:(BlazeTableRowType)rowType;
--(id)initWithID:(int)ID rowType:(BlazeTableRowType)rowType xibName:(NSString *)xibName;
--(id)initWithID:(int)ID rowType:(BlazeTableRowType)rowType title:(NSString *)title;
--(id)initWithID:(int)ID rowType:(BlazeTableRowType)rowType title:(NSString *)title xibName:(NSString *)xibName;
--(id)initWithID:(int)ID rowType:(BlazeTableRowType)rowType title:(NSString *)title placeholder:(NSString *)placeholder;
--(id)initWithID:(int)ID rowType:(BlazeTableRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder;
+-(id)initWithID:(int)ID rowType:(BlazeRowType)rowType;
+-(id)initWithID:(int)ID rowType:(BlazeRowType)rowType xibName:(NSString *)xibName;
+-(id)initWithID:(int)ID rowType:(BlazeRowType)rowType title:(NSString *)title;
+-(id)initWithID:(int)ID rowType:(BlazeRowType)rowType title:(NSString *)title xibName:(NSString *)xibName;
+-(id)initWithID:(int)ID rowType:(BlazeRowType)rowType title:(NSString *)title placeholder:(NSString *)placeholder;
+-(id)initWithID:(int)ID rowType:(BlazeRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder;
 -(id)initWithXibName:(NSString *)xibName;
 -(id)initWithXibName:(NSString *)xibName title:(NSString *)title;
 -(id)initWithXibName:(NSString *)xibName title:(NSString *)title segueIdentifier:(NSString *)segueIdentifier;
--(id)initWithXibName:(NSString *)xibName rowType:(BlazeTableRowType)rowType;
--(id)initWithXibName:(NSString *)xibName rowType:(BlazeTableRowType)rowType title:(NSString *)title;
--(id)initWithXibName:(NSString *)xibName rowType:(BlazeTableRowType)rowType title:(NSString *)title placeholder:(NSString *)placeholder;
--(id)initWithXibName:(NSString *)xibName rowType:(BlazeTableRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder;
+-(id)initWithXibName:(NSString *)xibName rowType:(BlazeRowType)rowType;
+-(id)initWithXibName:(NSString *)xibName rowType:(BlazeRowType)rowType title:(NSString *)title;
+-(id)initWithXibName:(NSString *)xibName rowType:(BlazeRowType)rowType title:(NSString *)title placeholder:(NSString *)placeholder;
+-(id)initWithXibName:(NSString *)xibName rowType:(BlazeRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder;
 -(id)initWithTitle:(NSString *)title;
--(id)initWithRowType:(BlazeTableRowType)rowType;
--(id)initWithRowType:(BlazeTableRowType)rowType title:(NSString *)title;
--(id)initWithRowType:(BlazeTableRowType)rowType title:(NSString *)title value:(id)value;
--(id)initWithRowType:(BlazeTableRowType)rowType title:(NSString *)title placeholder:(NSString *)placeholder;
--(id)initWithRowType:(BlazeTableRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder;
+-(id)initWithRowType:(BlazeRowType)rowType;
+-(id)initWithRowType:(BlazeRowType)rowType title:(NSString *)title;
+-(id)initWithRowType:(BlazeRowType)rowType title:(NSString *)title value:(id)value;
+-(id)initWithRowType:(BlazeRowType)rowType title:(NSString *)title placeholder:(NSString *)placeholder;
+-(id)initWithRowType:(BlazeRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder;
 
 
 //Methods
@@ -78,7 +79,7 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic) bool disableEditing;
 
 //Row Enums
-@property(nonatomic) BlazeTableRowType rowType;
+@property(nonatomic) BlazeRowType rowType;
 @property(nonatomic) InputAccessoryViewType inputAccessoryViewType;
 
 //Row Reference types
@@ -160,9 +161,9 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic,strong) NSString *pickerObjectPropertyName;
 
 //Checkmark
-@property(nonatomic) int selectedCheckmark;
-@property(nonatomic,strong) NSString *checkmarkText1;
-@property(nonatomic,strong) NSString *checkmarkText2;
+@property(nonatomic) bool checkboxActive;
+@property(nonatomic,strong) NSString *checkboxImageActive;
+@property(nonatomic,strong) NSString *checkboxImageInactive;
 
 //Date
 @property(nonatomic,strong) NSDate *minDate;

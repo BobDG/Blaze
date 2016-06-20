@@ -1,14 +1,14 @@
 //
-//  BlazeTableSection.m
+//  BlazeSection.m
 //  Blaze
 //
 //  Created by Bob de Graaf on 16-04-15.
 //  Copyright (c) 2015 GraafICT. All rights reserved.
 //
 
-#import "BlazeTableSection.h"
+#import "BlazeSection.h"
 
-@implementation BlazeTableSection
+@implementation BlazeSection
 
 -(id)init
 {

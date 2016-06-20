@@ -1,14 +1,14 @@
 //
-//  BlazeTableRow.m
+//  BlazeRow.m
 //  Blaze
 //
 //  Created by Bob de Graaf on 16-04-15.
 //  Copyright (c) 2015 GraafICT. All rights reserved.
 //
 
-#import "BlazeTableRow.h"
+#import "BlazeRow.h"
 
-@implementation BlazeTableRow
+@implementation BlazeRow
 
 #pragma mark Init
 
@@ -37,7 +37,7 @@
     return self;
 }
 
--(id)initWithID:(int)ID rowType:(BlazeTableRowType)rowType
+-(id)initWithID:(int)ID rowType:(BlazeRowType)rowType
 {
     self = [super init];
     if(!self) {
@@ -50,7 +50,7 @@
     return self;
 }
 
--(id)initWithID:(int)ID rowType:(BlazeTableRowType)rowType xibName:(NSString *)xibName;
+-(id)initWithID:(int)ID rowType:(BlazeRowType)rowType xibName:(NSString *)xibName;
 {
     self = [super init];
     if(!self) {
@@ -64,7 +64,7 @@
     return self;
 }
 
--(id)initWithID:(int)ID rowType:(BlazeTableRowType)rowType title:(NSString *)title
+-(id)initWithID:(int)ID rowType:(BlazeRowType)rowType title:(NSString *)title
 {
     self = [super init];
     if(!self) {
@@ -78,7 +78,7 @@
     return self;
 }
 
--(id)initWithID:(int)ID rowType:(BlazeTableRowType)rowType title:(NSString *)title xibName:(NSString *)xibName
+-(id)initWithID:(int)ID rowType:(BlazeRowType)rowType title:(NSString *)title xibName:(NSString *)xibName
 {
     self = [super init];
     if(!self) {
@@ -93,7 +93,7 @@
     return self;
 }
 
--(id)initWithID:(int)ID rowType:(BlazeTableRowType)rowType title:(NSString *)title placeholder:(NSString *)placeholder
+-(id)initWithID:(int)ID rowType:(BlazeRowType)rowType title:(NSString *)title placeholder:(NSString *)placeholder
 {
     self = [super init];
     if(!self) {
@@ -108,7 +108,7 @@
     return self;
 }
 
--(id)initWithID:(int)ID rowType:(BlazeTableRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder
+-(id)initWithID:(int)ID rowType:(BlazeRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder
 {
     self = [super init];
     if(!self) {
@@ -163,7 +163,7 @@
     return self;
 }
 
--(id)initWithXibName:(NSString *)xibName rowType:(BlazeTableRowType)rowType
+-(id)initWithXibName:(NSString *)xibName rowType:(BlazeRowType)rowType
 {
     self = [super init];
     if(!self) {
@@ -176,7 +176,7 @@
     return self;
 }
 
--(id)initWithXibName:(NSString *)xibName rowType:(BlazeTableRowType)rowType title:(NSString *)title
+-(id)initWithXibName:(NSString *)xibName rowType:(BlazeRowType)rowType title:(NSString *)title
 {
     self = [super init];
     if(!self) {
@@ -190,7 +190,7 @@
     return self;
 }
 
--(id)initWithXibName:(NSString *)xibName rowType:(BlazeTableRowType)rowType title:(NSString *)title placeholder:(NSString *)placeholder
+-(id)initWithXibName:(NSString *)xibName rowType:(BlazeRowType)rowType title:(NSString *)title placeholder:(NSString *)placeholder
 {
     self = [super init];
     if(!self) {
@@ -205,7 +205,7 @@
     return self;
 }
 
--(id)initWithXibName:(NSString *)xibName rowType:(BlazeTableRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder
+-(id)initWithXibName:(NSString *)xibName rowType:(BlazeRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder
 {
     self = [super init];
     if(!self) {
@@ -233,7 +233,7 @@
     return self;
 }
 
--(id)initWithRowType:(BlazeTableRowType)rowType
+-(id)initWithRowType:(BlazeRowType)rowType
 {
     self = [super init];
     if(!self) {
@@ -245,7 +245,7 @@
     return self;
 }
 
--(id)initWithRowType:(BlazeTableRowType)rowType title:(NSString *)title
+-(id)initWithRowType:(BlazeRowType)rowType title:(NSString *)title
 {
     self = [super init];
     if(!self) {
@@ -258,7 +258,7 @@
     return self;
 }
 
--(id)initWithRowType:(BlazeTableRowType)rowType title:(NSString *)title value:(id)value
+-(id)initWithRowType:(BlazeRowType)rowType title:(NSString *)title value:(id)value
 {
     self = [super init];
     if(!self) {
@@ -272,7 +272,7 @@
     return self;
 }
 
--(id)initWithRowType:(BlazeTableRowType)rowType title:(NSString *)title placeholder:(NSString *)placeholder
+-(id)initWithRowType:(BlazeRowType)rowType title:(NSString *)title placeholder:(NSString *)placeholder
 {
     self = [super init];
     if(!self) {
@@ -286,7 +286,7 @@
     return self;
 }
 
--(id)initWithRowType:(BlazeTableRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder
+-(id)initWithRowType:(BlazeRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder
 {
     self = [super init];
     if(!self) {

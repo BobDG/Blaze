@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, RowID) {
 
 @property(nonatomic) int numberOfFields;
 @property(nonatomic,strong) NSNumber *showRows;
-@property(nonatomic,strong) BlazeTableRow *howManyFieldsRow;
+@property(nonatomic,strong) BlazeRow *howManyFieldsRow;
 
 @end
 
@@ -39,15 +39,15 @@ typedef NS_ENUM(NSInteger, RowID) {
 -(void)loadTable
 {
     //Row & Section
-    BlazeTableRow *row;
-    BlazeTableSection *section;
+    BlazeRow *row;
+    BlazeSection *section;
     
     //Section
-    section = [[BlazeTableSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Blaze is built to easily remove/add rows dynamically"];
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Blaze is built to easily remove/add rows dynamically"];
     [self addSection:section];
     
     //Switch
-    row = [[BlazeTableRow alloc] initWithXibName:kSwitchTableViewCell rowType:BlazeRowSwitch title:@"Show textfield row"];
+    row = [[BlazeRow alloc] initWithXibName:kSwitchTableViewCell rowType:BlazeRowSwitch title:@"Show textfield row"];
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(showRows)]];
     [row setValueChanged:^{
         [self updateRows];
@@ -56,10 +56,10 @@ typedef NS_ENUM(NSInteger, RowID) {
     row.ID = RowShowRows;
     
     //Textfield
-    row = [[BlazeTableRow alloc] initWithXibName:kFloatTextFieldTableViewCell rowType:BlazeRowTextField];
+    row = [[BlazeRow alloc] initWithXibName:kFloatTextFieldTableViewCell rowType:BlazeRowTextField];
     row.placeholder = @"How many image fields?";
     row.keyboardType = UIKeyboardTypeNumberPad;
-    __weak __typeof(BlazeTableRow *)weakRow = row;
+    __weak __typeof(BlazeRow *)weakRow = row;
     [row setValueChanged:^{
         self.numberOfFields = [weakRow.value intValue];
         DLog(@"Got new number of fields: %d", self.numberOfFields);
@@ -86,7 +86,7 @@ typedef NS_ENUM(NSInteger, RowID) {
     
     //How many?
     for(int i = 0; i < self.numberOfFields; i++) {
-        BlazeTableRow *row = [[BlazeTableRow alloc] initWithXibName:kImageTableViewCell];
+        BlazeRow *row = [[BlazeRow alloc] initWithXibName:kImageTableViewCell];
         row.imageNameCenter = @"Blaze_Logo";
         row.ID = RowImage+i;
         [self addRow:row afterRowID:row.ID-1 withRowAnimation:UITableViewRowAnimationBottom];

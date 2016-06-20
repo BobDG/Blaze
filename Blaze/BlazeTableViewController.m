@@ -29,6 +29,7 @@
 #define BlazeXIBTilesCell             @"BlazeTilesTableViewCell"
 #define BlazeXIBSliderCell            @"BlazeSliderTableViewCell"
 #define BlazeXIBSwitchCell            @"BlazeSwitchTableViewCell"
+#define BlazeXIBCheckboxCell          @"BlazeCheckboxTableViewCell"
 #define BlazeXIBTextViewCell          @"BlazeTextViewTableViewCell"
 #define BlazeXIBTextFieldCell         @"BlazeTextFieldTableViewCell"
 #define BlazeXIBPickerViewCell        @"BlazePickerViewTableViewCell"
@@ -122,13 +123,14 @@
              BlazeXIBTilesCell,
              BlazeXIBTextViewCell,
              BlazeXIBDateCell,
+             BlazeXIBCheckboxCell,
              BlazeXIBSegmentedControlCell,
              BlazeXIBSwitchCell,
              BlazeXIBTextFieldCell,
              BlazeXIBPickerViewCell];
 }
 
--(NSString *)defaultXIBForEnum:(BlazeTableRowType)rowType
+-(NSString *)defaultXIBForEnum:(BlazeRowType)rowType
 {
     switch (rowType) {
         case BlazeRowBasic: {
@@ -157,6 +159,10 @@
         }
         case BlazeRowTiles: {
             return BlazeXIBTilesCell;
+            break;
+        }
+        case BlazeRowCheckbox: {
+            return BlazeXIBCheckboxCell;
             break;
         }
         case BlazeRowPicker: {
@@ -206,12 +212,12 @@
     [self.tableView setContentOffset:CGPointZero animated:animated];
 }
 
--(BlazeTableRow *)rowForID:(int)rowID
+-(BlazeRow *)rowForID:(int)rowID
 {
     for(int i = 0; i < self.tableArray.count; i++) {
-        BlazeTableSection *section = self.tableArray[i];
+        BlazeSection *section = self.tableArray[i];
         for(int j = 0; j < section.rows.count; j++) {
-            BlazeTableRow *r = section.rows[j];
+            BlazeRow *r = section.rows[j];
             if(r.ID == rowID) {
                 return r;
             }
@@ -220,10 +226,10 @@
     return nil;
 }
 
--(BlazeTableSection *)sectionForID:(int)sectionID
+-(BlazeSection *)sectionForID:(int)sectionID
 {
     for(int i = 0; i < self.tableArray.count; i++) {
-        BlazeTableSection *section = self.tableArray[i];
+        BlazeSection *section = self.tableArray[i];
         if(section.ID == sectionID) {
             return section;
         }
@@ -256,9 +262,9 @@
     NSUInteger rowIndex = NSNotFound;
     NSUInteger sectionIndex = NSNotFound;
     for(int i = 0; i < self.tableArray.count; i++) {
-        BlazeTableSection *section = self.tableArray[i];
+        BlazeSection *section = self.tableArray[i];
         for(int j = 0; j < section.rows.count; j++) {
-            BlazeTableRow *r = section.rows[j];
+            BlazeRow *r = section.rows[j];
             if(r.ID == rowID) {
                 rowIndex = j;
                 sectionIndex = i;
@@ -281,7 +287,7 @@
 {
     NSUInteger sectionIndex = NSNotFound;
     for(int i = 0; i < self.tableArray.count; i++) {
-        BlazeTableSection *section = self.tableArray[i];
+        BlazeSection *section = self.tableArray[i];
         if(section.ID == sectionID) {
             sectionIndex = i;
         }
@@ -296,7 +302,7 @@
 
 #pragma mark - Next/Previous Field Responders
 
--(BlazeTableViewCell *)nextCellFromRow:(BlazeTableRow *)row
+-(BlazeTableViewCell *)nextCellFromRow:(BlazeRow *)row
 {
     //Get current indexPath
     NSIndexPath *indexPath = [self indexPathForRowID:row.ID];
@@ -307,7 +313,7 @@
     return [self nextCellFromIndexPath:indexPath];
 }
 
--(BlazeTableViewCell *)previousCellFromRow:(BlazeTableRow *)row
+-(BlazeTableViewCell *)previousCellFromRow:(BlazeRow *)row
 {
     //Get current indexPath
     NSIndexPath *indexPath = [self indexPathForRowID:row.ID];
@@ -353,7 +359,7 @@
         return nil;
     }
     
-    BlazeTableSection *section = self.tableArray[previousSectionIndex];
+    BlazeSection *section = self.tableArray[previousSectionIndex];
     if(!section.rows.count) {
         return nil;
     }
@@ -418,7 +424,7 @@
 
 #pragma mark Adding/Removing Rows/Sections
 
--(void)addSection:(BlazeTableSection *)section
+-(void)addSection:(BlazeSection *)section
 {
     [self.tableArray addObject:section];
 }
@@ -429,7 +435,7 @@
     self.dynamicRows = TRUE;
     
     //Possibly delete rows
-    BlazeTableSection *section = self.tableArray[sectionIndex];
+    BlazeSection *section = self.tableArray[sectionIndex];
     NSMutableArray *indexPathsToDelete = [NSMutableArray new];
     
     //Remove rows/indexpaths
@@ -475,7 +481,7 @@
     [self.tableView beginUpdates];
     
     //Remove row from array
-    BlazeTableSection *section = self.tableArray[indexPath.section];
+    BlazeSection *section = self.tableArray[indexPath.section];
     [section.rows removeObjectAtIndex:indexPath.row];
     
     //Remove row
@@ -491,7 +497,7 @@
     self.dynamicRows = TRUE;
     
     //Get section
-    BlazeTableSection *section = [self sectionForID:sectionID];
+    BlazeSection *section = [self sectionForID:sectionID];
     
     //Sanity check
     if(!section) {
@@ -519,12 +525,12 @@
     [self.tableView endUpdates];
 }
 
--(void)addRow:(BlazeTableRow *)row afterRowID:(int)afterRowID
+-(void)addRow:(BlazeRow *)row afterRowID:(int)afterRowID
 {
     [self addRow:row afterRowID:afterRowID withRowAnimation:UITableViewRowAnimationFade];
 }
 
--(void)addRow:(BlazeTableRow *)row afterRowID:(int)afterRowID withRowAnimation:(UITableViewRowAnimation)animation
+-(void)addRow:(BlazeRow *)row afterRowID:(int)afterRowID withRowAnimation:(UITableViewRowAnimation)animation
 {
     //Dynamic rows
     self.dynamicRows = TRUE;
@@ -550,7 +556,7 @@
     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:currentIndexPath.row+1 inSection:currentIndexPath.section];
     
     //Insert row in section
-    BlazeTableSection *section = self.tableArray[newIndexPath.section];
+    BlazeSection *section = self.tableArray[newIndexPath.section];
     [section.rows insertObject:row atIndex:newIndexPath.row];
     
     //Add cell
@@ -560,7 +566,7 @@
     [self.tableView endUpdates];
 }
 
--(void)addSection:(BlazeTableSection *)section afterSectionID:(int)afterSectionID
+-(void)addSection:(BlazeSection *)section afterSectionID:(int)afterSectionID
 {
     //Dynamic rows
     self.dynamicRows = TRUE;
@@ -603,14 +609,14 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    BlazeTableSection *s = self.tableArray[section];
+    BlazeSection *s = self.tableArray[section];
     return s.rows.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BlazeTableSection *s = self.tableArray[indexPath.section];
-    BlazeTableRow *row = s.rows[indexPath.row];
+    BlazeSection *s = self.tableArray[indexPath.section];
+    BlazeRow *row = s.rows[indexPath.row];
     
     if(row.rowHeight) {
         return row.rowHeight;
@@ -621,8 +627,8 @@
     else if(row.rowHeightDynamic) {
         float nrOfDynamicHeights = 0;
         float height = tableView.frame.size.height;
-        for(BlazeTableSection *section in self.tableArray) {
-            for(BlazeTableRow *row in section.rows) {
+        for(BlazeSection *section in self.tableArray) {
+            for(BlazeRow *row in section.rows) {
                 if(row.rowHeight) {
                     height -= row.rowHeight;
                 }
@@ -644,7 +650,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    BlazeTableSection *s = self.tableArray[section];
+    BlazeSection *s = self.tableArray[section];
     if(s.headerTitle.length) {
         return UITableViewAutomaticDimension;
     }
@@ -653,7 +659,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    BlazeTableSection *s = self.tableArray[section];
+    BlazeSection *s = self.tableArray[section];
     if(s.footerTitle.length) {
         return UITableViewAutomaticDimension;
     }
@@ -662,7 +668,7 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    BlazeTableSection *s = self.tableArray[section];
+    BlazeSection *s = self.tableArray[section];
     if(!(s.headerTitle.length)) {
         return nil;
     }
@@ -680,7 +686,7 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    BlazeTableSection *s = self.tableArray[section];
+    BlazeSection *s = self.tableArray[section];
     if(!(s.footerTitle.length)) {
         return nil;
     }
@@ -698,8 +704,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BlazeTableSection *section = self.tableArray[indexPath.section];
-    BlazeTableRow *row = section.rows[indexPath.row];
+    BlazeSection *section = self.tableArray[indexPath.section];
+    BlazeRow *row = section.rows[indexPath.row];
     
     NSString *cellName;
     if(row.xibName.length) {
@@ -758,8 +764,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BlazeTableSection *s = self.tableArray[indexPath.section];
-    BlazeTableRow *row = s.rows[indexPath.row];
+    BlazeSection *s = self.tableArray[indexPath.section];
+    BlazeRow *row = s.rows[indexPath.row];
     if(row.cellTapped) {
         row.cellTapped();
     }
