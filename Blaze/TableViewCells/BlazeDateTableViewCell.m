@@ -19,16 +19,25 @@
     //AccessoryInputView
     [self updateAccessoryInputView];
     
+    //Date & formatter
     self.date = self.row.value;
     self.dateFormatter = self.row.dateFormatter;
     self.dateField.placeholder = self.row.placeholder;
     self.dateField.datePicker.datePickerMode = self.row.datePickerMode;
     
+    //Min date
     if(self.row.minDate) {
         self.dateField.datePicker.minimumDate = self.row.minDate;
     }
+    
+    //Max date
     if(self.row.maxDate) {
         self.dateField.datePicker.maximumDate = self.row.maxDate;
+    }
+    
+    //Minute interval
+    if(self.row.dateMinuteInterval) {
+        self.dateField.datePicker.minuteInterval = self.row.dateMinuteInterval;
     }
     
     //Update datepicker & datefield

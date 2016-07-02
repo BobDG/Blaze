@@ -176,6 +176,34 @@
     }
 }
 
+#pragma mark - RefreshControl
+
+-(void)setEnableRefreshControl:(bool)enableRefreshControl
+{
+    _enableRefreshControl = enableRefreshControl;
+    
+    if(self.enableRefreshControl) {
+        self.refreshControl = [UIRefreshControl new];
+        [self.refreshControl addTarget:self action:@selector(startRefreshing) forControlEvents:UIControlEventValueChanged];
+    }
+    else {
+        self.refreshControl = nil;
+    }
+}
+
+-(void)startRefreshing
+{
+    //Check to be sure but shouldn't happen
+    if(self.refreshControlPulled) {
+        self.refreshControlPulled();
+    }
+}
+
+-(void)endRefreshing
+{
+    [self.refreshControl endRefreshing];
+}
+
 #pragma mark ZoomTableHeaderView
 
 -(void)setZoomTableHeaderView:(UIView *)zoomTableHeaderView
@@ -677,6 +705,9 @@
     if(s.headerXibName.length) {
         headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:s.headerXibName];
     }
+    else if(self.headerXibName.length) {
+        headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:self.headerXibName];
+    }
     else {
         headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kBlazeTableHeaderFooterView];
     }
@@ -694,6 +725,9 @@
     BlazeTableHeaderFooterView *footerView;
     if(s.footerXibName.length) {
         footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:s.footerXibName];
+    }
+    else if(self.footerXibName.length) {
+        footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:self.footerXibName];
     }
     else {
         footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kBlazeTableHeaderFooterView];

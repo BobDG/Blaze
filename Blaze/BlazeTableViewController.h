@@ -18,10 +18,12 @@
     
 }
 
-//Xibname for all rows
+//Optional Xibname for all rows/headers/footers in case they're all the same
 @property(nonatomic,strong) NSString *rowsXibName;
+@property(nonatomic,strong) NSString *headerXibName;
+@property(nonatomic,strong) NSString *footerXibName;
 
-//Empty set
+//Empty set variables
 @property(nonatomic) bool emptyScrollable;
 @property(nonatomic) float emptyVerticalOffset;
 @property(nonatomic,strong) UIImage *emptyImage;
@@ -37,6 +39,11 @@
 
 //DraggableZoom headerView
 @property(nonatomic,strong) UIView *zoomTableHeaderView;
+
+//Refreshcontrol
+-(void)endRefreshing;
+@property(nonatomic) bool enableRefreshControl;
+@property(nonatomic,copy) void (^refreshControlPulled)(void);
 
 //Utility methods
 -(void)reloadTable:(BOOL)animated;

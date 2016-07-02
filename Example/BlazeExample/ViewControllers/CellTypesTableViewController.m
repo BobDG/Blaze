@@ -62,7 +62,8 @@
     //Date
     row = [[BlazeRow alloc] initWithXibName:kDateFieldTableViewCell rowType:BlazeRowDate title:@"Datefield"];
     row.placeholder = @"Date placeholder";
-    row.datePickerMode = UIDatePickerModeDate;
+    row.dateMinuteInterval = 5;
+    row.datePickerMode = UIDatePickerModeDateAndTime;
     NSDateFormatter *df = [NSDateFormatter new];
     [df setDateFormat:@"d MMMM yyyy"];
     row.dateFormatter = df;
