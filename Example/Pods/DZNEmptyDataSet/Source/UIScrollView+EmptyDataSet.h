@@ -246,6 +246,9 @@
  */
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button;
 
+
+- (void)emptyDataSetWillReload:(UIScrollView *)scrollView;
+
 /**
  Tells the delegate that the empty data set will appear.
 

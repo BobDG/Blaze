@@ -347,6 +347,13 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
     }
 }
 
+-(void)dzn_willReload
+{
+    if(self.emptyDataSetDelegate && [self.emptyDataSetDelegate respondsToSelector:@selector(emptyDataSetWillReload:)]) {
+        [self.emptyDataSetDelegate emptyDataSetWillReload:self];
+    }
+}
+
 - (void)dzn_willDisappear
 {
     if (self.emptyDataSetDelegate && [self.emptyDataSetDelegate respondsToSelector:@selector(emptyDataSetWillDisappear:)]) {
@@ -437,6 +444,9 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
 
 - (void)dzn_reloadEmptyDataSet
 {
+    //Reload!
+    [self dzn_willReload];
+    
     if (![self dzn_canDisplay]) {
         return;
     }

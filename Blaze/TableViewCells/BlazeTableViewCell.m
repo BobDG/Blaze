@@ -41,13 +41,13 @@
     
     //Update Labels IF connected
     if(self.titleLabel) {
-        [self updateLabel:self.titleLabel withText:self.row.title attributedText:self.row.attributedTitle];
+        [self updateLabel:self.titleLabel withText:self.row.title attributedText:self.row.attributedTitle color:self.row.titleColor];
     }
     if(self.subtitleLabel) {
-        [self updateLabel:self.subtitleLabel withText:self.row.subtitle attributedText:self.row.attributeSubtitle];
+        [self updateLabel:self.subtitleLabel withText:self.row.subtitle attributedText:self.row.attributeSubtitle color:self.row.subtitleColor];
     }
     if(self.subsubtitleLabel) {
-        [self updateLabel:self.subsubtitleLabel withText:self.row.subsubtitle attributedText:self.row.attributeSubSubtitle];
+        [self updateLabel:self.subsubtitleLabel withText:self.row.subsubtitle attributedText:self.row.attributeSubSubtitle color:self.row.subsubtitleColor];
     }
     
     //Update imageviews IF connected
@@ -66,15 +66,15 @@
     
     //Update buttons IF connected
     if(self.buttonLeft) {
-        [self updateButton:self.buttonLeft withText:self.row.buttonLeftTitle attributedText:self.row.buttonLeftAttributedTitle];
+        [self updateButton:self.buttonLeft withText:self.row.buttonLeftTitle attributedText:self.row.buttonLeftAttributedTitle color:self.row.buttonLeftTitleColor];
         [self.buttonLeft addTarget:self action:@selector(buttonLeftTapped:) forControlEvents:UIControlEventTouchUpInside];
     }
     if(self.buttonCenter) {
-        [self updateButton:self.buttonCenter withText:self.row.buttonCenterTitle attributedText:self.row.buttonCenterAttributedTitle];
+        [self updateButton:self.buttonCenter withText:self.row.buttonCenterTitle attributedText:self.row.buttonCenterAttributedTitle color:self.row.buttonCenterTitleColor];
         [self.buttonCenter addTarget:self action:@selector(buttonCenterTapped:) forControlEvents:UIControlEventTouchUpInside];
     }
     if(self.buttonRight) {
-        [self updateButton:self.buttonRight withText:self.row.buttonRightTitle attributedText:self.row.buttonRightAttributedTitle];
+        [self updateButton:self.buttonRight withText:self.row.buttonRightTitle attributedText:self.row.buttonRightAttributedTitle color:self.row.buttonRightTitleColor];
         [self.buttonRight addTarget:self action:@selector(buttonRightTapped:) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -107,7 +107,7 @@
 
 #pragma mark - Update default UIViews
 
--(void)updateLabel:(UILabel *)label withText:(NSString *)text attributedText:(NSAttributedString *)attributedText
+-(void)updateLabel:(UILabel *)label withText:(NSString *)text attributedText:(NSAttributedString *)attributedText color:(UIColor *)color
 {
     if(attributedText.length) {
         label.attributedText = attributedText;
@@ -118,9 +118,14 @@
     else {
         label.text = @"";
     }
+    
+    //Color
+    if(color) {
+        label.textColor = color;
+    }
 }
 
--(void)updateButton:(UIButton *)button withText:(NSString *)text attributedText:(NSAttributedString *)attributedText
+-(void)updateButton:(UIButton *)button withText:(NSString *)text attributedText:(NSAttributedString *)attributedText color:(UIColor *)color
 {
     if(attributedText.length) {
         [button setAttributedTitle:attributedText forState:UIControlStateNormal];
@@ -130,6 +135,10 @@
     }
     else {
         [button setTitle:@"" forState:UIControlStateNormal];
+    }
+    
+    if(color) {
+        [button setTitleColor:color forState:UIControlStateNormal];
     }
 }
 

@@ -876,6 +876,11 @@
     return self.emptyScrollable;
 }
 
+-(void)emptyDataSetWillReload:(UIScrollView *)scrollView
+{
+    
+}
+
 #pragma mark Dealloc
 
 -(void)dealloc
