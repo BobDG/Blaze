@@ -126,6 +126,9 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic,strong) UIColor *buttonLeftTitleColor;
 @property(nonatomic,strong) UIColor *buttonCenterTitleColor;
 @property(nonatomic,strong) UIColor *buttonRightTitleColor;
+@property(nonatomic,strong) UIColor *buttonLeftBackgroundColor;
+@property(nonatomic,strong) UIColor *buttonCenterBackgroundColor;
+@property(nonatomic,strong) UIColor *buttonRightBackgroundColor;
 @property(nonatomic,strong) NSAttributedString *buttonLeftAttributedTitle;
 @property(nonatomic,strong) NSAttributedString *buttonCenterAttributedTitle;
 @property(nonatomic,strong) NSAttributedString *buttonRightAttributedTitle;

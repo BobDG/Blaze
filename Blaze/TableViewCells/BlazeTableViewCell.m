@@ -66,15 +66,15 @@
     
     //Update buttons IF connected
     if(self.buttonLeft) {
-        [self updateButton:self.buttonLeft withText:self.row.buttonLeftTitle attributedText:self.row.buttonLeftAttributedTitle color:self.row.buttonLeftTitleColor];
+        [self updateButton:self.buttonLeft withText:self.row.buttonLeftTitle attributedText:self.row.buttonLeftAttributedTitle color:self.row.buttonLeftTitleColor backgroundColor:self.row.buttonLeftBackgroundColor];
         [self.buttonLeft addTarget:self action:@selector(buttonLeftTapped:) forControlEvents:UIControlEventTouchUpInside];
     }
     if(self.buttonCenter) {
-        [self updateButton:self.buttonCenter withText:self.row.buttonCenterTitle attributedText:self.row.buttonCenterAttributedTitle color:self.row.buttonCenterTitleColor];
+        [self updateButton:self.buttonCenter withText:self.row.buttonCenterTitle attributedText:self.row.buttonCenterAttributedTitle color:self.row.buttonCenterTitleColor backgroundColor:self.row.buttonCenterBackgroundColor];
         [self.buttonCenter addTarget:self action:@selector(buttonCenterTapped:) forControlEvents:UIControlEventTouchUpInside];
     }
     if(self.buttonRight) {
-        [self updateButton:self.buttonRight withText:self.row.buttonRightTitle attributedText:self.row.buttonRightAttributedTitle color:self.row.buttonRightTitleColor];
+        [self updateButton:self.buttonRight withText:self.row.buttonRightTitle attributedText:self.row.buttonRightAttributedTitle color:self.row.buttonRightTitleColor backgroundColor:self.row.buttonRightBackgroundColor];
         [self.buttonRight addTarget:self action:@selector(buttonRightTapped:) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -125,7 +125,7 @@
     }
 }
 
--(void)updateButton:(UIButton *)button withText:(NSString *)text attributedText:(NSAttributedString *)attributedText color:(UIColor *)color
+-(void)updateButton:(UIButton *)button withText:(NSString *)text attributedText:(NSAttributedString *)attributedText color:(UIColor *)color backgroundColor:(UIColor *)backgroundColor
 {
     if(attributedText.length) {
         [button setAttributedTitle:attributedText forState:UIControlStateNormal];
@@ -136,9 +136,15 @@
     else {
         [button setTitle:@"" forState:UIControlStateNormal];
     }
-    
+ 
+    //TitleColor
     if(color) {
         [button setTitleColor:color forState:UIControlStateNormal];
+    }
+    
+    //BackgroundColor
+    if(backgroundColor) {
+        button.backgroundColor = backgroundColor;
     }
 }
 
