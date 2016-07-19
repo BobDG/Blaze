@@ -137,6 +137,7 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic,strong) NSData *imageDataLeft;
 @property(nonatomic,strong) NSString *imageNameLeft;
 @property(nonatomic,strong) NSString *imageURLStringLeft;
+@property(nonatomic,strong) UIColor *imageTintColorLeft;
 @property(nonatomic) UIViewContentMode contentModeLeft;
 @property(nonatomic) UIImageRenderingMode imageRenderModeLeft;
 
@@ -144,6 +145,7 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic,strong) NSData *imageDataCenter;
 @property(nonatomic,strong) NSString *imageNameCenter;
 @property(nonatomic,strong) NSString *imageURLStringCenter;
+@property(nonatomic,strong) UIColor *imageTintColorCenter;
 @property(nonatomic) UIViewContentMode contentModeCenter;
 @property(nonatomic) UIImageRenderingMode imageRenderModeCenter;
 
@@ -151,6 +153,7 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic,strong) NSData *imageDataRight;
 @property(nonatomic,strong) NSString *imageNameRight;
 @property(nonatomic,strong) NSString *imageURLStringRight;
+@property(nonatomic,strong) UIColor *imageTintColorRight;
 @property(nonatomic) UIViewContentMode contentModeRight;
 @property(nonatomic) UIImageRenderingMode imageRenderModeRight;
 
@@ -158,6 +161,7 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic,strong) NSData *imageDataBackground;
 @property(nonatomic,strong) NSString *imageNameBackground;
 @property(nonatomic,strong) NSString *imageURLStringBackground;
+@property(nonatomic,strong) UIColor *imageTintColorBackground;
 @property(nonatomic) UIViewContentMode contentModeBackground;
 @property(nonatomic) UIImageRenderingMode imageRenderModeBackground;
 
@@ -206,6 +210,12 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic,strong) NSString *multipleSelectorTitle;
 @property(nonatomic,strong) NSArray *multipleSelectorValues;
 @property(nonatomic,strong) NSMutableArray *selectedIndexPaths;
+
+//View Colors
+@property(nonatomic,strong) UIColor *viewLeftBackgroundColor;
+@property(nonatomic,strong) UIColor *viewCenterBackgroundColor;
+@property(nonatomic,strong) UIColor *viewRightBackgroundColor;
+
 
 @end
 

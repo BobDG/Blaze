@@ -52,16 +52,16 @@
     
     //Update imageviews IF connected
     if(self.imageViewLeft) {
-        [self updateImageView:self.imageViewLeft withData:self.row.imageDataLeft imageURLString:self.row.imageURLStringLeft imageName:self.row.imageNameLeft contentMode:self.row.contentModeLeft renderingMode:self.row.imageRenderModeLeft];
+        [self updateImageView:self.imageViewLeft withData:self.row.imageDataLeft imageURLString:self.row.imageURLStringLeft imageName:self.row.imageNameLeft contentMode:self.row.contentModeLeft renderingMode:self.row.imageRenderModeLeft tintColor:self.row.imageTintColorLeft];
     }
     if(self.imageViewCenter) {
-        [self updateImageView:self.imageViewCenter withData:self.row.imageDataCenter imageURLString:self.row.imageURLStringCenter imageName:self.row.imageNameCenter contentMode:self.row.contentModeCenter renderingMode:self.row.imageRenderModeCenter];
+        [self updateImageView:self.imageViewCenter withData:self.row.imageDataCenter imageURLString:self.row.imageURLStringCenter imageName:self.row.imageNameCenter contentMode:self.row.contentModeCenter renderingMode:self.row.imageRenderModeCenter tintColor:self.row.imageTintColorCenter];
     }
     if(self.imageViewRight) {
-        [self updateImageView:self.imageViewRight withData:self.row.imageDataRight imageURLString:self.row.imageURLStringRight imageName:self.row.imageNameRight contentMode:self.row.contentModeRight renderingMode:self.row.imageRenderModeRight];
+        [self updateImageView:self.imageViewRight withData:self.row.imageDataRight imageURLString:self.row.imageURLStringRight imageName:self.row.imageNameRight contentMode:self.row.contentModeRight renderingMode:self.row.imageRenderModeRight tintColor:self.row.imageTintColorRight];
     }
     if(self.imageViewBackground) {
-        [self updateImageView:self.imageViewBackground withData:self.row.imageDataBackground imageURLString:self.row.imageURLStringBackground imageName:self.row.imageNameBackground contentMode:self.row.contentModeBackground renderingMode:self.row.imageRenderModeBackground];
+        [self updateImageView:self.imageViewBackground withData:self.row.imageDataBackground imageURLString:self.row.imageURLStringBackground imageName:self.row.imageNameBackground contentMode:self.row.contentModeBackground renderingMode:self.row.imageRenderModeBackground tintColor:self.row.imageTintColorBackground];
     }
     
     //Update buttons IF connected
@@ -76,6 +76,17 @@
     if(self.buttonRight) {
         [self updateButton:self.buttonRight withText:self.row.buttonRightTitle attributedText:self.row.buttonRightAttributedTitle color:self.row.buttonRightTitleColor backgroundColor:self.row.buttonRightBackgroundColor];
         [self.buttonRight addTarget:self action:@selector(buttonRightTapped:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    //Update views IF connected
+    if(self.viewLeft) {
+        [self updateView:self.viewLeft backgroundColor:self.row.viewLeftBackgroundColor];
+    }
+    if(self.viewCenter) {
+        [self updateView:self.viewCenter backgroundColor:self.row.viewCenterBackgroundColor];
+    }
+    if(self.viewRight) {
+        [self updateView:self.viewRight backgroundColor:self.row.viewRightBackgroundColor];
     }
     
     //Update cell (for subclasses)
@@ -148,7 +159,7 @@
     }
 }
 
--(void)updateImageView:(UIImageView *)imageView withData:(NSData *)imageData imageURLString:(NSString *)imageURLString imageName:(NSString *)imageName contentMode:(UIViewContentMode)contentMode renderingMode:(UIImageRenderingMode)renderingMode
+-(void)updateImageView:(UIImageView *)imageView withData:(NSData *)imageData imageURLString:(NSString *)imageURLString imageName:(NSString *)imageName contentMode:(UIViewContentMode)contentMode renderingMode:(UIImageRenderingMode)renderingMode tintColor:(UIColor *)tintColor
 {
     if(imageData) {
         imageView.image = [UIImage imageWithData:imageData];
@@ -164,6 +175,16 @@
     }
     if(renderingMode != UIImageRenderingModeAutomatic) {
         imageView.image = [imageView.image imageWithRenderingMode:renderingMode];
+    }
+    if(tintColor) {
+        imageView.tintColor = tintColor;
+    }
+}
+
+-(void)updateView:(UIView *)view backgroundColor:(UIColor *)backgroundColor
+{
+    if(backgroundColor) {
+        view.backgroundColor = backgroundColor;
     }
 }
 
