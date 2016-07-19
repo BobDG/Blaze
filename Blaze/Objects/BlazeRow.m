@@ -31,7 +31,7 @@
 
 -(instancetype)initWithID:(int)ID title:(NSString *)title
 {
-    return [self initWithID:ID rowType:0 title:nil];
+    return [self initWithID:ID rowType:0 title:title];
 }
 
 -(instancetype)initWithID:(int)ID rowType:(BlazeRowType)rowType

@@ -46,6 +46,7 @@
 @property(nonatomic,copy) void (^refreshControlPulled)(void);
 
 //Utility methods
+-(void)reloadHeightsQuickly;
 -(void)reloadTable:(BOOL)animated;
 -(void)scrollToTop:(BOOL)animated;
 -(void)reloadCellForID:(int)rowID;

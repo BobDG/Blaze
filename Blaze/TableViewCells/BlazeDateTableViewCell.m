@@ -47,8 +47,11 @@
             self.dateField.text = [self.dateFormatter stringFromDate:self.date];
         }
     }
-    else if(self.row.placeholderDate) {
-        self.dateField.datePicker.date = self.row.placeholderDate;
+    else {
+        self.dateField.text = @"";
+        if(self.row.placeholderDate) {
+            self.dateField.datePicker.date = self.row.placeholderDate;
+        }
     }
     
     //Placeholder color

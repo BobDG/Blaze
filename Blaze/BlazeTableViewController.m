@@ -222,6 +222,16 @@
 
 #pragma mark Utility methods
 
+-(void)reloadHeightsQuickly
+{
+    CGPoint currentOffset = self.tableView.contentOffset;
+    [UIView setAnimationsEnabled:FALSE];
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    [self.tableView setContentOffset:currentOffset];
+    [UIView setAnimationsEnabled:TRUE];
+}
+
 -(void)reloadTable:(BOOL)animated
 {
     if(animated && ([self.tableView numberOfSections] == [self numberOfSectionsInTableView:self.tableView])) {
