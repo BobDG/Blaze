@@ -33,6 +33,7 @@
                                 kDateFieldTableViewCell,
                                 kTextArrowTableViewCell,
                                 kEmptySpaceTableViewCell,
+                                kTwoChoicesTableViewCell,
                                 kPickerFieldTableViewCell,
                                 kFloatTextFieldTableViewCell,
                                 kSegmentedControlTableViewCell,

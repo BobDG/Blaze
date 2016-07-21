@@ -15,7 +15,7 @@
     
 }
 
-//Methods
+//Methods to override
 -(void)updateCell;
 
 //Callbacks

@@ -71,6 +71,9 @@
 		ED933E0B1D1728A100B8155F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED933E091D1728A100B8155F /* Main.storyboard */; };
 		ED933E0D1D1728A100B8155F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED933E0C1D1728A100B8155F /* Assets.xcassets */; };
 		ED933E101D1728A100B8155F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED933E0E1D1728A100B8155F /* LaunchScreen.storyboard */; };
+		EDF0E7E41D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF0E7E21D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m */; };
+		EDF0E7E51D410E430036AEDA /* BlazeTwoChoicesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF0E7E31D410E430036AEDA /* BlazeTwoChoicesTableViewCell.xib */; };
+		EDF0E7E71D4111570036AEDA /* TwoChoicesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF0E7E61D4111570036AEDA /* TwoChoicesTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,6 +176,10 @@
 		ED933E0C1D1728A100B8155F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED933E0F1D1728A100B8155F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED933E111D1728A100B8155F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDF0E7E11D410E430036AEDA /* BlazeTwoChoicesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTwoChoicesTableViewCell.h; sourceTree = "<group>"; };
+		EDF0E7E21D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTwoChoicesTableViewCell.m; sourceTree = "<group>"; };
+		EDF0E7E31D410E430036AEDA /* BlazeTwoChoicesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlazeTwoChoicesTableViewCell.xib; sourceTree = "<group>"; };
+		EDF0E7E61D4111570036AEDA /* TwoChoicesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoChoicesTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +227,7 @@
 				ED0296EB1D1729220039AA41 /* TextTableViewCell.xib */,
 				ED0296EC1D1729220039AA41 /* TextViewTableViewCell.xib */,
 				ED2626AF1D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib */,
+				EDF0E7E61D4111570036AEDA /* TwoChoicesTableViewCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -336,6 +344,8 @@
 		ED0297311D1729370039AA41 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				ED0297411D1729370039AA41 /* BlazeTableViewCell.h */,
+				ED0297421D1729370039AA41 /* BlazeTableViewCell.m */,
 				ED0297321D1729370039AA41 /* BlazeDateTableViewCell.h */,
 				ED0297331D1729370039AA41 /* BlazeDateTableViewCell.m */,
 				ED0297341D1729370039AA41 /* BlazeDateTableViewCell.xib */,
@@ -351,8 +361,6 @@
 				ED02973E1D1729370039AA41 /* BlazeSwitchTableViewCell.h */,
 				ED02973F1D1729370039AA41 /* BlazeSwitchTableViewCell.m */,
 				ED0297401D1729370039AA41 /* BlazeSwitchTableViewCell.xib */,
-				ED0297411D1729370039AA41 /* BlazeTableViewCell.h */,
-				ED0297421D1729370039AA41 /* BlazeTableViewCell.m */,
 				ED0297431D1729370039AA41 /* BlazeTextFieldTableViewCell.h */,
 				ED0297441D1729370039AA41 /* BlazeTextFieldTableViewCell.m */,
 				ED0297451D1729370039AA41 /* BlazeTextFieldTableViewCell.xib */,
@@ -365,6 +373,9 @@
 				ED2626AA1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.h */,
 				ED2626AB1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m */,
 				ED2626AC1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.xib */,
+				EDF0E7E11D410E430036AEDA /* BlazeTwoChoicesTableViewCell.h */,
+				EDF0E7E21D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m */,
+				EDF0E7E31D410E430036AEDA /* BlazeTwoChoicesTableViewCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -527,8 +538,10 @@
 				ED0297631D1729370039AA41 /* BlazeDateTableViewCell.xib in Resources */,
 				ED2626B01D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib in Resources */,
 				ED933E0D1D1728A100B8155F /* Assets.xcassets in Resources */,
+				EDF0E7E51D410E430036AEDA /* BlazeTwoChoicesTableViewCell.xib in Resources */,
 				ED0297081D1729220039AA41 /* PickerFieldTableViewCell.xib in Resources */,
 				ED0297101D1729220039AA41 /* TableHeaderView.xib in Resources */,
+				EDF0E7E71D4111570036AEDA /* TwoChoicesTableViewCell.xib in Resources */,
 				ED0297701D1729370039AA41 /* BlazeTextViewTableViewCell.xib in Resources */,
 				ED0297071D1729220039AA41 /* ImageTableViewCell.xib in Resources */,
 				ED0297601D1729370039AA41 /* Arrow_Left@2x.png in Resources */,
@@ -597,6 +610,7 @@
 			files = (
 				ED0297771D1729370039AA41 /* BlazeTextView.m in Sources */,
 				ED0297711D1729370039AA41 /* BlazeTilesTableViewCell.m in Sources */,
+				EDF0E7E41D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m in Sources */,
 				ED02975F1D1729370039AA41 /* BlazeSection.m in Sources */,
 				ED0297121D1729220039AA41 /* BasicTableViewController.m in Sources */,
 				ED02976D1D1729370039AA41 /* BlazeTextFieldTableViewCell.m in Sources */,

@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, BlazeRowType) {
     BlazeRowTiles,
     BlazeRowPicker,
     BlazeRowSlider,
+    BlazeRowTwoChoices
 };
 
 typedef NS_ENUM(NSInteger, InputAccessoryViewType) {

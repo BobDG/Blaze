@@ -31,7 +31,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checkbox_Inactive" translatesAutoresizingMaskIntoConstraints="NO" id="umY-Gz-8jM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Checkbox_Inactive" translatesAutoresizingMaskIntoConstraints="NO" id="umY-Gz-8jM">
                                 <rect key="frame" x="274" y="7" width="26" height="26"/>
                             </imageView>
                         </subviews>

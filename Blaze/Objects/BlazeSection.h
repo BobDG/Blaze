@@ -24,8 +24,12 @@
 
 //Basic properties
 @property(nonatomic) int ID;
+@property(nonatomic) int sectionHeight;
 @property(nonatomic,strong) NSMutableArray *rows;
 @property(nonatomic,strong) NSString *rowsXibName;
+
+//Colors
+@property(nonatomic,strong) UIColor *viewColor;
 @property(nonatomic,strong) UIColor *backgroundColor;
 
 //Header & Footer

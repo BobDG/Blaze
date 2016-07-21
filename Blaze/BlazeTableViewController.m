@@ -33,6 +33,7 @@
 #define BlazeXIBTextViewCell          @"BlazeTextViewTableViewCell"
 #define BlazeXIBTextFieldCell         @"BlazeTextFieldTableViewCell"
 #define BlazeXIBPickerViewCell        @"BlazePickerViewTableViewCell"
+#define BlazeXIBTwoChoicesCell        @"BlazeTwoChoicesTableViewCell"
 #define BlazeXIBSegmentedControlCell  @"BlazeSegmentedControlTableViewCell"
 
 @interface BlazeTableViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
@@ -127,7 +128,8 @@
              BlazeXIBSegmentedControlCell,
              BlazeXIBSwitchCell,
              BlazeXIBTextFieldCell,
-             BlazeXIBPickerViewCell];
+             BlazeXIBPickerViewCell,
+             BlazeXIBTwoChoicesCell];
 }
 
 -(NSString *)defaultXIBForEnum:(BlazeRowType)rowType
@@ -163,6 +165,10 @@
         }
         case BlazeRowCheckbox: {
             return BlazeXIBCheckboxCell;
+            break;
+        }
+        case BlazeRowTwoChoices: {
+            return BlazeXIBTwoChoicesCell;
             break;
         }
         case BlazeRowPicker: {
@@ -689,7 +695,10 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     BlazeSection *s = self.tableArray[section];
-    if(s.headerTitle.length) {
+    if(s.sectionHeight) {
+        return s.sectionHeight;
+    }
+    else if(s.headerTitle.length) {
         return UITableViewAutomaticDimension;
     }
     return CGFLOAT_MIN;
@@ -698,7 +707,10 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     BlazeSection *s = self.tableArray[section];
-    if(s.footerTitle.length) {
+    if(s.sectionHeight) {
+        return s.sectionHeight;
+    }
+    else if(s.footerTitle.length) {
         return UITableViewAutomaticDimension;
     }
     return CGFLOAT_MIN;
@@ -707,7 +719,7 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     BlazeSection *s = self.tableArray[section];
-    if(!(s.headerTitle.length)) {
+    if(!(s.headerTitle.length) && !s.sectionHeight) {
         return nil;
     }
     
@@ -721,14 +733,18 @@
     else {
         headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kBlazeTableHeaderFooterView];
     }
-    headerView.titleLabel.text = s.headerTitle;
+    
+    //Update
+    headerView.sectionType = SectionHeader;
+    headerView.section = s;
+    
     return headerView;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     BlazeSection *s = self.tableArray[section];
-    if(!(s.footerTitle.length)) {
+    if(!(s.footerTitle.length) && !s.sectionHeight) {
         return nil;
     }
     
@@ -743,6 +759,11 @@
         footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kBlazeTableHeaderFooterView];
     }
     footerView.titleLabel.text = s.footerTitle;
+    
+    //Update
+    footerView.sectionType = SectionFooter;
+    footerView.section = s;
+    
     return footerView;
 }
 

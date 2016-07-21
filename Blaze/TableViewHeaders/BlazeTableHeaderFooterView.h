@@ -8,11 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BlazeSection.h"
+
+typedef NS_ENUM(NSInteger, SectionType) {
+    SectionHeader,
+    SectionFooter,
+};
+
 @interface BlazeTableHeaderFooterView : UITableViewHeaderFooterView
 {
     
 }
 
+//Methods to override
+-(void)update;
+
+//Properties
+@property(nonatomic) SectionType sectionType;
+@property(nonatomic,strong) BlazeSection *section;
+
+//Outlets
+@property(nonatomic,weak) IBOutlet UIView *view;
 @property(nonatomic,weak) IBOutlet UILabel *titleLabel;
 @property(nonatomic,weak) IBOutlet UIImageView *backgroundImageView;
 

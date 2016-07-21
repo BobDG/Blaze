@@ -19,6 +19,7 @@
 @property(nonatomic,strong) NSNumber *switchValue;
 @property(nonatomic,strong) NSNumber *sliderValue;
 @property(nonatomic,strong) NSNumber *checkBoxValue;
+@property(nonatomic,strong) NSNumber *twoChoicesValue;
 @property(nonatomic,strong) NSNumber *segmentedControlValue;
 
 @property(nonatomic,strong) NSString *pickerValue;
@@ -108,7 +109,7 @@
     [section addRow:row];
     
     //Slider
-    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Switch or checkbox"];
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Switch/checkbox/two choices"];
     [self addSection:section];
     
     //Switch
@@ -126,6 +127,16 @@
     row.checkboxImageInactive = @"Checkbox_Inactive";
     [row setValueChanged:^{
         DLog(@"Checkbox changed: %@", [self.checkBoxValue boolValue] ? @"ON" : @"OFF");
+    }];
+    [section addRow:row];
+    
+    //Two choices
+    row = [[BlazeRow alloc] initWithXibName:kTwoChoicesTableViewCell rowType:BlazeRowCheckbox title:@"Two choices"];
+    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(twoChoicesValue)]];
+    row.checkboxImageActive = @"Checkbox_Active";
+    row.checkboxImageInactive = @"Checkbox_Inactive";
+    [row setValueChanged:^{
+        DLog(@"Two choices changed: %d", [self.twoChoicesValue intValue]);
     }];
     [section addRow:row];
     

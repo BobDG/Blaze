@@ -126,9 +126,6 @@
     else if(text.length) {
         label.text = text;
     }
-    else {
-        label.text = @"";
-    }
     
     //Color
     if(color) {
@@ -143,9 +140,6 @@
     }
     else if(text.length) {
         [button setTitle:text forState:UIControlStateNormal];
-    }
-    else {
-        [button setTitle:@"" forState:UIControlStateNormal];
     }
  
     //TitleColor

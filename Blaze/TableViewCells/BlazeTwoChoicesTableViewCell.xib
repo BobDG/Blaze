@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="BlazeTwoChoicesTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3P-Gu-G24">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOl-j3-77m">
+                                <rect key="frame" x="15" y="12" width="51" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.58431372550000005" green="0.59607843140000005" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S02-2A-Zf9">
+                                <rect key="frame" x="195" y="12" width="30" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Two" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mas-74-SVn">
+                                <rect key="frame" x="275" y="12" width="30" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checkbox_Inactive" translatesAutoresizingMaskIntoConstraints="NO" id="B2F-7N-OqJ">
+                                <rect key="frame" x="161" y="9" width="26" height="26"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WI8-Jb-9DY" userLabel="ChoiceOneButton">
+                                <rect key="frame" x="161" y="0.0" width="64" height="44"/>
+                                <connections>
+                                    <action selector="choice1Tapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="R84-vJ-3bP"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checkbox_Inactive" translatesAutoresizingMaskIntoConstraints="NO" id="gUX-0q-q9H">
+                                <rect key="frame" x="241" y="9" width="26" height="26"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGF-M4-XcO" userLabel="ChoiceTwoButton">
+                                <rect key="frame" x="241" y="0.0" width="64" height="44"/>
+                                <connections>
+                                    <action selector="choice2Tapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4lH-t6-cg4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AGF-M4-XcO" firstAttribute="trailing" secondItem="Mas-74-SVn" secondAttribute="trailing" id="ABF-SK-olI"/>
+                            <constraint firstItem="WI8-Jb-9DY" firstAttribute="trailing" secondItem="S02-2A-Zf9" secondAttribute="trailing" id="AQy-nb-2hD"/>
+                            <constraint firstAttribute="trailing" secondItem="Mas-74-SVn" secondAttribute="trailing" constant="15" id="BzU-WE-AD7"/>
+                            <constraint firstItem="WI8-Jb-9DY" firstAttribute="top" secondItem="f3P-Gu-G24" secondAttribute="top" id="DeV-kN-cXq"/>
+                            <constraint firstItem="gUX-0q-q9H" firstAttribute="leading" secondItem="S02-2A-Zf9" secondAttribute="trailing" constant="16" id="EnO-og-jvu"/>
+                            <constraint firstItem="gUX-0q-q9H" firstAttribute="centerY" secondItem="f3P-Gu-G24" secondAttribute="centerY" id="GPu-nf-rR6"/>
+                            <constraint firstItem="QOl-j3-77m" firstAttribute="centerY" secondItem="f3P-Gu-G24" secondAttribute="centerY" id="IX7-Qw-YWO"/>
+                            <constraint firstItem="S02-2A-Zf9" firstAttribute="centerY" secondItem="f3P-Gu-G24" secondAttribute="centerY" id="If7-Zg-Fx0"/>
+                            <constraint firstItem="B2F-7N-OqJ" firstAttribute="centerY" secondItem="f3P-Gu-G24" secondAttribute="centerY" id="KFd-8m-Zko"/>
+                            <constraint firstItem="AGF-M4-XcO" firstAttribute="leading" secondItem="gUX-0q-q9H" secondAttribute="leading" id="LQc-BB-eam"/>
+                            <constraint firstItem="Mas-74-SVn" firstAttribute="centerY" secondItem="f3P-Gu-G24" secondAttribute="centerY" id="Rwd-qT-I1v"/>
+                            <constraint firstAttribute="trailing" secondItem="AGF-M4-XcO" secondAttribute="trailing" id="UM0-A3-NsW"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="VQM-gF-I0j"/>
+                            <constraint firstItem="S02-2A-Zf9" firstAttribute="leading" secondItem="B2F-7N-OqJ" secondAttribute="trailing" constant="8" id="dU0-BT-JPJ"/>
+                            <constraint firstAttribute="bottom" secondItem="AGF-M4-XcO" secondAttribute="bottom" id="fFu-Ie-Q6A"/>
+                            <constraint firstItem="WI8-Jb-9DY" firstAttribute="leading" secondItem="B2F-7N-OqJ" secondAttribute="leading" id="oPD-lj-CDz"/>
+                            <constraint firstItem="Mas-74-SVn" firstAttribute="leading" secondItem="gUX-0q-q9H" secondAttribute="trailing" constant="8" id="rot-jV-D5D"/>
+                            <constraint firstAttribute="bottom" secondItem="WI8-Jb-9DY" secondAttribute="bottom" id="ssu-0V-0hX"/>
+                            <constraint firstItem="AGF-M4-XcO" firstAttribute="top" secondItem="f3P-Gu-G24" secondAttribute="top" id="xFt-IA-xRS"/>
+                            <constraint firstItem="QOl-j3-77m" firstAttribute="leading" secondItem="f3P-Gu-G24" secondAttribute="leading" constant="15" id="xPe-Uc-a9F"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UM0-A3-NsW"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="f3P-Gu-G24" secondAttribute="bottom" id="KOK-ZP-xUp"/>
+                    <constraint firstItem="f3P-Gu-G24" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Mdn-vA-QQk"/>
+                    <constraint firstAttribute="trailing" secondItem="f3P-Gu-G24" secondAttribute="trailing" id="PwV-Di-IJF"/>
+                    <constraint firstItem="f3P-Gu-G24" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="g7F-7a-X5Q"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="choice1ImageView" destination="B2F-7N-OqJ" id="tW4-1N-3JV"/>
+                <outlet property="choice2ImageView" destination="gUX-0q-q9H" id="Qay-Sq-AiZ"/>
+            </connections>
+            <point key="canvasLocation" x="403" y="295.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Checkbox_Inactive" width="26" height="26"/>
+    </resources>
+</document>

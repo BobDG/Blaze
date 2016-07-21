@@ -20,6 +20,7 @@
 #define kTextViewTableViewCell          @"TextViewTableViewCell"
 #define kDateFieldTableViewCell         @"DateFieldTableViewCell"
 #define kTextArrowTableViewCell         @"TextArrowTableViewCell"
+#define kTwoChoicesTableViewCell        @"TwoChoicesTableViewCell"
 #define kEmptySpaceTableViewCell        @"EmptySpaceTableViewCell"
 #define kPickerFieldTableViewCell       @"PickerFieldTableViewCell"
 #define kFloatTextFieldTableViewCell    @"FloatTextFieldTableViewCell"
