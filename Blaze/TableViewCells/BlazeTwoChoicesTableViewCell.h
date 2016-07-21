@@ -10,18 +10,10 @@
 
 #import "BlazeTableViewCell.h"
 
-typedef NS_ENUM(NSInteger, Choice) {
-    ChoiceNone,
-    ChoiceOne,
-    ChoiceTwo
-};
-
 @interface BlazeTwoChoicesTableViewCell : BlazeTableViewCell
 {
     
 }
-
-@property(nonatomic) Choice choice;
 
 @property(nonatomic,weak) IBOutlet UIImageView *choice1ImageView;
 @property(nonatomic,weak) IBOutlet UIImageView *choice2ImageView;

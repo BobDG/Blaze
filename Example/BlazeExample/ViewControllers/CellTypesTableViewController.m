@@ -131,6 +131,7 @@
     [section addRow:row];
     
     //Two choices
+    self.twoChoicesValue = @(2);
     row = [[BlazeRow alloc] initWithXibName:kTwoChoicesTableViewCell rowType:BlazeRowCheckbox title:@"Two choices"];
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(twoChoicesValue)]];
     row.checkboxImageActive = @"Checkbox_Active";

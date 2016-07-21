@@ -17,15 +17,15 @@
 
 -(void)updateCheckboxes
 {
-    if(self.choice == ChoiceNone) {
+    if([self.row.value intValue] == 0) {
         self.choice1ImageView.image = [UIImage imageNamed:self.row.checkboxImageInactive];
         self.choice2ImageView.image = [UIImage imageNamed:self.row.checkboxImageInactive];
     }
-    else if(self.choice == ChoiceOne) {
+    else if([self.row.value intValue] == 1) {
         self.choice1ImageView.image = [UIImage imageNamed:self.row.checkboxImageActive];
         self.choice2ImageView.image = [UIImage imageNamed:self.row.checkboxImageInactive];
     }
-    else if(self.choice == ChoiceTwo) {
+    else if([self.row.value intValue] == 2) {
         self.choice1ImageView.image = [UIImage imageNamed:self.row.checkboxImageInactive];
         self.choice2ImageView.image = [UIImage imageNamed:self.row.checkboxImageActive];
     }
@@ -39,21 +39,18 @@
 
 -(IBAction)choice1Tapped:(id)sender
 {
-    self.choice = ChoiceOne;
+    self.row.value = @(1);
     [self choiceChanged];
 }
 
 -(IBAction)choice2Tapped:(id)sender
 {
-    self.choice = ChoiceTwo;
+    self.row.value = @(2);
     [self choiceChanged];
 }
 
 -(void)choiceChanged
-{
-    //Update value
-    self.row.value = @(self.choice);
-    
+{    
     //Update checkboxes
     [self updateCheckboxes];
     
