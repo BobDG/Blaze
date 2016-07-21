@@ -80,6 +80,18 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    //Load content on appear if active
+    if(self.loadContentOnAppear) {
+        [self loadTableContent];
+    }
+}
+
+#pragma mark - Loading content
+
+-(void)loadTableContent
+{
+    //Method to override
 }
 
 #pragma mark - Registering Cells/Headers

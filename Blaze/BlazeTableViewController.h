@@ -31,7 +31,11 @@
 @property(nonatomic,strong) UIColor *emptyBackgroundColor;
 @property(nonatomic,strong) NSDictionary *emptyTitleAttributes;
 
-//Methods to override
+//Load content on appear
+-(void)loadTableContent;
+@property(nonatomic) bool loadContentOnAppear;
+
+//Default XIB for rowtype
 -(NSString *)defaultXIBForEnum:(BlazeRowType)rowType;
 
 //TableArray
