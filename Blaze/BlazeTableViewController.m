@@ -701,6 +701,9 @@
         }
         return height;
     }
+    else if(self.rowHeight) {
+        return self.rowHeight;
+    }
     return UITableViewAutomaticDimension;
 }
 
@@ -709,6 +712,9 @@
     BlazeSection *s = self.tableArray[section];
     if(s.sectionHeight) {
         return s.sectionHeight;
+    }
+    else if(self.sectionHeaderHeight) {
+        return self.sectionHeaderHeight;
     }
     else if(s.headerTitle.length) {
         return UITableViewAutomaticDimension;
@@ -721,6 +727,9 @@
     BlazeSection *s = self.tableArray[section];
     if(s.sectionHeight) {
         return s.sectionHeight;
+    }
+    else if(self.sectionFooterHeight) {
+        return self.sectionFooterHeight;
     }
     else if(s.footerTitle.length) {
         return UITableViewAutomaticDimension;

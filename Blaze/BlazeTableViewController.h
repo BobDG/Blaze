@@ -31,6 +31,11 @@
 @property(nonatomic,strong) UIColor *emptyBackgroundColor;
 @property(nonatomic,strong) NSDictionary *emptyTitleAttributes;
 
+//Heights
+@property(nonatomic) float rowHeight;
+@property(nonatomic) float sectionHeaderHeight;
+@property(nonatomic) float sectionFooterHeight;
+
 //Load content on appear
 -(void)loadTableContent;
 @property(nonatomic) bool loadContentOnAppear;
