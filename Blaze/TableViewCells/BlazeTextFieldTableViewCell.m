@@ -25,6 +25,7 @@
     self.textField.placeholder = self.row.placeholder;
     self.textField.keyboardType = self.row.keyboardType;
     self.textField.secureTextEntry = self.row.secureTextEntry;
+    self.textField.autocorrectionType = self.row.autocorrectionType;
     self.textField.autocapitalizationType = self.row.capitalizationType;
     
     if(self.row.placeholder.length && self.row.placeholderColor) {

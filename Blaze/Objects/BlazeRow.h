@@ -201,6 +201,7 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 //TextField/TextView
 @property(nonatomic) bool secureTextEntry;
 @property(nonatomic) UIKeyboardType keyboardType;
+@property(nonatomic) UITextAutocorrectionType autocorrectionType;
 @property(nonatomic) UITextAutocapitalizationType capitalizationType;
 @property(nonatomic,strong) NSString *placeholder;
 @property(nonatomic,strong) NSFormatter *formatter;
