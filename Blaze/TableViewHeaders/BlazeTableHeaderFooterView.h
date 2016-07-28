@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, SectionType) {
 
 //Methods to override
 -(void)update;
+-(void)willCollapse:(BOOL)collapse;
 
 //Properties
 @property(nonatomic) SectionType sectionType;
@@ -30,6 +31,7 @@ typedef NS_ENUM(NSInteger, SectionType) {
 //Outlets
 @property(nonatomic,weak) IBOutlet UIView *view;
 @property(nonatomic,weak) IBOutlet UILabel *titleLabel;
+@property(nonatomic,weak) IBOutlet UIButton *collapseButton;
 @property(nonatomic,weak) IBOutlet UIImageView *backgroundImageView;
 
 @end

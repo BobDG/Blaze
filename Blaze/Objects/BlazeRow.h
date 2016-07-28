@@ -185,8 +185,7 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic,strong) NSArray *selectorOptions;
 @property(nonatomic,strong) NSString *pickerObjectPropertyName;
 
-//Checkmark
-@property(nonatomic) bool checkboxActive;
+//Checkbox
 @property(nonatomic,strong) NSString *checkboxImageActive;
 @property(nonatomic,strong) NSString *checkboxImageInactive;
 

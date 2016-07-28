@@ -70,6 +70,7 @@
 -(void)registerCustomHeader:(NSString *)xibName;
 -(BlazeSection *)sectionForID:(int)sectionID;
 -(void)registerCustomCells:(NSArray *)cellNames;
+-(void)registerCustomHeaders:(NSArray *)headerNames;
 -(void)addRow:(BlazeRow *)row afterRowID:(int)afterRowID;
 -(void)addRow:(BlazeRow *)row afterRowID:(int)afterRowID withRowAnimation:(UITableViewRowAnimation)animation;
 -(void)removeRowsInSection:(int)sectionIndex fromIndex:(int)rowIndex;

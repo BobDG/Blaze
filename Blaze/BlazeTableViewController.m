@@ -107,10 +107,17 @@
     [self.tableView registerNib:[UINib nibWithNibName:xibName bundle:nil] forHeaderFooterViewReuseIdentifier:xibName];
 }
 
+-(void)registerCustomHeaders:(NSArray *)headerNames
+{
+    for(NSString *className in headerNames) {
+        [self registerCustomHeader:className];
+    }
+}
+
 -(void)registerCustomCells:(NSArray *)cellNames
 {
     for(NSString *className in cellNames) {
-        [self.tableView registerNib:[UINib nibWithNibName:className bundle:nil] forCellReuseIdentifier:className];
+        [self registerCustomCell:className];
     }
 }
 
@@ -478,6 +485,43 @@
     }
 }
 
+#pragma mark - Collapsing
+
+-(void)collapseSection:(int)sectionIndex collapsed:(BOOL)collapsed
+{
+    //Dynamic rows
+    self.dynamicRows = TRUE;
+    
+    //Possibly delete rows
+    BlazeSection *section = self.tableArray[sectionIndex];
+    NSMutableArray *indexPaths = [NSMutableArray new];
+    
+    //Remove rows/indexpaths
+    for(int i = 0; i < section.rows.count; i++) {
+        [indexPaths addObject:[NSIndexPath indexPathForRow:i inSection:sectionIndex]];
+    }
+    
+    //Check if we need to delete any
+    if(!indexPaths.count) {
+        return;
+    }
+    
+    //Begin updates
+    [self.tableView beginUpdates];
+    
+    //Add/remove rows
+    if(collapsed) {
+        [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:section.collapseAnimation];
+    }
+    else {
+        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:section.collapseAnimation];
+    }
+    
+    
+    //End updates
+    [self.tableView endUpdates];
+}
+
 #pragma mark Adding/Removing Rows/Sections
 
 -(void)addSection:(BlazeSection *)section
@@ -666,6 +710,9 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     BlazeSection *s = self.tableArray[section];
+    if(s.collapsed) {
+        return 0;
+    }
     return s.rows.count;
 }
 
@@ -755,8 +802,17 @@
         headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kBlazeTableHeaderFooterView];
     }
     
+    //Collapsing
+    if(s.canCollapse) {
+        [s setCollapseTapped:^{
+            [self collapseSection:section collapsed:s.collapsed];
+        }];
+    }
+    
     //Update
     headerView.sectionType = SectionHeader;
+    
+    //Set it
     headerView.section = s;
     
     return headerView;

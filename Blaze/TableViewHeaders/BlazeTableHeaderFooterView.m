@@ -12,7 +12,12 @@
 
 -(void)update
 {
-    
+    //To override
+}
+
+-(void)willCollapse:(BOOL)collapse
+{
+    //To override
 }
 
 -(void)setSection:(BlazeSection *)section
@@ -36,6 +41,11 @@
         }
     }
     
+    //Collapse action IF callback set AND button set
+    if(self.section.collapseTapped && self.collapseButton) {
+        [self.collapseButton addTarget:self action:@selector(collapse:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
     //BackgroundColor
     if(section.backgroundColor) {
         self.contentView.backgroundColor = section.backgroundColor;
@@ -44,5 +54,15 @@
     //Update (for subclasses)
     [self update];
 }
+
+-(IBAction)collapse:(id)sender
+{
+    self.section.collapsed = !self.section.collapsed;
+    [self willCollapse:self.section.collapsed];
+    if(self.section.collapseTapped) {
+        self.section.collapseTapped();
+    }
+}
+
 
 @end
