@@ -54,11 +54,15 @@
 @property(nonatomic) bool enableRefreshControl;
 @property(nonatomic,copy) void (^refreshControlPulled)(void);
 
+//Collapsing - override for example to fix iOS9 crashes...
+-(void)collapseSection:(int)sectionIndex collapsed:(BOOL)collapsed;
+
 //Utility methods
 -(void)reloadHeightsQuickly;
 -(void)reloadTable:(BOOL)animated;
 -(void)scrollToTop:(BOOL)animated;
 -(void)reloadCellForID:(int)rowID;
+-(void)reloadTableWithFadeTransition;
 -(void)reloadCellForID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation;
 -(void)removeRowWithID:(int)rowID;
 -(void)removeRowWithID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation;

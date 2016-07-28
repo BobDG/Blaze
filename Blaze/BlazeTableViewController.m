@@ -270,6 +270,14 @@
     }
 }
 
+-(void)reloadTableWithFadeTransition
+{
+    [UIView transitionWithView:self.tableView duration:0.3f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        [self.tableView reloadData];
+    } completion:^(BOOL finished) {
+    }];
+}
+
 -(void)scrollToTop:(BOOL)animated
 {
     [self.tableView setContentOffset:CGPointZero animated:animated];
@@ -804,8 +812,9 @@
     
     //Collapsing
     if(s.canCollapse) {
+        __weak __typeof(self)weakSelf = self;
         [s setCollapseTapped:^{
-            [self collapseSection:section collapsed:s.collapsed];
+            [weakSelf collapseSection:(int)section collapsed:s.collapsed];
         }];
     }
     
