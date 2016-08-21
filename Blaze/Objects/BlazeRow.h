@@ -48,6 +48,7 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 -(instancetype)initWithID:(int)ID rowType:(BlazeRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder xibName:(NSString *)xibName;
 
 //Constructors with XibName
++(instancetype)rowWithXibName:(NSString *)xibName;
 -(instancetype)initWithXibName:(NSString *)xibName;
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title;
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title segueIdentifier:(NSString *)segueIdentifier;

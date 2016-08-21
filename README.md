@@ -10,7 +10,8 @@ __When should you use Blaze?__
 - When you're sick of writing the same boilerplate code over and over
 
 There have been multiple versions of Blaze but the final version is so awesome that I (and everyone at the company I work) use Blaze for every screen in very App and we can't imagine not using Blaze anymore. Interested in reading the long version of how and why I created Blaze and how it came to this final version? 
-Read the blogpost here! (LINK) (STILL WRITING IT AT THE MOMENT.. COMING SOON!)
+Read the blogpost here!  
+(LINK) (STILL WRITING IT AT THE MOMENT.. COMING SOON!)
 
 Extremely short version:
 - The new iPhone6 and 6+ sized caused a design change to iPhone6.
@@ -33,7 +34,7 @@ pod 'Blaze'
 ### Then what?
 
 You use Blaze by creating a subclass of __BlazeTableViewController__. The fundamentals of Blaze are based on the idea that you can create multiple XIB's that point to the same code. (Yes that's possible and awesome :)
-Since I create Apps that have many input fields I created many base-cells that you can point your XIB-file to. Like I said above, I set it up like this so you can have any crazy design you want but you still don't need to edit any code. So you can just create XIB-files and mess with auto-layout, which is fun to do right?
+I sometimes need to create Apps with a lot of input fields so I've created many base-cells that you can point your XIB-file to. Like I said above, I set it up like this so you can have any crazy design you want but you still don't need to edit any code. So you can just create XIB-files and mess with auto-layout, which is fun to do right?
 So I created base-code cells for:
 - UITextField input
 - UITextView input (yes with automatically increasing rowheight when typing a lot)
@@ -52,8 +53,8 @@ All these input-cells above have awesome completion blocks and you don't need to
 I also found out that I often had cells that simply had an image and nothing else. So I created a base-cell called __BlazeTableViewCell__ (which all the input cells subclass) that has many outlets that you can choose to connect. It currently supports:
 - 3 UILabels (supports both normal and attributed text)
 - 3 UIImageViews (supports UIImage, NSData and NSURL - for the URL it uses the awesome UIImageview category from AFNetworking)
-- 3 UIViews
-- 3 UIButtons
+- 3 UIViews (supports UIColor)
+- 3 UIButtons (with completion blocks of course)
 Should cover most cells right? And in case it doesn't, I've created an awesome addition that returns your UITableViewCell in a completion block so you can customize it (read on to see some code for this :)
 
 # How to actually use it?
@@ -69,17 +70,33 @@ BlazeRow *row = [[BlazeRow alloc] initWithXibName:xibName title:@"Title"];
 [section addRow:row];
 ```
 
-And there it is, you just created a whole screen with a section header and one cell in it. That's all the code that you need to some easy cells. Of course there are tons of additional options for __BlazeSection__ and __BlazeRow__. The sections can have header/footer titles and xibnames and the rows have many options for all the possible celltypes, so for textfields you can set keyboardType, capitalizationType, etc. Here are some more examples (but definitely check out the example project as well!)
+And there it is, you just created a whole screen with a section header and one cell in it. That's all the code that you need for some easy cells. Of course there are tons of additional options for __BlazeSection__ and __BlazeRow__. The sections can have header/footer titles and xibnames and the rows have many options for all the possible celltypes, so for textfields you can set keyboardType, capitalizationType, etc. Here are some more examples (but definitely check out the example project as well!)
 
-### Cells without input
-For cells without input you should always create a XIB-file that points to the base __BlazeTableViewCell__. Then assign the labels/images correctly in interface builder and set up the row like this:
+### Static cells without input
+If you have cells that won't be reused all you need to do is create and design the XIB and point it to the __BlazeTableViewCell__ class. Then it's just 1 line of code:
 ```
-BlazeRow *row = [[BlazeRow alloc] initWithXibName:xibName];
+[section addRow:[BlazeRow rowWithXibName:xibName]];
+```
+
+### Reusable cells without input
+For reusablecells without input you should always create a XIB-file that points to the base __BlazeTableViewCell__. Then assign the labels/images correctly in interface builder and set up the row like this:
+```
+BlazeRow *row = [BlazeRow rowWithXibName:xibName];
 row.imageNameLeft = @"PictureImageFromBundle";
 row.title = @"Title for the cell";
 row.subtitle = @"Subtitle";
 row.imageURLRight = @"Url for the image on the right";
 [section addRow:row];
+```
+
+If you have actions for buttons or cell selection you can add easy completion blocks:
+```
+[row setButtonCenterTapped:^{
+//Button tapped!
+}];
+[row setCellTapped:^{
+//Cell tapped!
+}];
 ```
 
 ### Cells with input/values

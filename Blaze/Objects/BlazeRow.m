@@ -82,6 +82,11 @@
 
 #pragma mark Init with Xibname
 
++(instancetype)rowWithXibName:(NSString *)xibName
+{
+    return [[BlazeRow alloc] initWithXibName:xibName];
+}
+
 -(instancetype)initWithXibName:(NSString *)xibName
 {
     return [self initWithXibName:xibName title:nil];
