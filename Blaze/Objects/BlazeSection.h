@@ -47,4 +47,8 @@
 //Custom object
 @property(nonatomic,strong) id object;
 
+//Completion blocks
+@property(nonatomic,copy) void (^configureHeaderView)(UITableViewHeaderFooterView *headerFooterView);
+@property(nonatomic,copy) void (^configureFooterView)(UITableViewHeaderFooterView *headerFooterView);
+
 @end

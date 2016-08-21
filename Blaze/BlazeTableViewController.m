@@ -825,6 +825,11 @@
     //Set it
     headerView.section = s;
     
+    //Configure
+    if(s.configureHeaderView) {
+        s.configureHeaderView(headerView);
+    }
+    
     return headerView;
 }
 
@@ -849,7 +854,14 @@
     
     //Update
     footerView.sectionType = SectionFooter;
+    
+    //Set it
     footerView.section = s;
+    
+    //Configure
+    if(s.configureFooterView) {
+        s.configureFooterView(footerView);
+    }
     
     return footerView;
 }

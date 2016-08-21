@@ -48,6 +48,9 @@
     //Section
     section = [[BlazeSection alloc] initWithHeaderTitle:@"Custom headerview\nSelect different examples of Blaze below."];
     section.footerTitle = @"Custom footerview.\nCheck the code how these viewcontrollers are pushed in various ways.";
+    [section setConfigureHeaderView:^(UITableViewHeaderFooterView *headerView) {
+        
+    }];
     [self.tableArray addObject:section];
     
     //Rows with push using segue
