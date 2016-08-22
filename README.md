@@ -19,11 +19,11 @@ Extremely short version:
 - This caused the problem that 99% of their screens didn't fit on an iPhone4, thus creating the need to make almost every screen scrollable.
 - Autolayout using scrollviews in interface builder is *dramatic*. So I had to use either collectionviews or tableviews and then use autolayout within the cells.
 - UITableviewcells combined with UITableViewAutomaticDimension is awesome as long as you set your constraints right. In collectionviews unfortunately these automatic dimension calculations are still too buggy... So __UITableView__ it is!
-- I do not want to use frameworks that scroll content to avoid keyboard overlapping like TPKeyboardAvoiding or write my own versions because it's too fragile and they never work 100% correctly. So I can't use a custom UIViewController with a tableview in it. The UITableViewcontroller comes with it's own perfect-working version of scrolling content upwards so the keyboard never overlaps an inputfield. So UITableViewController it is!
-- __Conclusion__ - I started using UITableViewController for every screen! (Or containerviews for screens that have an always visible button somewhere)
-- This caused a great annoyance at the enormous amount of boilerplate code for every screen...
-- I experimented with 'Form frameworks' that can quickly create tableviews based on objects and such. The problem with most of these frameworks are that there are no options to have custom designs at all! It used mainly code to purely change the font or something. But I have to create Apps with such difference in designs I needed the highest flexibility available. Next to that these frameworks were often not compatible with dynamic cells. For example, I needed functionality that when you flip a UISwitch in one cell, another cell was dynamically added/removed. 
-- Conclusion - I created Blaze and added tons of crazy fast features - see the next section below!
+- I do not want to use frameworks that scroll content to avoid keyboard overlapping like TPKeyboardAvoiding or write my own versions because it's too fragile and they never work 100% correctly. So I can't use a custom UIViewController with a tableview in it. The UITableViewcontroller comes with it's own perfect-working version of scrolling content upwards so the keyboard never overlaps an inputfield. So __UITableViewController__ it is!
+- So I started using UITableViewController for every screen! (Or containerviews for screens that have an always visible button somewhere)
+- Consequently, I was annoyed at the enormous amount of boilerplate code for every screen...
+- I checked out the available 'Form frameworks' that can quickly create tableviewcontrollers based on objects and such. The problem with most of these frameworks are that there are no options to have custom designs at all in interface builder. Often the only thing you could was change a label's font using code. But I have to create Apps with such difference in designs I needed the highest flexibility available. Next to that these frameworks were often not compatible with dynamic cells. For example, I needed functionality that when you flip a UISwitch in one cell, another cell was dynamically added/removed. 
+- Conclusion - I had to create my own framework! So I've created Blaze, added tons of crazy fast features and I can't imagine my life without it :)
 
 ## Basic Features
 
@@ -35,7 +35,7 @@ pod 'Blaze'
 ### Then what?
 
 You use Blaze by creating a subclass of __BlazeTableViewController__. The fundamentals of Blaze are based on the idea that you can create multiple XIB's that point to the same code. (Yes that's possible and awesome :)
-I sometimes need to create Apps with a lot of input fields so I've created many base-cells that you can point your XIB-file to. Like I said above, I set it up like this so you can have any crazy design you want but you still don't need to edit any code. So you can just create XIB-files and mess with auto-layout, which is fun to do right?
+I sometimes need to create Apps with a lot of input fields so I've created several base input-cells that you can point your XIB-file to. Like I said above, I set it up like this so you can have any crazy design you want but you still don't need to edit any code. So you can just create XIB-files and mess with auto-layout, which is fun to do right?
 So I created base-code cells for:
 - UITextField input
 - UITextView input (yes with automatically increasing rowheight when typing a lot)
@@ -44,19 +44,19 @@ So I created base-code cells for:
 - UIDate input (within the keyboard using inputView)
 - UIPickerview input (within the keyboard using inputView)
 - UISegmentedControl input
-- Checkbox input (kind of a checkmark cell)
-- Two options input (for example to choose gender - male/female)
+- Checkmark input
+- Two options input (e.g. to choose gender - male/female)
 - Etc. the list is growing as I type :)
 
 One of the coolest things of Blaze is that it automatically knows which code to use for the cells based on the Xibnames. This is because XIB's can point to any code file you want, the name of the XIB does not have to be the same as the name of the code file.
 All these input-cells above have awesome completion blocks and you don't need to write any code at all like UITextField delegate stuff. More on this further on.
 
-I also found out that I often had cells that simply had an image and nothing else. So I created a base-cell called __BlazeTableViewCell__ (which all the input cells subclass) that has many outlets that you can choose to connect. It currently supports:
+I also found out that I often had cells without any input. Simply a label or two and some imageviews, perhaps a button. So I created a base-cell called __BlazeTableViewCell__ (which all the input cells subclass) that has many outlets that you can choose to connect. It currently supports:
 - 3 UILabels (supports both normal and attributed text)
 - 3 UIImageViews (supports UIImage, NSData and NSURL - for the URL it uses the awesome UIImageview category from AFNetworking)
 - 3 UIViews (supports UIColor)
 - 3 UIButtons (with completion blocks of course)
-Should cover most cells right? And in case it doesn't, I've created an awesome addition that returns your UITableViewCell in a completion block so you can customize it (read on to see some code for this :)
+Should cover most cells right? You can simply connect the necessary IBOutlets in InterfaceBuilder and ignore the ones you won't use. As stated above, all input-cells are a subclass of this class so you'll always have all these outlets available! In case these outlets aren't sufficient for your ultra-custom cell, you can use an awesome completion block that returns your UITableViewCell so you can customize it (read on to see some code for this :)
 
 # How to actually use it?
 
@@ -120,7 +120,7 @@ BlazeRow *row = [[BlazeRow alloc] initWithXibName:xibName];
 }];
 ```
 
-If you create the custom cell in code don't forget to make it a subclass of __BlazeTableViewCell__!
+If you create custom cells don't forget to make your cell a subclass of __BlazeTableViewCell__!
 
 ### Custom section headers or footers
 The headers and footers actually behave in the same way as the cells. You can create any custom XIB and simply point to the base class __BlazeTableHeaderFooterView__. Then when creating the section in code you can set the headerTitle, footerTitle, headerXibname and footerXibname. Also, if you have a very custom section header that needs customization you it can also be returned in the same way as a custom cell:
@@ -131,40 +131,54 @@ BlazeSection *section = [[BlazeSection alloc] initWithHeaderXibname:xibName];
 }];
 ```
 
-## Awesome Features
+# Awesome Features
 
 After creating this framework I started to use it in every App. Of course after a while I found certain returning features. Obviously I had to add all these awesome features within the framework itself! This way even more boilerplate code is eliminated :)
 
+### Registering headers & cells automatically
+Normally you have to register each custom header & cell you use with the following line:
+```
+[self.tableView registerNib:[UINib nibWithNibName:xibName bundle:nil] forCellReuseIdentifier:xibName];
+```
+
+But this is not necessary anymore! Blaze automatically detects which cells & headers you user and registers them for you! Another great time-saver! :)
+
 ### Dynamic adding/removing cells
-I want my tableviews as flexible as I can so I've created many functions to quickly add/remove a cell using an animation. Instead of using indexes it's more readable when you assign ID's to rows and use these for adding/removing cells:
+I want my tableviews as flexible as possible so I've created many functions to quickly add/remove a cell using an animation. Instead of using indexes it's more readable when you assign ID's to rows and use these to add/remove cells dynamically:
 ```
 [self addRow:row afterRowID:RowID withRowAnimation:UITableViewRowAnimationLeft];
 [self removeRowWithID:RowID withRowAnimation:UITableViewRowAnimationRight];
 ```
 
 ### Automatic value setters (great when using CoreData)
-For the input cells I used to use the completion block to use the returning value to set the value of a coredata object. Then I thought, if I simply give the object and the property name to the row, it can update the object itself and this eliminates another couple of lines of code! You don't have to provide the current value (because it retrieves it from the given object & property-name) and you can remove the completion block. Only 1 line left!
+For the input cells I started with the completion block to use the returning value to set the value of a coredata object as explained above in the basic features. But wouldn't it be easier if I simply provided the object and the property name to the row? It can then update the object automatically without any additional code! You don't have to provide the current value (because it retrieves it from the given object & property-name) and you can remove the completion block. Only 1 line left!
 ```
-[row setAffectedObject:object affectedPropertyName:@selector(name)];
+[row setAffectedObject:object affectedPropertyName:propertyName)];
 ```
 
+You might not want to write the property-name hardcoded in case it changes. That's why Blaze comes with a category on NSObject that you can use like this:
+```
+[row setAffectedObject:object affectedPropertyName:[object stringForPropertyName:@selector(name)]];
+```
+This way the compiler will warn you if it doesn't recognize the property name!
+
 ### Automatic next/previous arrows for inputfields
-Blaze supports many inputfields that always use the keyboard. I believe this is the most user-friendly option. So whether it's text, a date or a pickerview, you quickly select your option in the keyboard. Blaze automatically adds a InputAccessoryView to any BlazeRow input-field type and a user can use these arrows to quickly switch between fields, whether these fields are in different sections or different types (date, pickerview, etc).
+Blaze supports many inputfields that always use the keyboard because I believe this is the most user-friendly way. So whether it's text, a date or a pickerview, the user can keep focusing on the keyboard. Blaze automatically adds a InputAccessoryView to any BlazeRow input-field type with next/previous arrows on the left side and a 'Done'-button on the right side. Users can use these arrows to quickly switch between fields, whether these fields are in different sections or different types (date, pickerview, etc).
 
 !EXAMPLE IMAGE FROM URL COMING SOON!
 
 ### Draggable zoom header view
-Everyone has seen those headerviews that zoom in when you drag them down. It's a very cool effect and not that difficult to set it up. It's a couple of lines though and becomes boilerplate code when used a lot. So in Blaze you can set it with 1 line of code! :)
+Everyone has seen those headerviews that zoom in when you drag them down. It's a very cool effect and not that difficult to set it up. It's a couple of lines though and becomes boilerplate code when used a lot. So in Blaze you can set it with 1 line of code! :)  
 Simply create the XIB, set your constraints right and use this line of code:
 ```
 self.zoomTableHeaderView = [[NSBundle mainBundle] loadNibNamed:@"ZoomHeaderView" owner:nil options:nil].firstObject;
 ```
 
 ### Empty state
-Probably everyone knows the awesome DZNEmptyDataSet cocoapod to easily implement empty states for your tableview. Well don't worry about integrating it yourself, Blaze already covered you there! So you now easily set the images, backgroundcolor, title etc. as properties on your subclass of _BlazeTableViewController_.
+You might know the awesome DZNEmptyDataSet cocoapod to easily implement empty states for your tableview. Well don't worry about implementing it yourself, Blaze already covered you there! So you now easily set the images, backgroundcolor, title etc. as properties on your subclass of _BlazeTableViewController_.
 
 ### Dynamic row height options
-The whole idea of Blaze is to use UITableViewCells and set your constraints right so the tableview calculates the correct height automatically. 
+The whole idea of Blaze is to use UITableViewCells and set your constraints right so the tableview calculates the correct height automatically using the UITableViewAutomaticDimension. 
 However, if you need specific rowheights there are 3 options:
 ```
 row.rowHeight = 30; //30 pixels high
@@ -178,3 +192,6 @@ To remain blazingly fast __Blaze__ offers tons of quick setters that you can dis
 
 ## Any awesome ideas to improve Blaze?
 Let me know, send pull requests, whatever you like! I use Blaze myself for every screen in every App I make and I can't see myself not using it ever again. So I'll keep updating it as much as I can to make it more awesome!
+
+## Credits for frameworks used
+DNZEmptyDataSet - Pull requests are not being accepted so I've implemented the files instead of a subspec. Might change this in the future.

@@ -44,6 +44,10 @@
 //The previous/next textfield does not work when using indexPaths, these are not correctly reset when not calling reloadData. Therefore this boolean is set to TRUE when adding/removing rows dynamically so that when a user requests the next/previous textfield, rowID's are used instead of indexpaths!
 @property(nonatomic) bool dynamicRows;
 
+//Contains names of current registered cells
+@property(nonatomic,strong) NSMutableArray *registeredCells;
+@property(nonatomic,strong) NSMutableArray *registeredHeaders;
+
 @end
 
 @implementation BlazeTableViewController
@@ -56,8 +60,8 @@
     self.tableArray = [NSMutableArray new];
     
     //Register cells & Headers
-    [self registerDefaultCells];
-    [self registerDefaultHeader];
+    self.registeredCells = [NSMutableArray new];
+    self.registeredHeaders = [NSMutableArray new];
     
     //Automatic rowHeight, estimates are necessary and do not really matter :)
     self.tableView.estimatedRowHeight = 60.0;
@@ -98,13 +102,30 @@
 
 -(void)registerCustomCell:(NSString *)xibName
 {
+    //Check if registered already
+    if([self.registeredCells containsObject:xibName]) {
+        return;
+    }
+    
+    //Register cell
     [self.tableView registerNib:[UINib nibWithNibName:xibName bundle:nil] forCellReuseIdentifier:xibName];
+    
+    //Save
+    [self.registeredCells addObject:xibName];
 }
 
 -(void)registerCustomHeader:(NSString *)xibName
 {
+    //Check if registered already
+    if([self.registeredHeaders containsObject:xibName]) {
+        return;
+    }
+    
     //Register header
     [self.tableView registerNib:[UINib nibWithNibName:xibName bundle:nil] forHeaderFooterViewReuseIdentifier:xibName];
+    
+    //Save
+    [self.registeredHeaders addObject:xibName];
 }
 
 -(void)registerCustomHeaders:(NSArray *)headerNames
@@ -121,35 +142,7 @@
     }
 }
 
-#pragma mark - Register defaults
-
--(void)registerDefaultCells
-{
-    NSArray *defaultCellNames = [self defaultCellsToRegister];
-    for(NSString *xibName in defaultCellNames) {
-        [self.tableView registerNib:[UINib nibWithNibName:xibName bundle:[NSBundle bundleForClass:NSClassFromString(xibName)]] forCellReuseIdentifier:xibName];
-    }
-}
-
--(void)registerDefaultHeader
-{
-    //Register header
-    [self.tableView registerNib:[UINib nibWithNibName:kBlazeTableHeaderFooterView bundle:[NSBundle bundleForClass:NSClassFromString(kBlazeTableHeaderFooterView)]] forHeaderFooterViewReuseIdentifier:kBlazeTableHeaderFooterView];
-}
-
--(NSArray *)defaultCellsToRegister
-{
-    return @[BlazeXIBSliderCell,
-             BlazeXIBTilesCell,
-             BlazeXIBTextViewCell,
-             BlazeXIBDateCell,
-             BlazeXIBCheckboxCell,
-             BlazeXIBSegmentedControlCell,
-             BlazeXIBSwitchCell,
-             BlazeXIBTextFieldCell,
-             BlazeXIBPickerViewCell,
-             BlazeXIBTwoChoicesCell];
-}
+#pragma mark - Default XIBs for BlazeRowTypes
 
 -(NSString *)defaultXIBForEnum:(BlazeRowType)rowType
 {
@@ -886,7 +879,6 @@
     }
     
     BlazeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName forIndexPath:indexPath];
-    
     //You could choose to return the cell here and configure in willdisplay but I found out that the UITableViewAutomaticDimension does not work anymore when you do that... So I will configure the cell here...
     
     cell.row = row;
@@ -1008,7 +1000,40 @@
 
 -(void)emptyDataSetWillReload:(UIScrollView *)scrollView
 {
+    for(BlazeSection *s in self.tableArray) {
+        //Section header/footer
+        if(s.headerXibName.length) {
+            [self registerCustomHeader:s.headerXibName];
+        }
+        if(s.footerXibName.length) {
+            [self registerCustomHeader:s.footerXibName];
+        }
+        
+        //Section rows
+        if(s.rowsXibName.length) {
+            [self registerCustomCell:s.rowsXibName];
+        }
+        
+        //Rows
+        for(BlazeRow *r in s.rows) {
+            if(r.xibName.length) {
+                [self registerCustomCell:r.xibName];
+            }
+        }
+    }
     
+    //Self headers/cells
+    if(self.headerXibName.length) {
+        [self registerCustomHeader:self.headerXibName];
+    }
+    if(self.footerXibName.length) {
+        [self registerCustomHeader:self.footerXibName];
+    }
+    
+    //Self rows
+    if(self.rowsXibName.length) {
+        [self registerCustomCell:self.rowsXibName];
+    }
 }
 
 #pragma mark Dealloc

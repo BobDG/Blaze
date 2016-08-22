@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 #import "BlazeRow.h"
 #import "BlazeSection.h"
 #import "NSObject+PropertyName.h"
+#import "UIScrollView+EmptyDataSet.h"
 
 @interface BlazeTableViewController : UITableViewController
 {

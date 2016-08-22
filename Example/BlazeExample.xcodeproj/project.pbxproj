@@ -71,6 +71,7 @@
 		ED933E0B1D1728A100B8155F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED933E091D1728A100B8155F /* Main.storyboard */; };
 		ED933E0D1D1728A100B8155F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED933E0C1D1728A100B8155F /* Assets.xcassets */; };
 		ED933E101D1728A100B8155F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED933E0E1D1728A100B8155F /* LaunchScreen.storyboard */; };
+		EDB8CFF51D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB8CFF41D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m */; };
 		EDF0E7E41D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF0E7E21D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m */; };
 		EDF0E7E51D410E430036AEDA /* BlazeTwoChoicesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF0E7E31D410E430036AEDA /* BlazeTwoChoicesTableViewCell.xib */; };
 		EDF0E7E71D4111570036AEDA /* TwoChoicesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF0E7E61D4111570036AEDA /* TwoChoicesTableViewCell.xib */; };
@@ -176,6 +177,8 @@
 		ED933E0C1D1728A100B8155F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED933E0F1D1728A100B8155F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED933E111D1728A100B8155F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDB8CFF31D6AF32200F5D846 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		EDB8CFF41D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		EDF0E7E11D410E430036AEDA /* BlazeTwoChoicesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTwoChoicesTableViewCell.h; sourceTree = "<group>"; };
 		EDF0E7E21D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTwoChoicesTableViewCell.m; sourceTree = "<group>"; };
 		EDF0E7E31D410E430036AEDA /* BlazeTwoChoicesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlazeTwoChoicesTableViewCell.xib; sourceTree = "<group>"; };
@@ -296,6 +299,8 @@
 			children = (
 				ED02971E1D1729370039AA41 /* NSObject+PropertyName.h */,
 				ED02971F1D1729370039AA41 /* NSObject+PropertyName.m */,
+				EDB8CFF31D6AF32200F5D846 /* UIScrollView+EmptyDataSet.h */,
+				EDB8CFF41D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -463,12 +468,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED933E141D1728A100B8155F /* Build configuration list for PBXNativeTarget "BlazeExample" */;
 			buildPhases = (
-				D7BE52F67072EB1814534BBD /* 📦 Check Pods Manifest.lock */,
+				D7BE52F67072EB1814534BBD /* [CP] Check Pods Manifest.lock */,
 				ED933DF91D1728A000B8155F /* Sources */,
 				ED933DFA1D1728A000B8155F /* Frameworks */,
 				ED933DFB1D1728A000B8155F /* Resources */,
-				5A67A0752BD11611DA9D56FB /* 📦 Embed Pods Frameworks */,
-				A0B23A4B9D7100C5B5D12A92 /* 📦 Copy Pods Resources */,
+				5A67A0752BD11611DA9D56FB /* [CP] Embed Pods Frameworks */,
+				A0B23A4B9D7100C5B5D12A92 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -556,14 +561,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5A67A0752BD11611DA9D56FB /* 📦 Embed Pods Frameworks */ = {
+		5A67A0752BD11611DA9D56FB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -571,14 +576,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A0B23A4B9D7100C5B5D12A92 /* 📦 Copy Pods Resources */ = {
+		A0B23A4B9D7100C5B5D12A92 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,14 +591,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D7BE52F67072EB1814534BBD /* 📦 Check Pods Manifest.lock */ = {
+		D7BE52F67072EB1814534BBD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,6 +635,7 @@
 				ED02975E1D1729370039AA41 /* BlazeRow.m in Sources */,
 				ED0297621D1729370039AA41 /* BlazeDateTableViewCell.m in Sources */,
 				ED0297111D1729220039AA41 /* BaseTableViewController.m in Sources */,
+				EDB8CFF51D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m in Sources */,
 				ED933E021D1728A100B8155F /* main.m in Sources */,
 				ED0297661D1729370039AA41 /* BlazeSegmentedControlTableViewCell.m in Sources */,
 				ED02975A1D1729370039AA41 /* BlazeTileCollectionViewCell.m in Sources */,

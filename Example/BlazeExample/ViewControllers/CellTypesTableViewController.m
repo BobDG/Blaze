@@ -84,7 +84,10 @@
     
     //Button
     row = [[BlazeRow alloc] initWithXibName:kButtonTableViewCell rowType:BlazeRowBasic];
-    row.buttonCenterTitle = @"Title can be attributed";
+    NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:@"Title can be attributed"];
+    [attributedTitle addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, attributedTitle.string.length)];
+    [attributedTitle addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:17.0f weight:UIFontWeightBold] range:NSMakeRange(6, 3)];
+    row.buttonCenterAttributedTitle = attributedTitle;
     [row setButtonCenterTapped:^{
         showM1(@"Button tapped!");
     }];

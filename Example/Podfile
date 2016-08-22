@@ -5,7 +5,6 @@ inhibit_all_warnings!
 target 'BlazeExample' do
     pod 'BDGViews'
     pod 'BDGMacros'
-    pod 'AFNetworking'
-    pod 'DZNEmptyDataSet'
+    pod 'AFNetworking'    
     pod 'JVFloatLabeledTextField'
 end

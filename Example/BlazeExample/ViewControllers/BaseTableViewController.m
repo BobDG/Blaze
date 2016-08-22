@@ -22,7 +22,7 @@
     self.emptyBackgroundColor = [UIColor whiteColor];
     
     //Custom cells
-    [self registerCustomCells:@[
+    /*[self registerCustomCells:@[
                                 kTextTableViewCell,
                                 kImageTableViewCell,
                                 kButtonTableViewCell,
@@ -38,10 +38,11 @@
                                 kFloatTextFieldTableViewCell,
                                 kSegmentedControlTableViewCell,
                                 ]];
+     */
     
     //Custom header/footer
-    [self registerCustomHeader:kTableHeaderView];
-    [self registerCustomHeader:kTableFooterView];
+    //[self registerCustomHeader:kTableHeaderView];
+    //[self registerCustomHeader:kTableFooterView];
 }
 
 @end
