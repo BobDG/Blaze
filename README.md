@@ -165,7 +165,7 @@ This way the compiler will warn you if it doesn't recognize the property name!
 ### Automatic next/previous arrows for inputfields
 Blaze supports many inputfields that always use the keyboard because I believe this is the most user-friendly way. So whether it's text, a date or a pickerview, the user can keep focusing on the keyboard. Blaze automatically adds a InputAccessoryView to any BlazeRow input-field type with next/previous arrows on the left side and a 'Done'-button on the right side. Users can use these arrows to quickly switch between fields, whether these fields are in different sections or different types (date, pickerview, etc).
 
-!EXAMPLE IMAGE FROM URL COMING SOON!
+![](https://raw.githubusercontent.com/BobDG/Blaze/master/Assets/NextPrevious.gif)
 
 ### Draggable zoom header view
 Everyone has seen those headerviews that zoom in when you drag them down. It's a very cool effect and not that difficult to set it up. It's a couple of lines though and becomes boilerplate code when used a lot. So in Blaze you can set it with 1 line of code! :)  
@@ -173,6 +173,8 @@ Simply create the XIB, set your constraints right and use this line of code:
 ```
 self.zoomTableHeaderView = [[NSBundle mainBundle] loadNibNamed:@"ZoomHeaderView" owner:nil options:nil].firstObject;
 ```
+
+![](https://raw.githubusercontent.com/BobDG/Blaze/master/Assets/DragZoomHeader.gif)
 
 ### Empty state
 You might know the awesome DZNEmptyDataSet cocoapod to easily implement empty states for your tableview. Well don't worry about implementing it yourself, Blaze already covered you there! So you now easily set the images, backgroundcolor, title etc. as properties on your subclass of _BlazeTableViewController_.
