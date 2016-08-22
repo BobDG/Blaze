@@ -150,6 +150,8 @@ I want my tableviews as flexible as possible so I've created many functions to q
 [self removeRowWithID:RowID withRowAnimation:UITableViewRowAnimationRight];
 ```
 
+![](https://raw.githubusercontent.com/BobDG/Blaze/master/Assets/DynamicRows.gif)
+
 ### Automatic value setters (great when using CoreData)
 For the input cells I started with the completion block to use the returning value to set the value of a coredata object as explained above in the basic features. But wouldn't it be easier if I simply provided the object and the property name to the row? It can then update the object automatically without any additional code! You don't have to provide the current value (because it retrieves it from the given object & property-name) and you can remove the completion block. Only 1 line left!
 ```
