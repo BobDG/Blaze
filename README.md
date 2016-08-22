@@ -1,7 +1,8 @@
 Blaze
 ========
 
-With Blaze I develop Apps 70% faster than normal. Blaze is not a small framework for one task, it's a big framework created to develop Apps at lightning speed.  
+With Blaze I develop Apps 70% faster than normal. Blaze is not a small framework for one task, it's a big framework created to develop Apps at lightning speed. 
+
 __When should you use Blaze?__
 - When you're getting annoyed with designers not taking the smaller devices into account, thus creating the need that every screen needs to be scrollable
 - When you love auto-layout (not in code) and want to use it as much as you can
@@ -9,15 +10,15 @@ __When should you use Blaze?__
 - When you have textfields and you're tired of making sure the keyboard does not overlap the textfield
 - When you're sick of writing the same boilerplate code over and over
 
-There have been multiple versions of Blaze but the final version is so awesome that I (and everyone at the company I work) use Blaze for every screen in very App and we can't imagine not using Blaze anymore. Interested in reading the long version of how and why I created Blaze and how it came to this final version? 
-Read the blogpost here!  
+There have been multiple versions of Blaze but the final version is so awesome that I (and everyone at the company I work) use Blaze for every screen in very App and we can't imagine not using Blaze anymore. Interested in reading the long version of how and why I created Blaze and how it came to this final version?  
+Read the blogpost here:
 (LINK) (STILL WRITING IT AT THE MOMENT.. COMING SOON!)
 
 Extremely short version:
-- The new iPhone6 and 6+ sized caused a design change to iPhone6.
-- This caused the problem that 99% didn't fit on an iPhone4, thus creating the need to make every screen scrollable.
-- I want to use autolayout but using scrollviews in autolayout is *dramatic*. So I had to use either collectionviews or tableviews and then use autolayout within the cells.
-- UITableviewcells combined with UITableViewAutomaticDimension is awesome as long as you set your constraints right. In collectionviews unfortunately these automatic dimension calculations are still too buggy... So UITableView it is!
+- The new iPhone6 and 6+ sized caused a design change. Designers started designing using the iPhone6 as the base resolution.
+- This caused the problem that 99% of their screens didn't fit on an iPhone4, thus creating the need to make almost every screen scrollable.
+- Autolayout using scrollviews in interface builder is *dramatic*. So I had to use either collectionviews or tableviews and then use autolayout within the cells.
+- UITableviewcells combined with UITableViewAutomaticDimension is awesome as long as you set your constraints right. In collectionviews unfortunately these automatic dimension calculations are still too buggy... So __UITableView__ it is!
 - I do not want to use frameworks that scroll content to avoid keyboard overlapping like TPKeyboardAvoiding or write my own versions because it's too fragile and they never work 100% correctly. So I can't use a custom UIViewController with a tableview in it. The UITableViewcontroller comes with it's own perfect-working version of scrolling content upwards so the keyboard never overlaps an inputfield. So UITableViewController it is!
 - __Conclusion__ - I started using UITableViewController for every screen! (Or containerviews for screens that have an always visible button somewhere)
 - This caused a great annoyance at the enormous amount of boilerplate code for every screen...
