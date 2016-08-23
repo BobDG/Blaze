@@ -25,6 +25,9 @@ Extremely short version:
 - I checked out the available 'Form frameworks' that can quickly create tableviewcontrollers based on objects and such. The problem with most of these frameworks are that there are no options to have custom designs at all in interface builder. Often the only thing you could was change a label's font using code. But I have to create Apps with such difference in designs I needed the highest flexibility available. Next to that these frameworks were often not compatible with dynamic cells. For example, I needed functionality that when you flip a UISwitch in one cell, another cell was dynamically added/removed. 
 - Conclusion - I had to create my own framework! So I've created Blaze, added tons of crazy fast features and I can't imagine my life without it :)
 
+__Note on documentation__  
+Since I've been focusing on developing the documentation is somewhat behind. I'll definitely keep improving this in the following weeks!
+
 ## Basic Features
 
 ### First install it using CocoaPods
@@ -164,6 +167,9 @@ You might not want to write the property-name hardcoded in case it changes. That
 ```
 This way the compiler will warn you if it doesn't recognize the property name!
 
+### Dates & Pickerviews
+I wanted to take as many types of input into account so I’ve created datepicker and pickerview-cells as well. They’re both implemented as an inputview for a UITextField. This way users can keep focusing on the keyboard and quickly provide their input. This is especially nice when you have multiple cells with multiple different inputs.
+
 ### Automatic next/previous arrows for inputfields
 Blaze supports many inputfields that always use the keyboard because I believe this is the most user-friendly way. So whether it's text, a date or a pickerview, the user can keep focusing on the keyboard. Blaze automatically adds a InputAccessoryView to any BlazeRow input-field type with next/previous arrows on the left side and a 'Done'-button on the right side. Users can use these arrows to quickly switch between fields, whether these fields are in different sections or different types (date, pickerview, etc).
 
@@ -189,6 +195,9 @@ row.rowHeight = 30; //30 pixels high
 row.rowHeightRatio = 0.3f; //30% of the total tableview's height
 row.rowHeightDynamic = TRUE; //Calculates all other rowheights first and sets the remaining space to this row
 ```
+
+### Pull to refresh
+Of course Blaze supports the UIRefreshControl. Activate it with 1 line and use the completion block to know when the user wants to refresh!
 
 ### Many quick setters
 To remain blazingly fast __Blaze__ offers tons of quick setters that you can discover by checking out the source files. For example, if you use the same XIB-file for each row in a section you can simply set the __rowsXibname__  property of _BlazeSection_. Much better than typing the same line of code for each BlazeRow. And if you use the same xibName for the whole screen simply set the __rowsXibName__ of your _BlazeTableViewController_ subclass.
