@@ -10,9 +10,8 @@ __When should you use Blaze?__
 - When you have textfields and you're tired of making sure the keyboard does not overlap the textfield
 - When you're sick of writing the same boilerplate code over and over
 
-There have been multiple versions of Blaze but the final version is so awesome that I (and everyone at the company I work) use Blaze for every screen in very App and we can't imagine not using Blaze anymore. Interested in reading the long version of how and why I created Blaze and how it came to this final version?  
-Read the blogpost here:
-(LINK) (STILL WRITING IT AT THE MOMENT.. COMING SOON!)
+There have been multiple versions of Blaze but the final version is so awesome that I (and everyone at the company I work) use Blaze for every screen in very App and we can't imagine not using Blaze anymore. Interested in reading the long version of how and why I created Blaze and how it came to this final version? 
+[Click here to read my blog about Blaze!](https://medium.com/@graafict/blaze-fast-flexible-and-awesome-3a7a73374de7#.20gp2rll3)
 
 Extremely short version:
 - The new iPhone6 and 6+ sized caused a design change. Designers started designing using the iPhone6 as the base resolution.
