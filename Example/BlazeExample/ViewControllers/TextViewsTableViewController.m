@@ -39,7 +39,7 @@
     [self addSection:section];
     
     //Textview 1
-    row = [[BlazeRow alloc] initWithXibName:kTextViewTableViewCell rowType:BlazeRowTextView title:@"Textview below"];
+    row = [[BlazeRow alloc] initWithXibName:kTextViewTableViewCell title:@"Textview below"];
     row.placeholder = @"Textview 1";
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textViewValue1)]];
     [section addRow:row];
@@ -49,7 +49,7 @@
     [self addSection:section];
     
     //Textview 2
-    row = [[BlazeRow alloc] initWithXibName:kTextViewTableViewCell rowType:BlazeRowTextView title:@"Textview below"];
+    row = [[BlazeRow alloc] initWithXibName:kTextViewTableViewCell title:@"Textview below"];
     row.placeholder = @"Placeholder awesomeness";
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textViewValue2)]];
     [section addRow:row];

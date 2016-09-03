@@ -48,7 +48,7 @@
     [self addSection:section];
     
     //Textfield
-    row = [[BlazeRow alloc] initWithXibName:kFloatTextFieldTableViewCell rowType:BlazeRowTextField];
+    row = [[BlazeRow alloc] initWithXibName:kFloatTextFieldTableViewCell];
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textfieldValue)]];
     row.placeholder = @"Float title placeholder";
     [row setValueChanged:^{
@@ -61,7 +61,7 @@
     [self addSection:section];
     
     //Date
-    row = [[BlazeRow alloc] initWithXibName:kDateFieldTableViewCell rowType:BlazeRowDate title:@"Datefield"];
+    row = [[BlazeRow alloc] initWithXibName:kDateFieldTableViewCell title:@"Datefield"];
     row.placeholder = @"Date placeholder";
     row.dateMinuteInterval = 5;
     row.datePickerMode = UIDatePickerModeDateAndTime;
@@ -72,7 +72,7 @@
     [section addRow:row];
     
     //Picker
-    row = [[BlazeRow alloc] initWithXibName:kPickerFieldTableViewCell rowType:BlazeRowPicker title:@"Pickerfield"];
+    row = [[BlazeRow alloc] initWithXibName:kPickerFieldTableViewCell title:@"Pickerfield"];
     row.placeholder = NSLocalizedString(@"Picker placeholder", @"");
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(pickerValue)]];
     row.selectorOptions = @[@"Automatic next/previous", @"buttons always work", @"Doesn't matter if you", @"use textfields", @"or datepickers", @"or pickerviews", @"or multiple sections"];
@@ -83,7 +83,7 @@
     [self addSection:section];
     
     //Button
-    row = [[BlazeRow alloc] initWithXibName:kButtonTableViewCell rowType:BlazeRowBasic];
+    row = [[BlazeRow alloc] initWithXibName:kButtonTableViewCell];
     NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:@"Title can be attributed"];
     [attributedTitle addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, attributedTitle.string.length)];
     [attributedTitle addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:17.0f weight:UIFontWeightBold] range:NSMakeRange(6, 3)];
@@ -99,7 +99,7 @@
     
     //Slider
     self.sliderValue = @(7);
-    row = [[BlazeRow alloc] initWithXibName:kSliderTableViewCell rowType:BlazeRowSlider];
+    row = [[BlazeRow alloc] initWithXibName:kSliderTableViewCell];
     row.sliderMin = 0;
     row.sliderMax = 17;
     row.sliderLeftText = @"Min";
@@ -116,7 +116,7 @@
     [self addSection:section];
     
     //Switch
-    row = [[BlazeRow alloc] initWithXibName:kSwitchTableViewCell rowType:BlazeRowSwitch title:@"Switcheroo"];
+    row = [[BlazeRow alloc] initWithXibName:kSwitchTableViewCell title:@"Switcheroo"];
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(switchValue)]];
     [row setValueChanged:^{
         DLog(@"Switch changed: %@", [self.switchValue boolValue] ? @"ON" : @"OFF");
@@ -124,7 +124,7 @@
     [section addRow:row];
     
     //Checkbox
-    row = [[BlazeRow alloc] initWithXibName:kCheckboxTableViewCell rowType:BlazeRowCheckbox title:@"Checkycheck"];
+    row = [[BlazeRow alloc] initWithXibName:kCheckboxTableViewCell title:@"Checkycheck"];
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(checkBoxValue)]];
     row.checkboxImageActive = @"Checkbox_Active";
     row.checkboxImageInactive = @"Checkbox_Inactive";
@@ -135,7 +135,7 @@
     
     //Two choices
     self.twoChoicesValue = @(2);
-    row = [[BlazeRow alloc] initWithXibName:kTwoChoicesTableViewCell rowType:BlazeRowCheckbox title:@"Two choices"];
+    row = [[BlazeRow alloc] initWithXibName:kTwoChoicesTableViewCell title:@"Two choices"];
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(twoChoicesValue)]];
     row.checkboxImageActive = @"Checkbox_Active";
     row.checkboxImageInactive = @"Checkbox_Inactive";
@@ -149,7 +149,7 @@
     [self addSection:section];
     
     //SegmentedControl
-    row = [[BlazeRow alloc] initWithXibName:kSegmentedControlTableViewCell rowType:BlazeRowSegmentedControl title:@"Segmented control"];
+    row = [[BlazeRow alloc] initWithXibName:kSegmentedControlTableViewCell title:@"Segmented control"];
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(segmentedControlValue)]];
     row.selectorOptions = @[@"This control", @"Is dynamically", @"Filled"];
     [row setValueChanged:^{

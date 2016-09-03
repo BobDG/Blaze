@@ -47,7 +47,7 @@ typedef NS_ENUM(NSInteger, RowID) {
     [self addSection:section];
     
     //Switch
-    row = [[BlazeRow alloc] initWithXibName:kSwitchTableViewCell rowType:BlazeRowSwitch title:@"Show textfield row"];
+    row = [[BlazeRow alloc] initWithXibName:kSwitchTableViewCell title:@"Show textfield row"];
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(showRows)]];
     [row setValueChanged:^{
         [self updateRows];
@@ -56,7 +56,7 @@ typedef NS_ENUM(NSInteger, RowID) {
     row.ID = RowShowRows;
     
     //Textfield
-    row = [[BlazeRow alloc] initWithXibName:kFloatTextFieldTableViewCell rowType:BlazeRowTextField];
+    row = [[BlazeRow alloc] initWithXibName:kFloatTextFieldTableViewCell];
     row.placeholder = @"How many image fields?";
     row.keyboardType = UIKeyboardTypeNumberPad;
     __weak __typeof(BlazeRow *)weakRow = row;

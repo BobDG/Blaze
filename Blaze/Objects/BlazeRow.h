@@ -9,20 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, BlazeRowType) {
-    BlazeRowBasic,
-    BlazeRowSwitch,
-    BlazeRowDate,
-    BlazeRowTextField,
-    BlazeRowTextView,
-    BlazeRowSegmentedControl,
-    BlazeRowCheckbox,
-    BlazeRowTiles,
-    BlazeRowPicker,
-    BlazeRowSlider,
-    BlazeRowTwoChoices
-};
-
 typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
     InputAccessoryViewDefault,
     InputAccessoryViewCancelSave,
@@ -39,35 +25,29 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 //Constructors with ID
 -(instancetype)initWithID:(int)ID;
 -(instancetype)initWithID:(int)ID title:(NSString *)title;
--(instancetype)initWithID:(int)ID rowType:(BlazeRowType)rowType;
--(instancetype)initWithID:(int)ID rowType:(BlazeRowType)rowType xibName:(NSString *)xibName;
--(instancetype)initWithID:(int)ID rowType:(BlazeRowType)rowType title:(NSString *)title;
--(instancetype)initWithID:(int)ID rowType:(BlazeRowType)rowType title:(NSString *)title xibName:(NSString *)xibName;
--(instancetype)initWithID:(int)ID rowType:(BlazeRowType)rowType title:(NSString *)title placeholder:(NSString *)placeholder;
--(instancetype)initWithID:(int)ID rowType:(BlazeRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder;
--(instancetype)initWithID:(int)ID rowType:(BlazeRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder xibName:(NSString *)xibName;
+-(instancetype)initWithID:(int)ID xibName:(NSString *)xibName;
+-(instancetype)initWithID:(int)ID title:(NSString *)title xibName:(NSString *)xibName;
+-(instancetype)initWithID:(int)ID title:(NSString *)title placeholder:(NSString *)placeholder;
+-(instancetype)initWithID:(int)ID title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder;
+-(instancetype)initWithID:(int)ID title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder xibName:(NSString *)xibName;
 
 //Constructors with XibName
 +(instancetype)rowWithXibName:(NSString *)xibName;
++(instancetype)rowWithXibName:(NSString *)xibName title:(NSString *)title;
 -(instancetype)initWithXibName:(NSString *)xibName;
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title;
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title segueIdentifier:(NSString *)segueIdentifier;
--(instancetype)initWithXibName:(NSString *)xibName rowType:(BlazeRowType)rowType;
--(instancetype)initWithXibName:(NSString *)xibName rowType:(BlazeRowType)rowType title:(NSString *)title;
--(instancetype)initWithXibName:(NSString *)xibName rowType:(BlazeRowType)rowType title:(NSString *)title placeholder:(NSString *)placeholder;
--(instancetype)initWithXibName:(NSString *)xibName rowType:(BlazeRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder;
--(id)initWithXibName:(NSString *)xibName rowType:(BlazeRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder segueIdentifier:(NSString *)segueIdentifier;
+-(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title placeholder:(NSString *)placeholder;
+-(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder;
+-(id)initWithXibName:(NSString *)xibName title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder segueIdentifier:(NSString *)segueIdentifier;
 
 //Constructors with Title
 -(instancetype)initWithTitle:(NSString *)title;
+-(instancetype)initWithtitle:(NSString *)title value:(id)value;
+-(instancetype)initWithtitle:(NSString *)title placeholder:(NSString *)placeholder;
 -(instancetype)initWithTitle:(NSString *)title segueIdentifier:(NSString *)segueIdentifier;
+-(instancetype)initWithtitle:(NSString *)title value:(id)value placeholder:(NSString *)placeholder segueIdentifier:(NSString *)segueIdentifier;
 
-//Constructors with RowType
--(instancetype)initWithRowType:(BlazeRowType)rowType;
--(instancetype)initWithRowType:(BlazeRowType)rowType title:(NSString *)title;
--(instancetype)initWithRowType:(BlazeRowType)rowType title:(NSString *)title value:(id)value;
--(instancetype)initWithRowType:(BlazeRowType)rowType title:(NSString *)title placeholder:(NSString *)placeholder;
--(instancetype)initWithRowType:(BlazeRowType)rowType title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder;
 
 //Methods
 -(void)updatedValue:(id)value;
@@ -91,8 +71,7 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic) bool rowHeightDynamic;
 @property(nonatomic) bool disableEditing;
 
-//Row Enums
-@property(nonatomic) BlazeRowType rowType;
+//InputAccessoryViewType
 @property(nonatomic) InputAccessoryViewType inputAccessoryViewType;
 
 //Row Reference types

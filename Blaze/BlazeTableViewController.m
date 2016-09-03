@@ -21,9 +21,6 @@
 //TableViewHeaders
 #import "BlazeTableHeaderFooterView.h"
 
-//Definition Header
-#define kBlazeTableHeaderFooterView   @"BlazeTableHeaderFooterView"
-
 //Definitions of basic XIB's
 #define BlazeXIBDateCell              @"BlazeDateTableViewCell"
 #define BlazeXIBTilesCell             @"BlazeTilesTableViewCell"
@@ -139,58 +136,6 @@
 {
     for(NSString *className in cellNames) {
         [self registerCustomCell:className];
-    }
-}
-
-#pragma mark - Default XIBs for BlazeRowTypes
-
--(NSString *)defaultXIBForEnum:(BlazeRowType)rowType
-{
-    switch (rowType) {
-        case BlazeRowBasic: {
-            return BlazeXIBTextFieldCell;
-            break;
-        }
-        case BlazeRowSwitch: {
-            return BlazeXIBSwitchCell;
-            break;
-        }
-        case BlazeRowDate: {
-            return BlazeXIBDateCell;
-            break;
-        }
-        case BlazeRowTextField: {
-            return BlazeXIBTextFieldCell;
-            break;
-        }
-        case BlazeRowTextView: {
-            return BlazeXIBTextViewCell;
-            break;
-        }
-        case BlazeRowSegmentedControl: {
-            return BlazeXIBSegmentedControlCell;
-            break;
-        }
-        case BlazeRowTiles: {
-            return BlazeXIBTilesCell;
-            break;
-        }
-        case BlazeRowCheckbox: {
-            return BlazeXIBCheckboxCell;
-            break;
-        }
-        case BlazeRowTwoChoices: {
-            return BlazeXIBTwoChoicesCell;
-            break;
-        }
-        case BlazeRowPicker: {
-            return BlazeXIBPickerViewCell;
-            break;
-        }
-        case BlazeRowSlider: {
-            return BlazeXIBSliderCell;
-            break;
-        }
     }
 }
 
@@ -799,9 +744,6 @@
     else if(self.headerXibName.length) {
         headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:self.headerXibName];
     }
-    else {
-        headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kBlazeTableHeaderFooterView];
-    }
     
     //Collapsing
     if(s.canCollapse) {
@@ -840,9 +782,6 @@
     else if(self.footerXibName.length) {
         footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:self.footerXibName];
     }
-    else {
-        footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kBlazeTableHeaderFooterView];
-    }
     footerView.titleLabel.text = s.footerTitle;
     
     //Update
@@ -873,9 +812,6 @@
     }
     else if(self.rowsXibName.length) {
         cellName = self.rowsXibName;
-    }
-    else {
-        cellName = [self defaultXIBForEnum:row.rowType];
     }
     
     BlazeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName forIndexPath:indexPath];

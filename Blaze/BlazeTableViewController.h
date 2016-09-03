@@ -40,9 +40,6 @@
 -(void)loadTableContent;
 @property(nonatomic) bool loadContentOnAppear;
 
-//Default XIB for rowtype
--(NSString *)defaultXIBForEnum:(BlazeRowType)rowType;
-
 //TableArray
 @property(nonatomic,strong) NSMutableArray *tableArray;
 
