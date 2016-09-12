@@ -396,7 +396,6 @@
 -(void)activateNextFieldFromIndexPath:(NSIndexPath *)indexPath
 {
     //Get next cell
-    NSLog(@"Get next cell from indexpath: %d, %d", (int)indexPath.section, (int)indexPath.row);
     BlazeTableViewCell *cell = [self nextCellFromIndexPath:indexPath];
     [self activateFirstResponderForCell:cell];
 }
@@ -415,7 +414,6 @@
 -(void)activatePreviousFieldFromIndexPath:(NSIndexPath *)indexPath
 {
     //Get next cell
-    NSLog(@"Get previous cell from indexpath: %d, %d", (int)indexPath.section, (int)indexPath.row);
     BlazeTableViewCell *cell = [self previousCellFromIndexPath:indexPath];
     [self activateFirstResponderForCell:cell];
 }
