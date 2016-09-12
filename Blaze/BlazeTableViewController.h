@@ -31,6 +31,9 @@
 @property(nonatomic,strong) UIColor *emptyBackgroundColor;
 @property(nonatomic,strong) NSDictionary *emptyTitleAttributes;
 
+//Separator Inset
+@property(nonatomic) bool noSeparatorInset;
+
 //Heights
 @property(nonatomic) float rowHeight;
 @property(nonatomic) float sectionHeaderHeight;

@@ -20,29 +20,6 @@
     
     //Empty state
     self.emptyBackgroundColor = [UIColor whiteColor];
-    
-    //Custom cells
-    /*[self registerCustomCells:@[
-                                kTextTableViewCell,
-                                kImageTableViewCell,
-                                kButtonTableViewCell,
-                                kSliderTableViewCell,
-                                kSwitchTableViewCell,
-                                kCheckboxTableViewCell,
-                                kTextViewTableViewCell,
-                                kDateFieldTableViewCell,
-                                kTextArrowTableViewCell,
-                                kEmptySpaceTableViewCell,
-                                kTwoChoicesTableViewCell,
-                                kPickerFieldTableViewCell,
-                                kFloatTextFieldTableViewCell,
-                                kSegmentedControlTableViewCell,
-                                ]];
-     */
-    
-    //Custom header/footer
-    //[self registerCustomHeader:kTableHeaderView];
-    //[self registerCustomHeader:kTableFooterView];
 }
 
 @end

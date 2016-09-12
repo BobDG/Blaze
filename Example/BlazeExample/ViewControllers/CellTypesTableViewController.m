@@ -43,7 +43,7 @@
     BlazeRow *row;
     BlazeSection *section;
     
-    //Textfield
+    //Textfield section
     section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Now an awesome float-label textfield - check automatic prev/next buttons."];
     [self addSection:section];
     
@@ -162,7 +162,7 @@
     [self addSection:section];
     
     //SegmentedControl
-    row = [[BlazeRow alloc] initWithXibName:kImageTableViewCell];
+    row = [BlazeRow rowWithXibName:kImageTableViewCell];
     row.imageNameCenter = @"Blaze_Logo";
     [section addRow:row];
     

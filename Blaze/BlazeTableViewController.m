@@ -817,7 +817,17 @@
     BlazeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName forIndexPath:indexPath];
     //You could choose to return the cell here and configure in willdisplay but I found out that the UITableViewAutomaticDimension does not work anymore when you do that... So I will configure the cell here...
     
+    //Update row object
     cell.row = row;
+    
+    //Separator inset
+    if(self.noSeparatorInset) {
+        cell.layoutMargins = UIEdgeInsetsZero;
+        cell.separatorInset = UIEdgeInsetsZero;
+        cell.preservesSuperviewLayoutMargins = FALSE;
+    }
+    
+    //Completion blocks
     [cell setHeightUpdated:^{
         CGPoint currentOffset = tableView.contentOffset;
         [UIView setAnimationsEnabled:FALSE];

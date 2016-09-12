@@ -65,9 +65,9 @@ typedef NS_ENUM(NSInteger, RowID) {
         DLog(@"Got new number of fields: %d", self.numberOfFields);
         [self updateRows];
     }];
-    [row setConfigureCell:^(UITableViewCell *cell) {
-        
-    }];
+    [row setConfigureCell:^(UITableViewCell *rowCell) {
+        //Cast and do stuff
+    }]; 
     row.ID = RowHowMany;
     self.howManyFieldsRow = row;
 }

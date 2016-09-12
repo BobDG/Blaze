@@ -68,8 +68,8 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic) int ID;
 @property(nonatomic) int rowHeight;
 @property(nonatomic) float rowHeightRatio;
-@property(nonatomic) bool rowHeightDynamic;
 @property(nonatomic) bool disableEditing;
+@property(nonatomic) bool rowHeightDynamic;
 
 //InputAccessoryViewType
 @property(nonatomic) InputAccessoryViewType inputAccessoryViewType;
