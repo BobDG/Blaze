@@ -16,7 +16,7 @@
 
 -(void)awakeFromNib
 {
-    // Initialization code
+    [super awakeFromNib];
 }
 
 #pragma mark - Selected
@@ -126,6 +126,9 @@
     else if(text.length) {
         label.text = text;
     }
+    else {
+        label.text = @"";
+    }
     
     //Color
     if(color) {
@@ -140,6 +143,9 @@
     }
     else if(text.length) {
         [button setTitle:text forState:UIControlStateNormal];
+    }
+    else {
+        [button setTitle:@"" forState:UIControlStateNormal];
     }
  
     //TitleColor
@@ -163,7 +169,8 @@
     }
     else if(imageName.length) {
         imageView.image = [UIImage imageNamed:imageName];
-    } else {
+    }
+    else {
         imageView.image = nil;
     }
     if(contentMode != UIViewContentModeScaleToFill) {

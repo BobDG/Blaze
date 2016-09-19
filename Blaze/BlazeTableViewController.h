@@ -67,7 +67,7 @@
 -(void)removeRowWithID:(int)rowID;
 -(void)removeRowWithID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation;
 -(BlazeRow *)rowForID:(int)rowID;
--(BlazeRow*)rowForIndexPath:(NSIndexPath *)indexPath;
+-(BlazeRow *)rowForIndexPath:(NSIndexPath *)indexPath;
 -(void)removeSectionWithID:(int)sectionID;
 -(void)addSection:(BlazeSection *)section;
 -(NSIndexPath *)indexPathForRowID:(int)rowID;
