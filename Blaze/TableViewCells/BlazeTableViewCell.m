@@ -163,6 +163,8 @@
     }
     else if(imageName.length) {
         imageView.image = [UIImage imageNamed:imageName];
+    } else {
+        imageView.image = nil;
     }
     if(contentMode != UIViewContentModeScaleToFill) {
         imageView.contentMode = contentMode;
