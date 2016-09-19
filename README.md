@@ -143,7 +143,7 @@ Normally you have to register each custom header & cell you use with the followi
 [self.tableView registerNib:[UINib nibWithNibName:xibName bundle:nil] forCellReuseIdentifier:xibName];
 ```
 
-But this is not necessary anymore! Blaze automatically detects which cells & headers you user and registers them for you! Another great time-saver! :)
+But this is not necessary anymore! Blaze automatically detects which cells & headers you use and registers them for you! Another great time-saver! :)
 
 ### Dynamic adding/removing cells
 I want my tableviews as flexible as possible so I've created many functions to quickly add/remove a cell using an animation. Instead of using indexes it's more readable when you assign ID's to rows and use these to add/remove cells dynamically:
