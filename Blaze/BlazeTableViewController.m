@@ -246,6 +246,21 @@
     return nil;
 }
 
+-(BlazeRow*)rowForIndexPath:(NSIndexPath *)indexPath
+{
+    NSUInteger sectionIndex = indexPath.section;
+    NSUInteger rowIndex = indexPath.row;
+    
+    if(sectionIndex >= self.tableArray.count) { return nil; }
+    else {
+        BlazeSection* s = self.tableArray[indexPath.section];
+        if(rowIndex >= s.rows.count) { return nil; }
+        else {
+            return s.rows[rowIndex];
+        }
+    }
+}
+
 -(void)reloadCellForID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation
 {
     //Let's get the indexPath of this cell
