@@ -718,8 +718,8 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     BlazeSection *s = self.tableArray[section];
-    if(s.sectionHeight) {
-        return s.sectionHeight;
+    if(s.headerHeight) {
+        return s.headerHeight;
     }
     else if(self.sectionHeaderHeight) {
         return self.sectionHeaderHeight;
@@ -733,8 +733,8 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     BlazeSection *s = self.tableArray[section];
-    if(s.sectionHeight) {
-        return s.sectionHeight;
+    if(s.footerHeight) {
+        return s.footerHeight;
     }
     else if(self.sectionFooterHeight) {
         return self.sectionFooterHeight;
@@ -748,7 +748,7 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     BlazeSection *s = self.tableArray[section];
-    if(!(s.headerTitle.length) && !s.sectionHeight) {
+    if(!(s.headerTitle.length) && !s.headerHeight) {
         return nil;
     }
     
@@ -786,7 +786,7 @@
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     BlazeSection *s = self.tableArray[section];
-    if(!(s.footerTitle.length) && !s.sectionHeight) {
+    if(!(s.footerTitle.length) && !s.footerHeight) {
         return nil;
     }
     
@@ -840,6 +840,13 @@
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.separatorInset = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = FALSE;
+    }
+    
+    //Selection background color
+    if(row.selectionBackgroundColor) {
+        UIView *view = [UIView new];
+        view.backgroundColor = row.selectionBackgroundColor;
+        cell.selectedBackgroundView = view;
     }
     
     //Completion blocks

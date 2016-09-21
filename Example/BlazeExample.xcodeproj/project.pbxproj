@@ -305,12 +305,12 @@
 		ED0297271D1729370039AA41 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				ED0297281D1729370039AA41 /* BlazeInputTile.h */,
-				ED0297291D1729370039AA41 /* BlazeInputTile.m */,
 				ED02972A1D1729370039AA41 /* BlazeRow.h */,
 				ED02972B1D1729370039AA41 /* BlazeRow.m */,
 				ED02972C1D1729370039AA41 /* BlazeSection.h */,
 				ED02972D1D1729370039AA41 /* BlazeSection.m */,
+				ED0297281D1729370039AA41 /* BlazeInputTile.h */,
+				ED0297291D1729370039AA41 /* BlazeInputTile.m */,
 			);
 			path = Objects;
 			sourceTree = "<group>";

@@ -71,19 +71,20 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic) bool disableEditing;
 @property(nonatomic) bool rowHeightDynamic;
 
-//InputAccessoryViewType
-@property(nonatomic) InputAccessoryViewType inputAccessoryViewType;
-
 //Row Reference types
 @property(nonatomic,strong) id value;
 @property(nonatomic,strong) NSString *xibName;
 @property(nonatomic,strong) NSString *segueIdentifier;
 @property(nonatomic,strong) NSString *storyboardID;
 @property(nonatomic,strong) NSString *storyboardName;
+@property(nonatomic,strong) UIColor *selectionBackgroundColor;
 
 //Object & Possible property name
 @property(nonatomic,strong) id object;
 @property(nonatomic, strong) NSString *propertyName;
+
+//InputAccessoryViewType
+@property(nonatomic) InputAccessoryViewType inputAccessoryViewType;
 
 //Title
 @property(nonatomic,strong) NSString *title;

@@ -30,7 +30,8 @@
 
 //Basic properties
 @property(nonatomic) int ID;
-@property(nonatomic) int sectionHeight;
+@property(nonatomic) float headerHeight;
+@property(nonatomic) float footerHeight;
 @property(nonatomic,strong) NSMutableArray *rows;
 @property(nonatomic,strong) NSString *rowsXibName;
 
