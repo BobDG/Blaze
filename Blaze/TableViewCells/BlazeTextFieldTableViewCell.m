@@ -22,14 +22,18 @@
 -(void)updateCell
 {
     self.textField.text = self.row.value;
-    self.textField.placeholder = self.row.placeholder;
     self.textField.keyboardType = self.row.keyboardType;
     self.textField.secureTextEntry = self.row.secureTextEntry;
     self.textField.autocorrectionType = self.row.autocorrectionType;
     self.textField.autocapitalizationType = self.row.capitalizationType;
     
-    if(self.row.placeholder.length && self.row.placeholderColor) {
+    if(self.row.attributedPlaceholder.length) {
+        self.textField.attributedPlaceholder = self.row.attributedPlaceholder;
+    }
+    else if(self.row.placeholder.length && self.row.placeholderColor) {
         self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.textField.placeholder attributes:@{NSForegroundColorAttributeName:self.row.placeholderColor}];
+    } else if(self.row.placeholder.length) {
+        self.textField.placeholder = self.row.placeholder;
     }
     
     //Editable
