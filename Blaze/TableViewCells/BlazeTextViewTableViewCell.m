@@ -23,16 +23,20 @@
 
 -(void)updateCell
 {
-    //Text    
+    //Text
     self.textView.text = self.row.value;
     
-    if(self.row.placeholder.length) {
+    if(self.row.attributedPlaceholder.length) {
+        self.textView.attributedPlaceholder = self.row.attributedPlaceholder;
+    }
+    else if(self.row.placeholder.length && self.row.placeholderColor) {
+        self.textView.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.row.placeholder attributes:@{NSForegroundColorAttributeName:self.row.placeholderColor}];
+    } else if(self.row.placeholder.length) {
         self.textView.placeholder = self.row.placeholder;
     }
     
     //Editable
-    self.textView.userInteractionEnabled = !self.row.disableEditing;
-}
+    self.textView.userInteractionEnabled = !self.row.disableEditing;}
 
 -(void)awakeFromNib
 {
