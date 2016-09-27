@@ -184,9 +184,10 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic) UITextAutocorrectionType autocorrectionType;
 @property(nonatomic) UITextAutocapitalizationType capitalizationType;
 @property(nonatomic,strong) NSString *placeholder;
+@property(nonatomic,strong) NSFormatter *formatter;
 @property(nonatomic,strong) UIColor *placeholderColor;
 @property(nonatomic,strong) NSAttributedString *attributedPlaceholder;
-@property(nonatomic,strong) NSFormatter *formatter;
+
 //MultipleSelector
 @property(nonatomic) bool disableMultipleSelection;
 @property(nonatomic,strong) NSString *multipleSelectorTitle;

@@ -31,7 +31,8 @@
     }
     else if(self.row.placeholder.length && self.row.placeholderColor) {
         self.textView.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.row.placeholder attributes:@{NSForegroundColorAttributeName:self.row.placeholderColor}];
-    } else if(self.row.placeholder.length) {
+    }
+    else if(self.row.placeholder.length) {
         self.textView.placeholder = self.row.placeholder;
     }
     

@@ -43,11 +43,14 @@
     }
     
     //Placeholder
-    self.pickerField.placeholder = self.row.placeholder;
-    
-    //Placeholder color
-    if(self.row.placeholder.length && self.row.placeholderColor) {
+    if(self.row.attributedPlaceholder.length) {
+        self.pickerField.attributedPlaceholder = self.row.attributedPlaceholder;
+    }
+    else if(self.row.placeholder.length && self.row.placeholderColor) {
         self.pickerField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.row.placeholder attributes:@{NSForegroundColorAttributeName:self.row.placeholderColor}];
+    }
+    else if(self.row.placeholder.length) {
+        self.pickerField.placeholder = self.row.placeholder;
     }
     
     //No index check

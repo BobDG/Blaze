@@ -31,8 +31,9 @@
         self.textField.attributedPlaceholder = self.row.attributedPlaceholder;
     }
     else if(self.row.placeholder.length && self.row.placeholderColor) {
-        self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.textField.placeholder attributes:@{NSForegroundColorAttributeName:self.row.placeholderColor}];
-    } else if(self.row.placeholder.length) {
+        self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.row.placeholder attributes:@{NSForegroundColorAttributeName:self.row.placeholderColor}];
+    }
+    else if(self.row.placeholder.length) {
         self.textField.placeholder = self.row.placeholder;
     }
     

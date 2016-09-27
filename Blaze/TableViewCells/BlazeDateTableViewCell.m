@@ -54,9 +54,15 @@
         }
     }
     
-    //Placeholder color
-    if(self.row.placeholder.length && self.row.placeholderColor) {
+    //Placeholder
+    if(self.row.attributedPlaceholder.length) {
+        self.dateField.attributedPlaceholder = self.row.attributedPlaceholder;
+    }
+    else if(self.row.placeholder.length && self.row.placeholderColor) {
         self.dateField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.row.placeholder attributes:@{NSForegroundColorAttributeName:self.row.placeholderColor}];
+    }
+    else if(self.row.placeholder.length) {
+        self.dateField.placeholder = self.row.placeholder;
     }
     
     //Editable
