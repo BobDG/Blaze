@@ -60,6 +60,7 @@
 //Utility methods
 -(void)reloadHeightsQuickly;
 -(void)reloadTable:(BOOL)animated;
+-(void)reloadTableWithAnimation:(UITableViewRowAnimation)animation;
 -(void)scrollToTop:(BOOL)animated;
 -(void)reloadCellForID:(int)rowID;
 -(void)reloadTableWithFadeTransition;
