@@ -208,6 +208,19 @@
     }
 }
 
+-(void)reloadTableWithAnimation:(UITableViewRowAnimation)animation
+{
+    if([self.tableView numberOfSections] == [self numberOfSectionsInTableView:self.tableView]) {
+        NSRange range = NSMakeRange(0, [self numberOfSectionsInTableView:self.tableView]);
+        NSIndexSet *sections = [NSIndexSet indexSetWithIndexesInRange:range];
+        [self.tableView reloadSections:sections withRowAnimation:animation];
+        [self.tableView reloadEmptyDataSet];
+    }
+    else {
+        [self.tableView reloadData];
+    }
+}
+
 -(void)reloadTableWithFadeTransition
 {
     [UIView transitionWithView:self.tableView duration:0.3f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
