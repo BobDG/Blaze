@@ -61,7 +61,19 @@
     }
     NSArray *tilesArray = self.row.tilesValues;
     cell.inputTile = tilesArray[indexPath.row];
-    cell.selected = indexPath.row == [self.row.value intValue];
+    if(self.row.tilesMultipleSelection) {
+        if(![self.row.value isKindOfClass:[NSArray class]]) { cell.selected = false; }
+        else {
+            NSUInteger idx = [self.row.value indexOfObject:@(indexPath.row)];
+            if(idx != NSNotFound) {
+                cell.selected = true;
+            } else {
+                cell.selected = false;
+            }
+        }
+    } else {
+        cell.selected = indexPath.row == [self.row.value intValue];
+    }
     return cell;
 }
 
@@ -86,11 +98,28 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *tilesArray = self.row.tilesValues;
-    BlazeInputTile *tile = tilesArray[indexPath.row];
-    self.row.value = @(indexPath.row);
-    [self.row updatedValue:self.row.value];
-    for(BlazeTileCollectionViewCell *cell in collectionView.visibleCells) {
-        cell.selected = cell.inputTile == tile;
+    NSNumber *tileIndex = @(indexPath.row);
+    
+    if(self.row.tilesMultipleSelection) {
+        if(![self.row.value isKindOfClass:[NSMutableArray class]]) {
+            self.row.value = [NSMutableArray new];
+        }
+        
+        NSUInteger idx = [self.row.value indexOfObject:tileIndex];
+        if(idx != NSNotFound) {
+            [self.row.value removeObjectAtIndex:idx];
+        } else {
+            [self.row.value addObject:tileIndex];
+        }
+        NSLog(@"%@", self.row.value);
+        [collectionView reloadData];
+    } else {
+        BlazeInputTile *tile = tilesArray[indexPath.row];
+        self.row.value = @(indexPath.row);
+        [self.row updatedValue:self.row.value];
+        for(BlazeTileCollectionViewCell *cell in collectionView.visibleCells) {
+            cell.selected = cell.inputTile == tile;
+        }
     }
 }
 

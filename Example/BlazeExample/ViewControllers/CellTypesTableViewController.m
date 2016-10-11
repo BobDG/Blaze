@@ -7,6 +7,7 @@
 //
 
 #import "Constants.h"
+#import "BlazeInputTile.h"
 #import "CellTypesTableViewController.h"
 
 @interface CellTypesTableViewController ()
@@ -155,6 +156,23 @@
     [row setValueChanged:^{
         DLog(@"Segment changed: %d", [self.segmentedControlValue intValue]);
     }];
+    [section addRow:row];
+
+    //Tiles
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Tiled collection view"];
+    [self addSection:section];
+    
+    row = [[BlazeRow alloc] initWithXibName:kTilesTableViewCell];
+    row.tileHeight = 50.0f;
+    row.tilesPerRow = 4;
+    row.rowHeight = 100.0f;
+    row.tilesMultipleSelection = true;
+    row.tilesValues = @[
+                        [[BlazeInputTile alloc] initWithID:0 text:@"tile 1" tintColor:UIColorFromRGB(0xF5AB35) baseColor:UIColorFromRGB(0x22A7F0) imageName:nil],
+                        [[BlazeInputTile alloc] initWithID:1 text:@"tile 2" tintColor:UIColorFromRGB(0xF5AB35) baseColor:UIColorFromRGB(0x22A7F0) imageName:nil],
+                        [[BlazeInputTile alloc] initWithID:2 text:@"tile 3" tintColor:UIColorFromRGB(0xF5AB35) baseColor:UIColorFromRGB(0x22A7F0) imageName:nil],
+                        [[BlazeInputTile alloc] initWithID:3 text:@"tile 4" tintColor:UIColorFromRGB(0xF5AB35) baseColor:UIColorFromRGB(0x22A7F0) imageName:nil]
+                        ];
     [section addRow:row];
     
     //Image

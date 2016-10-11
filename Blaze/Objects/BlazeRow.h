@@ -161,6 +161,7 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic) bool tileSelectAutomatically;
 @property(nonatomic,strong) NSArray *tilesValues;
 @property(nonatomic,strong) NSString *tileCellXibName;
+@property(nonatomic,assign) BOOL tilesMultipleSelection;
 
 //Pickerview
 @property(nonatomic,strong) NSArray *selectorOptions;
