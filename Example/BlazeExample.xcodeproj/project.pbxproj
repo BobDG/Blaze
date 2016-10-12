@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AFA93F01117D37C9C3CCD745 /* Pods_BlazeExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C00BA881BB68741859570A3 /* Pods_BlazeExample.framework */; };
+		B0CE2C121DACDEAA00A1A3C9 /* TilesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0CE2C111DACDEAA00A1A3C9 /* TilesTableViewCell.xib */; };
 		ED0297031D1729220039AA41 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E11D1729220039AA41 /* ButtonTableViewCell.xib */; };
 		ED0297041D1729220039AA41 /* DateFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E21D1729220039AA41 /* DateFieldTableViewCell.xib */; };
 		ED0297051D1729220039AA41 /* EmptySpaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E31D1729220039AA41 /* EmptySpaceTableViewCell.xib */; };
@@ -70,6 +71,7 @@
 		5C00BA881BB68741859570A3 /* Pods_BlazeExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlazeExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7414ACEAFC2C6C62B2C372A6 /* Pods-BlazeExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlazeExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample.debug.xcconfig"; sourceTree = "<group>"; };
 		9117633E2828C62B6A0A0603 /* Pods-BlazeExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlazeExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample.release.xcconfig"; sourceTree = "<group>"; };
+		B0CE2C111DACDEAA00A1A3C9 /* TilesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TilesTableViewCell.xib; sourceTree = "<group>"; };
 		ED0296DF1D1729220039AA41 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		ED0296E11D1729220039AA41 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
 		ED0296E21D1729220039AA41 /* DateFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateFieldTableViewCell.xib; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				ED0296EC1D1729220039AA41 /* TextViewTableViewCell.xib */,
 				ED2626AF1D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib */,
 				EDF0E7E61D4111570036AEDA /* TwoChoicesTableViewCell.xib */,
+				B0CE2C111DACDEAA00A1A3C9 /* TilesTableViewCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				ED0297101D1729220039AA41 /* TableHeaderView.xib in Resources */,
 				EDF0E7E71D4111570036AEDA /* TwoChoicesTableViewCell.xib in Resources */,
 				ED0297071D1729220039AA41 /* ImageTableViewCell.xib in Resources */,
+				B0CE2C121DACDEAA00A1A3C9 /* TilesTableViewCell.xib in Resources */,
 				ED0297601D1729370039AA41 /* Arrow_Left@2x.png in Resources */,
 				ED933E0B1D1728A100B8155F /* Main.storyboard in Resources */,
 				ED02970B1D1729220039AA41 /* SwitchTableViewCell.xib in Resources */,
