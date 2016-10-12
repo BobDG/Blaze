@@ -62,7 +62,9 @@
     NSArray *tilesArray = self.row.tilesValues;
     cell.inputTile = tilesArray[indexPath.row];
     if(self.row.tilesMultipleSelection) {
-        if(![self.row.value isKindOfClass:[NSArray class]]) { cell.selected = false; }
+        if(![self.row.value isMemberOfClass:[NSMutableArray class]]) {
+            cell.selected = false;
+        }
         else {
             NSUInteger idx = [self.row.value indexOfObject:@(indexPath.row)];
             if(idx != NSNotFound) {
@@ -101,7 +103,7 @@
     NSNumber *tileIndex = @(indexPath.row);
     
     if(self.row.tilesMultipleSelection) {
-        if(![self.row.value isKindOfClass:[NSMutableArray class]]) {
+        if(![self.row.value isMemberOfClass:[NSMutableArray class]]) {
             self.row.value = [NSMutableArray new];
         }
         
