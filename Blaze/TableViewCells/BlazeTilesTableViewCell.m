@@ -113,7 +113,7 @@
         } else {
             [self.row.value addObject:tileIndex];
         }
-        NSLog(@"%@", self.row.value);
+        [self.row updatedValue:self.row.value];
         [collectionView reloadData];
     } else {
         BlazeInputTile *tile = tilesArray[indexPath.row];
