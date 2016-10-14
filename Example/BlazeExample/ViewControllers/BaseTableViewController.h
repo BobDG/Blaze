@@ -25,6 +25,7 @@
 #define kPickerFieldTableViewCell       @"PickerFieldTableViewCell"
 #define kFloatTextFieldTableViewCell    @"FloatTextFieldTableViewCell"
 #define kSegmentedControlTableViewCell  @"SegmentedControlTableViewCell"
+#define kTilesTableViewCell             @"TilesTableViewCell"
 
 @interface BaseTableViewController : BlazeTableViewController
 {
