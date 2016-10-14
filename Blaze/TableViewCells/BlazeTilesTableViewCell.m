@@ -93,7 +93,7 @@
         float totalRows = (float)totalTiles/(float)self.row.tilesPerRow;
         tileHeight = floor(collectionView.frame.size.height/(float)totalRows)-1.0f;
     }
-    CGSize cellSize = CGSizeMake(round(tileWidth), tileHeight);
+    CGSize cellSize = CGSizeMake(floor(tileWidth), tileHeight);    
     return cellSize;
 }
 

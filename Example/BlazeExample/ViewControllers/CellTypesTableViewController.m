@@ -165,7 +165,7 @@
     row = [[BlazeRow alloc] initWithXibName:kTilesTableViewCell];
     row.tileHeight = 50.0f;
     row.tilesPerRow = 4;
-    row.rowHeight = 100.0f;
+    row.rowHeight = 50.0f;
     row.tilesMultipleSelection = true;
     row.tilesValues = @[
                         [[BlazeInputTile alloc] initWithID:0 text:@"tile 1" tintColor:UIColorFromRGB(0xF5AB35) baseColor:UIColorFromRGB(0x22A7F0) imageName:nil],
