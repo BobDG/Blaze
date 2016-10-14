@@ -41,7 +41,9 @@
 
 //Header & Footer
 @property(nonatomic,strong) NSString *headerTitle;
+@property(nonatomic,strong) NSString *headerSubtitle;
 @property(nonatomic,strong) NSString *footerTitle;
+@property(nonatomic,strong) NSString *footerSubtitle;
 @property(nonatomic,strong) NSString *headerXibName;
 @property(nonatomic,strong) NSString *footerXibName;
 

@@ -28,9 +28,11 @@
     if(self.titleLabel) {
         if(self.sectionType == SectionHeader) {
             self.titleLabel.text = section.headerTitle;
+            self.subtitleLabel.text = section.headerSubtitle;
         }
         else if(self.sectionType == SectionFooter) {
             self.titleLabel.text = section.footerTitle;
+            self.subtitleLabel.text = section.footerSubtitle;
         }
     }
     
