@@ -44,10 +44,10 @@
         [self updateLabel:self.titleLabel withText:self.row.title attributedText:self.row.attributedTitle color:self.row.titleColor];
     }
     if(self.subtitleLabel) {
-        [self updateLabel:self.subtitleLabel withText:self.row.subtitle attributedText:self.row.attributeSubtitle color:self.row.subtitleColor];
+        [self updateLabel:self.subtitleLabel withText:self.row.subtitle attributedText:self.row.attributedSubtitle color:self.row.subtitleColor];
     }
     if(self.subsubtitleLabel) {
-        [self updateLabel:self.subsubtitleLabel withText:self.row.subsubtitle attributedText:self.row.attributeSubSubtitle color:self.row.subsubtitleColor];
+        [self updateLabel:self.subsubtitleLabel withText:self.row.subsubtitle attributedText:self.row.attributedSubSubtitle color:self.row.subsubtitleColor];
     }
     
     //Update imageviews IF connected
