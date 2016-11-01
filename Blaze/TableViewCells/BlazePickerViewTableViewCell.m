@@ -103,7 +103,7 @@
 
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    if(selected) {
+    if(selected && self.pickerField.userInteractionEnabled) {
         [self.pickerField becomeFirstResponder];
     }
 }
@@ -146,7 +146,7 @@
 
 -(BOOL)canBecomeFirstResponder
 {
-    return TRUE;
+    return self.pickerField.userInteractionEnabled;
 }
 
 -(BOOL)becomeFirstResponder

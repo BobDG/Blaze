@@ -109,7 +109,7 @@
 
 -(BOOL)canBecomeFirstResponder
 {
-    return TRUE;
+    return self.textField.userInteractionEnabled;
 }
 
 -(BOOL)becomeFirstResponder

@@ -20,6 +20,10 @@
 
 -(IBAction)cellSwitched:(id)sender
 {
+    if(self.row.disableEditing) {
+        return;
+    }
+    
     self.row.value = @(self.cellSwitch.on);
     [self.row updatedValue:self.row.value];
 }

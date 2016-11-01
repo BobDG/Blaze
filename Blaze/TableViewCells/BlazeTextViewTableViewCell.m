@@ -72,7 +72,7 @@
 
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    if(selected) {
+    if(selected && self.textView.userInteractionEnabled) {
         [self.textView becomeFirstResponder];
     }
 }
@@ -114,7 +114,7 @@
 
 -(BOOL)canBecomeFirstResponder
 {
-    return TRUE;
+    return self.textView.userInteractionEnabled;
 }
 
 -(BOOL)becomeFirstResponder

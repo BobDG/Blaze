@@ -71,7 +71,7 @@
 
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    if(selected) {
+    if(selected && self.dateField.userInteractionEnabled) {
         [self.dateField becomeFirstResponder];
     }
 }
@@ -142,7 +142,7 @@
 
 -(BOOL)canBecomeFirstResponder
 {
-    return TRUE;
+    return self.dateField.userInteractionEnabled;
 }
 
 -(BOOL)becomeFirstResponder
