@@ -53,6 +53,17 @@
         self.pickerField.placeholder = self.row.placeholder;
     }
     
+    //Update for floating options
+    self.pickerField.useFloatingLabel = self.row.floatingPlaceholder;
+    if(self.row.floatingPlaceholder) {
+        self.pickerField.floatingLabelFont = self.row.floatingLabelFont;
+        self.pickerField.floatingLabelTextColor = self.row.floatingPlaceholderColor;
+        self.pickerField.floatingLabelActiveTextColor = self.row.floatingPlaceholderActiveColor;
+        if(self.row.floatingTitle.length) {
+            self.pickerField.floatingLabelText = self.row.floatingTitle;
+        }
+    }
+    
     //No index check
     if(index == NSNotFound) {
         self.pickerField.text = @"";

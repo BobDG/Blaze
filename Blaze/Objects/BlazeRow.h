@@ -48,7 +48,6 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 -(instancetype)initWithTitle:(NSString *)title segueIdentifier:(NSString *)segueIdentifier;
 -(instancetype)initWithtitle:(NSString *)title value:(id)value placeholder:(NSString *)placeholder segueIdentifier:(NSString *)segueIdentifier;
 
-
 //Methods
 -(void)updatedValue:(id)value;
 -(void)didUpdateValue:(id)value;
@@ -186,8 +185,16 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic) UITextAutocapitalizationType capitalizationType;
 @property(nonatomic,strong) NSString *placeholder;
 @property(nonatomic,strong) NSFormatter *formatter;
+@property(nonatomic,strong) NSString *placeholderText;
 @property(nonatomic,strong) UIColor *placeholderColor;
 @property(nonatomic,strong) NSAttributedString *attributedPlaceholder;
+
+//Floating placeholder options
+@property(nonatomic) bool floatingPlaceholder;
+@property(nonatomic,strong) NSString *floatingTitle;
+@property(nonatomic,strong) UIFont *floatingLabelFont;
+@property(nonatomic,strong) UIColor *floatingPlaceholderColor;
+@property(nonatomic,strong) UIColor *floatingPlaceholderActiveColor;
 
 //MultipleSelector
 @property(nonatomic) bool disableMultipleSelection;

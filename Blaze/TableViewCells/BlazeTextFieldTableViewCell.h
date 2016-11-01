@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BlazeTextField.h"
 #import "BlazeTableViewCell.h"
 
 @interface BlazeTextFieldTableViewCell : BlazeTableViewCell
@@ -15,6 +16,6 @@
     
 }
 
-@property(nonatomic,weak) IBOutlet UITextField *textField;
+@property(nonatomic,weak) IBOutlet BlazeTextField *textField;
 
 @end

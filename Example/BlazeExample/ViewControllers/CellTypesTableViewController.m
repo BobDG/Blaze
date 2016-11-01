@@ -50,6 +50,10 @@
     
     //Textfield
     row = [[BlazeRow alloc] initWithXibName:kFloatTextFieldTableViewCell];
+    row.floatingPlaceholder = FALSE;
+    row.floatingPlaceholderActiveColor = [UIColor redColor];
+    row.floatingLabelFont = [UIFont italicSystemFontOfSize:12.0f];
+    row.floatingTitle = @"Special placeholder title";
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textfieldValue)]];
     row.placeholder = @"Float title placeholder";
     [row setValueChanged:^{
@@ -63,18 +67,29 @@
     
     //Date
     row = [[BlazeRow alloc] initWithXibName:kDateFieldTableViewCell title:@"Datefield"];
-    row.placeholder = @"Date placeholder";
+    row.placeholder = @"Which date?";
     row.dateMinuteInterval = 5;
     row.datePickerMode = UIDatePickerModeDateAndTime;
+    row.floatingPlaceholder = TRUE;
+    row.placeholderColor = [UIColor orangeColor];
+    row.floatingPlaceholderColor = [UIColor redColor];
+    row.floatingPlaceholderActiveColor = [UIColor purpleColor];
+    row.floatingLabelFont = [UIFont systemFontOfSize:12.0f weight:UIFontWeightBold];
+    row.floatingTitle = @"Date set!";
     NSDateFormatter *df = [NSDateFormatter new];
-    [df setDateFormat:@"d MMMM yyyy"];
+    [df setDateFormat:@"d MMMM yyyy HH:mm"];
     row.dateFormatter = df;
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(date)]];
     [section addRow:row];
     
     //Picker
     row = [[BlazeRow alloc] initWithXibName:kPickerFieldTableViewCell title:@"Pickerfield"];
-    row.placeholder = NSLocalizedString(@"Picker placeholder", @"");
+    row.placeholder = @"Picker placeholder";
+    row.floatingPlaceholder = TRUE;
+    row.floatingPlaceholderColor = [UIColor greenColor];
+    row.floatingPlaceholderActiveColor = [UIColor greenColor];
+    row.floatingLabelFont = [UIFont systemFontOfSize:14.0f weight:UIFontWeightLight];
+    row.floatingTitle = @"Picker set!";
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(pickerValue)]];
     row.selectorOptions = @[@"Automatic next/previous", @"buttons always work", @"Doesn't matter if you", @"use textfields", @"or datepickers", @"or pickerviews", @"or multiple sections"];
     [section addRow:row];

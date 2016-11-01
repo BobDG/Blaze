@@ -37,8 +37,19 @@
         self.textField.placeholder = self.row.placeholder;
     }
     
+    //Update for floating options
+    self.textField.useFloatingLabel = self.row.floatingPlaceholder;
+    if(self.row.floatingPlaceholder) {
+        self.textField.floatingLabelFont = self.row.floatingLabelFont;
+        self.textField.floatingLabelTextColor = self.row.floatingPlaceholderColor;
+        self.textField.floatingLabelActiveTextColor = self.row.floatingPlaceholderActiveColor;
+        if(self.row.floatingTitle.length) {
+            self.textField.floatingLabelText = self.row.floatingTitle;
+        }
+    }
+    
     //Editable
-    self.textField.userInteractionEnabled = !self.row.disableEditing;
+    self.textField.userInteractionEnabled = !self.row.disableEditing;    
 }
 
 -(void)awakeFromNib

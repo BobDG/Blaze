@@ -6,9 +6,9 @@
 //  Copyright © 2016 GraafICT. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BlazeTextField.h"
 
-@interface BlazePickerViewField : UITextField
+@interface BlazePickerViewField : BlazeTextField
 {
     
 }

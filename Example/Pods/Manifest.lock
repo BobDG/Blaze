@@ -14,22 +14,19 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - BDGMacros (0.0.16)
-  - BDGViews (0.0.1)
-  - JVFloatLabeledTextField (1.1.1)
+  - BDGMacros (0.0.18)
+  - BDGViews (0.0.3)
 
 DEPENDENCIES:
   - AFNetworking
   - BDGMacros
   - BDGViews
-  - JVFloatLabeledTextField
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  BDGMacros: e2018adfb2fd00c4ab41fbb3bc93c38e5165da92
-  BDGViews: db364b96a02d02b8b5aba3f0b3dea798506d683f
-  JVFloatLabeledTextField: 0e5524b097f102036214dd8279edc8ecf08b5e18
+  BDGMacros: 8d03817ec90f2c028648722f3289569dee4ed73f
+  BDGViews: 0ad8bd4a5edfc139b90349271a277195c10efbe3
 
-PODFILE CHECKSUM: fbbf9dc8d0d6ea52eed1a9a5e865a18417952bf4
+PODFILE CHECKSUM: 047080b9f2b183d556428681ff030b922164a2e4
 
 COCOAPODS: 1.0.1

@@ -65,8 +65,19 @@
         self.dateField.placeholder = self.row.placeholder;
     }
     
+    //Update for floating options
+    self.dateField.useFloatingLabel = self.row.floatingPlaceholder;
+    if(self.row.floatingPlaceholder) {
+        self.dateField.floatingLabelFont = self.row.floatingLabelFont;
+        self.dateField.floatingLabelTextColor = self.row.floatingPlaceholderColor;
+        self.dateField.floatingLabelActiveTextColor = self.row.floatingPlaceholderActiveColor;
+        if(self.row.floatingTitle.length) {
+            self.dateField.floatingLabelText = self.row.floatingTitle;
+        }
+    }
+    
     //Editable
-    self.dateField.userInteractionEnabled = !self.row.disableEditing;
+    self.dateField.userInteractionEnabled = !self.row.disableEditing;    
 }
 
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated
