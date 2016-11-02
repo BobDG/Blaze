@@ -41,8 +41,16 @@
     self.textField.useFloatingLabel = self.row.floatingPlaceholder;
     if(self.row.floatingPlaceholder) {
         self.textField.floatingLabelFont = self.row.floatingLabelFont;
-        self.textField.floatingLabelTextColor = self.row.floatingPlaceholderColor;
-        self.textField.floatingLabelActiveTextColor = self.row.floatingPlaceholderActiveColor;
+        if(self.row.floatingPlaceholderColor) {
+            self.textField.floatingLabelTextColor = self.row.floatingPlaceholderColor;
+        } else if(self.textField.floatingLabelTextColor) {
+            self.row.floatingPlaceholderColor = self.textField.floatingLabelTextColor;
+        }
+        if(self.row.floatingPlaceholderActiveColor) {
+            self.textField.floatingLabelActiveTextColor = self.row.floatingPlaceholderActiveColor;
+        } else if(self.textField.floatingLabelActiveTextColor) {
+            self.row.floatingPlaceholderActiveColor = self.textField.floatingLabelActiveTextColor;
+        }
         if(self.row.floatingTitle.length) {
             self.textField.floatingLabelText = self.row.floatingTitle;
         }
