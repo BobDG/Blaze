@@ -10,6 +10,19 @@
 
 @implementation BDGBorderedView
 
+-(instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if(!self) {
+        return nil;
+    }
+    
+    self.opaque = NO;
+    self.clipsToBounds = TRUE;
+    
+    return self;
+}
+
 -(instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];

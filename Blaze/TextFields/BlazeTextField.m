@@ -1,37 +1,18 @@
 //
-//  JVFloatLabeledTextField.m
-//  JVFloatLabeledTextField
+//  BlazeTextField.m
+//  BlazeExample
 //
-//  The MIT License (MIT)
+//  Created by Bob de Graaf on 01-11-16.
+//  Copyright © 2016 GraafICT. All rights reserved.
 //
-//  Copyright (c) 2013-2015 Jared Verdi
-//  Original Concept by Matt D. Smith
-//  http://dribbble.com/shots/1254439--GIF-Mobile-Form-Interaction?list=users
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy of
-//  this software and associated documentation files (the "Software"), to deal in
-//  the Software without restriction, including without limitation the rights to
-//  use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-//  the Software, and to permit persons to whom the Software is furnished to do so,
-//  subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-//  FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-//  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-//  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-//  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "JVFloatLabeledTextField.h"
+#import "BlazeTextField.h"
 #import "NSString+TextDirectionality.h"
 
 static CGFloat const kFloatingLabelShowAnimationDuration = 0.3f;
 static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 
-@implementation JVFloatLabeledTextField
+@implementation BlazeTextField
 {
     BOOL _isFloatingLabelFontDefault;
 }
@@ -59,7 +40,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     _floatingLabel = [UILabel new];
     _floatingLabel.alpha = 0.0f;
     [self addSubview:_floatingLabel];
-	
+    
     // some basic default fonts/colors
     _floatingLabelFont = [self defaultFloatingLabelFont];
     _floatingLabel.font = _floatingLabelFont;
@@ -69,7 +50,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     _floatingLabelShowAnimationDuration = kFloatingLabelShowAnimationDuration;
     _floatingLabelHideAnimationDuration = kFloatingLabelHideAnimationDuration;
     [self setFloatingLabelText:self.placeholder];
-
+    
     _adjustsClearButtonRect = YES;
     _isFloatingLabelFontDefault = YES;
 }
@@ -129,7 +110,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 }
 
 - (void)showFloatingLabel:(BOOL)animated
-{
+{    
     void (^showBlock)() = ^{
         _floatingLabel.alpha = 1.0f;
         _floatingLabel.frame = CGRectMake(_floatingLabel.frame.origin.x,
@@ -158,7 +139,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
                                           _floatingLabel.font.lineHeight + _placeholderYPadding,
                                           _floatingLabel.frame.size.width,
                                           _floatingLabel.frame.size.height);
-
+        
     };
     
     if (animated || 0 != _animateEvenIfNotFirstResponder) {
@@ -218,6 +199,9 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 
 - (CGSize)intrinsicContentSize
 {
+    if(!self.useFloatingLabel) {
+        return [super intrinsicContentSize];
+    }
     CGSize textFieldIntrinsicContentSize = [super intrinsicContentSize];
     [_floatingLabel sizeToFit];
     return CGSizeMake(textFieldIntrinsicContentSize.width,
@@ -262,6 +246,9 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 
 - (CGRect)textRectForBounds:(CGRect)bounds
 {
+    if(!self.useFloatingLabel) {
+        return [super textRectForBounds:bounds];
+    }
     CGRect rect = [super textRectForBounds:bounds];
     if ([self.text length] || self.keepBaseline) {
         rect = [self insetRectForBounds:rect];
@@ -271,6 +258,9 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 
 - (CGRect)editingRectForBounds:(CGRect)bounds
 {
+    if(!self.useFloatingLabel) {
+        return [super editingRectForBounds:bounds];
+    }
     CGRect rect = [super editingRectForBounds:bounds];
     if ([self.text length] || self.keepBaseline) {
         rect = [self insetRectForBounds:rect];
@@ -287,10 +277,13 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 
 - (CGRect)clearButtonRectForBounds:(CGRect)bounds
 {
+    if(!self.useFloatingLabel) {
+        return [super clearButtonRectForBounds:bounds];
+    }
     CGRect rect = [super clearButtonRectForBounds:bounds];
     if (0 != self.adjustsClearButtonRect
-    	&& _floatingLabel.text.length // for when there is no floating title label text
-	) {
+        && _floatingLabel.text.length // for when there is no floating title label text
+        ) {
         if ([self.text length] || self.keepBaseline) {
             CGFloat topInset = ceilf(_floatingLabel.font.lineHeight + _placeholderYPadding);
             topInset = MIN(topInset, [self maxTopInset]);
@@ -302,6 +295,9 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 
 - (CGRect)leftViewRectForBounds:(CGRect)bounds
 {
+    if(!self.useFloatingLabel) {
+        return [super leftViewRectForBounds:bounds];
+    }
     CGRect rect = [super leftViewRectForBounds:bounds];
     
     CGFloat topInset = ceilf(_floatingLabel.font.lineHeight + _placeholderYPadding);
@@ -313,7 +309,9 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 
 - (CGRect)rightViewRectForBounds:(CGRect)bounds
 {
-    
+    if(!self.useFloatingLabel) {
+        return [super rightViewRectForBounds:bounds];
+    }
     CGRect rect = [super rightViewRectForBounds:bounds];
     
     CGFloat topInset = ceilf(_floatingLabel.font.lineHeight + _placeholderYPadding);
@@ -343,6 +341,10 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    if(!self.useFloatingLabel) {
+        return;
+    }
     
     [self setLabelOriginForTextAlignment];
     

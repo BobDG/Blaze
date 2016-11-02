@@ -62,6 +62,10 @@
 #define showM1(MSG)             [[[UIAlertView alloc] initWithTitle:APPNAME message:(MSG) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK",@"") otherButtonTitles:nil] show]
 #define showM2(TITLE,MSG)       [[[UIAlertView alloc] initWithTitle:(TITLE) message:(MSG) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK",@"") otherButtonTitles:nil] show]
 
+#define showM2Manually(TITLE,MSG)\
+UIAlertController* kAlertController = [UIAlertController alertControllerWithTitle:(TITLE) message:(MSG) preferredStyle:UIAlertControllerStyleAlert];\
+[kAlertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];\
+
 //Logfonts
 #define logAllFonts             for(NSString *fontFamilyStrings in [UIFont familyNames]) { \
 NSLog(@"Font family: %@", fontFamilyStrings); \

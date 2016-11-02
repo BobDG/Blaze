@@ -53,6 +53,17 @@
         self.pickerField.placeholder = self.row.placeholder;
     }
     
+    //Update for floating options
+    self.pickerField.useFloatingLabel = self.row.floatingPlaceholder;
+    if(self.row.floatingPlaceholder) {
+        self.pickerField.floatingLabelFont = self.row.floatingLabelFont;
+        self.pickerField.floatingLabelTextColor = self.row.floatingPlaceholderColor;
+        self.pickerField.floatingLabelActiveTextColor = self.row.floatingPlaceholderActiveColor;
+        if(self.row.floatingTitle.length) {
+            self.pickerField.floatingLabelText = self.row.floatingTitle;
+        }
+    }
+    
     //No index check
     if(index == NSNotFound) {
         self.pickerField.text = @"";
@@ -103,7 +114,7 @@
 
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    if(selected) {
+    if(selected && self.pickerField.userInteractionEnabled) {
         [self.pickerField becomeFirstResponder];
     }
 }
@@ -146,7 +157,7 @@
 
 -(BOOL)canBecomeFirstResponder
 {
-    return TRUE;
+    return self.pickerField.userInteractionEnabled;
 }
 
 -(BOOL)becomeFirstResponder

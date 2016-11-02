@@ -39,12 +39,20 @@
 
 -(IBAction)choice1Tapped:(id)sender
 {
+    if(self.row.disableEditing) {
+        return;
+    }
+    
     self.row.value = @(1);
     [self choiceChanged];
 }
 
 -(IBAction)choice2Tapped:(id)sender
 {
+    if(self.row.disableEditing) {
+        return;
+    }
+    
     self.row.value = @(2);
     [self choiceChanged];
 }

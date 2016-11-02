@@ -10,6 +10,23 @@
 
 @implementation BDGCircularView
 
+
+-(instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if(!self) {
+        return nil;
+    }
+    
+    //Circular properties
+    self.opaque = NO;
+    self.clipsToBounds = TRUE;
+    self.layer.cornerRadius = [self radiusForBounds:self.bounds];
+    
+    return self;
+}
+
+
 -(instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];

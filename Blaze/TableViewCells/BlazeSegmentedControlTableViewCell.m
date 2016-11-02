@@ -30,6 +30,10 @@
 
 -(IBAction)segmentedChanged
 {
+    if(self.row.disableEditing) {
+        return;
+    }
+    
     self.row.value = @(self.segmentedControl.selectedSegmentIndex);
     [self.row updatedValue:self.row.value];
 }

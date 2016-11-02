@@ -6,5 +6,4 @@ target 'BlazeExample' do
     pod 'BDGViews'
     pod 'BDGMacros'
     pod 'AFNetworking'    
-    pod 'JVFloatLabeledTextField'
 end

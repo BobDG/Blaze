@@ -99,6 +99,10 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(self.row.disableEditing) {
+        return;
+    }
+    
     NSArray *tilesArray = self.row.tilesValues;
     NSNumber *tileIndex = @(indexPath.row);
     
