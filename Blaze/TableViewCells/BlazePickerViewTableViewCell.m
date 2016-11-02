@@ -57,8 +57,16 @@
     self.pickerField.useFloatingLabel = self.row.floatingPlaceholder;
     if(self.row.floatingPlaceholder) {
         self.pickerField.floatingLabelFont = self.row.floatingLabelFont;
-        self.pickerField.floatingLabelTextColor = self.row.floatingPlaceholderColor;
-        self.pickerField.floatingLabelActiveTextColor = self.row.floatingPlaceholderActiveColor;
+        if(self.row.floatingPlaceholderColor) {
+            self.pickerField.floatingLabelTextColor = self.row.floatingPlaceholderColor;
+        } else if(self.pickerField.floatingLabelTextColor) {
+            self.row.floatingPlaceholderColor = self.pickerField.floatingLabelTextColor;
+        }
+        if(self.row.floatingPlaceholderActiveColor) {
+            self.pickerField.floatingLabelActiveTextColor = self.row.floatingPlaceholderActiveColor;
+        } else if(self.pickerField.floatingLabelActiveTextColor) {
+            self.row.floatingPlaceholderActiveColor = self.pickerField.floatingLabelActiveTextColor;
+        }
         if(self.row.floatingTitle.length) {
             self.pickerField.floatingLabelText = self.row.floatingTitle;
         }
