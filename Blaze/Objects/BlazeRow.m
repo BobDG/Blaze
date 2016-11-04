@@ -64,6 +64,7 @@
     self.ID = ID;
     self.title = title;
     self.value = value;
+    self.xibName = xibName;
     self.placeholder = placeholder;
     
     return self;
@@ -113,9 +114,9 @@
         return nil;
     }
     
-    self.xibName = xibName;
     self.title = title;
     self.value = value;
+    self.xibName = xibName;
     self.placeholder = placeholder;
     self.segueIdentifier = segueIdentifier;
     
