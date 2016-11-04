@@ -50,12 +50,12 @@
     
     //Textfield
     row = [[BlazeRow alloc] initWithXibName:kFloatTextFieldTableViewCell];
-    row.floatingPlaceholder = FALSE;
+    row.floatingPlaceholder = TRUE;
     row.floatingPlaceholderActiveColor = [UIColor redColor];
     row.floatingLabelFont = [UIFont italicSystemFontOfSize:12.0f];
-    row.floatingTitle = @"Special placeholder title";
+    row.floatingTitle = @"Floating placeholder";
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textfieldValue)]];
-    row.placeholder = @"Float title placeholder";
+    row.placeholder = @"Placeholder";
     [row setValueChanged:^{
         DLog(@"Use this when you want something done as soon as the value changes. This also log is also proving it automatically updates the value of the set affected object: %@", self.textfieldValue);
     }];
