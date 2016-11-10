@@ -1019,7 +1019,7 @@
     }
     
     //Separator style
-    if(self.emptyTableViewCellSeparatorStyle != -1 && self.filledTableViewCellSeparatorStyle != -1) {
+    if((int)self.emptyTableViewCellSeparatorStyle != -1 && (int)self.filledTableViewCellSeparatorStyle != -1) {
         if(self.tableArray.count) {
             self.tableView.separatorStyle = self.filledTableViewCellSeparatorStyle;
         }
