@@ -71,6 +71,8 @@
     //Empty defaults
     self.emptyScrollable = TRUE;
     self.emptyVerticalOffset = -100.0f;
+    self.emptyTableViewCellSeparatorStyle = -1;
+    self.filledTableViewCellSeparatorStyle = -1;
     self.emptyBackgroundColor = [UIColor groupTableViewBackgroundColor];
     
     //Empty datasource & delegate
@@ -1014,6 +1016,16 @@
     //Self rows
     if(self.rowsXibName.length) {
         [self registerCustomCell:self.rowsXibName];
+    }
+    
+    //Separator style
+    if(self.emptyTableViewCellSeparatorStyle != -1 && self.filledTableViewCellSeparatorStyle != -1) {
+        if(self.tableArray.count) {
+            self.tableView.separatorStyle = self.filledTableViewCellSeparatorStyle;
+        }
+        else {
+            self.tableView.separatorStyle = self.emptyTableViewCellSeparatorStyle;
+        }
     }
 }
 

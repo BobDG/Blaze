@@ -30,6 +30,8 @@
 @property(nonatomic,strong) NSString *emptyTitle;
 @property(nonatomic,strong) UIColor *emptyBackgroundColor;
 @property(nonatomic,strong) NSDictionary *emptyTitleAttributes;
+@property(nonatomic) UITableViewCellSeparatorStyle filledTableViewCellSeparatorStyle;
+@property(nonatomic) UITableViewCellSeparatorStyle emptyTableViewCellSeparatorStyle;
 
 //Separator Inset
 @property(nonatomic) bool noSeparatorInset;
