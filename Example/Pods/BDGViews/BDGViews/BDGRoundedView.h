@@ -19,4 +19,7 @@ IB_DESIGNABLE
 @property(nonatomic) IBInspectable BOOL botRightCorner;
 @property(nonatomic) IBInspectable BOOL botLeftCorner;
 
+@property(nonatomic) IBInspectable float borderWidth;
+@property(nonatomic) IBInspectable UIColor *borderColor;
+
 @end

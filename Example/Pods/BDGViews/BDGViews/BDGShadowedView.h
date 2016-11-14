@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
+
 @interface BDGShadowedView : UIView
 {
     
@@ -17,6 +19,5 @@
 @property(nonatomic) IBInspectable float shadowOpacity;
 @property(nonatomic) IBInspectable CGSize shadowOffset;
 @property(nonatomic) IBInspectable UIColor *shadowColor;
-
 
 @end

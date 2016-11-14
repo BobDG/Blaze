@@ -68,19 +68,19 @@
     //Update for floating options
     self.dateField.useFloatingLabel = self.row.floatingPlaceholder;
     if(self.row.floatingPlaceholder) {
-        self.dateField.floatingLabelFont = self.row.floatingLabelFont;
+        self.dateField.flFont = self.row.floatingLabelFont;
         if(self.row.floatingPlaceholderColor) {
-            self.dateField.floatingLabelTextColor = self.row.floatingPlaceholderColor;
-        } else if(self.dateField.floatingLabelTextColor) {
-            self.row.floatingPlaceholderColor = self.dateField.floatingLabelTextColor;
+            self.dateField.flTextColor = self.row.floatingPlaceholderColor;
+        } else if(self.dateField.flTextColor) {
+            self.row.floatingPlaceholderColor = self.dateField.flTextColor;
         }
         if(self.row.floatingPlaceholderActiveColor) {
-            self.dateField.floatingLabelActiveTextColor = self.row.floatingPlaceholderActiveColor;
-        } else if(self.dateField.floatingLabelActiveTextColor) {
-            self.row.floatingPlaceholderActiveColor = self.dateField.floatingLabelActiveTextColor;
+            self.dateField.flActiveTextColor = self.row.floatingPlaceholderActiveColor;
+        } else if(self.dateField.flActiveTextColor) {
+            self.row.floatingPlaceholderActiveColor = self.dateField.flActiveTextColor;
         }
         if(self.row.floatingTitle.length) {
-            self.dateField.floatingLabelText = self.row.floatingTitle;
+            self.dateField.flText = self.row.floatingTitle;
         }
     }
     

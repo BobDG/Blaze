@@ -56,19 +56,19 @@
     //Update for floating options
     self.pickerField.useFloatingLabel = self.row.floatingPlaceholder;
     if(self.row.floatingPlaceholder) {
-        self.pickerField.floatingLabelFont = self.row.floatingLabelFont;
+        self.pickerField.flFont = self.row.floatingLabelFont;
         if(self.row.floatingPlaceholderColor) {
-            self.pickerField.floatingLabelTextColor = self.row.floatingPlaceholderColor;
-        } else if(self.pickerField.floatingLabelTextColor) {
-            self.row.floatingPlaceholderColor = self.pickerField.floatingLabelTextColor;
+            self.pickerField.flTextColor = self.row.floatingPlaceholderColor;
+        } else if(self.pickerField.flTextColor) {
+            self.row.floatingPlaceholderColor = self.pickerField.flTextColor;
         }
         if(self.row.floatingPlaceholderActiveColor) {
-            self.pickerField.floatingLabelActiveTextColor = self.row.floatingPlaceholderActiveColor;
-        } else if(self.pickerField.floatingLabelActiveTextColor) {
-            self.row.floatingPlaceholderActiveColor = self.pickerField.floatingLabelActiveTextColor;
+            self.pickerField.flActiveTextColor = self.row.floatingPlaceholderActiveColor;
+        } else if(self.pickerField.flActiveTextColor) {
+            self.row.floatingPlaceholderActiveColor = self.pickerField.flActiveTextColor;
         }
         if(self.row.floatingTitle.length) {
-            self.pickerField.floatingLabelText = self.row.floatingTitle;
+            self.pickerField.flText = self.row.floatingTitle;
         }
     }
     

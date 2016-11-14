@@ -10,19 +10,6 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
-		<key>010FFDBC875C8340CB4F68A3DC83D36D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>BDGCircularView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>01F7093961AEAD041019DB1CBFB5D2D1</key>
 		<dict>
 			<key>children</key>
@@ -37,10 +24,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>050B61AC8188E86828065E2B8E1561A7</key>
+		<key>05FBAE13B03A0B017ABA2D23C1140878</key>
 		<dict>
 			<key>fileRef</key>
-			<string>14BE4AB33AB7B23CDF69899E938785E9</string>
+			<string>676E09F63CF6496A83F6B7575A89E596</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -88,16 +75,18 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>0ADE0C323729F812FF4658112CB63A2D</key>
+		<key>0EB65EBDB3026FB1CC6F3E878E2589FB</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>BDGRoundedView.m</string>
 			<key>path</key>
-			<string>BDGRoundedButton.h</string>
+			<string>BDGViews/BDGRoundedView.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -147,59 +136,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>14BE4AB33AB7B23CDF69899E938785E9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>BDGViews-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>169A2904DE5461CA4E1B0F8F743CD77B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0ADE0C323729F812FF4658112CB63A2D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>1865F87C82B12F55D3106AB25662A8A5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1875758795D3BBEE67D7B81A5F7610C2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>BDGShadowedView.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>1884735FADCD614108F5E99A7C91CC4F</key>
 		<dict>
 			<key>children</key>
@@ -215,25 +151,26 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>18A19C24E381AB16F21EA4AB5A974F60</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>BDGDashedLineView.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>192AC43D2F848129D2CAC66DAAF6CA35</key>
 		<dict>
 			<key>fileRef</key>
 			<string>44578A5153D11FA06E45CB7CBB7E930A</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>19C669DD1E71DC01775EA9C4FED93254</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CE1034CE759BBE095C6FF4FF0FAC09D1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
 		<dict>
@@ -304,6 +241,21 @@
 				</array>
 			</dict>
 		</dict>
+		<key>1F2F0BFB61EFBEBEED7EACF7DFF14A49</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BDGRoundedButton.h</string>
+			<key>path</key>
+			<string>BDGViews/BDGRoundedButton.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>208EECF640E9CF7EF1E8AEF66AC3CE90</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -331,18 +283,19 @@
 				</array>
 			</dict>
 		</dict>
-		<key>23D83F414C3A7E1AFD0C42D3A1625C06</key>
+		<key>23D6DE91ADBE489AF8E58C8D0CB0D59E</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>D04698100BBE7F7233D146E8B7714A62</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>BDGDashedLineView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>242BBD94FD9722B43A54C517E2DF5937</key>
 		<dict>
@@ -511,6 +464,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>318544639EE4C1C974A6A40D1A6379E7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>BDGRoundedButton.m</string>
+			<key>path</key>
+			<string>BDGViews/BDGRoundedButton.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>35AF7FA0D7D3158D975CBFFCE0D22CB0</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -570,18 +538,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>37F392A0D4D85A8A28706FC0E79F21F2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4D0533B9DF5D800A74E5A7C5D43E79EE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>3A7CE58C24766CA4C94C849DDCDD2292</key>
 		<dict>
 			<key>isa</key>
@@ -607,6 +563,21 @@
 			<string>AFNetworkActivityIndicatorManager.m</string>
 			<key>path</key>
 			<string>UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F1530AC6334F91236059715BDF47B20</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>BDGBorderedView.m</string>
+			<key>path</key>
+			<string>BDGViews/BDGBorderedView.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -747,18 +718,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>479B3B5736ABFB0F9E80807FD63F05E2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BADB71A89291AA351BD019DDD73E6227</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>47BEF9D903506B003EA5C2B249729489</key>
 		<dict>
 			<key>buildSettings</key>
@@ -852,29 +811,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>498633A2FA4C1876191B9B5A8417AB3E</key>
+		<key>49D18CD8001158A5094A4BFC03E5355A</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BDGDashedLineView.h</string>
 			<key>path</key>
-			<string>BDGViews-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4D0533B9DF5D800A74E5A7C5D43E79EE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>BDGCircularView.m</string>
+			<string>BDGViews/BDGDashedLineView.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -921,15 +869,49 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>50D94FDD46F1EF64320DE3B4670CD96A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>05FBAE13B03A0B017ABA2D23C1140878</string>
+				<string>674A4C37861CCB03CA739781C5F3FBB5</string>
+				<string>CE0A3D17766E0B8982B25432F1B43283</string>
+				<string>79CFDC374A7F5505172589F4BAB83618</string>
+				<string>19C669DD1E71DC01775EA9C4FED93254</string>
+				<string>23D6DE91ADBE489AF8E58C8D0CB0D59E</string>
+				<string>FAD1375928CB5F0607D0FD27DB9711C0</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>530384865E149E385139EF8C3734C36F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>BDGShadowedView.m</string>
+			<key>path</key>
+			<string>BDGViews/BDGShadowedView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>5322BF454E3BAD18337F0BAC933DE0E7</key>
 		<dict>
 			<key>buildConfigurationList</key>
 			<string>F0B0745349822A5C25CF59C778AAC046</string>
 			<key>buildPhases</key>
 			<array>
-				<string>8DF96F50D0A71BCA8411E7E908029F41</string>
+				<string>608D9BBF3BC23F980E74312D303B6C83</string>
 				<string>DE4B4F4F03E33959A82F4B88FC1F2A62</string>
-				<string>C52530D5108B300108499E3A6E93A484</string>
+				<string>50D94FDD46F1EF64320DE3B4670CD96A</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -1033,6 +1015,25 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
+		<key>608D9BBF3BC23F980E74312D303B6C83</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>FA8C0E7556D82713F1154EF2A4E35B9B</string>
+				<string>79BD5C2B26F1F1E74F12E40B3E9E40CE</string>
+				<string>F0E447261322E86241426255CA3C2893</string>
+				<string>C3067C923ACCDFAD781BEF92E8297674</string>
+				<string>954C8BEEB1ED4AA500DEC7AD29F2337D</string>
+				<string>DEE395BBEF34F26337CD775AAF82D92B</string>
+				<string>90365D5C33F7129B18DEB881679C6AF8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
 		<key>60E3009342BEE96D32C546BE2DB60052</key>
 		<dict>
 			<key>fileRef</key>
@@ -1089,7 +1090,7 @@
 		<key>66F48F0CF4DF904A29DF9EB67E997F02</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>FA3B620D25FB7D4B88386EBC5BB53752</string>
+			<string>9BF37923E4B8617962104F3208A556D6</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
@@ -1146,18 +1147,19 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>675940F72484BC108636A7C62B26C019</key>
+		<key>674A4C37861CCB03CA739781C5F3FBB5</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>69E896401B58B4190F1F1F5018B9BAA4</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>BDGViews-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>6767579C24E8611B05101A49C69D9324</key>
 		<dict>
@@ -1171,6 +1173,21 @@
 			<string>AFSecurityPolicy.h</string>
 			<key>path</key>
 			<string>AFNetworking/AFSecurityPolicy.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>676E09F63CF6496A83F6B7575A89E596</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BDGBorderedView.h</string>
+			<key>path</key>
+			<string>BDGViews/BDGBorderedView.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1222,6 +1239,34 @@
 			<string>B6DD83B3A88233A4EFA458D74866100D</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>68A3D3A8CA6237FF337C2D46325D615A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>BDGViews-umbrella.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>69E896401B58B4190F1F1F5018B9BAA4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BDGCircularView.h</string>
+			<key>path</key>
+			<string>BDGViews/BDGCircularView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>6AEF36D358731294A3A6604BBD6774EC</key>
 		<dict>
@@ -1306,26 +1351,6 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>6C4055D5AB8C44911AD3DDB33CE2B553</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C441A00D600B6ECC974D444581652CAA</string>
-				<string>FA3B620D25FB7D4B88386EBC5BB53752</string>
-				<string>498633A2FA4C1876191B9B5A8417AB3E</string>
-				<string>675940F72484BC108636A7C62B26C019</string>
-				<string>14BE4AB33AB7B23CDF69899E938785E9</string>
-				<string>1865F87C82B12F55D3106AB25662A8A5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/BDGViews</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>6D72C150E944E07988B902B0D761D358</key>
 		<dict>
 			<key>fileRef</key>
@@ -1336,20 +1361,6 @@
 			<dict>
 				<key>COMPILER_FLAGS</key>
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>6F1C46B2F2925D21B9C09C715A15FCB0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A98E2F858F01A1D4E798B6EBF10EB6DB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
 			</dict>
 		</dict>
 		<key>7135CBDA395761ED3CD69F4213F2B9BD</key>
@@ -1376,18 +1387,6 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>7303A63D20A22A4B838E638A497DDC1B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>92EC7DB3CA353CD5660E389B07D5EA05</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>7332F15718920917F544F35CE2C038AA</key>
 		<dict>
 			<key>fileRef</key>
@@ -1401,6 +1400,33 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>74EB4DAB10970FDC7652819473819015</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>676E09F63CF6496A83F6B7575A89E596</string>
+				<string>3F1530AC6334F91236059715BDF47B20</string>
+				<string>69E896401B58B4190F1F1F5018B9BAA4</string>
+				<string>C36CFB9C6763B71FF811247FB69B773B</string>
+				<string>49D18CD8001158A5094A4BFC03E5355A</string>
+				<string>8787276AF1302D57B4AABF20AA2C8051</string>
+				<string>1F2F0BFB61EFBEBEED7EACF7DFF14A49</string>
+				<string>318544639EE4C1C974A6A40D1A6379E7</string>
+				<string>CE1034CE759BBE095C6FF4FF0FAC09D1</string>
+				<string>0EB65EBDB3026FB1CC6F3E878E2589FB</string>
+				<string>D04698100BBE7F7233D146E8B7714A62</string>
+				<string>530384865E149E385139EF8C3734C36F</string>
+				<string>D57803AF7854F21C3B49F97C9B86CE47</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>BDGViews</string>
+			<key>path</key>
+			<string>BDGViews</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>76846F432F0DDC68D58298C5AE132AA5</key>
 		<dict>
@@ -1436,6 +1462,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>79BD5C2B26F1F1E74F12E40B3E9E40CE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C36CFB9C6763B71FF811247FB69B773B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>79CBE09C5054BF77E0F4B4EBEE35DBB0</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1449,28 +1487,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>7B3B4E9BB2ED47878DB5AED8743C8871</key>
+		<key>79CFDC374A7F5505172589F4BAB83618</key>
 		<dict>
 			<key>fileRef</key>
-			<string>18A19C24E381AB16F21EA4AB5A974F60</string>
+			<string>1F2F0BFB61EFBEBEED7EACF7DFF14A49</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
 			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>7C44D31C6207442E9BAD3034F1C3B6BF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E123D38E6F37F1C02B2079EF02A7512D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks</string>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
 			</dict>
 		</dict>
 		<key>7C6A0D99A9CC32A19A92A62F8A941139</key>
@@ -1562,20 +1590,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>860256FF7EDAFCEA4379D43D1D9A2425</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DD4D7EDEE36C9ADB2777F363C96A03BF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
 		<key>869F46A0B2196706EF1254442714AD0D</key>
 		<dict>
 			<key>fileRef</key>
@@ -1629,6 +1643,21 @@
 			<key>productType</key>
 			<string>com.apple.product-type.framework</string>
 		</dict>
+		<key>8787276AF1302D57B4AABF20AA2C8051</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>BDGDashedLineView.m</string>
+			<key>path</key>
+			<string>BDGViews/BDGDashedLineView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>89D6718E26F2AAE27A2A53F26C58EA4C</key>
 		<dict>
 			<key>fileRef</key>
@@ -1654,37 +1683,12 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>8B605DC7990878435C3BFD9C0C1200ED</key>
+		<key>90365D5C33F7129B18DEB881679C6AF8</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>AE5E30F0120360D04EFA6D4C803A5230</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>BDGRoundedView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8DF96F50D0A71BCA8411E7E908029F41</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>479B3B5736ABFB0F9E80807FD63F05E2</string>
-				<string>37F392A0D4D85A8A28706FC0E79F21F2</string>
-				<string>7B3B4E9BB2ED47878DB5AED8743C8871</string>
-				<string>7C44D31C6207442E9BAD3034F1C3B6BF</string>
-				<string>7303A63D20A22A4B838E638A497DDC1B</string>
-				<string>CD55A5A751080AC35E9A11D211C800DC</string>
-				<string>E7A15958892EBBD7F55BDA44FCD6F410</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>910727041BB3ED86C59B232F7FAF8496</key>
 		<dict>
@@ -1698,19 +1702,6 @@
 			<string>AFAutoPurgingImageCache.m</string>
 			<key>path</key>
 			<string>UIKit+AFNetworking/AFAutoPurgingImageCache.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>92EC7DB3CA353CD5660E389B07D5EA05</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>BDGRoundedView.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1746,6 +1737,18 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
+		<key>954C8BEEB1ED4AA500DEC7AD29F2337D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0EB65EBDB3026FB1CC6F3E878E2589FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>95985C521A206A6323FC06CCDC53F7D0</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1761,20 +1764,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>982077CEE0C97F54364333442637D156</key>
-		<dict>
-			<key>fileRef</key>
-			<string>010FFDBC875C8340CB4F68A3DC83D36D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
 		<key>9928F7B5A407A143CDD03DDD6EF32DE6</key>
 		<dict>
 			<key>fileRef</key>
@@ -1786,6 +1775,19 @@
 				<key>COMPILER_FLAGS</key>
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
+		</dict>
+		<key>9BF37923E4B8617962104F3208A556D6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>BDGViews.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>9BF7BDDD37516CFA90FAF028E1CF36F7</key>
 		<dict>
@@ -1829,6 +1831,17 @@
 				</array>
 			</dict>
 		</dict>
+		<key>A0E15D4E6604E537D27A1E84B17F4D8E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>BDGViews.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>A0F16B548C6425575E3FB531E3D349AE</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -1841,6 +1854,19 @@
 			<string>PBXHeadersBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
+		</dict>
+		<key>A15089A9DEEF38F4D7F3CA57BA1735EF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>BDGViews-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>A3A94EC283BFCCAA41EAFF11A584B062</key>
 		<dict>
@@ -1870,19 +1896,6 @@
 			<string>AFHTTPSessionManager.h</string>
 			<key>path</key>
 			<string>AFNetworking/AFHTTPSessionManager.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A98E2F858F01A1D4E798B6EBF10EB6DB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>BDGShadowedView.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2057,6 +2070,19 @@
 				</array>
 			</dict>
 		</dict>
+		<key>AE5E30F0120360D04EFA6D4C803A5230</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>BDGViews-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>AFAA3A44123EB7324DC058F30CB61657</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2121,7 +2147,7 @@
 		<key>B902BDFFB981787A327F83CFBD918402</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>FA3B620D25FB7D4B88386EBC5BB53752</string>
+			<string>9BF37923E4B8617962104F3208A556D6</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
@@ -2209,19 +2235,6 @@
 				<key>COMPILER_FLAGS</key>
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
-		</dict>
-		<key>BADB71A89291AA351BD019DDD73E6227</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>BDGBorderedView.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>BC102EC93BDA7BEE26F2B059D58CF8EB</key>
 		<dict>
@@ -2311,20 +2324,6 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>C237EBAB423427773A91C014803A369C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>23D83F414C3A7E1AFD0C42D3A1625C06</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
 		<key>C2DD28375E1F0B1D0D1D2E4E607C499F</key>
 		<dict>
 			<key>fileRef</key>
@@ -2339,6 +2338,33 @@
 				</array>
 			</dict>
 		</dict>
+		<key>C3067C923ACCDFAD781BEF92E8297674</key>
+		<dict>
+			<key>fileRef</key>
+			<string>318544639EE4C1C974A6A40D1A6379E7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>C36CFB9C6763B71FF811247FB69B773B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>BDGCircularView.m</string>
+			<key>path</key>
+			<string>BDGViews/BDGCircularView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>C37F5BCD483D20C5C588AE5BBD3B4EF1</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2349,17 +2375,6 @@
 			<string>text</string>
 			<key>path</key>
 			<string>Pods-BlazeExample-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C441A00D600B6ECC974D444581652CAA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>BDGViews.modulemap</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2375,25 +2390,6 @@
 			<string>AFNetworking-prefix.pch</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C52530D5108B300108499E3A6E93A484</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>860256FF7EDAFCEA4379D43D1D9A2425</string>
-				<string>982077CEE0C97F54364333442637D156</string>
-				<string>C237EBAB423427773A91C014803A369C</string>
-				<string>169A2904DE5461CA4E1B0F8F743CD77B</string>
-				<string>D81BF2878384D29442A83D62AFC43B19</string>
-				<string>6F1C46B2F2925D21B9C09C715A15FCB0</string>
-				<string>050B61AC8188E86828065E2B8E1561A7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
 		</dict>
 		<key>C554FB0D1760645DE9D264BF4DD90A41</key>
 		<dict>
@@ -2491,18 +2487,6 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>CD55A5A751080AC35E9A11D211C800DC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1875758795D3BBEE67D7B81A5F7610C2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>CD8DE425B01BF8B7CD7BD169C07B6229</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2530,6 +2514,35 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
+		<key>CE0A3D17766E0B8982B25432F1B43283</key>
+		<dict>
+			<key>fileRef</key>
+			<string>49D18CD8001158A5094A4BFC03E5355A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>CE1034CE759BBE095C6FF4FF0FAC09D1</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BDGRoundedView.h</string>
+			<key>path</key>
+			<string>BDGViews/BDGRoundedView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>CEAC07A2877D71699C7F88B6ECA5CA14</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2542,6 +2555,21 @@
 			<string>AFImageDownloader.m</string>
 			<key>path</key>
 			<string>UIKit+AFNetworking/AFImageDownloader.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D04698100BBE7F7233D146E8B7714A62</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BDGShadowedView.h</string>
+			<key>path</key>
+			<string>BDGViews/BDGShadowedView.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2600,6 +2628,26 @@
 				<string>8750F11EB301D5AA122DCEC905DDD84E</string>
 			</array>
 		</dict>
+		<key>D57803AF7854F21C3B49F97C9B86CE47</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A0E15D4E6604E537D27A1E84B17F4D8E</string>
+				<string>9BF37923E4B8617962104F3208A556D6</string>
+				<string>AE5E30F0120360D04EFA6D4C803A5230</string>
+				<string>A15089A9DEEF38F4D7F3CA57BA1735EF</string>
+				<string>68A3D3A8CA6237FF337C2D46325D615A</string>
+				<string>EEAF24159EFA5BF3E316ED5BDBE9C67D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>../Target Support Files/BDGViews</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>D7FFC1677DC47C361AED1B98183260BC</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2612,20 +2660,6 @@
 			<string>BDGMacros.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D81BF2878384D29442A83D62AFC43B19</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8B605DC7990878435C3BFD9C0C1200ED</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>D894855331267F1B9CFAEDC3ED176CDB</key>
 		<dict>
@@ -2686,25 +2720,12 @@
 			<array>
 				<string>242BBD94FD9722B43A54C517E2DF5937</string>
 				<string>1884735FADCD614108F5E99A7C91CC4F</string>
-				<string>F6E26C04FE5AF9CEF5ECCE5AA3535E0E</string>
+				<string>74EB4DAB10970FDC7652819473819015</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
 			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DD4D7EDEE36C9ADB2777F363C96A03BF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>BDGBorderedView.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2733,18 +2754,17 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>E123D38E6F37F1C02B2079EF02A7512D</key>
+		<key>DEE395BBEF34F26337CD775AAF82D92B</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>530384865E149E385139EF8C3734C36F</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>BDGRoundedButton.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>E3FFC3CD239779667C47E1F3C26F5D9E</key>
 		<dict>
@@ -2791,13 +2811,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>E7A15958892EBBD7F55BDA44FCD6F410</key>
-		<dict>
-			<key>fileRef</key>
-			<string>498633A2FA4C1876191B9B5A8417AB3E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>E7BA9F503E70C5D7A0C408C0DA05B9BA</key>
 		<dict>
@@ -2890,6 +2903,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>EEAF24159EFA5BF3E316ED5BDBE9C67D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>EFD89DCA467AB3B17699E331CE2DBA3D</key>
 		<dict>
 			<key>fileRef</key>
@@ -2933,6 +2959,18 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
+		<key>F0E447261322E86241426255CA3C2893</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8787276AF1302D57B4AABF20AA2C8051</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>F52EB124D2862D475E1354E3BB3B8B37</key>
 		<dict>
 			<key>children</key>
@@ -2945,33 +2983,6 @@
 			<string>PBXGroup</string>
 			<key>name</key>
 			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F6E26C04FE5AF9CEF5ECCE5AA3535E0E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DD4D7EDEE36C9ADB2777F363C96A03BF</string>
-				<string>BADB71A89291AA351BD019DDD73E6227</string>
-				<string>010FFDBC875C8340CB4F68A3DC83D36D</string>
-				<string>4D0533B9DF5D800A74E5A7C5D43E79EE</string>
-				<string>23D83F414C3A7E1AFD0C42D3A1625C06</string>
-				<string>18A19C24E381AB16F21EA4AB5A974F60</string>
-				<string>0ADE0C323729F812FF4658112CB63A2D</string>
-				<string>E123D38E6F37F1C02B2079EF02A7512D</string>
-				<string>8B605DC7990878435C3BFD9C0C1200ED</string>
-				<string>92EC7DB3CA353CD5660E389B07D5EA05</string>
-				<string>A98E2F858F01A1D4E798B6EBF10EB6DB</string>
-				<string>1875758795D3BBEE67D7B81A5F7610C2</string>
-				<string>6C4055D5AB8C44911AD3DDB33CE2B553</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>BDGViews</string>
-			<key>path</key>
-			<string>BDGViews</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2997,18 +3008,31 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>FA3B620D25FB7D4B88386EBC5BB53752</key>
+		<key>FA8C0E7556D82713F1154EF2A4E35B9B</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>3F1530AC6334F91236059715BDF47B20</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>BDGViews.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>FAD1375928CB5F0607D0FD27DB9711C0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>68A3D3A8CA6237FF337C2D46325D615A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>FEAF487C553FF8939E79FF9B59AEA35A</key>
 		<dict>
