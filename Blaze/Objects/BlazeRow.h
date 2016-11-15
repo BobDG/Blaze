@@ -14,6 +14,12 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
     InputAccessoryViewCancelSave,
 };
 
+typedef NS_ENUM(NSInteger, FloatingLabelEnabledState) {
+    FloatingLabelStateUndetermined = -1,
+    FloatingLabelStateDisabled = 0,
+    FloatingLabelStateEnabled = 1,
+};
+
 @interface BlazeRow : NSObject
 {
     
@@ -190,11 +196,11 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
 @property(nonatomic,strong) NSAttributedString *attributedPlaceholder;
 
 //Floating placeholder options
-@property(nonatomic) bool floatingPlaceholder;
+@property(nonatomic) FloatingLabelEnabledState floatingLabelEnabled;
 @property(nonatomic,strong) NSString *floatingTitle;
-@property(nonatomic,strong) UIFont *floatingLabelFont;
-@property(nonatomic,strong) UIColor *floatingPlaceholderColor;
-@property(nonatomic,strong) UIColor *floatingPlaceholderActiveColor;
+@property(nonatomic,strong) UIFont *floatingTitleFont;
+@property(nonatomic,strong) UIColor *floatingTitleColor;
+@property(nonatomic,strong) UIColor *floatingTitleActiveColor;
 
 //MultipleSelector
 @property(nonatomic) bool disableMultipleSelection;

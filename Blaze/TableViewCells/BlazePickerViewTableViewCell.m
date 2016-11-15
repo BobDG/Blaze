@@ -54,18 +54,25 @@
     }
     
     //Update for floating options
-    self.pickerField.useFloatingLabel = self.row.floatingPlaceholder;
-    if(self.row.floatingPlaceholder) {
-        self.pickerField.flFont = self.row.floatingLabelFont;
-        if(self.row.floatingPlaceholderColor) {
-            self.pickerField.flTextColor = self.row.floatingPlaceholderColor;
+    BOOL useFloatingLabel = false;
+    if(self.row.floatingLabelEnabled == FloatingLabelStateUndetermined)
+    {
+        useFloatingLabel = self.pickerField.useFloatingLabel;
+    } else {
+        useFloatingLabel = (BOOL)self.row.floatingLabelEnabled;
+    }
+    self.pickerField.useFloatingLabel = useFloatingLabel;
+    if(useFloatingLabel) {
+        self.pickerField.flFont = self.row.floatingTitleFont;
+        if(self.row.floatingTitleColor) {
+            self.pickerField.flTextColor = self.row.floatingTitleColor;
         } else if(self.pickerField.flTextColor) {
-            self.row.floatingPlaceholderColor = self.pickerField.flTextColor;
+            self.row.floatingTitleColor = self.pickerField.flTextColor;
         }
-        if(self.row.floatingPlaceholderActiveColor) {
-            self.pickerField.flActiveTextColor = self.row.floatingPlaceholderActiveColor;
+        if(self.row.floatingTitleActiveColor) {
+            self.pickerField.flActiveTextColor = self.row.floatingTitleActiveColor;
         } else if(self.pickerField.flActiveTextColor) {
-            self.row.floatingPlaceholderActiveColor = self.pickerField.flActiveTextColor;
+            self.row.floatingTitleActiveColor = self.pickerField.flActiveTextColor;
         }
         if(self.row.floatingTitle.length) {
             self.pickerField.flText = self.row.floatingTitle;

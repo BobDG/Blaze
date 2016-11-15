@@ -97,13 +97,13 @@ IB_DESIGNABLE
  * Indicates whether or not to drop the baseline when entering text. Setting to YES (not the default) means the standard greyed-out placeholder will be aligned with the entered text
  * Defaults to NO (standard placeholder will be above whatever text is entered)
  */
-@property(nonatomic,assign) BOOL keepBaseline;
+@property(nonatomic,assign) IBInspectable BOOL flKeepBaseline;
 
 /**
  * Force floating label to be always visible
  * Defaults to NO
  */
-@property(nonatomic,assign) BOOL alwaysShowFloatingLabel;
+@property(nonatomic,assign) IBInspectable BOOL flAlwaysShow;
 
 /**
  * Color of the placeholder

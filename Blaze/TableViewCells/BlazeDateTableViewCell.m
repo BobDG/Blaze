@@ -66,24 +66,31 @@
     }
     
     //Update for floating options
-    self.dateField.useFloatingLabel = self.row.floatingPlaceholder;
-    if(self.row.floatingPlaceholder) {
-        self.dateField.flFont = self.row.floatingLabelFont;
-        if(self.row.floatingPlaceholderColor) {
-            self.dateField.flTextColor = self.row.floatingPlaceholderColor;
+    BOOL useFloatingLabel = false;
+    if(self.row.floatingLabelEnabled == FloatingLabelStateUndetermined)
+    {
+        useFloatingLabel = self.dateField.useFloatingLabel;
+    } else {
+        useFloatingLabel = (BOOL)self.row.floatingLabelEnabled;
+    }
+    self.dateField.useFloatingLabel = useFloatingLabel;
+    
+    if(useFloatingLabel) {
+        self.dateField.flFont = self.row.floatingTitleFont;
+        if(self.row.floatingTitleColor) {
+            self.dateField.flTextColor = self.row.floatingTitleColor;
         } else if(self.dateField.flTextColor) {
-            self.row.floatingPlaceholderColor = self.dateField.flTextColor;
+            self.row.floatingTitleColor = self.dateField.flTextColor;
         }
-        if(self.row.floatingPlaceholderActiveColor) {
-            self.dateField.flActiveTextColor = self.row.floatingPlaceholderActiveColor;
+        if(self.row.floatingTitleActiveColor) {
+            self.dateField.flActiveTextColor = self.row.floatingTitleActiveColor;
         } else if(self.dateField.flActiveTextColor) {
-            self.row.floatingPlaceholderActiveColor = self.dateField.flActiveTextColor;
+            self.row.floatingTitleActiveColor = self.dateField.flActiveTextColor;
         }
         if(self.row.floatingTitle.length) {
             self.dateField.flText = self.row.floatingTitle;
         }
     }
-    
     //Editable
     self.dateField.userInteractionEnabled = !self.row.disableEditing;    
 }

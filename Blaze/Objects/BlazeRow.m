@@ -66,6 +66,7 @@
     self.value = value;
     self.xibName = xibName;
     self.placeholder = placeholder;
+    self.floatingLabelEnabled = FloatingLabelStateUndetermined;
     
     return self;
 }
@@ -119,6 +120,7 @@
     self.xibName = xibName;
     self.placeholder = placeholder;
     self.segueIdentifier = segueIdentifier;
+    self.floatingLabelEnabled = FloatingLabelStateUndetermined;
     
     return self;
 }
@@ -156,6 +158,7 @@
     self.value = value;
     self.placeholder = placeholder;
     self.segueIdentifier = segueIdentifier;
+    self.floatingLabelEnabled = FloatingLabelStateUndetermined;
     
     return self;
 }

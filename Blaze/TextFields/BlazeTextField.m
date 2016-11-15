@@ -12,10 +12,13 @@
 static CGFloat const kFloatingLabelShowAnimationDuration = 0.3f;
 static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 
+@interface BlazeTextField()
+
+@property(nonatomic) BOOL isFloatingLabelFontDefault;
+
+@end
+
 @implementation BlazeTextField
-{
-    BOOL _isFloatingLabelFontDefault;
-}
 
 -(instancetype)initWithFrame:(CGRect)frame
 {
@@ -38,21 +41,24 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 -(void)commonInit
 {
     _floatingLabel = [UILabel new];
-    _floatingLabel.alpha = 0.0f;
-    [self addSubview:_floatingLabel];
+    self.floatingLabel.alpha = 0.0f;
+    [self addSubview:self.floatingLabel];
     
     // some basic default fonts/colors
-    _flFont = [self defaultFloatingLabelFont];
-    _floatingLabel.font = _flFont;
-    _flTextColor = [UIColor grayColor];
-    _floatingLabel.textColor = _flTextColor;
-    _animateEvenIfNotFirstResponder = NO;
-    _floatingLabelShowAnimationDuration = kFloatingLabelShowAnimationDuration;
-    _floatingLabelHideAnimationDuration = kFloatingLabelHideAnimationDuration;
-    [self setflText:self.placeholder];
+    self.flFont = [self defaultFloatingLabelFont];
+    self.floatingLabel.font = self.flFont;
+    self.flTextColor = [UIColor grayColor];
+    self.floatingLabel.textColor = self.flTextColor;
+    self.floatingLabelShowAnimationDuration = kFloatingLabelShowAnimationDuration;
+    self.floatingLabelHideAnimationDuration = kFloatingLabelHideAnimationDuration;
+    self.floatingLabel.text = self.flText;
+    [self setCorrectPlaceholder:self.placeholder];
     
-    _adjustsClearButtonRect = YES;
-    _isFloatingLabelFontDefault = YES;
+    //self.flAlwaysShow = FALSE;
+    //self.flKeepBaseline = TRUE;
+    self.isFloatingLabelFontDefault = TRUE;
+    self.adjustsClearButtonRect = TRUE;
+    self.animateEvenIfNotFirstResponder = FALSE;
 }
 
 -(void)prepareForInterfaceBuilder
@@ -61,7 +67,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     [self layoutSubviews];
     [self setCorrectPlaceholder:self.placeholder];
     [self updateDefaultFloatingLabelFont];
-    [self setflText:self.flText];
+    self.floatingLabel.text = self.flText;
 }
 
 #pragma mark -
@@ -87,19 +93,19 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 {
     UIFont *derivedFont = [self defaultFloatingLabelFont];
     
-    if (_isFloatingLabelFontDefault) {
+    if (self.isFloatingLabelFontDefault) {
         self.flFont = derivedFont;
     }
     else {
         // dont apply to the label, just store for future use where floatingLabelFont may be reset to nil
-        _flFont = derivedFont;
+        self.flFont = derivedFont;
     }
 }
 
 -(UIColor *)labelActiveColor
 {
-    if (_flActiveTextColor) {
-        return _flActiveTextColor;
+    if (self.flActiveTextColor) {
+        return self.flActiveTextColor;
     }
     else if ([self respondsToSelector:@selector(tintColor)]) {
         return [self performSelector:@selector(tintColor)];
@@ -107,28 +113,28 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     return [UIColor blueColor];
 }
 
--(void)setflFont:(UIFont *)flFont
+-(void)setFlFont:(UIFont *)flFont
 {
     if (flFont != nil) {
         _flFont = flFont;
     }
-    _floatingLabel.font = _flFont ? _flFont : [self defaultFloatingLabelFont];
-    _isFloatingLabelFontDefault = flFont == nil;
+    self.floatingLabel.font = self.flFont ? self.flFont : [self defaultFloatingLabelFont];
+    self.isFloatingLabelFontDefault = flFont == nil;
     [self invalidateIntrinsicContentSize];
 }
 
 -(void)showFloatingLabel:(BOOL)animated
-{    
+{
     void (^showBlock)() = ^{
-        _floatingLabel.alpha = 1.0f;
-        _floatingLabel.frame = CGRectMake(_floatingLabel.frame.origin.x,
-                                          _flYPadding,
-                                          _floatingLabel.frame.size.width,
-                                          _floatingLabel.frame.size.height);
+        self.floatingLabel.alpha = 1.0f;
+        self.floatingLabel.frame = CGRectMake(self.floatingLabel.frame.origin.x,
+                                          self.flYPadding,
+                                          self.floatingLabel.frame.size.width,
+                                          self.floatingLabel.frame.size.height);
     };
     
-    if (animated || 0 != _animateEvenIfNotFirstResponder) {
-        [UIView animateWithDuration:_floatingLabelShowAnimationDuration
+    if (animated || 0 != self.animateEvenIfNotFirstResponder) {
+        [UIView animateWithDuration:self.floatingLabelShowAnimationDuration
                               delay:0.0f
                             options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseOut
                          animations:showBlock
@@ -142,16 +148,16 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 -(void)hideFloatingLabel:(BOOL)animated
 {
     void (^hideBlock)() = ^{
-        _floatingLabel.alpha = 0.0f;
-        _floatingLabel.frame = CGRectMake(_floatingLabel.frame.origin.x,
-                                          _floatingLabel.font.lineHeight + _placeholderYPadding,
-                                          _floatingLabel.frame.size.width,
-                                          _floatingLabel.frame.size.height);
+        self.floatingLabel.alpha = 0.0f;
+        self.floatingLabel.frame = CGRectMake(self.floatingLabel.frame.origin.x,
+                                          self.floatingLabel.font.lineHeight + self.placeholderYPadding,
+                                          self.floatingLabel.frame.size.width,
+                                          self.floatingLabel.frame.size.height);
         
     };
     
-    if (animated || 0 != _animateEvenIfNotFirstResponder) {
-        [UIView animateWithDuration:_floatingLabelHideAnimationDuration
+    if (animated || 0 != self.animateEvenIfNotFirstResponder) {
+        [UIView animateWithDuration:self.floatingLabelHideAnimationDuration
                               delay:0.0f
                             options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseIn
                          animations:hideBlock
@@ -169,27 +175,39 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     CGFloat originX = textRect.origin.x;
     
     if (self.textAlignment == NSTextAlignmentCenter) {
-        originX = textRect.origin.x + (textRect.size.width/2) - (_floatingLabel.frame.size.width/2);
+        originX = textRect.origin.x + (textRect.size.width/2) - (self.floatingLabel.frame.size.width/2);
     }
     else if (self.textAlignment == NSTextAlignmentRight) {
-        originX = textRect.origin.x + textRect.size.width - _floatingLabel.frame.size.width;
+        originX = textRect.origin.x + textRect.size.width - self.floatingLabel.frame.size.width;
     }
     else if (self.textAlignment == NSTextAlignmentNatural) {
-        JVTextDirection baseDirection = [_floatingLabel.text getBaseDirection];
+        JVTextDirection baseDirection = [self.floatingLabel.text getBaseDirection];
         if (baseDirection == JVTextDirectionRightToLeft) {
-            originX = textRect.origin.x + textRect.size.width - _floatingLabel.frame.size.width;
+            originX = textRect.origin.x + textRect.size.width - self.floatingLabel.frame.size.width;
         }
     }
     
-    _floatingLabel.frame = CGRectMake(originX + _floatingLabelXPadding, _floatingLabel.frame.origin.y,
-                                      _floatingLabel.frame.size.width, _floatingLabel.frame.size.height);
+    self.floatingLabel.frame = CGRectMake(originX + self.floatingLabelXPadding, self.floatingLabel.frame.origin.y,
+                                      self.floatingLabel.frame.size.width, self.floatingLabel.frame.size.height);
 }
 
--(void)setflText:(NSString *)text
+-(void)setFlText:(NSString *)flText
 {
-    _flText = text;
-    _floatingLabel.text = text;
+    _flText = flText;
+    self.floatingLabel.text = flText;
     [self setNeedsLayout];
+}
+
+-(void)setFlAlwaysShow:(BOOL)flAlwaysShow
+{
+    _flAlwaysShow = flAlwaysShow;
+    [self setNeedsLayout];
+}
+
+-(void)setPlaceholderColor:(UIColor *)placeholderColor
+{
+    _placeholderColor = placeholderColor;
+    [self setCorrectPlaceholder:self.placeholder];
 }
 
 #pragma mark - UITextField
@@ -212,9 +230,9 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
         return [super intrinsicContentSize];
     }
     CGSize textFieldIntrinsicContentSize = [super intrinsicContentSize];
-    [_floatingLabel sizeToFit];
+    [self.floatingLabel sizeToFit];
     return CGSizeMake(textFieldIntrinsicContentSize.width,
-                      textFieldIntrinsicContentSize.height + _flYPadding + _floatingLabel.bounds.size.height);
+                      textFieldIntrinsicContentSize.height + self.flYPadding + self.floatingLabel.bounds.size.height);
 }
 
 -(void)setCorrectPlaceholder:(NSString *)placeholder
@@ -231,13 +249,17 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 -(void)setPlaceholder:(NSString *)placeholder
 {
     [self setCorrectPlaceholder:placeholder];
-    [self setflText:placeholder];
+    if(!self.flText.length) {
+        [self setFlText:placeholder];
+    }
 }
 
 -(void)setAttributedPlaceholder:(NSAttributedString *)attributedPlaceholder
 {
     [super setAttributedPlaceholder:attributedPlaceholder];
-    [self setflText:attributedPlaceholder.string];
+    if(!self.flText.length) {
+        [self setFlText:attributedPlaceholder.string];
+    }
     [self updateDefaultFloatingLabelFont];
 }
 
@@ -247,7 +269,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
         return [super textRectForBounds:bounds];
     }
     CGRect rect = [super textRectForBounds:bounds];
-    if ([self.text length] || self.keepBaseline) {
+    if ([self.text length] || self.flKeepBaseline) {
         rect = [self insetRectForBounds:rect];
     }
     return CGRectIntegral(rect);
@@ -259,7 +281,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
         return [super editingRectForBounds:bounds];
     }
     CGRect rect = [super editingRectForBounds:bounds];
-    if ([self.text length] || self.keepBaseline) {
+    if ([self.text length] || self.flKeepBaseline) {
         rect = [self insetRectForBounds:rect];
     }
     return CGRectIntegral(rect);
@@ -267,7 +289,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 
 -(CGRect)insetRectForBounds:(CGRect)rect
 {
-    CGFloat topInset = ceilf(_floatingLabel.bounds.size.height + _placeholderYPadding);
+    CGFloat topInset = ceilf(self.floatingLabel.bounds.size.height + self.placeholderYPadding);
     topInset = MIN(topInset, [self maxTopInset]);
     return CGRectMake(rect.origin.x, rect.origin.y + topInset / 2.0f, rect.size.width, rect.size.height);
 }
@@ -279,10 +301,10 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     }
     CGRect rect = [super clearButtonRectForBounds:bounds];
     if (0 != self.adjustsClearButtonRect
-        && _floatingLabel.text.length // for when there is no floating title label text
+        && self.floatingLabel.text.length // for when there is no floating title label text
         ) {
-        if ([self.text length] || self.keepBaseline) {
-            CGFloat topInset = ceilf(_floatingLabel.font.lineHeight + _placeholderYPadding);
+        if ([self.text length] || self.flKeepBaseline) {
+            CGFloat topInset = ceilf(self.floatingLabel.font.lineHeight + self.placeholderYPadding);
             topInset = MIN(topInset, [self maxTopInset]);
             rect = CGRectMake(rect.origin.x, rect.origin.y + topInset / 2.0f, rect.size.width, rect.size.height);
         }
@@ -297,7 +319,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     }
     CGRect rect = [super leftViewRectForBounds:bounds];
     
-    CGFloat topInset = ceilf(_floatingLabel.font.lineHeight + _placeholderYPadding);
+    CGFloat topInset = ceilf(self.floatingLabel.font.lineHeight + self.placeholderYPadding);
     topInset = MIN(topInset, [self maxTopInset]);
     rect = CGRectOffset(rect, 0, topInset / 2.0f);
     
@@ -311,7 +333,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     }
     CGRect rect = [super rightViewRectForBounds:bounds];
     
-    CGFloat topInset = ceilf(_floatingLabel.font.lineHeight + _placeholderYPadding);
+    CGFloat topInset = ceilf(self.floatingLabel.font.lineHeight + self.placeholderYPadding);
     topInset = MIN(topInset, [self maxTopInset]);
     rect = CGRectOffset(rect, 0, topInset / 2.0f);
     
@@ -329,12 +351,6 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     [self setNeedsLayout];
 }
 
--(void)setAlwaysShowFloatingLabel:(BOOL)alwaysShowFloatingLabel
-{
-    _alwaysShowFloatingLabel = alwaysShowFloatingLabel;
-    [self setNeedsLayout];
-}
-
 -(void)layoutSubviews
 {
     [super layoutSubviews];
@@ -345,17 +361,17 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     
     [self setLabelOriginForTextAlignment];
     
-    CGSize floatingLabelSize = [_floatingLabel sizeThatFits:_floatingLabel.superview.bounds.size];
+    CGSize floatingLabelSize = [self.floatingLabel sizeThatFits:self.floatingLabel.superview.bounds.size];
     
-    _floatingLabel.frame = CGRectMake(_floatingLabel.frame.origin.x,
-                                      _floatingLabel.frame.origin.y,
+    self.floatingLabel.frame = CGRectMake(self.floatingLabel.frame.origin.x,
+                                      self.floatingLabel.frame.origin.y,
                                       floatingLabelSize.width,
                                       floatingLabelSize.height);
     
     BOOL firstResponder = self.isFirstResponder;
-    _floatingLabel.textColor = (firstResponder && self.text && self.text.length > 0 ?
+    self.floatingLabel.textColor = (firstResponder ?
                                 self.labelActiveColor : self.flTextColor);
-    if ((!self.text || 0 == [self.text length]) && !self.alwaysShowFloatingLabel) {
+    if ((!self.text || 0 == [self.text length]) && !self.flAlwaysShow) {
         [self hideFloatingLabel:firstResponder];
     }
     else {

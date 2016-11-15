@@ -38,18 +38,26 @@
     }
     
     //Update for floating options
-    self.textField.useFloatingLabel = self.row.floatingPlaceholder;
-    if(self.row.floatingPlaceholder) {
-        self.textField.flFont = self.row.floatingLabelFont;
-        if(self.row.floatingPlaceholderColor) {
-            self.textField.flTextColor = self.row.floatingPlaceholderColor;
+    BOOL useFloatingLabel = false;
+    if(self.row.floatingLabelEnabled == FloatingLabelStateUndetermined)
+    {
+        useFloatingLabel = self.textField.useFloatingLabel;
+    } else {
+        useFloatingLabel = (BOOL)self.row.floatingLabelEnabled;
+    }
+    self.textField.useFloatingLabel = useFloatingLabel;
+    
+    if(useFloatingLabel) {
+        self.textField.flFont = self.row.floatingTitleFont;
+        if(self.row.floatingTitleColor) {
+            self.textField.flTextColor = self.row.floatingTitleColor;
         } else if(self.textField.flTextColor) {
-            self.row.floatingPlaceholderColor = self.textField.flTextColor;
+            self.row.floatingTitleColor = self.textField.flTextColor;
         }
-        if(self.row.floatingPlaceholderActiveColor) {
-            self.textField.flActiveTextColor = self.row.floatingPlaceholderActiveColor;
+        if(self.row.floatingTitleActiveColor) {
+            self.textField.flActiveTextColor = self.row.floatingTitleActiveColor;
         } else if(self.textField.flActiveTextColor) {
-            self.row.floatingPlaceholderActiveColor = self.textField.flActiveTextColor;
+            self.row.floatingTitleActiveColor = self.textField.flActiveTextColor;
         }
         if(self.row.floatingTitle.length) {
             self.textField.flText = self.row.floatingTitle;
