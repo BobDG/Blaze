@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4uB-op-0nl" id="nSo-Je-vxQ">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Placeholder text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rxg-lH-tPo" customClass="BlazeTextField">
@@ -41,7 +41,6 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="flYPadding">
                                 <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="flKeepBaseline" value="YES"/>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="flAlwaysShow" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </textField>

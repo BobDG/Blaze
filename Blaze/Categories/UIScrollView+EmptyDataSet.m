@@ -942,6 +942,7 @@ Class dzn_baseClassToSwizzleForTarget(id target)
     if (_customView) {
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[customView]|" options:0 metrics:nil views:@{@"customView":_customView}]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[customView]|" options:0 metrics:nil views:@{@"customView":_customView}]];
+        
     }
     else {
         CGFloat width = CGRectGetWidth(self.frame) ? : CGRectGetWidth([UIScreen mainScreen].bounds);
@@ -1030,6 +1031,30 @@ Class dzn_baseClassToSwizzleForTarget(id target)
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
+    if(_customView != nil){
+        _customView.frame = self.frame;
+        point = [super convertPoint:point toView:_customView];
+        UIView *hitView = [_customView hitTest:point withEvent:event];
+        return hitView;
+    }else{
+        UIView *hitView = [super hitTest:point withEvent:event];
+        
+        // Return any UIControl instance such as buttons, segmented controls, switches, etc.
+        if ([hitView isKindOfClass:[UIControl class]]) {
+            return hitView;
+        }
+        
+        // Return either the contentView or customView
+        if ([hitView isEqual:_contentView] || [hitView isEqual:_customView]) {
+            return hitView;
+        }
+        return nil;
+    }
+    
+}
+/* Original code
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+{
     UIView *hitView = [super hitTest:point withEvent:event];
     
     // Return any UIControl instance such as buttons, segmented controls, switches, etc.
@@ -1044,6 +1069,7 @@ Class dzn_baseClassToSwizzleForTarget(id target)
     
     return nil;
 }
+ */
 
 @end
 

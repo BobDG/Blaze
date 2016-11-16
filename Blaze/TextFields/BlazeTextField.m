@@ -8,6 +8,7 @@
 
 #import "BlazeTextField.h"
 #import "NSString+TextDirectionality.h"
+#import "BlazeRow.h"
 
 static CGFloat const kFloatingLabelShowAnimationDuration = 0.3f;
 static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
@@ -47,18 +48,49 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     // some basic default fonts/colors
     self.flFont = [self defaultFloatingLabelFont];
     self.floatingLabel.font = self.flFont;
-    self.flTextColor = [UIColor grayColor];
-    self.floatingLabel.textColor = self.flTextColor;
     self.floatingLabelShowAnimationDuration = kFloatingLabelShowAnimationDuration;
     self.floatingLabelHideAnimationDuration = kFloatingLabelHideAnimationDuration;
     self.floatingLabel.text = self.flText;
     [self setCorrectPlaceholder:self.placeholder];
-    
-    //self.flAlwaysShow = FALSE;
-    //self.flKeepBaseline = TRUE;
     self.isFloatingLabelFontDefault = TRUE;
     self.adjustsClearButtonRect = TRUE;
     self.animateEvenIfNotFirstResponder = FALSE;
+}
+
+-(void)mergeBlazeRowWithInspectables:(BlazeRow*)row
+{
+    //Update for floating options
+    BOOL useFloatingLabel = false;
+    if(row.floatingLabelEnabled == FloatingLabelStateUndetermined)
+    {
+        useFloatingLabel = self.useFloatingLabel;
+    } else {
+        useFloatingLabel = (BOOL)row.floatingLabelEnabled;
+    }
+    self.useFloatingLabel = useFloatingLabel;
+    
+    if(self.enabled) {
+        row.floatingLabelEnabled = true;
+    }
+    if(row.floatingLabelEnabled) {
+        
+    }
+    if(useFloatingLabel) {
+        self.flFont = row.floatingTitleFont;
+        if(row.floatingTitleColor) {
+            self.flTextColor = row.floatingTitleColor;
+        } else if(self.flTextColor) {
+            row.floatingTitleColor = self.flTextColor;
+        }
+        if(row.floatingTitleActiveColor) {
+            self.flActiveTextColor = row.floatingTitleActiveColor;
+        } else if(self.flActiveTextColor) {
+            row.floatingTitleActiveColor = self.flActiveTextColor;
+        }
+        if(row.floatingTitle.length) {
+            self.flText = row.floatingTitle;
+        }
+    }
 }
 
 -(void)prepareForInterfaceBuilder
@@ -106,6 +138,8 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 {
     if (self.flActiveTextColor) {
         return self.flActiveTextColor;
+    } else if(self.flTextColor) {
+        return self.flTextColor;
     }
     else if ([self respondsToSelector:@selector(tintColor)]) {
         return [self performSelector:@selector(tintColor)];
@@ -117,6 +151,8 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 {
     if (flFont != nil) {
         _flFont = flFont;
+    } else if(_flFont == flFont) {
+        return;
     }
     self.floatingLabel.font = self.flFont ? self.flFont : [self defaultFloatingLabelFont];
     self.isFloatingLabelFontDefault = flFont == nil;
@@ -221,7 +257,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 -(void)setAttributedText:(NSAttributedString *)attributedText
 {
     [super setAttributedText:attributedText];
-    [self updateDefaultFloatingLabelFont];
+    //[self updateDefaultFloatingLabelFont];
 }
 
 -(CGSize)intrinsicContentSize
@@ -249,18 +285,11 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 -(void)setPlaceholder:(NSString *)placeholder
 {
     [self setCorrectPlaceholder:placeholder];
-    if(!self.flText.length) {
-        [self setFlText:placeholder];
-    }
 }
 
 -(void)setAttributedPlaceholder:(NSAttributedString *)attributedPlaceholder
 {
     [super setAttributedPlaceholder:attributedPlaceholder];
-    if(!self.flText.length) {
-        [self setFlText:attributedPlaceholder.string];
-    }
-    [self updateDefaultFloatingLabelFont];
 }
 
 -(CGRect)textRectForBounds:(CGRect)bounds
@@ -269,7 +298,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
         return [super textRectForBounds:bounds];
     }
     CGRect rect = [super textRectForBounds:bounds];
-    if ([self.text length] || self.flKeepBaseline) {
+    if ([self.text length] || !self.flAlterBaseline) {
         rect = [self insetRectForBounds:rect];
     }
     return CGRectIntegral(rect);
@@ -281,7 +310,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
         return [super editingRectForBounds:bounds];
     }
     CGRect rect = [super editingRectForBounds:bounds];
-    if ([self.text length] || self.flKeepBaseline) {
+    if ([self.text length] || !self.flAlterBaseline) {
         rect = [self insetRectForBounds:rect];
     }
     return CGRectIntegral(rect);
@@ -303,7 +332,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     if (0 != self.adjustsClearButtonRect
         && self.floatingLabel.text.length // for when there is no floating title label text
         ) {
-        if ([self.text length] || self.flKeepBaseline) {
+        if ([self.text length] || !self.flAlterBaseline) {
             CGFloat topInset = ceilf(self.floatingLabel.font.lineHeight + self.placeholderYPadding);
             topInset = MIN(topInset, [self maxTopInset]);
             rect = CGRectMake(rect.origin.x, rect.origin.y + topInset / 2.0f, rect.size.width, rect.size.height);
@@ -367,7 +396,6 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
                                       self.floatingLabel.frame.origin.y,
                                       floatingLabelSize.width,
                                       floatingLabelSize.height);
-    
     BOOL firstResponder = self.isFirstResponder;
     self.floatingLabel.textColor = (firstResponder ?
                                 self.labelActiveColor : self.flTextColor);

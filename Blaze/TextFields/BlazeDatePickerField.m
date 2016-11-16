@@ -55,7 +55,7 @@
     [self resignFirstResponder];
     if(self.dateCancelled) {
         self.dateCancelled();
-    }    
+    }
 }
 
 -(void)dateValueChanged

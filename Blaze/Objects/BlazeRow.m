@@ -24,6 +24,16 @@
 
 #pragma mark Init with ID
 
+-(instancetype)init
+{
+    self = [super init];
+    if(!self) {
+        return nil;
+    }
+    self.floatingLabelEnabled = FloatingLabelStateUndetermined;
+    return self;
+}
+
 -(instancetype)initWithID:(int)ID
 {
     return [self initWithID:ID title:nil];

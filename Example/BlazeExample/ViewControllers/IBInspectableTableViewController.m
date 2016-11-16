@@ -63,10 +63,11 @@
     [section addRow:row];
     
     row = [BlazeRow rowWithXibName:kIBInspectableBlazeTextField];
-    row.placeholder = @"I want my to be baseline altered when active!";
+    row.placeholder = @"I want my baseline to be altered when active!";
     row.configureCell = ^(UITableViewCell *cell){
         BlazeTextFieldTableViewCell* aCell = (BlazeTextFieldTableViewCell*)cell;
-        aCell.textField.flKeepBaseline = FALSE;
+        aCell.textField.flAlterBaseline = TRUE;
+        aCell.textField.flAlwaysShow = FALSE;
         [aCell updateCell];
     };
     row.value = nil;

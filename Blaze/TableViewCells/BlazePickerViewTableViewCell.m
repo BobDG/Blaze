@@ -42,42 +42,8 @@
         index = [pickerValues indexOfObject:textValue];
     }
     
-    //Placeholder
-    if(self.row.attributedPlaceholder.length) {
-        self.pickerField.attributedPlaceholder = self.row.attributedPlaceholder;
-    }
-    else if(self.row.placeholder.length && self.row.placeholderColor) {
-        self.pickerField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.row.placeholder attributes:@{NSForegroundColorAttributeName:self.row.placeholderColor}];
-    }
-    else if(self.row.placeholder.length) {
-        self.pickerField.placeholder = self.row.placeholder;
-    }
-    
-    //Update for floating options
-    BOOL useFloatingLabel = false;
-    if(self.row.floatingLabelEnabled == FloatingLabelStateUndetermined)
-    {
-        useFloatingLabel = self.pickerField.useFloatingLabel;
-    } else {
-        useFloatingLabel = (BOOL)self.row.floatingLabelEnabled;
-    }
-    self.pickerField.useFloatingLabel = useFloatingLabel;
-    if(useFloatingLabel) {
-        self.pickerField.flFont = self.row.floatingTitleFont;
-        if(self.row.floatingTitleColor) {
-            self.pickerField.flTextColor = self.row.floatingTitleColor;
-        } else if(self.pickerField.flTextColor) {
-            self.row.floatingTitleColor = self.pickerField.flTextColor;
-        }
-        if(self.row.floatingTitleActiveColor) {
-            self.pickerField.flActiveTextColor = self.row.floatingTitleActiveColor;
-        } else if(self.pickerField.flActiveTextColor) {
-            self.row.floatingTitleActiveColor = self.pickerField.flActiveTextColor;
-        }
-        if(self.row.floatingTitle.length) {
-            self.pickerField.flText = self.row.floatingTitle;
-        }
-    }
+    //Merge BlazeRow's configuration with the BlazeTextField
+    [self.pickerField mergeBlazeRowWithInspectables:self.row];
     
     //No index check
     if(index == NSNotFound) {
