@@ -26,6 +26,7 @@
 #define kFloatTextFieldTableViewCell    @"FloatTextFieldTableViewCell"
 #define kSegmentedControlTableViewCell  @"SegmentedControlTableViewCell"
 #define kTilesTableViewCell             @"TilesTableViewCell"
+#define kIBInspectableBlazeTextField    @"IBInspectableBlazeTextField"
 
 @interface BaseTableViewController : BlazeTableViewController
 {

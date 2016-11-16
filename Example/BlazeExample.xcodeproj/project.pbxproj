@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AFA93F01117D37C9C3CCD745 /* Pods_BlazeExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C00BA881BB68741859570A3 /* Pods_BlazeExample.framework */; };
+		B0944BE61DDAD1B700B66895 /* IBInspectableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0944BE51DDAD1B700B66895 /* IBInspectableTableViewController.m */; };
+		B0944BE81DDAD24900B66895 /* IBInspectableBlazeTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0944BE71DDAD24900B66895 /* IBInspectableBlazeTextField.xib */; };
 		B0CE2C121DACDEAA00A1A3C9 /* TilesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0CE2C111DACDEAA00A1A3C9 /* TilesTableViewCell.xib */; };
 		ED0297031D1729220039AA41 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E11D1729220039AA41 /* ButtonTableViewCell.xib */; };
 		ED0297041D1729220039AA41 /* DateFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E21D1729220039AA41 /* DateFieldTableViewCell.xib */; };
@@ -73,6 +75,9 @@
 		5C00BA881BB68741859570A3 /* Pods_BlazeExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlazeExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7414ACEAFC2C6C62B2C372A6 /* Pods-BlazeExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlazeExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample.debug.xcconfig"; sourceTree = "<group>"; };
 		9117633E2828C62B6A0A0603 /* Pods-BlazeExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlazeExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample.release.xcconfig"; sourceTree = "<group>"; };
+		B0944BE41DDAD1B700B66895 /* IBInspectableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInspectableTableViewController.h; sourceTree = "<group>"; };
+		B0944BE51DDAD1B700B66895 /* IBInspectableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBInspectableTableViewController.m; sourceTree = "<group>"; };
+		B0944BE71DDAD24900B66895 /* IBInspectableBlazeTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IBInspectableBlazeTextField.xib; sourceTree = "<group>"; };
 		B0CE2C111DACDEAA00A1A3C9 /* TilesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TilesTableViewCell.xib; sourceTree = "<group>"; };
 		ED0296DF1D1729220039AA41 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		ED0296E11D1729220039AA41 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
@@ -218,6 +223,7 @@
 				ED2626AF1D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib */,
 				EDF0E7E61D4111570036AEDA /* TwoChoicesTableViewCell.xib */,
 				B0CE2C111DACDEAA00A1A3C9 /* TilesTableViewCell.xib */,
+				B0944BE71DDAD24900B66895 /* IBInspectableBlazeTextField.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -250,6 +256,8 @@
 				ED0296FE1D1729220039AA41 /* TextViewsTableViewController.m */,
 				ED0296FF1D1729220039AA41 /* ZoomHeaderTableViewController.h */,
 				ED0297001D1729220039AA41 /* ZoomHeaderTableViewController.m */,
+				B0944BE41DDAD1B700B66895 /* IBInspectableTableViewController.h */,
+				B0944BE51DDAD1B700B66895 /* IBInspectableTableViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -516,6 +524,7 @@
 				ED02970A1D1729220039AA41 /* SliderTableViewCell.xib in Resources */,
 				ED02970C1D1729220039AA41 /* TextArrowTableViewCell.xib in Resources */,
 				ED2626B01D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib in Resources */,
+				B0944BE81DDAD24900B66895 /* IBInspectableBlazeTextField.xib in Resources */,
 				ED933E0D1D1728A100B8155F /* Assets.xcassets in Resources */,
 				ED0297081D1729220039AA41 /* PickerFieldTableViewCell.xib in Resources */,
 				ED0297101D1729220039AA41 /* TableHeaderView.xib in Resources */,
@@ -594,6 +603,7 @@
 				ED02976C1D1729370039AA41 /* BlazeTableViewCell.m in Sources */,
 				ED02976A1D1729370039AA41 /* BlazeSwitchTableViewCell.m in Sources */,
 				ED02975D1D1729370039AA41 /* BlazeInputTile.m in Sources */,
+				B0944BE61DDAD1B700B66895 /* IBInspectableTableViewController.m in Sources */,
 				ED0297181D1729220039AA41 /* ZoomHeaderTableViewController.m in Sources */,
 				ED0297171D1729220039AA41 /* TextViewsTableViewController.m in Sources */,
 				ED0297591D1729370039AA41 /* NSObject+PropertyName.m in Sources */,

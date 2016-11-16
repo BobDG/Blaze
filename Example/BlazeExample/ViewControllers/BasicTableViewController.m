@@ -81,6 +81,13 @@
     
     //Segue again
     [section addRow:[[BlazeRow alloc] initWithTitle:@"Empty state" segueIdentifier:@"EmptyStateTableViewController"]];
+    
+    //Row with push using cellTap completion block and storyboard instantiation
+    row = [BlazeRow rowWithTitle:@"IBInspectables"];
+    [row setCellTapped:^{
+        [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"IBInspectableTableViewController"] animated:TRUE];
+    }];
+    [section addRow:row];
 }
 
 @end

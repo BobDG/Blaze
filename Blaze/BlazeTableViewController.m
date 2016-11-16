@@ -1029,6 +1029,11 @@
     }
 }
 
+- (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return self.emptyCustomView;
+}
+
 #pragma mark Dealloc
 
 -(void)dealloc

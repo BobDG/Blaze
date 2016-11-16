@@ -50,9 +50,9 @@
     
     //Textfield
     row = [[BlazeRow alloc] initWithXibName:kFloatTextFieldTableViewCell];
-    row.floatingPlaceholder = TRUE;
-    row.floatingPlaceholderActiveColor = [UIColor redColor];
-    row.floatingLabelFont = [UIFont italicSystemFontOfSize:12.0f];
+    row.floatingLabelEnabled = TRUE;
+    row.floatingTitleActiveColor = [UIColor redColor];
+    row.floatingTitleFont = [UIFont italicSystemFontOfSize:12.0f];
     row.floatingTitle = @"Floating placeholder";
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textfieldValue)]];
     row.placeholder = @"Placeholder";
@@ -70,11 +70,11 @@
     row.placeholder = @"Which date?";
     row.dateMinuteInterval = 5;
     row.datePickerMode = UIDatePickerModeDateAndTime;
-    row.floatingPlaceholder = TRUE;
+    row.floatingLabelEnabled = FloatingLabelStateEnabled;
     row.placeholderColor = [UIColor orangeColor];
-    row.floatingPlaceholderColor = [UIColor redColor];
-    row.floatingPlaceholderActiveColor = [UIColor purpleColor];
-    row.floatingLabelFont = [UIFont systemFontOfSize:12.0f weight:UIFontWeightBold];
+    row.floatingTitleColor = [UIColor redColor];
+    row.floatingTitleActiveColor = [UIColor purpleColor];
+    row.floatingTitleFont = [UIFont systemFontOfSize:12.0f weight:UIFontWeightBold];
     row.floatingTitle = @"Date set!";
     NSDateFormatter *df = [NSDateFormatter new];
     [df setDateFormat:@"d MMMM yyyy HH:mm"];
@@ -85,10 +85,10 @@
     //Picker
     row = [[BlazeRow alloc] initWithXibName:kPickerFieldTableViewCell title:@"Pickerfield"];
     row.placeholder = @"Picker placeholder";
-    row.floatingPlaceholder = TRUE;
-    row.floatingPlaceholderColor = [UIColor greenColor];
-    row.floatingPlaceholderActiveColor = [UIColor greenColor];
-    row.floatingLabelFont = [UIFont systemFontOfSize:14.0f weight:UIFontWeightLight];
+    row.floatingLabelEnabled = TRUE;
+    row.floatingTitleColor = [UIColor greenColor];
+    row.floatingTitleActiveColor = [UIColor greenColor];
+    row.floatingTitleFont = [UIFont systemFontOfSize:14.0f weight:UIFontWeightLight];
     row.floatingTitle = @"Picker set!";
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(pickerValue)]];
     row.selectorOptions = @[@"Automatic next/previous", @"buttons always work", @"Doesn't matter if you", @"use textfields", @"or datepickers", @"or pickerviews", @"or multiple sections"];

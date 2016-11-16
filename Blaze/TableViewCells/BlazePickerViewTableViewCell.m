@@ -42,35 +42,8 @@
         index = [pickerValues indexOfObject:textValue];
     }
     
-    //Placeholder
-    if(self.row.attributedPlaceholder.length) {
-        self.pickerField.attributedPlaceholder = self.row.attributedPlaceholder;
-    }
-    else if(self.row.placeholder.length && self.row.placeholderColor) {
-        self.pickerField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.row.placeholder attributes:@{NSForegroundColorAttributeName:self.row.placeholderColor}];
-    }
-    else if(self.row.placeholder.length) {
-        self.pickerField.placeholder = self.row.placeholder;
-    }
-    
-    //Update for floating options
-    self.pickerField.useFloatingLabel = self.row.floatingPlaceholder;
-    if(self.row.floatingPlaceholder) {
-        self.pickerField.flFont = self.row.floatingLabelFont;
-        if(self.row.floatingPlaceholderColor) {
-            self.pickerField.flTextColor = self.row.floatingPlaceholderColor;
-        } else if(self.pickerField.flTextColor) {
-            self.row.floatingPlaceholderColor = self.pickerField.flTextColor;
-        }
-        if(self.row.floatingPlaceholderActiveColor) {
-            self.pickerField.flActiveTextColor = self.row.floatingPlaceholderActiveColor;
-        } else if(self.pickerField.flActiveTextColor) {
-            self.row.floatingPlaceholderActiveColor = self.pickerField.flActiveTextColor;
-        }
-        if(self.row.floatingTitle.length) {
-            self.pickerField.flText = self.row.floatingTitle;
-        }
-    }
+    //Merge BlazeRow's configuration with the BlazeTextField
+    [self.pickerField mergeBlazeRowWithInspectables:self.row];
     
     //No index check
     if(index == NSNotFound) {

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class BlazeRow;
+
 IB_DESIGNABLE
 
 @interface BlazeTextField : UITextField
@@ -97,18 +99,25 @@ IB_DESIGNABLE
  * Indicates whether or not to drop the baseline when entering text. Setting to YES (not the default) means the standard greyed-out placeholder will be aligned with the entered text
  * Defaults to NO (standard placeholder will be above whatever text is entered)
  */
-@property(nonatomic,assign) BOOL keepBaseline;
+@property(nonatomic,assign) IBInspectable BOOL flAlterBaseline;
 
 /**
  * Force floating label to be always visible
  * Defaults to NO
  */
-@property(nonatomic,assign) BOOL alwaysShowFloatingLabel;
+@property(nonatomic,assign) IBInspectable BOOL flAlwaysShow;
 
 /**
  * Color of the placeholder
  */
 @property(nonatomic,strong) IBInspectable UIColor *placeholderColor;
 
+
+/**
+ Merge the configuration on a BlazeRow object with IBInspectables
+
+ @param row The BlazeRow that configures this BlazeRowTextField
+ */
+-(void)mergeBlazeRowWithInspectables:(BlazeRow*)row;
 
 @end

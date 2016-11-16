@@ -65,24 +65,8 @@
         self.dateField.placeholder = self.row.placeholder;
     }
     
-    //Update for floating options
-    self.dateField.useFloatingLabel = self.row.floatingPlaceholder;
-    if(self.row.floatingPlaceholder) {
-        self.dateField.flFont = self.row.floatingLabelFont;
-        if(self.row.floatingPlaceholderColor) {
-            self.dateField.flTextColor = self.row.floatingPlaceholderColor;
-        } else if(self.dateField.flTextColor) {
-            self.row.floatingPlaceholderColor = self.dateField.flTextColor;
-        }
-        if(self.row.floatingPlaceholderActiveColor) {
-            self.dateField.flActiveTextColor = self.row.floatingPlaceholderActiveColor;
-        } else if(self.dateField.flActiveTextColor) {
-            self.row.floatingPlaceholderActiveColor = self.dateField.flActiveTextColor;
-        }
-        if(self.row.floatingTitle.length) {
-            self.dateField.flText = self.row.floatingTitle;
-        }
-    }
+    //Merge BlazeRow's configuration with the BlazeTextField
+    [self.dateField mergeBlazeRowWithInspectables:self.row];
     
     //Editable
     self.dateField.userInteractionEnabled = !self.row.disableEditing;    
@@ -143,8 +127,14 @@
 
 #pragma mark - UITextField Delegate
 
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSLog(@"DPF : ended %@", NSStringFromCGRect(textField.frame));
+}
+
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    NSLog(@"DPF : begin %@", NSStringFromCGRect(textField.frame));
     if(self.row.inputAccessoryViewType == InputAccessoryViewCancelSave) {
         return;
     }

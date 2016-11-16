@@ -37,24 +37,8 @@
         self.textField.placeholder = self.row.placeholder;
     }
     
-    //Update for floating options
-    self.textField.useFloatingLabel = self.row.floatingPlaceholder;
-    if(self.row.floatingPlaceholder) {
-        self.textField.flFont = self.row.floatingLabelFont;
-        if(self.row.floatingPlaceholderColor) {
-            self.textField.flTextColor = self.row.floatingPlaceholderColor;
-        } else if(self.textField.flTextColor) {
-            self.row.floatingPlaceholderColor = self.textField.flTextColor;
-        }
-        if(self.row.floatingPlaceholderActiveColor) {
-            self.textField.flActiveTextColor = self.row.floatingPlaceholderActiveColor;
-        } else if(self.textField.flActiveTextColor) {
-            self.row.floatingPlaceholderActiveColor = self.textField.flActiveTextColor;
-        }
-        if(self.row.floatingTitle.length) {
-            self.textField.flText = self.row.floatingTitle;
-        }
-    }
+    //Merge BlazeRow's configuration with the BlazeTextField
+    [self.textField mergeBlazeRowWithInspectables:self.row];
     
     //Editable
     self.textField.userInteractionEnabled = !self.row.disableEditing;    
