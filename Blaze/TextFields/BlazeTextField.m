@@ -59,37 +59,54 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 
 -(void)mergeBlazeRowWithInspectables:(BlazeRow*)row
 {
-    //Update for floating options
-    BOOL useFloatingLabel = false;
-    if(row.floatingLabelEnabled == FloatingLabelStateUndetermined)
-    {
-        useFloatingLabel = self.useFloatingLabel;
-    } else {
-        useFloatingLabel = (BOOL)row.floatingLabelEnabled;
+    //Update placholders
+    if(row.attributedPlaceholder.length) {
+        self.attributedPlaceholder = row.attributedPlaceholder;
     }
-    self.useFloatingLabel = useFloatingLabel;
+    else if(row.placeholder.length && row.placeholderColor) {
+        self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:row.placeholder attributes:@{NSForegroundColorAttributeName:row.placeholderColor}];
+    }
+    else if(row.placeholder.length) {
+        self.placeholder = row.placeholder;
+    }
     
-    if(self.enabled) {
-        row.floatingLabelEnabled = true;
+    //Check first if it's enabled, row has preference
+    if(row.floatingLabelEnabled == FloatingLabelStateUndetermined) {
+        row.floatingLabelEnabled = self.useFloatingLabel;
+    } else {
+        self.useFloatingLabel = row.floatingLabelEnabled == FloatingLabelStateEnabled;
     }
-    if(row.floatingLabelEnabled) {
-        
+   
+    if(!self.useFloatingLabel) {
+        return;
     }
-    if(useFloatingLabel) {
-        self.flFont = row.floatingTitleFont;
-        if(row.floatingTitleColor) {
-            self.flTextColor = row.floatingTitleColor;
-        } else if(self.flTextColor) {
-            row.floatingTitleColor = self.flTextColor;
-        }
-        if(row.floatingTitleActiveColor) {
-            self.flActiveTextColor = row.floatingTitleActiveColor;
-        } else if(self.flActiveTextColor) {
-            row.floatingTitleActiveColor = self.flActiveTextColor;
-        }
-        if(row.floatingTitle.length) {
-            self.flText = row.floatingTitle;
-        }
+    
+    //Update font if applicable
+    self.flFont = row.floatingTitleFont;
+   
+    //Update titlecolor - row has preference
+    if(row.floatingTitleColor) {
+        self.flTextColor = row.floatingTitleColor;
+    } else if(self.flTextColor) {
+        row.floatingTitleColor = self.flTextColor;
+    }
+    
+    //Update active titlecolor - row has preference
+    if(row.floatingTitleActiveColor) {
+        self.flActiveTextColor = row.floatingTitleActiveColor;
+    } else if(self.flActiveTextColor) {
+        row.floatingTitleActiveColor = self.flActiveTextColor;
+    }
+    
+    //Update title - row has preference
+    if(row.floatingTitle.length) {
+        self.flText = row.floatingTitle;
+    }
+    else if(self.flText.length) {
+        row.floatingTitle = self.flText;
+    }
+    else if(self.placeholder.length) {
+        self.flText = self.placeholder;
     }
 }
 
