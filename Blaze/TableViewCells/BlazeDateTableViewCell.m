@@ -127,14 +127,8 @@
 
 #pragma mark - UITextField Delegate
 
--(void)textFieldDidEndEditing:(UITextField *)textField
-{
-    NSLog(@"DPF : ended %@", NSStringFromCGRect(textField.frame));
-}
-
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    NSLog(@"DPF : begin %@", NSStringFromCGRect(textField.frame));
     if(self.row.inputAccessoryViewType == InputAccessoryViewCancelSave) {
         return;
     }

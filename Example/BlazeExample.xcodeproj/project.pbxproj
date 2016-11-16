@@ -157,7 +157,7 @@
 		ED2626AA1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeCheckboxTableViewCell.h; sourceTree = "<group>"; };
 		ED2626AB1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeCheckboxTableViewCell.m; sourceTree = "<group>"; };
 		ED2626AF1D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckboxTableViewCell.xib; sourceTree = "<group>"; };
-		ED933DFD1D1728A100B8155F /* BlazeExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlazeExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED933DFD1D1728A100B8155F /* Blaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED933E011D1728A100B8155F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ED933E031D1728A100B8155F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ED933E041D1728A100B8155F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -416,7 +416,7 @@
 		ED933DFE1D1728A100B8155F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ED933DFD1D1728A100B8155F /* BlazeExample.app */,
+				ED933DFD1D1728A100B8155F /* Blaze.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -469,7 +469,7 @@
 			);
 			name = BlazeExample;
 			productName = BlazeExample;
-			productReference = ED933DFD1D1728A100B8155F /* BlazeExample.app */;
+			productReference = ED933DFD1D1728A100B8155F /* Blaze.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -753,7 +753,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = template.BlazeExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Blaze;
 				PROVISIONING_PROFILE = "e5bc923c-58a5-4d9d-b7a0-8cc5d30a69dd";
 				PROVISIONING_PROFILE_SPECIFIER = "Synappz InHouse Dev";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -770,7 +770,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = template.BlazeExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Blaze;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

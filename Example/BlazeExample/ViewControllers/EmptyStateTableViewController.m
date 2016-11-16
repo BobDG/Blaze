@@ -48,7 +48,7 @@
 
 -(void)buttonTapped:(UIButton*)sender
 {
-    NSLog(@"HitTest successfull");
+    
 }
 
 @end
