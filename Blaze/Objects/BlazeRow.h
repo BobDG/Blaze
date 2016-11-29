@@ -62,6 +62,7 @@ typedef NS_ENUM(NSInteger, FloatingLabelEnabledState) {
 //CompletionBlocks
 @property(nonatomic,copy) void (^cellTapped)(void);
 @property(nonatomic,copy) void (^valueChanged)(void);
+@property(nonatomic,copy) void (^valueChangedWithValue)(id value);
 @property(nonatomic,copy) void (^buttonLeftTapped)(void);
 @property(nonatomic,copy) void (^buttonRightTapped)(void);
 @property(nonatomic,copy) void (^buttonCenterTapped)(void);

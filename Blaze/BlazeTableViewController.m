@@ -298,6 +298,50 @@
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
+-(void)reloadCellForRow:(BlazeRow *)row
+{
+    NSIndexPath *indexPath = [self indexPathForRow:row];
+    if(!indexPath) {
+        return;
+    }
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+-(void)reloadCellForRow:(BlazeRow *)row withRowAnimation:(UITableViewRowAnimation)animation
+{
+    NSIndexPath *indexPath = [self indexPathForRow:row];
+    if(!indexPath) {
+        return;
+    }
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
+}
+
+-(NSIndexPath *)indexPathForRow:(BlazeRow *)row
+{
+    NSUInteger rowIndex = NSNotFound;
+    NSUInteger sectionIndex = NSNotFound;
+    for(int i = 0; i < self.tableArray.count; i++) {
+        BlazeSection *section = self.tableArray[i];
+        for(int j = 0; j < section.rows.count; j++) {
+            BlazeRow *r = section.rows[j];
+            if(r == row) {
+                rowIndex = j;
+                sectionIndex = i;
+                break;
+            }
+        }
+        if(sectionIndex != NSNotFound) {
+            break;
+        }
+    }
+    
+    if(sectionIndex == NSNotFound || rowIndex == NSNotFound) {
+        return nil;
+    }
+    
+    return [NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex];
+}
+
 -(NSIndexPath *)indexPathForRowID:(int)rowID
 {
     NSUInteger rowIndex = NSNotFound;

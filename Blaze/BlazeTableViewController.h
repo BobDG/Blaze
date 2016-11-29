@@ -62,28 +62,31 @@
 
 //Utility methods
 -(void)reloadHeightsQuickly;
+-(BlazeRow *)rowForID:(int)rowID;
 -(void)reloadTable:(BOOL)animated;
--(void)reloadTableWithAnimation:(UITableViewRowAnimation)animation;
 -(void)scrollToTop:(BOOL)animated;
 -(void)reloadCellForID:(int)rowID;
--(void)reloadTableWithFadeTransition;
--(void)reloadCellForID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation;
 -(void)removeRowWithID:(int)rowID;
--(void)removeRowWithID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation;
--(BlazeRow *)rowForID:(int)rowID;
--(BlazeRow *)rowForIndexPath:(NSIndexPath *)indexPath;
+-(void)reloadTableWithFadeTransition;
+-(void)reloadCellForRow:(BlazeRow *)row;
 -(void)removeSectionWithID:(int)sectionID;
 -(void)addSection:(BlazeSection *)section;
 -(NSIndexPath *)indexPathForRowID:(int)rowID;
--(void)registerCustomCell:(NSString *)xibName;
--(void)registerCustomHeader:(NSString *)xibName;
 -(BlazeSection *)sectionForID:(int)sectionID;
+-(void)registerCustomCell:(NSString *)xibName;
+-(NSIndexPath *)indexPathForRow:(BlazeRow *)row;
+-(void)registerCustomHeader:(NSString *)xibName;
 -(void)registerCustomCells:(NSArray *)cellNames;
 -(void)registerCustomHeaders:(NSArray *)headerNames;
+-(BlazeRow *)rowForIndexPath:(NSIndexPath *)indexPath;
 -(void)addRow:(BlazeRow *)row afterRowID:(int)afterRowID;
--(void)addRow:(BlazeRow *)row afterRowID:(int)afterRowID withRowAnimation:(UITableViewRowAnimation)animation;
+-(void)reloadTableWithAnimation:(UITableViewRowAnimation)animation;
 -(void)removeRowsInSection:(int)sectionIndex fromIndex:(int)rowIndex;
 -(void)addSection:(BlazeSection *)section afterSectionID:(int)afterSectionID;
+-(void)reloadCellForID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation;
+-(void)removeRowWithID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation;
+-(void)reloadCellForRow:(BlazeRow *)row withRowAnimation:(UITableViewRowAnimation)animation;
+-(void)addRow:(BlazeRow *)row afterRowID:(int)afterRowID withRowAnimation:(UITableViewRowAnimation)animation;
 
 @end
 

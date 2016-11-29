@@ -21,7 +21,18 @@
 
 -(void)updateCell
 {
-    self.textField.text = self.row.value;
+    if(self.row.formatter) {
+        if([self.row.formatter isKindOfClass:[NSNumberFormatter class]]) {
+            self.textField.text =  [((NSNumberFormatter *)self.row.formatter) stringFromNumber:self.row.value];
+        }
+        else {
+            self.textField.text = [self.row.formatter stringForObjectValue:self.row.value];
+        }
+    }
+    else {
+        self.textField.text = self.row.value;
+    }
+    
     self.textField.keyboardType = self.row.keyboardType;
     self.textField.secureTextEntry = self.row.secureTextEntry;
     self.textField.autocorrectionType = self.row.autocorrectionType;
@@ -68,8 +79,15 @@
 {
     self.row.value = [textField.text stringByReplacingCharactersInRange:range withString:string];
     if(self.row.formatter) {
-        self.row.value = [self.row.formatter stringForObjectValue:self.row.value];
-        textField.text = self.row.value;
+        if([self.row.formatter isKindOfClass:[NSNumberFormatter class]]) {
+            self.row.value = [self.row.value stringByReplacingOccurrencesOfString:@"," withString:@"."];
+            textField.text = self.row.value;
+            self.row.value = [((NSNumberFormatter *)self.row.formatter) numberFromString:self.row.value];
+        }
+        else {
+            self.row.value = [self.row.formatter stringForObjectValue:self.row.value];
+            textField.text = self.row.value;
+        }
         [self.row updatedValue:self.row.value];
         return FALSE;
     }

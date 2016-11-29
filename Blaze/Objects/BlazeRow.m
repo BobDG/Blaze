@@ -200,6 +200,9 @@
     if(self.valueChanged) {
         self.valueChanged();
     }
+    else if(self.valueChangedWithValue) {
+        self.valueChangedWithValue(value);
+    }
 }
 
 @end
