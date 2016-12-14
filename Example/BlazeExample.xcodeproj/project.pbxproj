@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		ED45B2E11E01554F007814BA /* MoGenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = ED45B2E21E01554F007814BA /* Build configuration list for PBXAggregateTarget "MoGenerator" */;
+			buildPhases = (
+				ED45B2E51E015554007814BA /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = MoGenerator;
+			productName = MoGenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		AFA93F01117D37C9C3CCD745 /* Pods_BlazeExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C00BA881BB68741859570A3 /* Pods_BlazeExample.framework */; };
 		B0944BE61DDAD1B700B66895 /* IBInspectableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0944BE51DDAD1B700B66895 /* IBInspectableTableViewController.m */; };
@@ -59,6 +73,13 @@
 		ED0297771D1729370039AA41 /* BlazeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297571D1729370039AA41 /* BlazeTextView.m */; };
 		ED2626AD1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2626AB1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m */; };
 		ED2626B01D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2626AF1D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib */; };
+		ED45B2CC1E01546B007814BA /* BlazeNSFetchedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED45B2CB1E01546B007814BA /* BlazeNSFetchedTableViewController.m */; };
+		ED45B2CE1E0154CA007814BA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED45B2CD1E0154CA007814BA /* CoreData.framework */; };
+		ED45B2DC1E0154EF007814BA /* BDGCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = ED45B2D11E0154EF007814BA /* BDGCoreData.m */; };
+		ED45B2E01E01550C007814BA /* BlazeExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED45B2DE1E01550C007814BA /* BlazeExample.xcdatamodeld */; };
+		ED45B2EF1E0159A5007814BA /* FetchedResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED45B2EE1E0159A5007814BA /* FetchedResultsTableViewController.m */; };
+		ED45B2F41E015BBC007814BA /* _TestEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = ED45B2F11E015BBC007814BA /* _TestEntity.m */; };
+		ED45B2F51E015BBC007814BA /* TestEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = ED45B2F31E015BBC007814BA /* TestEntity.m */; };
 		ED933E021D1728A100B8155F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED933E011D1728A100B8155F /* main.m */; };
 		ED933E051D1728A100B8155F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED933E041D1728A100B8155F /* AppDelegate.m */; };
 		ED933E0B1D1728A100B8155F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED933E091D1728A100B8155F /* Main.storyboard */; };
@@ -157,6 +178,18 @@
 		ED2626AA1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeCheckboxTableViewCell.h; sourceTree = "<group>"; };
 		ED2626AB1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeCheckboxTableViewCell.m; sourceTree = "<group>"; };
 		ED2626AF1D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckboxTableViewCell.xib; sourceTree = "<group>"; };
+		ED45B2CA1E01546B007814BA /* BlazeNSFetchedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeNSFetchedTableViewController.h; sourceTree = "<group>"; };
+		ED45B2CB1E01546B007814BA /* BlazeNSFetchedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeNSFetchedTableViewController.m; sourceTree = "<group>"; };
+		ED45B2CD1E0154CA007814BA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		ED45B2D01E0154EF007814BA /* BDGCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDGCoreData.h; sourceTree = "<group>"; };
+		ED45B2D11E0154EF007814BA /* BDGCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDGCoreData.m; sourceTree = "<group>"; };
+		ED45B2DF1E01550C007814BA /* BlazeExample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlazeExample.xcdatamodel; sourceTree = "<group>"; };
+		ED45B2ED1E0159A5007814BA /* FetchedResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchedResultsTableViewController.h; sourceTree = "<group>"; };
+		ED45B2EE1E0159A5007814BA /* FetchedResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchedResultsTableViewController.m; sourceTree = "<group>"; };
+		ED45B2F01E015BBC007814BA /* _TestEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TestEntity.h; sourceTree = "<group>"; };
+		ED45B2F11E015BBC007814BA /* _TestEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TestEntity.m; sourceTree = "<group>"; };
+		ED45B2F21E015BBC007814BA /* TestEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestEntity.h; sourceTree = "<group>"; };
+		ED45B2F31E015BBC007814BA /* TestEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestEntity.m; sourceTree = "<group>"; };
 		ED933DFD1D1728A100B8155F /* Blaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED933E011D1728A100B8155F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ED933E031D1728A100B8155F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -181,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED45B2CE1E0154CA007814BA /* CoreData.framework in Frameworks */,
 				AFA93F01117D37C9C3CCD745 /* Pods_BlazeExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,6 +234,7 @@
 		7663389E12C8FFDD17386FD1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED45B2CD1E0154CA007814BA /* CoreData.framework */,
 				5C00BA881BB68741859570A3 /* Pods_BlazeExample.framework */,
 			);
 			name = Frameworks;
@@ -258,6 +293,8 @@
 				ED0297001D1729220039AA41 /* ZoomHeaderTableViewController.m */,
 				B0944BE41DDAD1B700B66895 /* IBInspectableTableViewController.h */,
 				B0944BE51DDAD1B700B66895 /* IBInspectableTableViewController.m */,
+				ED45B2ED1E0159A5007814BA /* FetchedResultsTableViewController.h */,
+				ED45B2EE1E0159A5007814BA /* FetchedResultsTableViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -275,6 +312,8 @@
 			children = (
 				ED02971B1D1729370039AA41 /* BlazeTableViewController.h */,
 				ED02971C1D1729370039AA41 /* BlazeTableViewController.m */,
+				ED45B2CA1E01546B007814BA /* BlazeNSFetchedTableViewController.h */,
+				ED45B2CB1E01546B007814BA /* BlazeNSFetchedTableViewController.m */,
 				ED02971D1D1729370039AA41 /* Categories */,
 				ED0297201D1729370039AA41 /* CollectionViewCells */,
 				ED0297241D1729370039AA41 /* CollectionViews */,
@@ -403,6 +442,28 @@
 			path = TextViews;
 			sourceTree = "<group>";
 		};
+		ED45B2CF1E0154EF007814BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED45B2DE1E01550C007814BA /* BlazeExample.xcdatamodeld */,
+				ED45B2D01E0154EF007814BA /* BDGCoreData.h */,
+				ED45B2D11E0154EF007814BA /* BDGCoreData.m */,
+				ED45B2F21E015BBC007814BA /* TestEntity.h */,
+				ED45B2F31E015BBC007814BA /* TestEntity.m */,
+				ED45B2EC1E0155DC007814BA /* MoGenerator */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED45B2EC1E0155DC007814BA /* MoGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				ED45B2F01E015BBC007814BA /* _TestEntity.h */,
+				ED45B2F11E015BBC007814BA /* _TestEntity.m */,
+			);
+			name = MoGenerator;
+			sourceTree = "<group>";
+		};
 		ED933DF41D1728A000B8155F = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +493,7 @@
 				ED0296ED1D1729220039AA41 /* TableViewHeaders */,
 				ED0296F01D1729220039AA41 /* ViewControllers */,
 				ED0297011D1729220039AA41 /* Views */,
+				ED45B2CF1E0154EF007814BA /* Model */,
 				ED933E091D1728A100B8155F /* Main.storyboard */,
 				ED933E0E1D1728A100B8155F /* LaunchScreen.storyboard */,
 				ED933E0C1D1728A100B8155F /* Assets.xcassets */,
@@ -481,6 +543,11 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = GraafICT;
 				TargetAttributes = {
+					ED45B2E11E01554F007814BA = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = YX329C7NUQ;
+						ProvisioningStyle = Automatic;
+					};
 					ED933DFC1D1728A000B8155F = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 7QNX728856;
@@ -502,6 +569,7 @@
 			projectRoot = "";
 			targets = (
 				ED933DFC1D1728A000B8155F /* BlazeExample */,
+				ED45B2E11E01554F007814BA /* MoGenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -584,8 +652,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		ED45B2E51E015554007814BA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mogenerator -m BlazeExample/Model/BlazeExample.xcdatamodeld -O BlazeExample/Model --template-var arc=true";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -596,10 +677,12 @@
 			files = (
 				ED0297771D1729370039AA41 /* BlazeTextView.m in Sources */,
 				ED0297711D1729370039AA41 /* BlazeTilesTableViewCell.m in Sources */,
+				ED45B2CC1E01546B007814BA /* BlazeNSFetchedTableViewController.m in Sources */,
 				EDF0E7E41D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m in Sources */,
 				ED02975F1D1729370039AA41 /* BlazeSection.m in Sources */,
 				ED0297121D1729220039AA41 /* BasicTableViewController.m in Sources */,
 				ED02976D1D1729370039AA41 /* BlazeTextFieldTableViewCell.m in Sources */,
+				ED45B2F41E015BBC007814BA /* _TestEntity.m in Sources */,
 				ED02976C1D1729370039AA41 /* BlazeTableViewCell.m in Sources */,
 				ED02976A1D1729370039AA41 /* BlazeSwitchTableViewCell.m in Sources */,
 				ED02975D1D1729370039AA41 /* BlazeInputTile.m in Sources */,
@@ -610,6 +693,7 @@
 				ED0297151D1729220039AA41 /* EmptyStateTableViewController.m in Sources */,
 				ED02976F1D1729370039AA41 /* BlazeTextViewTableViewCell.m in Sources */,
 				EDF41DFF1DC8404100073C2D /* BlazeTextField.m in Sources */,
+				ED45B2F51E015BBC007814BA /* TestEntity.m in Sources */,
 				ED0297681D1729370039AA41 /* BlazeSliderTableViewCell.m in Sources */,
 				ED0297581D1729370039AA41 /* BlazeTableViewController.m in Sources */,
 				ED933E051D1728A100B8155F /* AppDelegate.m in Sources */,
@@ -625,9 +709,12 @@
 				ED02975A1D1729370039AA41 /* BlazeTileCollectionViewCell.m in Sources */,
 				ED0297131D1729220039AA41 /* CellTypesTableViewController.m in Sources */,
 				ED0297641D1729370039AA41 /* BlazePickerViewTableViewCell.m in Sources */,
+				ED45B2EF1E0159A5007814BA /* FetchedResultsTableViewController.m in Sources */,
+				ED45B2DC1E0154EF007814BA /* BDGCoreData.m in Sources */,
 				ED02975C1D1729370039AA41 /* BlazeTilesCollectionView.m in Sources */,
 				ED0297161D1729220039AA41 /* RowHeightsTableViewController.m in Sources */,
 				ED0297761D1729370039AA41 /* BlazePickerViewField.m in Sources */,
+				ED45B2E01E01550C007814BA /* BlazeExample.xcdatamodeld in Sources */,
 				ED0297141D1729220039AA41 /* DynamicRowsTableViewController.m in Sources */,
 				ED0297751D1729370039AA41 /* BlazeDatePickerField.m in Sources */,
 			);
@@ -655,6 +742,22 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		ED45B2E31E01554F007814BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YX329C7NUQ;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		ED45B2E41E01554F007814BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YX329C7NUQ;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		ED933E121D1728A100B8155F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -778,6 +881,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		ED45B2E21E01554F007814BA /* Build configuration list for PBXAggregateTarget "MoGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED45B2E31E01554F007814BA /* Debug */,
+				ED45B2E41E01554F007814BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ED933DF81D1728A000B8155F /* Build configuration list for PBXProject "BlazeExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -797,6 +909,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ED45B2DE1E01550C007814BA /* BlazeExample.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ED45B2DF1E01550C007814BA /* BlazeExample.xcdatamodel */,
+			);
+			currentVersion = ED45B2DF1E01550C007814BA /* BlazeExample.xcdatamodel */;
+			path = BlazeExample.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ED933DF51D1728A000B8155F /* Project object */;
 }

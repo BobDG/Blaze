@@ -5,5 +5,7 @@ inhibit_all_warnings!
 target 'BlazeExample' do
     pod 'BDGViews'
     pod 'BDGMacros'
+    pod 'BDGCategories'
+    
     pod 'AFNetworking'    
 end

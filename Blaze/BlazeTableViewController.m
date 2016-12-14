@@ -73,7 +73,7 @@
     self.emptyVerticalOffset = -100.0f;
     self.emptyTableViewCellSeparatorStyle = -1;
     self.filledTableViewCellSeparatorStyle = -1;
-    self.emptyBackgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.emptyBackgroundColor = [UIColor whiteColor];
     
     //Empty datasource & delegate
     self.tableView.emptyDataSetSource = self;

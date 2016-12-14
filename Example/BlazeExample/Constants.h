@@ -3,6 +3,7 @@
 //
 
 #import "BDGMacros.h"
+#import "BDGCoreData.h"
 
 //Storyboards
 #define SBMain                      @"Main"

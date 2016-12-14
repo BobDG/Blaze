@@ -66,5 +66,15 @@
     }
 }
 
+//It's ridiculous, but the following code fixes many autolayout constraint warnings that shouldn't be there - Apple weirdness..
+
+-(void)setFrame:(CGRect)frame
+{
+    if(frame.size.width == 0) {
+        return;
+    }
+    [super setFrame:frame];
+}
+
 
 @end

@@ -1,0 +1,6 @@
+framework module BDGCategories {
+  umbrella header "BDGCategories-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -88,6 +88,13 @@
         [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"IBInspectableTableViewController"] animated:TRUE];
     }];
     [section addRow:row];
+    
+    //Row with push using cellTap completion block and storyboard instantiation
+    row = [BlazeRow rowWithTitle:@"Automatic NSFetchedResultsController"];
+    [row setCellTapped:^{
+        [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FetchedResultsTableViewController"] animated:TRUE];
+    }];
+    [section addRow:row];
 }
 
 @end
