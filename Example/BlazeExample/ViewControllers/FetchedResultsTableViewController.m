@@ -21,14 +21,17 @@
 {
     [super viewDidLoad];
     
-    //Estimated rowheight
+    //Testing with these variables to get rid of stupid Apple bug - jumpy scrolling when at the bottom of the table and changes happen.
     self.tableView.estimatedRowHeight = 40.0f;
     self.tableView.estimatedSectionHeaderHeight = 30.0f;
     self.tableView.rowHeight = 40.0f;
     self.tableView.sectionHeaderHeight = 30.0f;
     self.tableView.sectionFooterHeight = 10.0f;
     
+    //Enable deleting
     self.enableDeleting = TRUE;
+    
+    //Fetched results properties
     self.entityName = [TestEntity entityName];    
     self.managedObjectContext = kCoreData.managedObjectContext;
     self.sectionNameKeyPath = @"index";
@@ -85,11 +88,6 @@
     testEntity.indexValue = arc4random()%7;
     DLog(@"Created entity with name: %@, section: %d", testEntity.name, testEntity.indexValue);
     [kCoreData saveContext];
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return CGFLOAT_MIN;
 }
 
 @end
