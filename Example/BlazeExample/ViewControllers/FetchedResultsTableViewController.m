@@ -74,7 +74,7 @@
 {
     DLog(@"Updating entity with previous name: %@, section: %d", testEntity.name, testEntity.indexValue);
     testEntity.name = [NSString stringWithFormat:@"Random entity name %d", arc4random()%10];
-    //testEntity.indexValue = arc4random()%3;
+    testEntity.indexValue = arc4random()%7;
     DLog(@"Updating entity to new name: %@, section: %d", testEntity.name, testEntity.indexValue);
     [kCoreData saveContext];
 }

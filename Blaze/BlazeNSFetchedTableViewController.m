@@ -13,6 +13,12 @@
     
 }
 
+@property(nonatomic,strong) NSMutableDictionary *updatedRows;
+@property(nonatomic,strong) NSMutableDictionary *insertedRows;
+@property(nonatomic,strong) NSMutableArray *deletedRowIndexPaths;
+@property(nonatomic,strong) NSMutableDictionary *insertedSections;
+@property(nonatomic,strong) NSMutableArray *deletedSectionIndexes;
+
 @property(nonatomic,strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
@@ -22,11 +28,28 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Disabling
+    if(self.disableFetchedResults) {
+        return;
+    }
+    
+    //Arrays/Dictionaries
+    self.updatedRows = [NSMutableDictionary new];
+    self.insertedRows = [NSMutableDictionary new];
+    self.deletedRowIndexPaths = [NSMutableArray new];
+    self.insertedSections = [NSMutableDictionary new];
+    self.deletedSectionIndexes = [NSMutableArray new];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    //Disabling
+    if(self.disableFetchedResults) {
+        return;
+    }
  
     //Fetchedresultscontroller
     if(!self.fetchedResultsController) {
@@ -37,7 +60,7 @@
 #pragma mark - FetchedResultsController
 
 -(void)initializeFetchedResultsController
-{
+{    
     //Create fetch request
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:self.entityName];
     request.predicate = self.predicate;
@@ -67,86 +90,109 @@
     
     //Reload
     [self.tableView reloadData];
-    
 }
 
--(void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.tableView beginUpdates];
-}
+#pragma mark - NSFetchedResultsControllerDelegate methods
 
--(void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex
+     forChangeType:(NSFetchedResultsChangeType)type
 {
-    switch(type) {
-        case NSFetchedResultsChangeInsert: {
-            BlazeSection *section = [self sectionForSectionInfo:sectionInfo];
-            [self.tableArray insertObject:section atIndex:sectionIndex];
-            [[self tableView] insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationRight];
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            //NSLog(@"Insert section: %d", (int)sectionIndex);
+            self.insertedSections[@(sectionIndex)] = sectionInfo;
             break;
-        }
-        case NSFetchedResultsChangeDelete: {
-            [self.tableArray removeObjectAtIndex:sectionIndex];
-            [[self tableView] deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationLeft];
+        case NSFetchedResultsChangeDelete:
+            //NSLog(@"Delete section: %d", (int)sectionIndex);
+            [self.deletedSectionIndexes addObject:@(sectionIndex)];
             break;
-        }
         default:
             break;
     }
 }
 
--(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+-(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
 {
-    switch(type) {
-        case NSFetchedResultsChangeInsert: {
-            BlazeSection *section = self.tableArray[newIndexPath.section];
-            BlazeRow *row = [self rowForObject:anObject];
-            [section.rows insertObject:row atIndex:newIndexPath.row];
-            [[self tableView] insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationRight];
-            break;
-        }
-        case NSFetchedResultsChangeDelete: {
-            BlazeSection *section = self.tableArray[indexPath.section];
-            [section.rows removeObjectAtIndex:indexPath.row];
-            [[self tableView] deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-            break;
-        }
-        case NSFetchedResultsChangeUpdate: {
-            BlazeSection *section = self.tableArray[indexPath.section];
-            BlazeRow *newRow = [self rowForObject:anObject];
-            [section.rows replaceObjectAtIndex:indexPath.row withObject:newRow];
-            
-            //Reload
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-        }
-        case NSFetchedResultsChangeMove: {
-            //Get sections
-            BlazeSection *section1 = self.tableArray[indexPath.section];
-            BlazeSection *section2 = self.tableArray[newIndexPath.section];
-            
-            //Get new row
-            BlazeRow *row = [self rowForObject:anObject];
-            
-            //Remove previous
-            [section1.rows removeObjectAtIndex:indexPath.row];
-            
-            //Insert row
-            [section2.rows insertObject:row atIndex:newIndexPath.row];
-            
-            //Move within tableview
-            [[self tableView] deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [[self tableView] insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-        }
+    if(type == NSFetchedResultsChangeInsert) {
+        //NSLog(@"Insert row: %d-%d", (int)newIndexPath.section, (int)newIndexPath.row);
+        self.insertedRows[newIndexPath] = anObject;
+    } else if(type == NSFetchedResultsChangeDelete) {
+        //NSLog(@"Delete row: %d-%d", (int)indexPath.section, (int)indexPath.row);
+        [self.deletedRowIndexPaths addObject:indexPath];
+    } else if(type == NSFetchedResultsChangeMove) {
+        //NSLog(@"Move row: %d-%d to %d-%d", (int)indexPath.section, (int)indexPath.row, (int)newIndexPath.section, (int)newIndexPath.row);
+        self.insertedRows[newIndexPath] = anObject;
+        [self.deletedRowIndexPaths addObject:indexPath];
+    } else if(type == NSFetchedResultsChangeUpdate) {
+        //NSLog(@"Updating row: %d-%d", (int)indexPath.section, (int)indexPath.row);
+        self.updatedRows[indexPath] = anObject;
     }
 }
 
 -(void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
+    //Begin updates
+    [self.tableView beginUpdates];
+    
+    //Deleted rows
+    NSMutableArray *rowObjects = [NSMutableArray new];
+    for(NSIndexPath *indexPath in self.deletedRowIndexPaths) {
+        BlazeSection *section = self.tableArray[indexPath.section];
+        [rowObjects addObject:section.rows[indexPath.row]];
+    }
+    //Loop through sections to delete all rows at once using the rowsarray to solve multiple row deletion issues when deleting one-by-one
+    for(BlazeSection *section in self.tableArray) {
+        [section.rows removeObjectsInArray:rowObjects];
+    }
+    [self.tableView deleteRowsAtIndexPaths:self.deletedRowIndexPaths withRowAnimation:UITableViewRowAnimationLeft];
+    
+    //Deleted sections
+    NSMutableIndexSet *indexSet = [NSMutableIndexSet new];
+    for(NSNumber *sectionIndex in self.deletedSectionIndexes) {
+        [indexSet addIndex:[sectionIndex integerValue]];
+        [self.tableArray removeObjectAtIndex:[sectionIndex integerValue]];
+    }
+    [self.tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    //Inserted sections
+    indexSet = [NSMutableIndexSet new];
+    for(NSNumber *sectionIndex in self.insertedSections.allKeys) {
+        [indexSet addIndex:[sectionIndex integerValue]];
+        BlazeSection *section = [self sectionForSectionInfo:self.insertedSections[sectionIndex]];
+        [self.tableArray insertObject:section atIndex:[sectionIndex integerValue]];
+    }
+    [self.tableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    //Add rows
+    NSMutableArray *indexPathsArray = [NSMutableArray new];
+    for(NSIndexPath *indexPath in self.insertedRows.allKeys) {
+        BlazeSection *section = self.tableArray[indexPath.section];
+        BlazeRow *row = [self rowForObject:self.insertedRows[indexPath]];
+        [section.rows insertObject:row atIndex:indexPath.row];
+        [indexPathsArray addObject:indexPath];
+    }
+    [self.tableView insertRowsAtIndexPaths:indexPathsArray withRowAnimation:UITableViewRowAnimationRight];
+    
+    //Update rows
+    indexPathsArray = [NSMutableArray new];
+    for(NSIndexPath *indexPath in self.updatedRows.allKeys) {
+        BlazeSection *section = self.tableArray[indexPath.section];
+        BlazeRow *row = [self rowForObject:self.updatedRows[indexPath]];
+        [section.rows replaceObjectAtIndex:indexPath.row withObject:row];
+        [indexPathsArray addObject:indexPath];
+    }
+    [self.tableView reloadRowsAtIndexPaths:indexPathsArray withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    //End updates
     [self.tableView endUpdates];
     
-    //Notify
-    [self contentUpdated];
+    //Clear
+    [self.updatedRows removeAllObjects];
+    [self.insertedRows removeAllObjects];
+    [self.insertedSections removeAllObjects];
+    [self.deletedRowIndexPaths removeAllObjects];
+    [self.deletedSectionIndexes removeAllObjects];
 }
 
 #pragma mark - FetchedResultsController section/rows
@@ -155,6 +201,7 @@
 {
     //Can be overridden if necessary
     BlazeSection *section = [BlazeSection new];
+    section.headerXibName = self.headerXibName;
     section.headerTitle = [sectionInfo name];
     return section;
 }

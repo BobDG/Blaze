@@ -16,6 +16,7 @@
 }
 
 //FetchedResults properties
+@property(nonatomic) bool disableFetchedResults;
 @property(nonatomic,strong) NSString *entityName;
 @property(nonatomic,strong) NSPredicate *predicate;
 @property(nonatomic,strong) NSArray *sortDescriptors;
@@ -28,5 +29,6 @@
 //Methods to override
 -(void)contentUpdated;
 -(BlazeRow *)rowForObject:(NSManagedObject *)object;
+-(BlazeSection *)sectionForSectionInfo:(id <NSFetchedResultsSectionInfo>)sectionInfo;
 
 @end
