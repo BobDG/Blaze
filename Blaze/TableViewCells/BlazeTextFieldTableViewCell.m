@@ -33,6 +33,10 @@
         self.textField.text = self.row.value;
     }
     
+    if(self.row.textFieldSuffix.length) {
+        self.textField.text = [self.textField.text stringByAppendingString:self.row.textFieldSuffix];
+    }
+    
     self.textField.keyboardType = self.row.keyboardType;
     self.textField.secureTextEntry = self.row.secureTextEntry;
     self.textField.autocorrectionType = self.row.autocorrectionType;
