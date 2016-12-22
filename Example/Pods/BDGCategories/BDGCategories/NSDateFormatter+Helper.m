@@ -9,6 +9,34 @@
 
 @implementation NSDateFormatter (Helper)
 
++(NSDateFormatter *)currentDateFormatterWithFormatToLocalize:(NSString *)format
+{
+    return [NSDateFormatter currentDateFormatterWithFormatToLocalize:format includeHours:false withLocale:[NSLocale currentLocale]];
+}
+
++(NSDateFormatter *)currentDateFormatterWithFormatToLocalize:(NSString*)format includeHours:(BOOL)includeHours
+{
+    return [NSDateFormatter currentDateFormatterWithFormatToLocalize:format includeHours:includeHours withLocale:[NSLocale currentLocale]];
+}
+
++(NSDateFormatter *)currentDateFormatterWithFormatToLocalize:(NSString*)format includeHours:(BOOL)includeHours withLocale:(NSLocale*)locale
+{
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    
+    NSMutableString *mutableFormat = format.mutableCopy;
+    [mutableFormat replaceOccurrencesOfString:@"h" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, mutableFormat.length)];
+    
+    if(includeHours) {
+        NSString *formatStringForHours = [NSDateFormatter dateFormatFromTemplate:@"j" options:0 locale:locale];
+        [mutableFormat appendString:formatStringForHours];
+    }
+    
+    // The components will be reordered according to the locale
+    NSString *dateFormat = [NSDateFormatter dateFormatFromTemplate:mutableFormat options:0 locale:locale];
+    dateFormatter.dateFormat = dateFormat;
+    return dateFormatter;
+}
+
 +(NSDateFormatter *)currentDateFormatterWithFormat:(NSString*)format
 {
     NSMutableDictionary *threadDictionary = [[NSThread currentThread] threadDictionary];

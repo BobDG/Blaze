@@ -73,6 +73,9 @@
 		ED0297771D1729370039AA41 /* BlazeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297571D1729370039AA41 /* BlazeTextView.m */; };
 		ED2626AD1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2626AB1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m */; };
 		ED2626B01D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2626AF1D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib */; };
+		ED3BDAD51E0BD5A500B230A6 /* ImagePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3BDAD41E0BD5A500B230A6 /* ImagePickerTableViewCell.xib */; };
+		ED3BDAD81E0BD5D000B230A6 /* BlazeImagePickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3BDAD71E0BD5D000B230A6 /* BlazeImagePickerTableViewCell.m */; };
+		ED3BDADB1E0BDBD300B230A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED3BDAD91E0BDBD300B230A6 /* Localizable.strings */; };
 		ED45B2CC1E01546B007814BA /* BlazeNSFetchedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED45B2CB1E01546B007814BA /* BlazeNSFetchedTableViewController.m */; };
 		ED45B2CE1E0154CA007814BA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED45B2CD1E0154CA007814BA /* CoreData.framework */; };
 		ED45B2DC1E0154EF007814BA /* BDGCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = ED45B2D11E0154EF007814BA /* BDGCoreData.m */; };
@@ -178,6 +181,10 @@
 		ED2626AA1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeCheckboxTableViewCell.h; sourceTree = "<group>"; };
 		ED2626AB1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeCheckboxTableViewCell.m; sourceTree = "<group>"; };
 		ED2626AF1D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckboxTableViewCell.xib; sourceTree = "<group>"; };
+		ED3BDAD41E0BD5A500B230A6 /* ImagePickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePickerTableViewCell.xib; sourceTree = "<group>"; };
+		ED3BDAD61E0BD5D000B230A6 /* BlazeImagePickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeImagePickerTableViewCell.h; sourceTree = "<group>"; };
+		ED3BDAD71E0BD5D000B230A6 /* BlazeImagePickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeImagePickerTableViewCell.m; sourceTree = "<group>"; };
+		ED3BDADA1E0BDBD300B230A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED45B2CA1E01546B007814BA /* BlazeNSFetchedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeNSFetchedTableViewController.h; sourceTree = "<group>"; };
 		ED45B2CB1E01546B007814BA /* BlazeNSFetchedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeNSFetchedTableViewController.m; sourceTree = "<group>"; };
 		ED45B2CD1E0154CA007814BA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -248,6 +255,7 @@
 				ED0296E31D1729220039AA41 /* EmptySpaceTableViewCell.xib */,
 				ED0296E41D1729220039AA41 /* FloatTextFieldTableViewCell.xib */,
 				ED0296E51D1729220039AA41 /* ImageTableViewCell.xib */,
+				ED3BDAD41E0BD5A500B230A6 /* ImagePickerTableViewCell.xib */,
 				ED0296E61D1729220039AA41 /* PickerFieldTableViewCell.xib */,
 				ED0296E71D1729220039AA41 /* SegmentedControlTableViewCell.xib */,
 				ED0296E81D1729220039AA41 /* SliderTableViewCell.xib */,
@@ -391,6 +399,8 @@
 				ED0297331D1729370039AA41 /* BlazeDateTableViewCell.m */,
 				ED0297351D1729370039AA41 /* BlazePickerViewTableViewCell.h */,
 				ED0297361D1729370039AA41 /* BlazePickerViewTableViewCell.m */,
+				ED3BDAD61E0BD5D000B230A6 /* BlazeImagePickerTableViewCell.h */,
+				ED3BDAD71E0BD5D000B230A6 /* BlazeImagePickerTableViewCell.m */,
 				ED0297381D1729370039AA41 /* BlazeSegmentedControlTableViewCell.h */,
 				ED0297391D1729370039AA41 /* BlazeSegmentedControlTableViewCell.m */,
 				ED02973B1D1729370039AA41 /* BlazeSliderTableViewCell.h */,
@@ -496,6 +506,7 @@
 				ED45B2CF1E0154EF007814BA /* Model */,
 				ED933E091D1728A100B8155F /* Main.storyboard */,
 				ED933E0E1D1728A100B8155F /* LaunchScreen.storyboard */,
+				ED3BDAD91E0BDBD300B230A6 /* Localizable.strings */,
 				ED933E0C1D1728A100B8155F /* Assets.xcassets */,
 				ED933E001D1728A100B8155F /* Supporting Files */,
 			);
@@ -583,7 +594,9 @@
 				ED0297041D1729220039AA41 /* DateFieldTableViewCell.xib in Resources */,
 				ED02970E1D1729220039AA41 /* TextViewTableViewCell.xib in Resources */,
 				ED933E101D1728A100B8155F /* LaunchScreen.storyboard in Resources */,
+				ED3BDADB1E0BDBD300B230A6 /* Localizable.strings in Resources */,
 				ED02970D1D1729220039AA41 /* TextTableViewCell.xib in Resources */,
+				ED3BDAD51E0BD5A500B230A6 /* ImagePickerTableViewCell.xib in Resources */,
 				ED0297061D1729220039AA41 /* FloatTextFieldTableViewCell.xib in Resources */,
 				ED0297051D1729220039AA41 /* EmptySpaceTableViewCell.xib in Resources */,
 				ED0297191D1729220039AA41 /* ZoomHeaderView.xib in Resources */,
@@ -695,6 +708,7 @@
 				EDF41DFF1DC8404100073C2D /* BlazeTextField.m in Sources */,
 				ED45B2F51E015BBC007814BA /* TestEntity.m in Sources */,
 				ED0297681D1729370039AA41 /* BlazeSliderTableViewCell.m in Sources */,
+				ED3BDAD81E0BD5D000B230A6 /* BlazeImagePickerTableViewCell.m in Sources */,
 				ED0297581D1729370039AA41 /* BlazeTableViewController.m in Sources */,
 				ED933E051D1728A100B8155F /* AppDelegate.m in Sources */,
 				ED0297731D1729370039AA41 /* BlazeTableHeaderFooterView.m in Sources */,
@@ -723,6 +737,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		ED3BDAD91E0BDBD300B230A6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED3BDADA1E0BDBD300B230A6 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		ED933E091D1728A100B8155F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -859,7 +881,7 @@
 				PRODUCT_NAME = Blaze;
 				PROVISIONING_PROFILE = "e5bc923c-58a5-4d9d-b7a0-8cc5d30a69dd";
 				PROVISIONING_PROFILE_SPECIFIER = "Synappz InHouse Dev";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -874,7 +896,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = template.BlazeExample;
 				PRODUCT_NAME = Blaze;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

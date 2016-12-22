@@ -14,22 +14,25 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - BDGCategories (0.0.15)
+  - BDGCategories (0.0.18)
+  - BDGImagePicker (0.0.11)
   - BDGMacros (0.0.18)
   - BDGViews (0.0.4)
 
 DEPENDENCIES:
   - AFNetworking
   - BDGCategories
+  - BDGImagePicker
   - BDGMacros
   - BDGViews
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  BDGCategories: bb254a8506fbec49ae499cc99f3a76570539340e
+  BDGCategories: cf71aaa268959e38a4583a6c4038b2acdf6c63fe
+  BDGImagePicker: 7b15d5dcc5130d50f2a5eb127785138897a0d7e3
   BDGMacros: 8d03817ec90f2c028648722f3289569dee4ed73f
   BDGViews: a8bd3e891617372ab191e9e8e38457638a3fcd6b
 
-PODFILE CHECKSUM: b88f474aac79f5b4afd3fcb7133711bb4d094e41
+PODFILE CHECKSUM: ca46cb5dff268ad6d5302e50a2fef3d6a7f54ee7
 
 COCOAPODS: 1.1.1

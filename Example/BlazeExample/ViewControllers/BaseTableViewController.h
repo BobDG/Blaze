@@ -13,6 +13,7 @@
 
 #define kTextTableViewCell              @"TextTableViewCell"
 #define kImageTableViewCell             @"ImageTableViewCell"
+#define kTilesTableViewCell             @"TilesTableViewCell"
 #define kButtonTableViewCell            @"ButtonTableViewCell"
 #define kSliderTableViewCell            @"SliderTableViewCell"
 #define kSwitchTableViewCell            @"SwitchTableViewCell"
@@ -23,10 +24,10 @@
 #define kTwoChoicesTableViewCell        @"TwoChoicesTableViewCell"
 #define kEmptySpaceTableViewCell        @"EmptySpaceTableViewCell"
 #define kPickerFieldTableViewCell       @"PickerFieldTableViewCell"
+#define kImagePickerTableViewCell       @"ImagePickerTableViewCell"
 #define kFloatTextFieldTableViewCell    @"FloatTextFieldTableViewCell"
-#define kSegmentedControlTableViewCell  @"SegmentedControlTableViewCell"
-#define kTilesTableViewCell             @"TilesTableViewCell"
 #define kIBInspectableBlazeTextField    @"IBInspectableBlazeTextField"
+#define kSegmentedControlTableViewCell  @"SegmentedControlTableViewCell"
 
 @interface BaseTableViewController : BlazeTableViewController
 {

@@ -214,6 +214,13 @@ typedef NS_ENUM(NSInteger, FloatingLabelEnabledState) {
 @property(nonatomic,strong) UIColor *viewCenterBackgroundColor;
 @property(nonatomic,strong) UIColor *viewRightBackgroundColor;
 
+//ImagePicker
+@property(nonatomic) CGRect imagePickerSourceRect;
+@property(nonatomic) bool imagePickerAllowsEditing;
+@property(nonatomic) bool imagePickerSaveInCameraRoll;
+@property(nonatomic,strong) UIViewController *imagePickerViewController;
+
+
 
 @end
 

@@ -22,9 +22,10 @@
 @property(nonatomic,strong) NSNumber *checkBoxValue;
 @property(nonatomic,strong) NSNumber *twoChoicesValue;
 @property(nonatomic,strong) NSNumber *segmentedControlValue;
-
+@property(nonatomic,strong) NSData *imageData;
 @property(nonatomic,strong) NSString *pickerValue;
 @property(nonatomic,strong) NSString *textfieldValue;
+
 
 @end
 
@@ -35,17 +36,38 @@
     [super viewDidLoad];
     
     //Load table
-    [self loadTable];
+    self.loadContentOnAppear = TRUE;
+    
+    //Some empty space looks better
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 40)];
+    
+    //Default imageData
+    self.imageData = UIImagePNGRepresentation([UIImage imageNamed:@"Blaze_Logo"]);
 }
 
--(void)loadTable
-{    
+-(void)loadTableContent
+{
+    //Clear
+    [self.tableArray removeAllObjects];
+    
     //Row & Section
     BlazeRow *row;
     BlazeSection *section;
     
+    //ImagePicker section
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Built-in imagepicker, nice!"];
+    [self addSection:section];
+    
+    //ImagePicker
+    row = [[BlazeRow alloc] initWithXibName:kImagePickerTableViewCell title:@"Pick image"];
+    row.imagePickerAllowsEditing = TRUE;
+    row.imagePickerViewController = self;
+    row.imagePickerSaveInCameraRoll = TRUE;
+    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(imageData)]];
+    [section addRow:row];    
+    
     //Textfield section
-    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Now an awesome float-label textfield - check automatic prev/next buttons."];
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Awesome float-label textfield - check automatic prev/next buttons."];
     [self addSection:section];
     
     //Textfield
@@ -199,8 +221,8 @@
     row.imageNameCenter = @"Blaze_Logo";
     [section addRow:row];
     
-    //Some empty space looks better
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 40)];
+    //Reload
+    [self.tableView reloadData];
 }
 
 @end

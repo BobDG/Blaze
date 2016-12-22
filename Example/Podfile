@@ -6,6 +6,7 @@ target 'BlazeExample' do
     pod 'BDGViews'
     pod 'BDGMacros'
     pod 'BDGCategories'
+    pod 'BDGImagePicker'
     
     pod 'AFNetworking'    
 end
