@@ -194,6 +194,7 @@ typedef NS_ENUM(NSInteger, FloatingLabelEnabledState) {
 @property(nonatomic,strong) NSFormatter *formatter;
 @property(nonatomic,strong) NSString *placeholderText;
 @property(nonatomic,strong) UIColor *placeholderColor;
+@property(nonatomic,strong) NSString *textFieldSuffix;
 @property(nonatomic,strong) NSAttributedString *attributedPlaceholder;
 
 //Floating placeholder options

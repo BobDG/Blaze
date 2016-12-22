@@ -34,6 +34,9 @@
 @property(nonatomic) UITableViewCellSeparatorStyle filledTableViewCellSeparatorStyle;
 @property(nonatomic) UITableViewCellSeparatorStyle emptyTableViewCellSeparatorStyle;
 
+//Section index picker (A-Z) - Implemented assuming sections are correctly formatted and have a unique first-letter
+@property(nonatomic) bool useSectionIndexPicker;
+
 //Separator Inset
 @property(nonatomic) bool noSeparatorInset;
 
@@ -51,6 +54,9 @@
 
 //DraggableZoom headerView
 @property(nonatomic,strong) UIView *zoomTableHeaderView;
+
+//Parallax effect HeaderView
+@property(nonatomic) float headerParallaxScrollRatio;
 
 //Refreshcontrol
 -(void)endRefreshing;

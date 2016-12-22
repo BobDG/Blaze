@@ -75,6 +75,20 @@
     }
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if(self.row.textFieldSuffix.length) {
+        textField.text = [textField.text stringByReplacingOccurrencesOfString:self.row.textFieldSuffix withString:@""];
+    }
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(self.row.textFieldSuffix.length) {
+        textField.text = [textField.text stringByAppendingString:self.row.textFieldSuffix];
+    }
+}
+
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     self.row.value = [textField.text stringByReplacingCharactersInRange:range withString:string];

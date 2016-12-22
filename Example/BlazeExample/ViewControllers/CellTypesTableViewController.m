@@ -25,6 +25,7 @@
 @property(nonatomic,strong) NSData *imageData;
 @property(nonatomic,strong) NSString *pickerValue;
 @property(nonatomic,strong) NSString *textfieldValue;
+@property(nonatomic,strong) NSNumber *textFieldNumberValue;
 
 
 @end
@@ -43,6 +44,9 @@
     
     //Default imageData
     self.imageData = UIImagePNGRepresentation([UIImage imageNamed:@"Blaze_Logo"]);
+    
+    //Section index picker
+    self.useSectionIndexPicker = TRUE;
 }
 
 -(void)loadTableContent
@@ -62,7 +66,6 @@
     row = [[BlazeRow alloc] initWithXibName:kImagePickerTableViewCell title:@"Pick image"];
     row.imagePickerAllowsEditing = TRUE;
     row.imagePickerViewController = self;
-    row.imagePickerSaveInCameraRoll = TRUE;
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(imageData)]];
     [section addRow:row];    
     
@@ -81,6 +84,18 @@
     [row setValueChanged:^{
         DLog(@"Use this when you want something done as soon as the value changes. This also log is also proving it automatically updates the value of the set affected object: %@", self.textfieldValue);
     }];
+    [section addRow:row];
+    
+    //Textfield number
+    row = [[BlazeRow alloc] initWithXibName:kFloatTextFieldTableViewCell];
+    row.floatingLabelEnabled = FALSE;
+    row.placeholder = @"Textfield with numberformatter & non-editable suffix";
+    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textFieldNumberValue)]];
+    NSNumberFormatter *nf = [NSNumberFormatter new];
+    [nf setNumberStyle:NSNumberFormatterDecimalStyle];
+    row.formatter = nf;
+    row.keyboardType = UIKeyboardTypeDecimalPad;
+    row.textFieldSuffix = @" awesome suffix";
     [section addRow:row];
     
     //Date & Picker

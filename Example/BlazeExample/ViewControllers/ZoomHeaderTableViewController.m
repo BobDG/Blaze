@@ -25,6 +25,9 @@
     //ZoomHeader
     self.zoomTableHeaderView = [[NSBundle mainBundle] loadNibNamed:@"ZoomHeaderView" owner:nil options:nil].firstObject;
     
+    //Parallax
+    self.headerParallaxScrollRatio = 0.3f;
+    
     //Load table
     [self loadTable];
 }
@@ -32,7 +35,7 @@
 -(void)loadTable
 {
     //Section
-    BlazeSection *section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Blaze comes with a draggable zoom header view with 1 line of code!"];
+    BlazeSection *section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Draggable zoom header view & Optional parallax effect"];
     [self addSection:section];
 }
 

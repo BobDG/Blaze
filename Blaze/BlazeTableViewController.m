@@ -41,6 +41,9 @@
 //The previous/next textfield does not work when using indexPaths, these are not correctly reset when not calling reloadData. Therefore this boolean is set to TRUE when adding/removing rows dynamically so that when a user requests the next/previous textfield, rowID's are used instead of indexpaths!
 @property(nonatomic) bool dynamicRows;
 
+//Indexes for sectionPicker
+@property(nonatomic,strong) NSMutableArray *sectionIndexesArray;
+
 //Contains names of current registered cells
 @property(nonatomic,strong) NSMutableArray *registeredCells;
 @property(nonatomic,strong) NSMutableArray *registeredHeaders;
@@ -53,8 +56,9 @@
 {
     [super viewDidLoad];
     
-    //TableArray
+    //Arrays
     self.tableArray = [NSMutableArray new];
+    self.sectionIndexesArray = [NSMutableArray new];
     
     //Register cells & Headers
     self.registeredCells = [NSMutableArray new];
@@ -943,6 +947,22 @@
     return cell;
 }
 
+-(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    if(!self.useSectionIndexPicker) {
+        return nil;
+    }
+    return self.sectionIndexesArray;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    if(!self.useSectionIndexPicker) {
+        return NSNotFound;
+    }
+    return [self.sectionIndexesArray indexOfObject:title];
+}
+
 #pragma mark - Table view delegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -985,6 +1005,12 @@
     
     float offset = scrollView.contentOffset.y;
     if(offset > 0) {
+        if(self.headerParallaxScrollRatio<=0) {
+            return;
+        }
+        CGRect headerFrame = self.zoomTableHeaderView.frame;
+        headerFrame.origin.y = -offset+(offset * (1+self.headerParallaxScrollRatio));
+        self.zoomTableHeaderView.frame = headerFrame;
         return;
     }
     CGRect headerFrame = self.zoomTableHeaderView.frame;
@@ -1027,10 +1053,17 @@
 
 -(void)emptyDataSetWillReload:(UIScrollView *)scrollView
 {
+    if(self.useSectionIndexPicker) {
+        [self.sectionIndexesArray removeAllObjects];
+    }
+    
     for(BlazeSection *s in self.tableArray) {
         //Section header/footer
         if(s.headerXibName.length) {
             [self registerCustomHeader:s.headerXibName];
+            if(self.useSectionIndexPicker && s.headerTitle.length) {
+                [self.sectionIndexesArray addObject:[[s.headerTitle substringToIndex:1] uppercaseString]];
+            }
         }
         if(s.footerXibName.length) {
             [self registerCustomHeader:s.footerXibName];
