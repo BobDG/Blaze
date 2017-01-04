@@ -40,6 +40,7 @@
 @property(nonatomic,strong) UIColor *backgroundColor;
 
 //Header & Footer
+@property(nonatomic,strong) NSString *buttonTitle;
 @property(nonatomic,strong) NSString *headerTitle;
 @property(nonatomic,strong) NSString *headerSubtitle;
 @property(nonatomic,strong) NSString *footerTitle;
@@ -51,6 +52,7 @@
 @property(nonatomic,strong) id object;
 
 //Completion blocks
+@property(nonatomic,copy) void (^buttonTapped)(void);
 @property(nonatomic,copy) void (^configureHeaderView)(UITableViewHeaderFooterView *headerFooterView);
 @property(nonatomic,copy) void (^configureFooterView)(UITableViewHeaderFooterView *headerFooterView);
 

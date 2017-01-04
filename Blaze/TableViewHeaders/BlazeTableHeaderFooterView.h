@@ -30,6 +30,7 @@ typedef NS_ENUM(NSInteger, SectionType) {
 
 //Outlets
 @property(nonatomic,weak) IBOutlet UIView *view;
+@property(nonatomic,weak) IBOutlet UIButton *button;
 @property(nonatomic,weak) IBOutlet UILabel *titleLabel;
 @property(nonatomic,weak) IBOutlet UILabel *subtitleLabel;
 @property(nonatomic,weak) IBOutlet UIButton *collapseButton;

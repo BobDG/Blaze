@@ -77,7 +77,7 @@
     self.emptyVerticalOffset = -100.0f;
     self.emptyTableViewCellSeparatorStyle = -1;
     self.filledTableViewCellSeparatorStyle = -1;
-    self.emptyBackgroundColor = [UIColor whiteColor];
+    self.emptyBackgroundColor = [UIColor clearColor];
     
     //Empty datasource & delegate
     self.tableView.emptyDataSetSource = self;
@@ -1025,6 +1025,9 @@
 
 -(NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
+    if(self.emptyAttributedTitle) {
+        return self.emptyAttributedTitle;
+    }
     if(!(self.emptyTitle.length)) {
         return nil;
     }

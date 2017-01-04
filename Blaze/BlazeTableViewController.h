@@ -28,6 +28,7 @@
 @property(nonatomic) float emptyVerticalOffset;
 @property(nonatomic,strong) UIImage *emptyImage;
 @property(nonatomic,strong) NSString *emptyTitle;
+@property(nonatomic,strong) NSAttributedString *emptyAttributedTitle;
 @property(nonatomic,strong) UIColor *emptyBackgroundColor;
 @property(nonatomic,strong) NSDictionary *emptyTitleAttributes;
 @property(nonatomic,strong) UIView *emptyCustomView;

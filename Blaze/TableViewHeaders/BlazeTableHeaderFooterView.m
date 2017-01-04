@@ -43,6 +43,16 @@
         }
     }
     
+    //Button IF connected
+    if(self.button) {
+        //Title
+        if(self.section.buttonTitle) {
+            [self.button setTitle:self.section.buttonTitle forState:UIControlStateNormal];
+        }
+        //Target
+        [self.button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
     //Collapse action IF callback set AND button set
     if(self.section.collapseTapped && self.collapseButton) {
         [self.collapseButton addTarget:self action:@selector(collapse:) forControlEvents:UIControlEventTouchUpInside];
@@ -55,6 +65,13 @@
     
     //Update (for subclasses)
     [self update];
+}
+
+-(IBAction)buttonTapped:(id)sender
+{
+    if(self.section.buttonTapped) {
+        self.section.buttonTapped();
+    }
 }
 
 -(IBAction)collapse:(id)sender
