@@ -39,8 +39,10 @@ typedef NS_ENUM(NSInteger, FloatingLabelEnabledState) {
 
 //Constructors with XibName
 +(instancetype)rowWithXibName:(NSString *)xibName;
++(instancetype)rowWithXibName:(NSString *)xibName height:(float)height;
 +(instancetype)rowWithXibName:(NSString *)xibName title:(NSString *)title;
 -(instancetype)initWithXibName:(NSString *)xibName;
+-(instancetype)initWithXibName:(NSString *)xibName height:(float)height;
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title;
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title segueIdentifier:(NSString *)segueIdentifier;
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title placeholder:(NSString *)placeholder;

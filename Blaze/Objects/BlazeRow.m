@@ -14,12 +14,12 @@
 
 +(instancetype)rowWithTitle:(NSString *)title
 {
-    return [[BlazeRow alloc] initWithTitle:title];
+    return [[self alloc] initWithTitle:title];
 }
 
 +(instancetype)rowWithTitle:(NSString *)title segueIdentifier:(NSString *)segueIdentifier
 {
-    return [[BlazeRow alloc] initWithTitle:title segueIdentifier:segueIdentifier];
+    return [[self alloc] initWithTitle:title segueIdentifier:segueIdentifier];
 }
 
 #pragma mark Init with ID
@@ -85,17 +85,35 @@
 
 +(instancetype)rowWithXibName:(NSString *)xibName
 {
-    return [[BlazeRow alloc] initWithXibName:xibName];
+    return [[self alloc] initWithXibName:xibName];
+}
+
++(instancetype)rowWithXibName:(NSString *)xibName height:(float)height
+{
+    return [[self alloc] initWithXibName:xibName height:height];
 }
 
 +(instancetype)rowWithXibName:(NSString *)xibName title:(NSString *)title
 {
-    return [[BlazeRow alloc] initWithXibName:xibName title:title];
+    return [[self alloc] initWithXibName:xibName title:title];
 }
 
 -(instancetype)initWithXibName:(NSString *)xibName
 {
     return [self initWithXibName:xibName title:nil];
+}
+
+-(instancetype)initWithXibName:(NSString *)xibName height:(float)height
+{
+    self = [super init];
+    if(!self) {
+        return nil;
+    }
+    
+    self.xibName = xibName;
+    self.rowHeight = height;
+    
+    return self;
 }
 
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title
