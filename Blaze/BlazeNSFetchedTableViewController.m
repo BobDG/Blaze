@@ -70,10 +70,27 @@
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:self.sectionNameKeyPath cacheName:nil];
     self.fetchedResultsController.delegate = self;
     
+    //Start
+    [self startFetching];
+}
+
+-(void)updatePredicate:(NSPredicate *)predicate
+{
+    [NSFetchedResultsController deleteCacheWithName:nil];
+    self.fetchedResultsController.fetchRequest.predicate = predicate;
+    [self startFetching];
+}
+
+-(void)startFetching
+{
+    //Clear
+    [self.tableArray removeAllObjects];
+    
     //Start initial fetch
     NSError *error = nil;
     if(![[self fetchedResultsController] performFetch:&error]) {
         NSLog(@"Failed to initialize FetchedResultsController: %@\n%@", [error localizedDescription], [error userInfo]);
+        [self.tableView reloadData];
         return;
     }
     

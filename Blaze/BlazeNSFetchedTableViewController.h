@@ -26,6 +26,9 @@
 //Deleting
 @property(nonatomic) bool enableDeleting;
 
+//Updating predicate dynamically
+-(void)updatePredicate:(NSPredicate *)predicate;
+
 //Methods to override
 -(void)contentUpdated;
 -(BlazeRow *)rowForObject:(NSManagedObject *)object;
