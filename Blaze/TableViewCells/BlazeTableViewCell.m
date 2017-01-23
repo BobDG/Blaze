@@ -89,6 +89,12 @@
         [self updateView:self.viewRight backgroundColor:self.row.viewRightBackgroundColor];
     }
     
+    //Update pageControl IF connected
+    if(self.pageControl) {
+        self.pageControl.currentPage = self.row.currentPage;
+        self.pageControl.numberOfPages = self.row.numberOfPages;
+    }
+    
     //Update cell (for subclasses)
     [self updateCell];
 }
@@ -156,6 +162,38 @@
     //BackgroundColor
     if(backgroundColor) {
         button.backgroundColor = backgroundColor;
+    }
+}
+
+#pragma mark - ImageView updates
+
+-(void)updateImageView:(UIImageView *)imageView imageURLString:(NSString *)imageURLString
+{
+    if(imageURLString.length) {
+        [imageView setImageWithURL:[NSURL URLWithString:imageURLString] placeholderImage:[UIImage new]];
+    }
+    else {
+        imageView.image = nil;
+    }
+}
+
+-(void)updateImageView:(UIImageView *)imageView imageName:(NSString *)imageName
+{
+    if(imageName.length) {
+        imageView.image = [UIImage imageNamed:imageName];
+    }
+    else {
+        imageView.image = nil;
+    }
+}
+
+-(void)updateImageView:(UIImageView *)imageView imageData:(NSData *)imageData
+{
+    if(imageData) {
+        imageView.image = [UIImage imageWithData:imageData];
+    }
+    else {
+        imageView.image = nil;
     }
 }
 

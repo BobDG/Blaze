@@ -29,6 +29,11 @@
 -(IBAction)nextField:(UIBarButtonItem *)sender;
 -(IBAction)previousField:(UIBarButtonItem *)sender;
 
+//ImageView methods
+-(void)updateImageView:(UIImageView *)imageView imageData:(NSData *)imageData;
+-(void)updateImageView:(UIImageView *)imageView imageName:(NSString *)imageName;
+-(void)updateImageView:(UIImageView *)imageView imageURLString:(NSString *)imageURLString;
+
 //Properties
 @property(nonatomic,strong) BlazeRow *row;
 
@@ -52,5 +57,8 @@
 @property(nonatomic,weak) IBOutlet UIView *viewLeft;
 @property(nonatomic,weak) IBOutlet UIView *viewCenter;
 @property(nonatomic,weak) IBOutlet UIView *viewRight;
+
+//PageControl
+@property(nonatomic,weak) IBOutlet UIPageControl *pageControl;
 
 @end

@@ -25,6 +25,7 @@
 #define kEmptySpaceTableViewCell        @"EmptySpaceTableViewCell"
 #define kPickerFieldTableViewCell       @"PickerFieldTableViewCell"
 #define kImagePickerTableViewCell       @"ImagePickerTableViewCell"
+#define kScrollImagesTableViewCell      @"ScrollImagesTableViewCell"
 #define kFloatTextFieldTableViewCell    @"FloatTextFieldTableViewCell"
 #define kIBInspectableBlazeTextField    @"IBInspectableBlazeTextField"
 #define kSegmentedControlTableViewCell  @"SegmentedControlTableViewCell"

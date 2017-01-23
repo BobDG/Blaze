@@ -20,6 +20,12 @@ typedef NS_ENUM(NSInteger, FloatingLabelEnabledState) {
     FloatingLabelStateEnabled = 1,
 };
 
+typedef NS_ENUM(NSInteger, ImageType) {
+    ImageFromURL,
+    ImageFromBundle,
+    ImageFromData,
+};
+
 @interface BlazeRow : NSObject
 {
     
@@ -178,6 +184,15 @@ typedef NS_ENUM(NSInteger, FloatingLabelEnabledState) {
 //Checkbox
 @property(nonatomic,strong) NSString *checkboxImageActive;
 @property(nonatomic,strong) NSString *checkboxImageInactive;
+
+//PageControl
+@property(nonatomic) int currentPage;
+@property(nonatomic) int numberOfPages;
+
+//ScrollImages
+@property(nonatomic) ImageType scrollImageType;
+@property(nonatomic) UIViewContentMode scrollImageContentMode;
+@property(nonatomic,strong) NSArray *scrollImages;
 
 //Date
 @property(nonatomic,strong) NSDate *minDate;

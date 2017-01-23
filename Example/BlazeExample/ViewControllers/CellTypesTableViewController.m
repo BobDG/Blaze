@@ -27,7 +27,6 @@
 @property(nonatomic,strong) NSString *textfieldValue;
 @property(nonatomic,strong) NSNumber *textFieldNumberValue;
 
-
 @end
 
 @implementation CellTypesTableViewController
@@ -46,7 +45,7 @@
     self.imageData = UIImagePNGRepresentation([UIImage imageNamed:@"Blaze_Logo"]);
     
     //Section index picker
-    self.useSectionIndexPicker = TRUE;
+    //self.useSectionIndexPicker = TRUE;
 }
 
 -(void)loadTableContent
@@ -228,12 +227,19 @@
     [section addRow:row];
     
     //Image
-    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Let's finish with an image!"];
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Images - one image or scrolling images with a page-control!"];
     [self addSection:section];
     
-    //SegmentedControl
+    //Image
     row = [BlazeRow rowWithXibName:kImageTableViewCell];
     row.imageNameCenter = @"Blaze_Logo";
+    [section addRow:row];
+    
+    //ScrollImages with pagecontrol
+    row = [BlazeRow rowWithXibName:kScrollImagesTableViewCell];
+    row.scrollImages = @[@"Blaze_Logo", @"Blaze_Logo", @"Blaze_Logo"];
+    row.scrollImageType = ImageFromBundle;
+    row.scrollImageContentMode = UIViewContentModeScaleAspectFit;
     [section addRow:row];
     
     //Reload
