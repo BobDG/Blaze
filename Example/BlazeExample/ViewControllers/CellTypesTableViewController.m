@@ -235,10 +235,17 @@
     row.imageNameCenter = @"Blaze_Logo";
     [section addRow:row];
     
-    //ScrollImages with pagecontrol
+    //ScrollImages with pagecontrol from bundle
     row = [BlazeRow rowWithXibName:kScrollImagesTableViewCell];
     row.scrollImages = @[@"Blaze_Logo", @"Blaze_Logo", @"Blaze_Logo"];
     row.scrollImageType = ImageFromBundle;
+    row.scrollImageContentMode = UIViewContentModeScaleAspectFit;
+    [section addRow:row];
+    
+    //ScrollImages with pagecontrol from url's
+    row = [BlazeRow rowWithXibName:kScrollImagesTableViewCell];
+    row.scrollImages = @[@"http://www.wpclipart.com/education/encouraging_words/Awesome.png", @"http://clipart-library.com/data_images/131333.png", @"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQiapYdSAeS44sH7AVxBs_bkdv-6EjM9IGwVUR4WRounHh-9NqX"];
+    row.scrollImageType = ImageFromURL;
     row.scrollImageContentMode = UIViewContentModeScaleAspectFit;
     [section addRow:row];
     
