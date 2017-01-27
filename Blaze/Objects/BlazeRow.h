@@ -97,6 +97,9 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic,strong) id object;
 @property(nonatomic, strong) NSString *propertyName;
 
+//Additional rows for additional fields
+@property(nonatomic,strong) NSArray *additionalRows;
+
 //InputAccessoryViewType
 @property(nonatomic) InputAccessoryViewType inputAccessoryViewType;
 
@@ -209,7 +212,6 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic) UITextAutocapitalizationType capitalizationType;
 @property(nonatomic,strong) NSString *placeholder;
 @property(nonatomic,strong) NSFormatter *formatter;
-@property(nonatomic,strong) NSString *placeholderText;
 @property(nonatomic,strong) UIColor *placeholderColor;
 @property(nonatomic,strong) NSString *textFieldSuffix;
 @property(nonatomic,strong) NSAttributedString *attributedPlaceholder;

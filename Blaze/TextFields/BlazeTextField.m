@@ -57,17 +57,17 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     self.animateEvenIfNotFirstResponder = FALSE;
 }
 
--(void)mergeBlazeRowWithInspectables:(BlazeRow*)row
+-(void)mergeBlazeRowWithInspectables:(BlazeRow *)row placeholder:(NSString *)placeholder attributedPlaceholder:(NSAttributedString *)attributedPlaceholder placeholderColor:(UIColor *)placeholderColor floatingTitle:(NSString *)floatingTitle
 {
     //Update placholders
-    if(row.attributedPlaceholder.length) {
-        self.attributedPlaceholder = row.attributedPlaceholder;
+    if(attributedPlaceholder.length) {
+        self.attributedPlaceholder = attributedPlaceholder;
     }
-    else if(row.placeholder.length && row.placeholderColor) {
-        self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:row.placeholder attributes:@{NSForegroundColorAttributeName:row.placeholderColor}];
+    else if(placeholder.length && placeholderColor) {
+        self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholder attributes:@{NSForegroundColorAttributeName:placeholderColor}];
     }
-    else if(row.placeholder.length) {
-        self.placeholder = row.placeholder;
+    else if(placeholder.length) {
+        self.placeholder = placeholder;
     }
     
     //Check first if it's enabled, row has preference
@@ -76,14 +76,14 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     } else {
         self.useFloatingLabel = row.floatingLabelEnabled == FloatingLabelStateEnabled;
     }
-   
+    
     if(!self.useFloatingLabel) {
         return;
     }
     
     //Update font if applicable
     self.flFont = row.floatingTitleFont;
-   
+    
     //Update titlecolor - row has preference
     if(row.floatingTitleColor) {
         self.flTextColor = row.floatingTitleColor;
@@ -99,15 +99,20 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     }
     
     //Update title - row has preference
-    if(row.floatingTitle.length) {
-        self.flText = row.floatingTitle;
+    if(floatingTitle.length) {
+        self.flText = floatingTitle;
     }
     else if(self.flText.length) {
-        row.floatingTitle = self.flText;
+        floatingTitle = self.flText;
     }
     else if(self.placeholder.length) {
         self.flText = self.placeholder;
     }
+}
+
+-(void)mergeBlazeRowWithInspectables:(BlazeRow *)row
+{
+    [self mergeBlazeRowWithInspectables:row placeholder:row.placeholder attributedPlaceholder:row.attributedPlaceholder placeholderColor:row.placeholderColor floatingTitle:row.floatingTitle];
 }
 
 -(void)prepareForInterfaceBuilder

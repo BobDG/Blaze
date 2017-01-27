@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 GraafICT. All rights reserved.
 //
 
+#import "BlazeTextFieldProcessor.h"
 #import "BlazeTextFieldTableViewCell.h"
 
 @interface BlazeTextFieldTableViewCell () <UITextFieldDelegate>
@@ -13,7 +14,7 @@
     
 }
 
-@property(nonatomic) bool setupInputView;
+@property(nonatomic,strong) NSMutableArray *textFieldProcessors;
 
 @end
 
@@ -21,110 +22,46 @@
 
 -(void)updateCell
 {
-    if(self.row.formatter) {
-        if([self.row.formatter isKindOfClass:[NSNumberFormatter class]]) {
-            self.textField.text =  [((NSNumberFormatter *)self.row.formatter) stringFromNumber:self.row.value];
+    //Processors
+    if(!self.textFieldProcessors) {
+        self.textFieldProcessors = [NSMutableArray new];
+    }
+    
+    //First the main textfield
+    for(int i = 0; i < 1+self.row.additionalRows.count; i++) {
+        BlazeTextFieldProcessor *processor;
+        if(i < self.textFieldProcessors.count) {
+            //Get it
+            processor = self.textFieldProcessors[i];
         }
         else {
-            self.textField.text = [self.row.formatter stringForObjectValue:self.row.value];
+            //Create it
+            if(i == 0) {
+                processor = [BlazeTextFieldProcessor new];
+                processor.row = self.row;
+                processor.textField = self.textField;
+            }
+            else {
+                int index = i-1;
+                if(index < self.additionalFields.count) {
+                    processor = [BlazeTextFieldProcessor new];
+                    processor.row = self.row.additionalRows[index];
+                    processor.textField = self.additionalFields[index];
+                }
+                else {
+                    break;
+                }
+            }
+            
+            //Add it
+            [self.textFieldProcessors addObject:processor];
         }
+        
+        //Update if existing
+        processor.textField.inputAccessoryView = [self defaultInputAccessoryViewToolbar];
+        processor.cell = self;
+        [processor update];
     }
-    else {
-        self.textField.text = self.row.value;
-    }
-    
-    if(self.row.textFieldSuffix.length) {
-        self.textField.text = [self.textField.text stringByAppendingString:self.row.textFieldSuffix];
-    }
-    
-    self.textField.keyboardType = self.row.keyboardType;
-    self.textField.secureTextEntry = self.row.secureTextEntry;
-    self.textField.autocorrectionType = self.row.autocorrectionType;
-    self.textField.autocapitalizationType = self.row.capitalizationType;
-      
-    //Merge BlazeRow's configuration with the BlazeTextField
-    [self.textField mergeBlazeRowWithInspectables:self.row];
-    
-    //Editable
-    self.textField.userInteractionEnabled = !self.row.disableEditing;    
-}
-
--(void)awakeFromNib
-{
-    [super awakeFromNib];
-    
-    //Delegate
-    self.textField.delegate = self;
-    
-    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectZero];
-    toolBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    NSMutableArray *barbuttonItemsArray = [NSMutableArray new];
-    [barbuttonItemsArray addObject:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow_Left" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(previousField:)]];
-    UIBarButtonItem *fixedSpaceBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    fixedSpaceBB.width = 20.0f;
-    [barbuttonItemsArray addObject:fixedSpaceBB];
-    [barbuttonItemsArray addObject:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow_Right" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(nextField:)]];
-    [barbuttonItemsArray addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
-    [barbuttonItemsArray addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)]];
-    [toolBar setItems:barbuttonItemsArray];
-    [toolBar sizeToFit];
-    self.textField.inputAccessoryView = toolBar;
-}
-
--(void)done
-{
-    [self.textField resignFirstResponder];
-    if(self.row.doneChanging) {
-        self.row.doneChanging();
-    }
-}
-
--(void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    if(self.row.textFieldSuffix.length) {
-        textField.text = [textField.text stringByReplacingOccurrencesOfString:self.row.textFieldSuffix withString:@""];
-    }
-}
-
--(void)textFieldDidEndEditing:(UITextField *)textField
-{
-    if(self.row.textFieldSuffix.length) {
-        textField.text = [textField.text stringByAppendingString:self.row.textFieldSuffix];
-    }
-}
-
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    self.row.value = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    if(self.row.formatter) {
-        if([self.row.formatter isKindOfClass:[NSNumberFormatter class]]) {
-            self.row.value = [self.row.value stringByReplacingOccurrencesOfString:@"," withString:@"."];
-            textField.text = self.row.value;
-            self.row.value = [((NSNumberFormatter *)self.row.formatter) numberFromString:self.row.value];
-        }
-        else {
-            self.row.value = [self.row.formatter stringForObjectValue:self.row.value];
-            textField.text = self.row.value;
-        }
-        [self.row updatedValue:self.row.value];
-        return FALSE;
-    }
-    [self.row updatedValue:self.row.value];
-    return TRUE;
-}
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    if(self.row.doneChanging) {
-        self.row.doneChanging();
-    }
-    if(self.nextField) {
-        self.nextField();
-    }
-    else {
-        [textField resignFirstResponder];
-    }
-    return TRUE;
 }
 
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated

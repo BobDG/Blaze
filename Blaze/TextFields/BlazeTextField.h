@@ -118,6 +118,6 @@ IB_DESIGNABLE
 
  @param row The BlazeRow that configures this BlazeRowTextField
  */
--(void)mergeBlazeRowWithInspectables:(BlazeRow*)row;
+-(void)mergeBlazeRowWithInspectables:(BlazeRow *)row;
 
 @end
