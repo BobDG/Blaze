@@ -17,6 +17,5 @@
 }
 
 @property(nonatomic,weak) IBOutlet BlazeTextField *textField;
-@property(nonatomic,strong) IBOutletCollection(BlazeTextField) NSArray *additionalFields;
 
 @end

@@ -9,12 +9,10 @@
 #import "BlazeTextFieldProcessor.h"
 #import "BlazeTextFieldTableViewCell.h"
 
-@interface BlazeTextFieldTableViewCell () <UITextFieldDelegate>
+@interface BlazeTextFieldTableViewCell ()
 {
     
 }
-
-@property(nonatomic,strong) NSMutableArray *textFieldProcessors;
 
 @end
 
@@ -22,46 +20,8 @@
 
 -(void)updateCell
 {
-    //Processors
-    if(!self.textFieldProcessors) {
-        self.textFieldProcessors = [NSMutableArray new];
-    }
-    
-    //First the main textfield
-    for(int i = 0; i < 1+self.row.additionalRows.count; i++) {
-        BlazeTextFieldProcessor *processor;
-        if(i < self.textFieldProcessors.count) {
-            //Get it
-            processor = self.textFieldProcessors[i];
-        }
-        else {
-            //Create it
-            if(i == 0) {
-                processor = [BlazeTextFieldProcessor new];
-                processor.row = self.row;
-                processor.textField = self.textField;
-            }
-            else {
-                int index = i-1;
-                if(index < self.additionalFields.count) {
-                    processor = [BlazeTextFieldProcessor new];
-                    processor.row = self.row.additionalRows[index];
-                    processor.textField = self.additionalFields[index];
-                }
-                else {
-                    break;
-                }
-            }
-            
-            //Add it
-            [self.textFieldProcessors addObject:processor];
-        }
-        
-        //Update if existing
-        processor.textField.inputAccessoryView = [self defaultInputAccessoryViewToolbar];
-        processor.cell = self;
-        [processor update];
-    }
+    //Setup processors
+    [self setupFieldProcessorsWithMainField:self.textField processorClass:[BlazeTextFieldProcessor class]];
 }
 
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated

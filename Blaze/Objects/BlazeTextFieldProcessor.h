@@ -6,21 +6,11 @@
 //  Copyright © 2017 GraafICT. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BlazeFieldProcessor.h"
 
-#import "BlazeRow.h"
-#import "BlazeTextField.h"
-#import "BlazeTableViewCell.h"
-
-@interface BlazeTextFieldProcessor : NSObject
+@interface BlazeTextFieldProcessor : BlazeFieldProcessor
 {
     
 }
-
--(void)update;
-
-@property(nonatomic,strong) BlazeRow *row;
-@property(nonatomic,strong) BlazeTableViewCell *cell;
-@property(nonatomic,strong) BlazeTextField *textField;
 
 @end

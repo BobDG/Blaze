@@ -16,10 +16,6 @@
     
 }
 
-//Properties
-@property(nonatomic,strong) NSDate *date;
-@property(nonatomic,strong) NSDateFormatter *dateFormatter;
-
 //Outlets
 @property(nonatomic,weak) IBOutlet BlazeDatePickerField *dateField;
 

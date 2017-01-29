@@ -96,7 +96,7 @@
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textfieldValue)]];
     row.placeholder = @"Placeholder 1";
     [row setValueChanged:^{
-        DLog(@"Use this when you want something done as soon as the value changes. This also log is also proving it automatically updates the value of the set affected object: %@", self.textfieldValue);
+        DLog(@"Value 1 changed: %@", self.textfieldValue);
     }];
     [row setDoneChanging:^{
         DLog(@"Field 1 done changing");
@@ -150,38 +150,45 @@
     [df setDateFormat:@"d MMMM yyyy HH:mm"];
     row.dateFormatter = df;
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(date)]];
+    [row setValueChanged:^{
+        DLog(@"Changed date: %@", self.date);
+    }];
     [section addRow:row];
     
-    /*
     //Two dates
     row = [[BlazeRow alloc] initWithXibName:kTwoDateFieldsTableViewCell];
     row.placeholder = @"Date 1";
-    row.placeholder2 = @"Date 2";
-    row.dateMinuteInterval = 5;
-    row.dateMinuteInterval2 = 10;
     row.datePickerMode = UIDatePickerModeDate;
-    row.datePickerMode2 = UIDatePickerModeDateAndTime;
     row.floatingLabelEnabled = FloatingLabelStateEnabled;
     row.placeholderColor = [UIColor orangeColor];
     row.floatingTitleColor = [UIColor redColor];
     row.floatingTitleActiveColor = [UIColor purpleColor];
     row.floatingTitleFont = [UIFont systemFontOfSize:12.0f weight:UIFontWeightBold];
     row.floatingTitle = @"Date 1 set!";
-    row.floatingTitle = @"Date 2 set!";
     NSDateFormatter *df2 = [NSDateFormatter new];
-    [df setDateFormat:@"d MMMM yyyy"];
+    [df2 setDateFormat:@"d MMMM yyyy"];
     row.dateFormatter = df2;
-    row.dateFormatter2 = df;
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(date)]];
-    [row setAffectedObject2:self affectedPropertyName:[self stringForPropertyName:@selector(date2)]];
     [row setValueChanged:^{
-        DLog(@"Value 1 changed: %@", self.date);
+        DLog(@"Date 1 changed: %@", self.date);
     }];
-    [row setValueChanged2:^{
-        DLog(@"Value 2 changed: %@", self.date2);
-    }];
+    {
+        BlazeRow *row2 = [BlazeRow new];
+        row2.dateFormatter = df;
+        row2.placeholder = @"Date 2";
+        row2.dateMinuteInterval = 10;
+        row2.datePickerMode = UIDatePickerModeDateAndTime;
+        row2.placeholderColor = [UIColor blueColor];
+        row2.floatingTitleColor = [UIColor greenColor];
+        row2.floatingTitle = @"Date 2 set!";
+        row2.floatingLabelEnabled = TRUE;        
+        [row2 setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(date2)]];
+        [row2 setValueChanged:^{
+            DLog(@"Date 2 changed: %@", self.date2);
+        }];
+        row.additionalRows = @[row2];
+    }
     [section addRow:row];
-     */
     
     //Picker
     row = [[BlazeRow alloc] initWithXibName:kPickerFieldTableViewCell title:@"Pickerfield"];

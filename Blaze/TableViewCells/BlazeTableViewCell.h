@@ -37,6 +37,11 @@
 //Properties
 @property(nonatomic,strong) BlazeRow *row;
 
+//Field Processors
+@property(nonatomic,strong) NSMutableArray *fieldProcessors;
+@property(nonatomic,strong) IBOutletCollection(id) NSArray *additionalFields;
+-(void)setupFieldProcessorsWithMainField:(id)mainField processorClass:(Class)processorClass;
+
 //Labels
 @property(nonatomic,weak) IBOutlet UILabel *titleLabel;
 @property(nonatomic,weak) IBOutlet UILabel *subtitleLabel;

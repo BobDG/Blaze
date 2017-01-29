@@ -6,6 +6,7 @@
 //  Copyright © 2017 GraafICT. All rights reserved.
 //
 
+#import "BlazeTextField.h"
 #import "BlazeTextFieldProcessor.h"
 
 @interface BlazeTextFieldProcessor () <UITextFieldDelegate>
@@ -13,12 +14,17 @@
     
 }
 
+@property(nonatomic,strong) BlazeTextField *textField;
+
 @end
 
 @implementation BlazeTextFieldProcessor
 
 -(void)update
 {
+    //Set textfield
+    self.textField = self.field;
+    
     //Formatter
     if(self.row.formatter) {
         if([self.row.formatter isKindOfClass:[NSNumberFormatter class]]) {
@@ -51,6 +57,9 @@
     
     //Update
     self.textField.delegate = self;
+    
+    //InputAccessoryView
+    self.textField.inputView = [self.cell defaultInputAccessoryViewToolbar];
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
@@ -89,11 +98,11 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if(self.row.doneChanging) {
+    if(self.row.doneChanging) { 
         self.row.doneChanging();
     }
     if(self.cell.nextField) {
-        self.cell.nextField();
+        [self.cell nextField:nil];        
     }
     else {
         [textField resignFirstResponder];

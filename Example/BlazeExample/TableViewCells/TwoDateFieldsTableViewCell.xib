@@ -27,6 +27,9 @@
                                 <color key="textColor" red="0.96078431369999995" green="0.6705882353" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="flAlterBaseline" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="odW-6C-xja" customClass="BlazeDatePickerField">
                                 <rect key="frame" x="291" y="10" width="9" height="40"/>
@@ -34,6 +37,9 @@
                                 <color key="textColor" red="0.96078431369999995" green="0.6705882353" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="flAlterBaseline" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -68,8 +74,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="dateField" destination="1Ng-e4-zaL" id="yuJ-VK-Tc7"/>
+                <outletCollection property="additionalFields" destination="odW-6C-xja" id="ujY-dx-w6i"/>
             </connections>
-            <point key="canvasLocation" x="22" y="-29.5"/>
+            <point key="canvasLocation" x="-80" y="-64"/>
         </tableViewCell>
     </objects>
 </document>

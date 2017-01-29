@@ -1,30 +1,30 @@
 //
-//  BlazePickerViewTableViewCell.m
-//  Blaze
+//  BlazePickerFieldProcessor.m
+//  BlazeExample
 //
-//  Created by Bob de Graaf on 05-01-16.
-//  Copyright © 2016 GraafICT. All rights reserved.
+//  Created by Bob de Graaf on 29-01-17.
+//  Copyright © 2017 GraafICT. All rights reserved.
 //
 
+#import "BlazePickerViewField.h"
 #import "BlazePickerFieldProcessor.h"
-#import "BlazePickerViewTableViewCell.h"
 
-@interface BlazePickerViewTableViewCell () 
+@interface BlazePickerFieldProcessor () <UITextFieldDelegate>
 {
     
 }
 
+@property(nonatomic,strong) BlazePickerViewField *pickerField;
+
 @end
 
-@implementation BlazePickerViewTableViewCell
+@implementation BlazePickerFieldProcessor
 
--(void)updateCell
+-(void)update
 {
-    //Setup processors
-    [self setupFieldProcessorsWithMainField:self.pickerField processorClass:[BlazePickerFieldProcessor class]];
-}
-
-    /*
+    //Set field
+    self.pickerField = self.field;
+    
     //AccessoryInputView
     [self updateAccessoryInputView];
     
@@ -79,10 +79,10 @@
     
     __weak __typeof(self)weakSelf = self;
     [self.pickerField setPickerCancelled:^{
-        [weakSelf resignFirstResponder];
+        [weakSelf.pickerField resignFirstResponder];
     }];
     [self.pickerField setPickerSelected:^(int index) {
-        [weakSelf resignFirstResponder];
+        [weakSelf.pickerField resignFirstResponder];
         [weakSelf updateSelectedIndex:index];
     }];
 }
@@ -92,7 +92,7 @@
     //Only for default inputAccessoryView
     if(self.row.inputAccessoryViewType == InputAccessoryViewDefault) {
         //Get toolbar
-        self.pickerField.inputAccessoryView = [self defaultInputAccessoryViewToolbar];
+        self.pickerField.inputAccessoryView = [self.cell defaultInputAccessoryViewToolbar];
         
         //Update for changes
         __weak __typeof(self)weakSelf = self;
@@ -100,16 +100,8 @@
             [weakSelf updateSelectedIndex:index];
         }];
     }
-}*/
-
--(void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    if(selected && self.pickerField.userInteractionEnabled) {
-        [self.pickerField becomeFirstResponder];
-    }
 }
 
-    /*
 -(void)updateSelectedIndex:(int)index
 {
     if(index < self.pickerField.pickerValues.count) {
@@ -142,19 +134,6 @@
     
     //Go
     [self updateSelectedIndex:0];
-}
-     */
-
-#pragma mark - FirstResponder
-
--(BOOL)canBecomeFirstResponder
-{
-    return self.pickerField.userInteractionEnabled;
-}
-
--(BOOL)becomeFirstResponder
-{
-    return [self.pickerField becomeFirstResponder];
 }
 
 @end
