@@ -83,7 +83,7 @@
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textfieldValue)]];
     row.placeholder = @"Placeholder";
     [row setValueChanged:^{
-        DLog(@"Use this when you want something done as soon as the value changes. This also log is also proving it automatically updates the value of the set affected object: %@", self.textfieldValue);
+        DLog(@"Text changed: %@", self.textfieldValue);
     }];
     [section addRow:row];
     
@@ -129,6 +129,9 @@
     row.formatter = nf;
     row.keyboardType = UIKeyboardTypeDecimalPad;
     row.textFieldSuffix = @" awesome suffix";
+    [row setValueChanged:^{
+        DLog(@"Suffix field changed: %@", self.textFieldNumberValue);
+    }];
     [section addRow:row];
     
     //Date & Picker
