@@ -419,6 +419,9 @@
     NSIndexPath *nextRowIndexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section];
     BlazeTableViewCell *nextRowCell = [self.tableView cellForRowAtIndexPath:nextRowIndexPath];
     if(nextRowCell) {
+        if(nextRowCell.row.disableEditing) {
+            return [self nextCellFromIndexPath:nextRowIndexPath];
+        }
         return nextRowCell;
     }
     
@@ -426,6 +429,9 @@
     NSIndexPath *nextSectionIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section+1];
     BlazeTableViewCell *nextSectionCell = [self.tableView cellForRowAtIndexPath:nextSectionIndexPath];
     if(nextSectionCell) {
+        if(nextSectionCell.row.disableEditing) {
+            return [self nextCellFromIndexPath:nextSectionIndexPath];
+        }
         return nextSectionCell;
     }
     
@@ -439,6 +445,9 @@
     NSIndexPath *previousRowIndexPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
     BlazeTableViewCell *previousRowCell = [self.tableView cellForRowAtIndexPath:previousRowIndexPath];
     if(previousRowCell) {
+        if(previousRowCell.row.disableEditing) {
+            return [self previousCellFromIndexPath:previousRowIndexPath];
+        }
         return previousRowCell;
     }
     
@@ -456,6 +465,9 @@
     NSIndexPath *previousSectionIndexPath = [NSIndexPath indexPathForRow:section.rows.count-1 inSection:previousSectionIndex];
     BlazeTableViewCell *previousSectionCell = [self.tableView cellForRowAtIndexPath:previousSectionIndexPath];
     if(previousSectionCell) {
+        if(previousSectionCell.row.disableEditing) {
+            return [self previousCellFromIndexPath:previousSectionIndexPath];
+        }
         return previousSectionCell;
     }
     
