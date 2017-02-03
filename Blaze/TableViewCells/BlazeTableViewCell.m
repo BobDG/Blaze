@@ -20,13 +20,23 @@
     [super awakeFromNib];
 }
 
-#pragma mark - Selected
+#pragma mark - Selected/Highlighted
 
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+{
+    [super setHighlighted:highlighted animated:animated];
+    
+    //Update selectedView if one is assigned
+    if(self.selectedView) {
+        self.selectedView.hidden = !highlighted;
+    }
 }
 
 #pragma mark - Update

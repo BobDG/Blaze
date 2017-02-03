@@ -62,6 +62,7 @@
 @property(nonatomic,weak) IBOutlet UIView *viewLeft;
 @property(nonatomic,weak) IBOutlet UIView *viewCenter;
 @property(nonatomic,weak) IBOutlet UIView *viewRight;
+@property(nonatomic,weak) IBOutlet UIView *selectedView;
 
 //PageControl
 @property(nonatomic,weak) IBOutlet UIPageControl *pageControl;
