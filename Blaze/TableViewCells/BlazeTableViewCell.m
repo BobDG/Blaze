@@ -311,6 +311,11 @@
 
 -(void)setupFieldProcessorsWithMainField:(id)mainField processorClass:(Class)processorClass
 {
+    if(!mainField) {
+        NSLog(@"Blaze warning - setup processor called but no mainfield attached...");
+        return;
+    }
+    
     //Fields
     NSMutableArray *fields = [NSMutableArray new];    
     [fields addObject:mainField];
@@ -339,13 +344,13 @@
             //Get row
             processor = [processorClass new];
             processor.field = fields[i];
-            processor.row = rows[i];            
             
             //Add it
             [self.fieldProcessors addObject:processor];
         }
         
-        //Set cell       
+        //Set cell
+        processor.row = rows[i];
         processor.cell = self;
         [processor update];
     }
