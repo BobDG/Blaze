@@ -38,9 +38,14 @@
         self.textField.text = self.row.value;
     }
     
-    //Suffix
-    if(self.row.textFieldSuffix.length) {
+    if(self.row.textFieldPrefix.length && self.row.textFieldSuffix.length) {
+        self.textField.text = [NSString stringWithFormat:@"%@%@%@", self.row.textFieldPrefix, self.textField.text, self.row.textFieldSuffix];
+    }
+    else if(self.row.textFieldSuffix.length) {
         self.textField.text = [self.textField.text stringByAppendingString:self.row.textFieldSuffix];
+    }
+    else if(self.row.textFieldPrefix.length) {
+        self.textField.text = [self.row.textFieldPrefix stringByAppendingString:self.textField.text];
     }
     
     //Properties
@@ -67,17 +72,35 @@
     if(self.row.textFieldSuffix.length) {
         textField.text = [textField.text stringByReplacingOccurrencesOfString:self.row.textFieldSuffix withString:@""];
     }
+    if(self.row.textFieldPrefix.length) {
+        textField.text = [textField.text stringByReplacingCharactersInRange:NSMakeRange(0, self.row.textFieldPrefix.length) withString:@""];
+    }
+    if(self.row.textFieldDidBeginEditing) {
+        self.row.textFieldDidBeginEditing(self.textField);
+    }
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
-    if(self.row.textFieldSuffix.length) {
+    if(self.row.textFieldPrefix.length && self.row.textFieldSuffix.length) {
+        textField.text = [NSString stringWithFormat:@"%@%@%@", self.row.textFieldPrefix, self.textField.text, self.row.textFieldSuffix];
+    }
+    else if(self.row.textFieldSuffix.length) {
         textField.text = [textField.text stringByAppendingString:self.row.textFieldSuffix];
+    }
+    else if(self.row.textFieldPrefix.length) {
+        textField.text = [self.row.textFieldPrefix stringByAppendingString:self.textField.text];
+    }
+    if(self.row.textFieldDidEndEditing) {
+        self.row.textFieldDidEndEditing(self.textField);
     }
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    if(self.row.textFieldShouldChangeCharactersInRange) {
+        return self.row.textFieldShouldChangeCharactersInRange(self.textField, range, string);
+    }
     self.row.value = [textField.text stringByReplacingCharactersInRange:range withString:string];
     if(self.row.formatter) {
         if([self.row.formatter isKindOfClass:[NSNumberFormatter class]]) {
