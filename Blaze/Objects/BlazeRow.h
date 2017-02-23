@@ -26,6 +26,8 @@ typedef NS_ENUM(NSInteger, ImageType) {
     ImageFromData,
 };
 
+@class BlazeTextField;
+
 @interface BlazeRow : NSObject
 {
     
@@ -77,6 +79,9 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic,copy) void (^doneChanging)(void);
 @property(nonatomic,copy) void (^configureCell)(UITableViewCell *cell);
 @property(nonatomic,copy) void (^multipleSelectionFinished)(NSMutableArray *selectedIndexPaths);
+@property(nonatomic,copy) void (^textFieldDidBeginEditing)(BlazeTextField* textField);
+@property(nonatomic,copy) void (^textFieldDidEndEditing)(BlazeTextField* textField);
+@property(nonatomic,copy) BOOL (^textFieldShouldChangeCharactersInRange)(BlazeTextField *textField, NSRange range, NSString *replacementString);
 
 //Row primitives
 @property(nonatomic) int ID;
@@ -213,6 +218,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic,strong) NSString *placeholder;
 @property(nonatomic,strong) NSFormatter *formatter;
 @property(nonatomic,strong) UIColor *placeholderColor;
+@property(nonatomic,strong) NSString *textFieldPrefix;
 @property(nonatomic,strong) NSString *textFieldSuffix;
 @property(nonatomic,strong) NSAttributedString *attributedPlaceholder;
 

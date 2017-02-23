@@ -9,6 +9,7 @@
 #import "Constants.h"
 #import "BlazeInputTile.h"
 #import "CellTypesTableViewController.h"
+#import "BlazeTextField.h"
 
 @interface CellTypesTableViewController ()
 {
@@ -129,8 +130,27 @@
     row.formatter = nf;
     row.keyboardType = UIKeyboardTypeDecimalPad;
     row.textFieldSuffix = @" awesome suffix";
+    row.textFieldPrefix = @"cool prefix ";
     [row setValueChanged:^{
-        DLog(@"Suffix field changed: %@", self.textFieldNumberValue);
+        DLog(@"Suffix/prefix field changed: %@", self.textFieldNumberValue);
+    }];
+    [section addRow:row];
+    
+    //Textfield completion blocks
+    row = [[BlazeRow alloc] initWithXibName:kFloatTextFieldTableViewCell];
+    row.floatingLabelEnabled = FALSE;
+    row.placeholder = @"Textfield with numerous completion blocks";
+    row.textFieldDidBeginEditing = ^(BlazeTextField* textField) {
+        textField.placeholder = @"I have started editing!";
+    };
+    row.textFieldDidEndEditing = ^(BlazeTextField* textField) {
+        SuppressDeprecatedWarning(showM1(@"I have ended editing now!"));
+        textField.text = nil;
+        textField.placeholder = @"Textfield with numerous completion blocks";
+    };
+    [row setTextFieldShouldChangeCharactersInRange:^BOOL(BlazeTextField *textField, NSRange range, NSString *replacementString) {
+        textField.text = @"Am I interfering?";
+        return true;
     }];
     [section addRow:row];
     
