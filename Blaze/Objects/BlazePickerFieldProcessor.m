@@ -134,6 +134,18 @@
     
     //Go
     [self updateSelectedIndex:0];
+    
+    //Callback
+    if(self.row.textFieldDidBeginEditing) {
+        self.row.textFieldDidBeginEditing(self.pickerField);
+    }
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(self.row.textFieldDidEndEditing) {
+        self.row.textFieldDidEndEditing(self.pickerField);
+    }
 }
 
 @end

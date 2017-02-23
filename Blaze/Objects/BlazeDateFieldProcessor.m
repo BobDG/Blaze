@@ -123,6 +123,18 @@
     
     //Go
     [self updateSelectedDate:self.dateField.datePicker.date];
+    
+    //Callback
+    if(self.row.textFieldDidBeginEditing) {
+        self.row.textFieldDidBeginEditing(self.dateField);
+    }
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(self.row.textFieldDidEndEditing) {
+        self.row.textFieldDidEndEditing(self.dateField);
+    }
 }
 
 @end
