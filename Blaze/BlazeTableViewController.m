@@ -661,7 +661,7 @@
     [self.tableView endUpdates];
 }
 
-#pragma mark - Removing
+#pragma mark - Removing new style
 
 -(void)deleteRows:(NSArray *)rows
 {
@@ -708,9 +708,6 @@
             NSLog(@"Row index is too high!");
             return;
         }
-        
-        //Begin updates
-        [self.tableView beginUpdates];
         
         //Insert row in section
         [section.rows removeObject:row];
@@ -889,9 +886,6 @@
             NSLog(@"Row index is too high!");
             return;
         }
-        
-        //Begin updates
-        [self.tableView beginUpdates];
         
         //Insert row in section
         [section.rows insertObject:row atIndex:indexPath.row];
