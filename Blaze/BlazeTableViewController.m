@@ -684,6 +684,9 @@
     //Final indexPaths
     NSMutableArray *finalIndexPaths = [NSMutableArray new];
     
+    //Final rows
+    NSMutableDictionary *finalRowsDictionary = [NSMutableDictionary new];
+    
     //Loop through rows
     for(int i = 0; i < rows.count; i++) {
         BlazeRow *row = rows[i];
@@ -697,7 +700,7 @@
         //Section index check
         if(indexPath.section >= self.tableArray.count) {
             NSLog(@"Section does not exist!");
-            return;
+            continue;
         }
         
         //Get section
@@ -706,17 +709,29 @@
         //Row index check
         if(indexPath.row > section.rows.count) {
             NSLog(@"Row index is too high!");
-            return;
+            continue;
         }
         
-        //Insert row in section
-        [section.rows removeObject:row];
+        //Add rows to delete - dictionary with arrays
+        if(!finalRowsDictionary[@(indexPath.section)]) {
+            finalRowsDictionary[@(indexPath.section)] = [NSArray new];
+        }
+        NSMutableArray *rowsInSectionArray = [[NSMutableArray alloc] initWithArray:finalRowsDictionary[@(indexPath.section)]];
+        [rowsInSectionArray addObject:row];
+        finalRowsDictionary[@(indexPath.section)] = rowsInSectionArray;
         
         //Add indexPath to final indexpaths
         [finalIndexPaths addObject:indexPath];
     }
     
-    //Add cells
+    //Loop through rows dictionary to delete rows in different sections
+    for(NSNumber *sectionKey in finalRowsDictionary.allKeys) {
+        NSArray *rowsToDelete = finalRowsDictionary[sectionKey];
+        BlazeSection *section = self.tableArray[[sectionKey intValue]];
+        [section.rows removeObjectsInArray:rowsToDelete];
+    }
+    
+    //Delete cells
     [self.tableView deleteRowsAtIndexPaths:finalIndexPaths withRowAnimation:animation];
     
     //End updates
