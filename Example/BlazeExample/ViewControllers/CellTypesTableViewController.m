@@ -220,7 +220,7 @@
     row.floatingTitleColor = [UIColor greenColor];
     row.floatingTitleActiveColor = [UIColor greenColor];
     row.floatingTitleFont = [UIFont systemFontOfSize:14.0f weight:UIFontWeightLight];
-    row.floatingTitle = @"Picker set!";
+    row.floatingTitle = @"Picker set!";    
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(pickerValue)]];
     row.selectorOptions = @[@"Automatic next/previous", @"buttons always work", @"Doesn't matter if you", @"use textfields", @"or datepickers", @"or pickerviews", @"or multiple sections"];
     [section addRow:row];

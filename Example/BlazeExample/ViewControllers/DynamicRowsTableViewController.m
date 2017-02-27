@@ -65,7 +65,7 @@ typedef NS_ENUM(NSInteger, RowID) {
         DLog(@"Got new number of fields: %d", self.numberOfFields);
         [self updateRows];
     }];
-    [row setConfigureCell:^(UITableViewCell *rowCell) {
+    [row setConfigureCell:^(BlazeTableViewCell *rowCell) {
         //Cast and do stuff
     }]; 
     row.ID = RowHowMany;

@@ -28,6 +28,21 @@
     //AccessoryInputView
     [self updateAccessoryInputView];
     
+    //Delegate
+    self.pickerField.delegate = self;
+    
+    __weak __typeof(self)weakSelf = self;
+    [self.pickerField setPickerCancelled:^{
+        [weakSelf.pickerField resignFirstResponder];
+    }];
+    [self.pickerField setPickerSelected:^(int index) {
+        [weakSelf.pickerField resignFirstResponder];
+        [weakSelf updateSelectedIndex:index];
+    }];
+    
+    //Editable
+    self.pickerField.userInteractionEnabled = !self.row.disableEditing;
+    
     //PickerValues (use immediate strings or possible object titles)
     NSString *textValue;
     NSMutableArray *pickerValues = [NSMutableArray new];
@@ -65,26 +80,6 @@
         self.pickerField.text = pickerValues[index];
     }
     self.pickerField.selectedIndex = (int)index;
-    
-    //Editable
-    self.pickerField.userInteractionEnabled = !self.row.disableEditing;
-}
-
--(void)awakeFromNib
-{
-    [super awakeFromNib];
-    
-    //Delegate
-    self.pickerField.delegate = self;
-    
-    __weak __typeof(self)weakSelf = self;
-    [self.pickerField setPickerCancelled:^{
-        [weakSelf.pickerField resignFirstResponder];
-    }];
-    [self.pickerField setPickerSelected:^(int index) {
-        [weakSelf.pickerField resignFirstResponder];
-        [weakSelf updateSelectedIndex:index];
-    }];
 }
 
 -(void)updateAccessoryInputView

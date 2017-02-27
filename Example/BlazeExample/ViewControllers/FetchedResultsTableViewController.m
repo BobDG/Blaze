@@ -52,6 +52,11 @@
     [row setCellTapped:^{
         [weakSelf changeEntityName:testEntity];
     }];
+    row.enableDeleting = TRUE;
+    [row setCellDeleted:^{
+        [kCoreData.managedObjectContext deleteObject:object];
+        [kCoreData saveContext];
+    }];
     return row;
 }
 
