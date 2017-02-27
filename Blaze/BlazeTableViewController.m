@@ -661,6 +661,112 @@
     [self.tableView endUpdates];
 }
 
+#pragma mark - Removing
+
+-(void)deleteRows:(NSArray *)rows
+{
+    [self deleteRows:rows withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+-(void)deleteRow:(BlazeRow *)row
+{
+    [self deleteRow:row withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+-(void)deleteRows:(NSArray *)rows withRowAnimation:(UITableViewRowAnimation)animation
+{
+    //Dynamic rows
+    self.dynamicRows = TRUE;
+    
+    //Begin updates
+    [self.tableView beginUpdates];
+    
+    //Final indexPaths
+    NSMutableArray *finalIndexPaths = [NSMutableArray new];
+    
+    //Loop through rows
+    for(int i = 0; i < rows.count; i++) {
+        BlazeRow *row = rows[i];
+        
+        //Row exists
+        NSIndexPath *indexPath = [self indexPathForRow:row];
+        if(!indexPath) {
+            continue;
+        }
+        
+        //Section index check
+        if(indexPath.section >= self.tableArray.count) {
+            NSLog(@"Section does not exist!");
+            return;
+        }
+        
+        //Get section
+        BlazeSection *section = self.tableArray[indexPath.section];
+        
+        //Row index check
+        if(indexPath.row > section.rows.count) {
+            NSLog(@"Row index is too high!");
+            return;
+        }
+        
+        //Begin updates
+        [self.tableView beginUpdates];
+        
+        //Insert row in section
+        [section.rows removeObject:row];
+        
+        //Add indexPath to final indexpaths
+        [finalIndexPaths addObject:indexPath];
+    }
+    
+    //Add cells
+    [self.tableView deleteRowsAtIndexPaths:finalIndexPaths withRowAnimation:animation];
+    
+    //End updates
+    [self.tableView endUpdates];
+}
+
+-(void)deleteRow:(BlazeRow *)row withRowAnimation:(UITableViewRowAnimation)animation
+{
+    //Dynamic rows
+    self.dynamicRows = TRUE;
+    
+    //Row exists
+    NSIndexPath *indexPath = [self indexPathForRow:row];
+    if(!indexPath) {
+        return;
+    }
+    
+    //Section index check
+    if(indexPath.section >= self.tableArray.count) {
+        NSLog(@"Section does not exist!");
+        return;
+    }
+    
+    //Get section
+    BlazeSection *section = self.tableArray[indexPath.section];
+    
+    //Row index check
+    if(indexPath.row > section.rows.count) {
+        NSLog(@"Row index is too high!");
+        return;
+    }
+    
+    //Begin updates
+    [self.tableView beginUpdates];
+    
+    //Insert row in section
+    [section.rows removeObject:row];
+    
+    //Add cell
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
+    
+    //End updates
+    [self.tableView endUpdates];
+}
+
+#pragma mark - Adding
+
 -(void)addRow:(BlazeRow *)row afterRowID:(int)afterRowID
 {
     [self addRow:row afterRowID:afterRowID withRowAnimation:UITableViewRowAnimationFade];
@@ -731,6 +837,115 @@
     
     //Add cell
     [self.tableView insertSections:[NSIndexSet indexSetWithIndex:newIndexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+    
+    //End updates
+    [self.tableView endUpdates];
+}
+
+-(void)addRows:(NSArray *)rows atIndexPaths:(NSArray *)indexPaths
+{
+    [self addRows:rows atIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+-(void)addRows:(NSArray *)rows atIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+{
+    //Dynamic rows
+    self.dynamicRows = TRUE;
+    
+    //Count check
+    if(rows.count != indexPaths.count) {
+        NSLog(@"Number of rows doesn't match number of indexpaths!");
+        return;
+    }
+    
+    //Begin updates
+    [self.tableView beginUpdates];
+    
+    //Final indexPaths
+    NSMutableArray *finalIndexPaths = [NSMutableArray new];
+    
+    //Loop through rows
+    for(int i = 0; i < rows.count; i++) {
+        BlazeRow *row = rows[i];
+        NSIndexPath *indexPath = indexPaths[i];
+        
+        //Row exists
+        NSIndexPath *existingIndexPath = [self indexPathForRow:row];
+        if(existingIndexPath) {
+            continue;
+        }
+        
+        //Section index check
+        if(indexPath.section >= self.tableArray.count) {
+            NSLog(@"Section does not exist!");
+            return;
+        }
+        
+        //Get section
+        BlazeSection *section = self.tableArray[indexPath.section];
+        
+        //Row index check
+        if(indexPath.row > section.rows.count) {
+            NSLog(@"Row index is too high!");
+            return;
+        }
+        
+        //Begin updates
+        [self.tableView beginUpdates];
+        
+        //Insert row in section
+        [section.rows insertObject:row atIndex:indexPath.row];
+        
+        //Add indexPath to final indexpaths
+        [finalIndexPaths addObject:indexPath];
+    }
+    
+    //Add cells
+    [self.tableView insertRowsAtIndexPaths:finalIndexPaths withRowAnimation:animation];
+    
+    //End updates
+    [self.tableView endUpdates];
+}
+
+-(void)addRow:(BlazeRow *)row atIndexPath:(NSIndexPath *)indexPath
+{
+    [self addRow:row atIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+-(void)addRow:(BlazeRow *)row atIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation
+{
+    //Dynamic rows
+    self.dynamicRows = TRUE;
+    
+    //Row exists
+    NSIndexPath *existingIndexPath = [self indexPathForRow:row];
+    if(existingIndexPath) {
+        return;
+    }
+    
+    //Section index check
+    if(indexPath.section >= self.tableArray.count) {
+        NSLog(@"Section does not exist!");
+        return;
+    }
+    
+    //Get section
+    BlazeSection *section = self.tableArray[indexPath.section];
+    
+    //Row index check
+    if(indexPath.row > section.rows.count) {
+        NSLog(@"Row index is too high!");
+        return;
+    }
+    
+    //Begin updates
+    [self.tableView beginUpdates];
+    
+    //Insert row in section
+    [section.rows insertObject:row atIndex:indexPath.row];
+    
+    //Add cell
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
     
     //End updates
     [self.tableView endUpdates];

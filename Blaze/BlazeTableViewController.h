@@ -67,33 +67,59 @@
 //Collapsing - override for example to fix iOS9 crashes...
 -(void)collapseSection:(int)sectionIndex collapsed:(BOOL)collapsed;
 
-//Utility methods
--(void)reloadHeightsQuickly;
--(BlazeRow *)rowForID:(int)rowID;
--(void)reloadTable:(BOOL)animated;
+//Scrolling
 -(void)scrollToTop:(BOOL)animated;
--(void)reloadCellForID:(int)rowID;
--(void)removeRowWithID:(int)rowID;
--(void)reloadTableWithFadeTransition;
--(void)reloadCellForRow:(BlazeRow *)row;
--(void)removeSectionWithID:(int)sectionID;
--(void)addSection:(BlazeSection *)section;
--(NSIndexPath *)indexPathForRowID:(int)rowID;
--(BlazeSection *)sectionForID:(int)sectionID;
+
+//Registering
 -(void)registerCustomCell:(NSString *)xibName;
--(NSIndexPath *)indexPathForRow:(BlazeRow *)row;
 -(void)registerCustomHeader:(NSString *)xibName;
 -(void)registerCustomCells:(NSArray *)cellNames;
 -(void)registerCustomHeaders:(NSArray *)headerNames;
+
+//Retrieving
+-(BlazeRow *)rowForID:(int)rowID;
+-(NSIndexPath *)indexPathForRowID:(int)rowID;
+-(BlazeSection *)sectionForID:(int)sectionID;
+-(NSIndexPath *)indexPathForRow:(BlazeRow *)row;
 -(BlazeRow *)rowForIndexPath:(NSIndexPath *)indexPath;
--(void)addRow:(BlazeRow *)row afterRowID:(int)afterRowID;
+
+//Reloading
+-(void)reloadHeightsQuickly;
+-(void)reloadTable:(BOOL)animated;
+-(void)reloadCellForID:(int)rowID;
+-(void)reloadTableWithFadeTransition;
+-(void)reloadCellForRow:(BlazeRow *)row;
 -(void)reloadTableWithAnimation:(UITableViewRowAnimation)animation;
--(void)removeRowsInSection:(int)sectionIndex fromIndex:(int)rowIndex;
--(void)addSection:(BlazeSection *)section afterSectionID:(int)afterSectionID;
 -(void)reloadCellForID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation;
--(void)removeRowWithID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation;
 -(void)reloadCellForRow:(BlazeRow *)row withRowAnimation:(UITableViewRowAnimation)animation;
+
+//Adding sections
+-(void)addSection:(BlazeSection *)section;
+-(void)addSection:(BlazeSection *)section afterSectionID:(int)afterSectionID;
+
+//Deleting rows
+-(void)deleteRow:(BlazeRow *)row;
+-(void)deleteRows:(NSArray *)rows;
+-(void)deleteRow:(BlazeRow *)row withRowAnimation:(UITableViewRowAnimation)animation;
+-(void)deleteRows:(NSArray *)rows withRowAnimation:(UITableViewRowAnimation)animation;
+
+//Adding rows
+-(void)addRows:(NSArray *)rows atIndexPaths:(NSArray *)indexPaths;
+-(void)addRow:(BlazeRow *)row atIndexPath:(NSIndexPath *)indexPath;
+-(void)addRows:(NSArray *)rows atIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
+-(void)addRow:(BlazeRow *)row atIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation;
+
+//Adding rows with older ID methods
+-(void)addRow:(BlazeRow *)row afterRowID:(int)afterRowID;
 -(void)addRow:(BlazeRow *)row afterRowID:(int)afterRowID withRowAnimation:(UITableViewRowAnimation)animation;
+
+//Removing sections
+-(void)removeSectionWithID:(int)sectionID;
+
+//Removing rows
+-(void)removeRowWithID:(int)rowID;
+-(void)removeRowsInSection:(int)sectionIndex fromIndex:(int)rowIndex;
+-(void)removeRowWithID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation;
 
 @end
 
