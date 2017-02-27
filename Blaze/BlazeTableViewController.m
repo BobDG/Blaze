@@ -994,6 +994,30 @@
     [tableView deselectRowAtIndexPath:indexPath animated:TRUE];
 }
 
+#pragma mark - Editing
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BlazeSection *section = self.tableArray[indexPath.section];
+    BlazeRow *row = section.rows[indexPath.row];
+    return row.enableDeleting;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete) {
+        BlazeSection *section = self.tableArray[indexPath.section];
+        BlazeRow *row = section.rows[indexPath.row];
+        if(row.cellDeleted) {
+            row.cellDeleted();
+        }
+        [self.tableView beginUpdates];
+        [section.rows removeObject:row];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        [self.tableView endUpdates];       
+    }
+}
+
 #pragma mark UIScrollViewDelegate
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
