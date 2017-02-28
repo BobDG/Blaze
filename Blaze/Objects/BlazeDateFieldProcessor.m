@@ -35,14 +35,10 @@
     self.dateField.datePicker.datePickerMode = self.row.datePickerMode;
     
     //Min date
-    if(self.row.minDate) {
-        self.dateField.datePicker.minimumDate = self.row.minDate;
-    }
+    self.dateField.datePicker.minimumDate = self.row.minDate;
     
     //Max date
-    if(self.row.maxDate) {
-        self.dateField.datePicker.maximumDate = self.row.maxDate;
-    }
+    self.dateField.datePicker.maximumDate = self.row.maxDate;
     
     //Minute interval
     if(self.row.dateMinuteInterval) {
@@ -134,6 +130,9 @@
 {
     if(self.row.textFieldDidEndEditing) {
         self.row.textFieldDidEndEditing(self.dateField);
+    }
+    if(self.row.doneChanging) {
+        self.row.doneChanging();
     }
 }
 

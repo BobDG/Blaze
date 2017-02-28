@@ -328,31 +328,25 @@
     [rows addObject:self.row];
     [rows addObjectsFromArray:self.row.additionalRows];
     
-    //First the main textfield
+    //Clear fieldprocessors
+    [self.fieldProcessors removeAllObjects];
+    
+    //Always create new processors, otherwise they are reused and inherit wrong properties they might not override
     for(int i = 0; i < rows.count; i++) {
-        BlazeFieldProcessor *processor;
-        if(i < self.fieldProcessors.count) {
-            //Get it
-            processor = self.fieldProcessors[i];
-        }
-        else {
-            //Check
-            if(i >= fields.count) {
-                break;
-            }
-            
-            //Get row
-            processor = [processorClass new];
-            processor.field = fields[i];
-            
-            //Add it
-            [self.fieldProcessors addObject:processor];
+        //Index check
+        if(i >= fields.count) {
+            break;
         }
         
-        //Set cell
+        //Processor
+        BlazeFieldProcessor *processor = [processorClass new];
+        processor.field = fields[i];
         processor.row = rows[i];
         processor.cell = self;
         [processor update];
+        
+        //Add it
+        [self.fieldProcessors addObject:processor];
     }
 }
 
