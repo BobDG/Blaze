@@ -38,15 +38,8 @@
         self.textField.text = self.row.value;
     }
     
-    if(self.row.textFieldPrefix.length && self.row.textFieldSuffix.length) {
-        self.textField.text = [NSString stringWithFormat:@"%@%@%@", self.row.textFieldPrefix, self.textField.text, self.row.textFieldSuffix];
-    }
-    else if(self.row.textFieldSuffix.length) {
-        self.textField.text = [self.textField.text stringByAppendingString:self.row.textFieldSuffix];
-    }
-    else if(self.row.textFieldPrefix.length) {
-        self.textField.text = [self.row.textFieldPrefix stringByAppendingString:self.textField.text];
-    }
+    //Suffixes & prefixes (only when textfield has a value already)
+    [self updateTextFieldPrefixAndSuffix:self.textField];
     
     //Properties
     self.textField.keyboardType = self.row.keyboardType;
@@ -67,13 +60,32 @@
     self.textField.inputAccessoryView = [self.cell defaultInputAccessoryViewToolbar];
 }
 
+#pragma mark - Prefix/Suffixes
+
+-(void)updateTextFieldPrefixAndSuffix:(UITextField *)textField
+{
+    if(self.textField.text.length) {
+        if(self.row.textFieldPrefix.length && self.row.textFieldSuffix.length) {
+            textField.text = [NSString stringWithFormat:@"%@%@%@", self.row.textFieldPrefix, self.textField.text, self.row.textFieldSuffix];
+        }
+        else if(self.row.textFieldSuffix.length) {
+            textField.text = [textField.text stringByAppendingString:self.row.textFieldSuffix];
+        }
+        else if(self.row.textFieldPrefix.length) {
+            textField.text = [self.row.textFieldPrefix stringByAppendingString:self.textField.text];
+        }
+    }
+}
+
+#pragma mark - UITextFieldDelegate
+
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     if(self.row.textFieldSuffix.length) {
         textField.text = [textField.text stringByReplacingOccurrencesOfString:self.row.textFieldSuffix withString:@""];
     }
     if(self.row.textFieldPrefix.length) {
-        textField.text = [textField.text stringByReplacingCharactersInRange:NSMakeRange(0, self.row.textFieldPrefix.length) withString:@""];
+        textField.text = [textField.text stringByReplacingOccurrencesOfString:self.row.textFieldPrefix withString:@""];
     }
     if(self.row.textFieldDidBeginEditing) {
         self.row.textFieldDidBeginEditing(self.textField);
@@ -82,15 +94,7 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
-    if(self.row.textFieldPrefix.length && self.row.textFieldSuffix.length) {
-        textField.text = [NSString stringWithFormat:@"%@%@%@", self.row.textFieldPrefix, self.textField.text, self.row.textFieldSuffix];
-    }
-    else if(self.row.textFieldSuffix.length) {
-        textField.text = [textField.text stringByAppendingString:self.row.textFieldSuffix];
-    }
-    else if(self.row.textFieldPrefix.length) {
-        textField.text = [self.row.textFieldPrefix stringByAppendingString:self.textField.text];
-    }
+    [self updateTextFieldPrefixAndSuffix:textField];
     if(self.row.textFieldDidEndEditing) {
         self.row.textFieldDidEndEditing(self.textField);
     }
