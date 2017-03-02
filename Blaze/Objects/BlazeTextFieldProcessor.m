@@ -103,7 +103,10 @@
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if(self.row.textFieldShouldChangeCharactersInRange) {
-        return self.row.textFieldShouldChangeCharactersInRange(self.textField, range, string);
+        BOOL result = self.row.textFieldShouldChangeCharactersInRange(self.textField, range, string);
+        if(!result) {
+            return FALSE;
+        }
     }
     self.row.value = [textField.text stringByReplacingCharactersInRange:range withString:string];
     if(self.row.formatter) {
