@@ -44,6 +44,9 @@
 //Indexes for sectionPicker
 @property(nonatomic,strong) NSMutableArray *sectionIndexesArray;
 
+//Section headerviews for caching
+@property(nonatomic,strong) NSMutableDictionary *cachedSectionHeaders;
+
 //Contains names of current registered cells
 @property(nonatomic,strong) NSMutableArray *registeredCells;
 @property(nonatomic,strong) NSMutableArray *registeredHeaders;
@@ -60,14 +63,12 @@
     self.tableArray = [NSMutableArray new];
     self.sectionIndexesArray = [NSMutableArray new];
     
+    //Dictionaries
+    self.cachedSectionHeaders = [NSMutableDictionary new];
+    
     //Register cells & Headers
     self.registeredCells = [NSMutableArray new];
     self.registeredHeaders = [NSMutableArray new];
-    
-    //Automatic rowHeight, estimates are necessary and do not really matter :)
-    self.tableView.estimatedRowHeight = 60.0;
-    self.tableView.estimatedSectionHeaderHeight = 60.0f;
-    self.tableView.estimatedSectionFooterHeight = 60.0f;
     
     //No scrollbars
     self.tableView.showsVerticalScrollIndicator = FALSE;
@@ -553,7 +554,6 @@
         [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:section.collapseAnimation];
     }
     
-    
     //End updates
     [self.tableView endUpdates];
 }
@@ -960,7 +960,7 @@
     [self.tableView endUpdates];
 }
 
-#pragma mark - Table view data source
+#pragma mark - UITableview Datasource - Number of sections/rows
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -976,16 +976,18 @@
     return s.rows.count;
 }
 
+#pragma mark - UITableview Datasource - Heights/Estimated heights
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BlazeSection *s = self.tableArray[indexPath.section];
     BlazeRow *row = s.rows[indexPath.row];
     
     if(row.rowHeight) {
-        return row.rowHeight;
+        return row.rowHeight.floatValue;
     }
     else if(row.rowHeightRatio) {
-        return row.rowHeightRatio * tableView.frame.size.height;
+        return row.rowHeightRatio.floatValue * tableView.frame.size.height;
     }
     else if(row.rowHeightDynamic) {
         float nrOfDynamicHeights = 0;
@@ -993,10 +995,10 @@
         for(BlazeSection *section in self.tableArray) {
             for(BlazeRow *row in section.rows) {
                 if(row.rowHeight) {
-                    height -= row.rowHeight;
+                    height -= row.rowHeight.floatValue;
                 }
                 else if(row.rowHeightRatio) {
-                    height -= row.rowHeightRatio * tableView.frame.size.height;
+                    height -= row.rowHeightRatio.floatValue * tableView.frame.size.height;
                 }
                 else if(row.rowHeightDynamic) {
                     nrOfDynamicHeights++;
@@ -1009,7 +1011,7 @@
         return height;
     }
     else if(self.rowHeight) {
-        return self.rowHeight;
+        return self.rowHeight.floatValue;
     }
     return UITableViewAutomaticDimension;
 }
@@ -1018,10 +1020,10 @@
 {
     BlazeSection *s = self.tableArray[section];
     if(s.headerHeight) {
-        return s.headerHeight;
+        return s.headerHeight.floatValue;
     }
     else if(self.sectionHeaderHeight) {
-        return self.sectionHeaderHeight;
+        return self.sectionHeaderHeight.floatValue;
     }
     else if(s.headerTitle.length) {
         return UITableViewAutomaticDimension;
@@ -1033,10 +1035,10 @@
 {
     BlazeSection *s = self.tableArray[section];
     if(s.footerHeight) {
-        return s.footerHeight;
+        return s.footerHeight.floatValue;
     }
     else if(self.sectionFooterHeight) {
-        return self.sectionFooterHeight;
+        return self.sectionFooterHeight.floatValue;
     }
     else if(s.footerTitle.length) {
         return UITableViewAutomaticDimension;
@@ -1044,8 +1046,83 @@
     return CGFLOAT_MIN;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BlazeSection *s = self.tableArray[indexPath.section];
+    BlazeRow *row = s.rows[indexPath.row];
+    
+    //For esimated heights, it's important to have it as close as possible to the real value. So if it's not set, we'll use the real values
+    
+    if(row.estimatedRowHeight) {
+        return row.estimatedRowHeight.floatValue;
+    }
+    else if(self.estimatedRowHeight) {
+        return self.estimatedRowHeight.floatValue;
+    }
+    else if(row.rowHeight) {
+        return row.rowHeight.floatValue;
+    }
+    else if(row.rowHeightRatio) {
+        return row.rowHeightRatio.floatValue * tableView.frame.size.height;
+    }
+    
+    //In case nothing is set we need at least some kind of value, let's use the default 'OLD' value of 44
+    return 44.0f;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
+{
+    BlazeSection *s = self.tableArray[section];
+    
+    if(s.estimatedHeaderHeight) {
+        return s.estimatedHeaderHeight.floatValue;
+    }
+    else if(self.estimatedSectionHeaderHeight) {
+        return self.estimatedSectionHeaderHeight.floatValue;
+    }
+    else if(s.headerHeight) {
+        return s.headerHeight.floatValue;
+    }
+    else if(self.sectionHeaderHeight) {
+        return self.sectionHeaderHeight.floatValue;
+    }
+    
+    //In case nothing is set we need at least some kind of value, let's use the default 'OLD' value of 20
+    return 20.0f;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section
+{
+    BlazeSection *s = self.tableArray[section];
+    
+    if(s.estimatedFooterHeight) {
+        return s.estimatedFooterHeight.floatValue;
+    }
+    else if(self.estimatedSectionFooterHeight) {
+        return self.estimatedSectionFooterHeight.floatValue;
+    }
+    else if(s.footerHeight) {
+        return s.footerHeight.floatValue;
+    }
+    else if(self.sectionFooterHeight) {
+        return self.sectionFooterHeight.floatValue;
+    }
+    
+    //In case nothing is set we need at least some kind of value, let's use INT_MIN (FLOAT_MIN is sometimes zero and then it crashes...) Footers are 90% of the time nothing...
+    return INT_MIN;
+}
+
+#pragma mark - UITableview Datasource - Header/Footer Views
+
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    //Return cached one if using caching
+    if(self.sectionHeaderCaching) {
+        if(self.cachedSectionHeaders[@(section)]) {
+            return self.cachedSectionHeaders[@(section)];
+        }
+    }
+    
     BlazeSection *s = self.tableArray[section];
     if(!(s.headerTitle.length) && !s.headerHeight) {
         return nil;
@@ -1077,6 +1154,11 @@
     //Configure
     if(s.configureHeaderView) {
         s.configureHeaderView(headerView);
+    }
+    
+    //Save it when using caching
+    if(self.sectionHeaderCaching) {
+        self.cachedSectionHeaders[@(section)] = headerView;
     }
     
     return headerView;
@@ -1111,6 +1193,8 @@
     
     return footerView;
 }
+
+#pragma mark - UITableview Datasource - Cell
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -1183,6 +1267,8 @@
     return cell;
 }
 
+#pragma mark - UITableview Datasource - Section Index
+
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     if(!self.useSectionIndexPicker) {
@@ -1199,7 +1285,7 @@
     return [self.sectionIndexesArray indexOfObject:title];
 }
 
-#pragma mark - Table view delegate
+#pragma mark - UITableview Delegate - Did select
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

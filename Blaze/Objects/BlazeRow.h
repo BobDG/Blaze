@@ -48,10 +48,10 @@ typedef NS_ENUM(NSInteger, ImageType) {
 
 //Constructors with XibName
 +(instancetype)rowWithXibName:(NSString *)xibName;
-+(instancetype)rowWithXibName:(NSString *)xibName height:(float)height;
++(instancetype)rowWithXibName:(NSString *)xibName height:(NSNumber *)height;
 +(instancetype)rowWithXibName:(NSString *)xibName title:(NSString *)title;
 -(instancetype)initWithXibName:(NSString *)xibName;
--(instancetype)initWithXibName:(NSString *)xibName height:(float)height;
+-(instancetype)initWithXibName:(NSString *)xibName height:(NSNumber *)height;
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title;
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title segueIdentifier:(NSString *)segueIdentifier;
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title placeholder:(NSString *)placeholder;
@@ -87,11 +87,14 @@ typedef NS_ENUM(NSInteger, ImageType) {
 
 //Row primitives
 @property(nonatomic) int ID;
-@property(nonatomic) int rowHeight;
-@property(nonatomic) float rowHeightRatio;
 @property(nonatomic) bool enableDeleting;
 @property(nonatomic) bool disableEditing;
 @property(nonatomic) bool rowHeightDynamic;
+
+//Heights
+@property(nonatomic,strong) NSNumber *rowHeight;
+@property(nonatomic,strong) NSNumber *rowHeightRatio;
+@property(nonatomic,strong) NSNumber *estimatedRowHeight;
 
 //Row Reference types
 @property(nonatomic,strong) id value;

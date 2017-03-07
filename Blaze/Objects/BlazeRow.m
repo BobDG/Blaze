@@ -88,7 +88,7 @@
     return [[self alloc] initWithXibName:xibName];
 }
 
-+(instancetype)rowWithXibName:(NSString *)xibName height:(float)height
++(instancetype)rowWithXibName:(NSString *)xibName height:(NSNumber *)height
 {
     return [[self alloc] initWithXibName:xibName height:height];
 }
@@ -103,7 +103,7 @@
     return [self initWithXibName:xibName title:nil];
 }
 
--(instancetype)initWithXibName:(NSString *)xibName height:(float)height
+-(instancetype)initWithXibName:(NSString *)xibName height:(NSNumber *)height
 {
     self = [super init];
     if(!self) {

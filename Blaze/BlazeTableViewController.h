@@ -41,10 +41,16 @@
 //Separator Inset
 @property(nonatomic) bool noSeparatorInset;
 
+//Header caching (for animations in headerviews)
+@property(nonatomic) bool sectionHeaderCaching;
+
 //Heights
-@property(nonatomic) float rowHeight;
-@property(nonatomic) float sectionHeaderHeight;
-@property(nonatomic) float sectionFooterHeight;
+@property(nonatomic,strong) NSNumber *rowHeight;
+@property(nonatomic,strong) NSNumber *estimatedRowHeight;
+@property(nonatomic,strong) NSNumber *sectionHeaderHeight;
+@property(nonatomic,strong) NSNumber *sectionFooterHeight;
+@property(nonatomic,strong) NSNumber *estimatedSectionHeaderHeight;
+@property(nonatomic,strong) NSNumber *estimatedSectionFooterHeight;
 
 //Load content on appear
 -(void)loadTableContent;
