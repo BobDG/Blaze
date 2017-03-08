@@ -11,7 +11,7 @@
 #import "BlazeTableViewCell.h"
 #import "BlazeTilesCollectionView.h"
 
-@interface BlazeTilesTableViewCell : BlazeTableViewCell
+@interface BlazeTilesTableViewCell : BlazeTableViewCell <UICollectionViewDataSource, UICollectionViewDelegate>
 {
     
 }

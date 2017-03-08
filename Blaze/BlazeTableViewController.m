@@ -73,6 +73,14 @@
     //No scrollbars
     self.tableView.showsVerticalScrollIndicator = FALSE;
     
+    //Estimated section header/footer heights
+    if(self.estimatedSectionFooterHeight) {
+        self.tableView.estimatedSectionHeaderHeight = self.estimatedSectionHeaderHeight.floatValue;
+    }
+    if(self.estimatedSectionFooterHeight) {
+        self.tableView.estimatedSectionFooterHeight = self.estimatedSectionFooterHeight.floatValue;
+    }
+    
     //Empty defaults
     self.emptyScrollable = TRUE;
     self.emptyVerticalOffset = -100.0f;
@@ -1019,6 +1027,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     BlazeSection *s = self.tableArray[section];
+    
     if(s.headerHeight) {
         return s.headerHeight.floatValue;
     }
@@ -1068,48 +1077,6 @@
     
     //In case nothing is set we need at least some kind of value, let's use the default 'OLD' value of 44
     return 44.0f;
-}
-
--(CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
-{
-    BlazeSection *s = self.tableArray[section];
-    
-    if(s.estimatedHeaderHeight) {
-        return s.estimatedHeaderHeight.floatValue;
-    }
-    else if(self.estimatedSectionHeaderHeight) {
-        return self.estimatedSectionHeaderHeight.floatValue;
-    }
-    else if(s.headerHeight) {
-        return s.headerHeight.floatValue;
-    }
-    else if(self.sectionHeaderHeight) {
-        return self.sectionHeaderHeight.floatValue;
-    }
-    
-    //In case nothing is set we need at least some kind of value, let's use the default 'OLD' value of 20
-    return 20.0f;
-}
-
--(CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section
-{
-    BlazeSection *s = self.tableArray[section];
-    
-    if(s.estimatedFooterHeight) {
-        return s.estimatedFooterHeight.floatValue;
-    }
-    else if(self.estimatedSectionFooterHeight) {
-        return self.estimatedSectionFooterHeight.floatValue;
-    }
-    else if(s.footerHeight) {
-        return s.footerHeight.floatValue;
-    }
-    else if(self.sectionFooterHeight) {
-        return self.sectionFooterHeight.floatValue;
-    }
-    
-    //In case nothing is set we need at least some kind of value, let's use INT_MIN (FLOAT_MIN is sometimes zero and then it crashes...) Footers are 90% of the time nothing...
-    return INT_MIN;
 }
 
 #pragma mark - UITableview Datasource - Header/Footer Views

@@ -34,8 +34,6 @@
 @property(nonatomic,strong) NSString *rowsXibName;
 @property(nonatomic,strong) NSNumber *headerHeight;
 @property(nonatomic,strong) NSNumber *footerHeight;
-@property(nonatomic,strong) NSNumber *estimatedHeaderHeight;
-@property(nonatomic,strong) NSNumber *estimatedFooterHeight;
 
 //Colors
 @property(nonatomic,strong) UIColor *viewColor;

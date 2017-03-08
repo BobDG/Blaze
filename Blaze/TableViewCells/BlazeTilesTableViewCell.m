@@ -9,7 +9,7 @@
 #import "BlazeTilesTableViewCell.h"
 #import "BlazeTileCollectionViewCell.h"
 
-@interface BlazeTilesTableViewCell () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface BlazeTilesTableViewCell ()
 {
     
 }
