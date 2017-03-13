@@ -132,14 +132,14 @@
     [self.registeredHeaders addObject:xibName];
 }
 
--(void)registerCustomHeaders:(NSArray *)headerNames
+-(void)registerCustomHeaders:(NSArray <NSString *> *)headerNames
 {
     for(NSString *className in headerNames) {
         [self registerCustomHeader:className];
     }
 }
 
--(void)registerCustomCells:(NSArray *)cellNames
+-(void)registerCustomCells:(NSArray <NSString *> *)cellNames
 {
     for(NSString *className in cellNames) {
         [self registerCustomCell:className];

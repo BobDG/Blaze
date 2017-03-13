@@ -91,38 +91,6 @@
     }];
     [section addRow:row];
     
-    //Two Textfields
-    row = [[BlazeRow alloc] initWithXibName:kFloatTwoTextFieldsTableViewCell];
-    row.floatingLabelEnabled = TRUE;
-    row.floatingTitleActiveColor = [UIColor redColor];
-    row.floatingTitleFont = [UIFont italicSystemFontOfSize:12.0f];
-    row.floatingTitle = @"Float Title 1";
-    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textfieldValue)]];
-    row.placeholder = @"Placeholder 1";
-    [row setValueChanged:^{
-        DLog(@"Value 1 changed: %@", self.textfieldValue);
-    }];
-    [row setDoneChanging:^{
-        DLog(@"Field 1 done changing");
-    }];
-    {
-        BlazeRow *row2 = [BlazeRow new];
-        row2.floatingLabelEnabled = TRUE;
-        row2.floatingTitleActiveColor = [UIColor yellowColor];
-        row2.floatingTitleFont = [UIFont italicSystemFontOfSize:14.0f];
-        row2.floatingTitle = @"Float Title 2";
-        [row2 setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textfieldValue2)]];
-        row2.placeholder = @"Placeholder 2";
-        [row2 setValueChanged:^{
-            DLog(@"Value 2 changed: %@", self.textfieldValue2);
-        }];
-        [row2 setDoneChanging:^{
-            DLog(@"Field 2 done changing");
-        }];
-        row.additionalRows = @[row2];
-    }
-    [section addRow:row];
-    
     //Textfield number
     row = [[BlazeRow alloc] initWithXibName:kFloatTextFieldTableViewCell];
     row.floatingLabelEnabled = FALSE;
@@ -182,41 +150,6 @@
     }];
     [section addRow:row];
     
-    //Two dates
-    row = [[BlazeRow alloc] initWithXibName:kTwoDateFieldsTableViewCell];
-    row.placeholder = @"Date 1";
-    row.datePickerMode = UIDatePickerModeDate;
-    row.floatingLabelEnabled = FloatingLabelStateEnabled;
-    row.placeholderColor = [UIColor orangeColor];
-    row.floatingTitleColor = [UIColor redColor];
-    row.floatingTitleActiveColor = [UIColor purpleColor];
-    row.floatingTitleFont = [UIFont systemFontOfSize:12.0f weight:UIFontWeightBold];
-    row.floatingTitle = @"Date 1 set!";
-    NSDateFormatter *df2 = [NSDateFormatter new];
-    [df2 setDateFormat:@"d MMMM yyyy"];
-    row.dateFormatter = df2;
-    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(date)]];
-    [row setValueChanged:^{
-        DLog(@"Date 1 changed: %@", self.date);
-    }];
-    {
-        BlazeRow *row2 = [BlazeRow new];
-        row2.dateFormatter = df;
-        row2.placeholder = @"Date 2";
-        row2.dateMinuteInterval = 10;
-        row2.datePickerMode = UIDatePickerModeDateAndTime;
-        row2.placeholderColor = [UIColor blueColor];
-        row2.floatingTitleColor = [UIColor greenColor];
-        row2.floatingTitle = @"Date 2 set!";
-        row2.floatingLabelEnabled = TRUE;        
-        [row2 setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(date2)]];
-        [row2 setValueChanged:^{
-            DLog(@"Date 2 changed: %@", self.date2);
-        }];
-        row.additionalRows = @[row2];
-    }
-    [section addRow:row];
-    
     //Picker
     row = [[BlazeRow alloc] initWithXibName:kPickerFieldTableViewCell title:@"Pickerfield"];
     row.placeholder = @"Picker placeholder";
@@ -248,7 +181,7 @@
     [section addRow:row];
     
     //Button
-    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Combine multiple kinds of fields within 1 cell? No problem :)"];
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Multiple fields, even different kinds within 1 cell? No problem :)"];
     [self addSection:section];
     
     //Three different fields
@@ -261,7 +194,7 @@
     row.floatingTitleActiveColor = [UIColor purpleColor];
     row.floatingTitleFont = [UIFont systemFontOfSize:12.0f weight:UIFontWeightBold];
     row.floatingTitle = @"Field 1 set!";
-    row.dateFormatter = df2;
+    row.dateFormatter = df;
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(differentFields1)]];
     [row setValueChanged:^{
         DLog(@"Field 1 changed: %@", self.differentFields1);

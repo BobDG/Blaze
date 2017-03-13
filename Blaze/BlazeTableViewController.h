@@ -55,7 +55,7 @@
 @property(nonatomic) bool loadContentOnAppear;
 
 //TableArray
-@property(nonatomic,strong) NSMutableArray *tableArray;
+@property(nonatomic,strong) NSMutableArray <BlazeSection *> *tableArray;
 
 //DraggableZoom headerView
 @property(nonatomic,strong) UIView *zoomTableHeaderView;
@@ -77,8 +77,8 @@
 //Registering
 -(void)registerCustomCell:(NSString *)xibName;
 -(void)registerCustomHeader:(NSString *)xibName;
--(void)registerCustomCells:(NSArray *)cellNames;
--(void)registerCustomHeaders:(NSArray *)headerNames;
+-(void)registerCustomCells:(NSArray <NSString *> *)cellNames;
+-(void)registerCustomHeaders:(NSArray <NSString *> *)headerNames;
 
 //Retrieving
 -(BlazeRow *)rowForID:(int)rowID;

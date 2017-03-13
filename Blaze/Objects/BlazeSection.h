@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
+@class BlazeRow;
+
 @interface BlazeSection : NSObject
 {
     
@@ -30,7 +32,7 @@
 
 //Basic properties
 @property(nonatomic) int ID;
-@property(nonatomic,strong) NSMutableArray *rows;
+@property(nonatomic,strong) NSMutableArray <BlazeRow *> *rows;
 @property(nonatomic,strong) NSString *rowsXibName;
 @property(nonatomic,strong) NSNumber *headerHeight;
 @property(nonatomic,strong) NSNumber *footerHeight;
