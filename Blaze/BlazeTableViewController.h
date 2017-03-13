@@ -49,8 +49,6 @@
 @property(nonatomic,strong) NSNumber *estimatedRowHeight;
 @property(nonatomic,strong) NSNumber *sectionHeaderHeight;
 @property(nonatomic,strong) NSNumber *sectionFooterHeight;
-@property(nonatomic,strong) NSNumber *estimatedSectionHeaderHeight;
-@property(nonatomic,strong) NSNumber *estimatedSectionFooterHeight;
 
 //Load content on appear
 -(void)loadTableContent;

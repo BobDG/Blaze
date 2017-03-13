@@ -15,36 +15,56 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ilx-w2-40b" id="4p5-Fn-rn3">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="60.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQI-Du-kmf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d37-n9-xxZ">
-                                <rect key="frame" x="20" y="20" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Ng-e4-zaL" customClass="BlazePickerViewField">
-                                <rect key="frame" x="80" y="20" width="220" height="20"/>
+                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Ng-e4-zaL" customClass="BlazeDatePickerField">
+                                <rect key="frame" x="30" y="10" width="9" height="40"/>
                                 <color key="tintColor" red="0.0" green="0.56862745098039214" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.96078431369999995" green="0.6705882353" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="flAlterBaseline" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FaZ-ta-v11" customClass="BlazeTextField">
+                                <rect key="frame" x="112" y="21" width="97" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="QGm-in-58J"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="odW-6C-xja" customClass="BlazePickerViewField">
+                                <rect key="frame" x="291" y="10" width="9" height="40"/>
+                                <color key="tintColor" red="0.0" green="0.56862745100000001" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.96078431369999995" green="0.6705882353" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="flAlterBaseline" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="1Ng-e4-zaL" firstAttribute="leading" secondItem="dQI-Du-kmf" secondAttribute="leading" constant="30" id="2qJ-6w-fKf"/>
+                            <constraint firstItem="FaZ-ta-v11" firstAttribute="centerY" secondItem="dQI-Du-kmf" secondAttribute="centerY" id="961-8q-JMZ"/>
                             <constraint firstItem="1Ng-e4-zaL" firstAttribute="leading" secondItem="dQI-Du-kmf" secondAttribute="leading" constant="32" id="FgT-sn-XY2"/>
-                            <constraint firstItem="d37-n9-xxZ" firstAttribute="centerY" secondItem="dQI-Du-kmf" secondAttribute="centerY" id="He5-4I-uLi"/>
+                            <constraint firstAttribute="bottom" secondItem="1Ng-e4-zaL" secondAttribute="bottom" constant="10" id="Gfz-wJ-CVR"/>
                             <constraint firstItem="1Ng-e4-zaL" firstAttribute="centerY" secondItem="dQI-Du-kmf" secondAttribute="centerY" id="OV2-wX-vPJ"/>
-                            <constraint firstItem="1Ng-e4-zaL" firstAttribute="leading" secondItem="d37-n9-xxZ" secondAttribute="trailing" constant="26" id="Ri1-il-b6g"/>
-                            <constraint firstItem="d37-n9-xxZ" firstAttribute="leading" secondItem="dQI-Du-kmf" secondAttribute="leading" constant="20" id="Rx5-ZS-NLk"/>
                             <constraint firstAttribute="bottom" secondItem="1Ng-e4-zaL" secondAttribute="bottom" constant="8" id="YnQ-eS-dQ3"/>
+                            <constraint firstAttribute="trailing" secondItem="odW-6C-xja" secondAttribute="trailing" constant="20" id="dMR-pj-lBE"/>
+                            <constraint firstItem="1Ng-e4-zaL" firstAttribute="top" secondItem="dQI-Du-kmf" secondAttribute="top" constant="10" id="gpa-kk-PAu"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="lgq-BF-Sux"/>
-                            <constraint firstAttribute="trailing" secondItem="1Ng-e4-zaL" secondAttribute="trailing" constant="20" id="pPQ-vI-Bbx"/>
+                            <constraint firstItem="FaZ-ta-v11" firstAttribute="centerX" secondItem="dQI-Du-kmf" secondAttribute="centerX" id="qfA-FF-bbj"/>
+                            <constraint firstItem="odW-6C-xja" firstAttribute="top" secondItem="dQI-Du-kmf" secondAttribute="top" constant="10" id="v3X-eZ-I22"/>
+                            <constraint firstAttribute="bottom" secondItem="odW-6C-xja" secondAttribute="bottom" constant="10" id="wxh-6B-IXn"/>
                             <constraint firstItem="1Ng-e4-zaL" firstAttribute="top" secondItem="dQI-Du-kmf" secondAttribute="top" constant="14" id="zsf-BY-2Il"/>
                         </constraints>
                         <variation key="default">
@@ -64,10 +84,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="mainField" destination="1Ng-e4-zaL" id="dsh-rf-PeY"/>
-                <outlet property="titleLabel" destination="d37-n9-xxZ" id="mC4-Vt-oxj"/>
+                <outlet property="mainField" destination="1Ng-e4-zaL" id="0yG-6R-565"/>
+                <outletCollection property="additionalFields" destination="FaZ-ta-v11" id="xNB-bW-Ct9"/>
+                <outletCollection property="additionalFields" destination="odW-6C-xja" id="Tp8-Es-Qkw"/>
             </connections>
-            <point key="canvasLocation" x="119" y="39"/>
+            <point key="canvasLocation" x="-80" y="-64"/>
         </tableViewCell>
     </objects>
 </document>

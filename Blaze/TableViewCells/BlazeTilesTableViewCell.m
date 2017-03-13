@@ -29,14 +29,15 @@
 -(void)updateCell
 {
     self.collectionView.ID = self.row.ID;
+    
+    if(self.row.tileCellXibName.length) {
+        [self.collectionView registerNib:[UINib nibWithNibName:self.row.tileCellXibName bundle:nil] forCellWithReuseIdentifier:self.row.tileCellXibName];
+    }
+    
     [self.collectionView reloadData];
 
     if(self.row.tileSelectAutomatically) {
         [self.row updatedValue:self.row.value];
-    }
-    
-    if(self.row.tileCellXibName.length) {
-        [self.collectionView registerNib:[UINib nibWithNibName:self.row.tileCellXibName bundle:nil] forCellWithReuseIdentifier:self.row.tileCellXibName];
     }
     
     //Editable

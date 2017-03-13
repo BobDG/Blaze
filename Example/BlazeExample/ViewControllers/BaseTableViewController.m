@@ -20,6 +20,10 @@
     
     //Empty state
     self.emptyBackgroundColor = [UIColor whiteColor];
+    
+    //Section header/footer
+    self.tableView.estimatedSectionHeaderHeight = 40;
+    self.tableView.estimatedSectionFooterHeight = 40;
 }
 
 @end

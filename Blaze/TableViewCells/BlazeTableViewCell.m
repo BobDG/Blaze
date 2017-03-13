@@ -8,8 +8,14 @@
 
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
+#import "BlazeTextField.h"
 #import "BlazeTableViewCell.h"
 #import "BlazeFieldProcessor.h"
+#import "BlazeDatePickerField.h"
+#import "BlazePickerViewField.h"
+#import "BlazeDateFieldProcessor.h"
+#import "BlazeTextFieldProcessor.h"
+#import "BlazePickerFieldProcessor.h"
 
 @implementation BlazeTableViewCell
 
@@ -26,7 +32,9 @@
 {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+    if(selected && self.mainField && !self.row.disableEditing) {
+        [self.mainField becomeFirstResponder];
+    }
 }
 
 -(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
@@ -105,6 +113,9 @@
         self.pageControl.currentPage = self.row.currentPage;
         self.pageControl.numberOfPages = self.row.numberOfPages;
     }
+    
+    //Field processors
+    [self setupFieldProcessors];
     
     //Update cell (for subclasses)
     [self updateCell];
@@ -244,7 +255,15 @@
 
 -(BOOL)canBecomeFirstResponder
 {
-    return FALSE;
+    if(!self.mainField) {
+        return FALSE;
+    }
+    return !self.row.disableEditing;
+}
+
+-(BOOL)becomeFirstResponder
+{
+    return [self.mainField becomeFirstResponder];
 }
 
 #pragma mark - Next/Previous fields
@@ -309,20 +328,19 @@
 
 #pragma mark - FieldProcessors
 
--(void)setupFieldProcessorsWithMainField:(id)mainField processorClass:(Class)processorClass
+-(void)setupFieldProcessors
 {
-    if(!mainField) {
-        NSLog(@"Blaze warning - setup processor called but no mainfield attached...");
+    if(!self.mainField) {
         return;
     }
     
     //Fields
-    NSMutableArray *fields = [NSMutableArray new];    
-    [fields addObject:mainField];
+    NSMutableArray *fields = [NSMutableArray new];
+    [fields addObject:self.mainField];
     if(self.additionalFields.count) {
         [fields addObjectsFromArray:self.additionalFields];
     }
- 
+    
     //Rows
     NSMutableArray *rows = [NSMutableArray new];
     [rows addObject:self.row];
@@ -338,9 +356,23 @@
             break;
         }
         
-        //Processor
-        BlazeFieldProcessor *processor = [processorClass new];
-        processor.field = fields[i];
+        //Field
+        id field = fields[i];
+        
+        //Determine Processor
+        BlazeFieldProcessor *processor;
+        if([field isKindOfClass:[BlazeDatePickerField class]]) {
+            processor = [BlazeDateFieldProcessor new];
+        }
+        else if([field isKindOfClass:[BlazePickerViewField class]]) {
+            processor = [BlazePickerFieldProcessor new];
+        }
+        else if([field isKindOfClass:[BlazeTextField class]]) {
+            processor = [BlazeTextFieldProcessor new];
+        }
+        
+        //Set processor properties
+        processor.field = field;
         processor.row = rows[i];
         processor.cell = self;
         [processor update];

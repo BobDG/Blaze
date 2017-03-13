@@ -18,17 +18,20 @@
 
 @property(nonatomic,strong) NSDate *date;
 @property(nonatomic,strong) NSDate *date2;
-
+@property(nonatomic,strong) NSData *imageData;
 @property(nonatomic,strong) NSNumber *switchValue;
 @property(nonatomic,strong) NSNumber *sliderValue;
-@property(nonatomic,strong) NSNumber *checkBoxValue;
-@property(nonatomic,strong) NSNumber *twoChoicesValue;
-@property(nonatomic,strong) NSNumber *segmentedControlValue;
-@property(nonatomic,strong) NSData *imageData;
 @property(nonatomic,strong) NSString *pickerValue;
+@property(nonatomic,strong) NSNumber *checkBoxValue;
+@property(nonatomic,strong) NSDate *differentFields1;
 @property(nonatomic,strong) NSString *textfieldValue;
+@property(nonatomic,strong) NSNumber *twoChoicesValue;
 @property(nonatomic,strong) NSString *textfieldValue2;
+@property(nonatomic,strong) NSString *differentFields2;
+@property(nonatomic,strong) NSString *differentFields3;
+@property(nonatomic,strong) NSNumber *pickerIndexValue;
 @property(nonatomic,strong) NSNumber *textFieldNumberValue;
+@property(nonatomic,strong) NSNumber *segmentedControlValue;
 
 @end
 
@@ -150,7 +153,7 @@
     };
     [row setTextFieldShouldChangeCharactersInRange:^BOOL(BlazeTextField *textField, NSRange range, NSString *replacementString) {
         textField.text = @"Am I interfering?";
-        return true;
+        return FALSE;
     }];
     [section addRow:row];
     
@@ -170,7 +173,8 @@
     row.floatingTitleFont = [UIFont systemFontOfSize:12.0f weight:UIFontWeightBold];
     row.floatingTitle = @"Date set!";
     NSDateFormatter *df = [NSDateFormatter new];
-    [df setDateFormat:@"d MMMM yyyy HH:mm"];
+    [df setDateFormat:@"MMMM yyyy HH:mm"];
+    row.dateFormatCapitalizedString = TRUE;
     row.dateFormatter = df;
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(date)]];
     [row setValueChanged:^{
@@ -223,6 +227,75 @@
     row.floatingTitle = @"Picker set!";    
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(pickerValue)]];
     row.selectorOptions = @[@"Automatic next/previous", @"buttons always work", @"Doesn't matter if you", @"use textfields", @"or datepickers", @"or pickerviews", @"or multiple sections"];
+    [section addRow:row];
+    
+    //Picker using index
+    row = [[BlazeRow alloc] initWithXibName:kPickerFieldTableViewCell title:@"Pickerfield"];
+    row.placeholder = @"Picker placeholder";
+    row.pickerUseIndexValue = TRUE;
+    row.floatingLabelEnabled = TRUE;
+    row.floatingTitleColor = [UIColor greenColor];
+    row.floatingTitleActiveColor = [UIColor greenColor];
+    row.floatingTitleFont = [UIFont systemFontOfSize:14.0f weight:UIFontWeightLight];
+    row.floatingTitle = @"Picker set!";
+    self.pickerIndexValue = @(NSNotFound);
+    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(pickerIndexValue)]];
+    row.selectorOptions = @[@"You can", @"Use index values", @"if you want", @":)"];
+    __weak __typeof(BlazeRow *)weakRow = row;
+    [row setValueChanged:^{
+        DLog(@"Value changed: %d", [weakRow.value intValue]);
+    }];
+    [section addRow:row];
+    
+    //Button
+    section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Combine multiple kinds of fields within 1 cell? No problem :)"];
+    [self addSection:section];
+    
+    //Three different fields
+    row = [[BlazeRow alloc] initWithXibName:kDifferentFieldsTableViewCell];
+    row.placeholder = @"Field (date) 1";
+    row.datePickerMode = UIDatePickerModeDate;
+    row.floatingLabelEnabled = FloatingLabelStateEnabled;
+    row.placeholderColor = [UIColor orangeColor];
+    row.floatingTitleColor = [UIColor redColor];
+    row.floatingTitleActiveColor = [UIColor purpleColor];
+    row.floatingTitleFont = [UIFont systemFontOfSize:12.0f weight:UIFontWeightBold];
+    row.floatingTitle = @"Field 1 set!";
+    row.dateFormatter = df2;
+    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(differentFields1)]];
+    [row setValueChanged:^{
+        DLog(@"Field 1 changed: %@", self.differentFields1);
+    }];
+    {
+        //Field 2 - text
+        BlazeRow *row2 = [BlazeRow new];
+        row2.floatingLabelEnabled = TRUE;
+        row2.floatingTitleActiveColor = [UIColor yellowColor];
+        row2.floatingTitleFont = [UIFont italicSystemFontOfSize:14.0f];
+        row2.floatingTitle = @"Field (text) 2";
+        [row2 setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(differentFields2)]];
+        row2.placeholder = @"Field (text) 2";
+        [row2 setValueChanged:^{
+            DLog(@"Field 2 changed: %@", self.differentFields2);
+        }];
+        
+        //Field 3 - picker
+        BlazeRow *row3 = [BlazeRow new];
+        row3.placeholder = @"Field (picker) 3";
+        row3.floatingLabelEnabled = TRUE;
+        row3.floatingTitleColor = [UIColor greenColor];
+        row3.floatingTitleActiveColor = [UIColor greenColor];
+        row3.floatingTitleFont = [UIFont systemFontOfSize:14.0f weight:UIFontWeightLight];
+        row3.floatingTitle = @"Field 3 set!";
+        [row3 setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(differentFields3)]];
+        row3.selectorOptions = @[@"Awesome", @"Right?"];
+        [row3 setValueChanged:^{
+            DLog(@"Field 3 changed: %@", self.differentFields3);
+        }];
+        
+        //Set additional rows
+        row.additionalRows = @[row2, row3];
+    }
     [section addRow:row];
     
     //Button
@@ -311,7 +384,7 @@
     row = [[BlazeRow alloc] initWithXibName:kTilesTableViewCell];
     row.tileHeight = 50.0f;
     row.tilesPerRow = 4;
-    row.rowHeight = 50.0f;
+    row.rowHeight = @(50.0f);
     row.tilesMultipleSelection = true;
     row.tilesValues = @[
                         [[BlazeInputTile alloc] initWithID:0 text:@"tile 1" tintColor:UIColorFromRGB(0xF5AB35) baseColor:UIColorFromRGB(0x22A7F0) imageName:nil],

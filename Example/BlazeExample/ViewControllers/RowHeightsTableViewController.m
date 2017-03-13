@@ -36,12 +36,12 @@
     
     //Hard
     row = [[BlazeRow alloc] initWithXibName:kTextTableViewCell title:@"You can also give it a very specific rowheight, e.g. 80"];
-    row.rowHeight = 80;
+    row.rowHeight = @(80);
     [section addRow:row];
     
     //Ratio
     row = [[BlazeRow alloc] initWithXibName:kTextTableViewCell title:@"Or a ratio, e.g. 30% of the screen height"];
-    row.rowHeightRatio = 0.3f;
+    row.rowHeightRatio = @(0.3f);
     [section addRow:row];
 }
 

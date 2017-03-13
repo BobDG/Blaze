@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Ilx-w2-40b" customClass="BlazeTextFieldTableViewCell">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Ilx-w2-40b" customClass="BlazeTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ilx-w2-40b" id="4p5-Fn-rn3">
@@ -86,8 +86,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="textField" destination="1Ng-e4-zaL" id="aGF-ob-reX"/>
-                <outletCollection property="additionalFields" destination="xxs-ry-1Z9" id="sqL-l9-q6U"/>
+                <outlet property="mainField" destination="1Ng-e4-zaL" id="vtr-ke-cI3"/>
+                <outletCollection property="additionalFields" destination="xxs-ry-1Z9" id="qoT-bN-H1E"/>
             </connections>
             <point key="canvasLocation" x="-314" y="-279"/>
         </tableViewCell>

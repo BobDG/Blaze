@@ -100,7 +100,13 @@
     self.date = date;
     self.row.value = date;
     if(self.dateFormatter) {
-        self.dateField.text = [[self.dateFormatter stringFromDate:date] capitalizedString];
+        //Special case - capitalzed final text (not possible with NSDateFormatter unfortunately...)
+        if(self.row.dateFormatCapitalizedString) {
+            self.dateField.text = [[self.dateFormatter stringFromDate:date] capitalizedString];
+        }
+        else {
+            self.dateField.text = [self.dateFormatter stringFromDate:date];
+        }
     }
     [self.row updatedValue:date];
 }

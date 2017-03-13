@@ -29,6 +29,7 @@
 #define kTwoDateFieldsTableViewCell         @"TwoDateFieldsTableViewCell"
 #define kFloatTextFieldTableViewCell        @"FloatTextFieldTableViewCell"
 #define kIBInspectableBlazeTextField        @"IBInspectableBlazeTextField"
+#define kDifferentFieldsTableViewCell       @"DifferentFieldsTableViewCell"
 #define kSegmentedControlTableViewCell      @"SegmentedControlTableViewCell"
 #define kFloatTwoTextFieldsTableViewCell    @"FloatTwoTextFieldsTableViewCell"
 

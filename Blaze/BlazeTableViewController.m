@@ -73,14 +73,6 @@
     //No scrollbars
     self.tableView.showsVerticalScrollIndicator = FALSE;
     
-    //Estimated section header/footer heights
-    if(self.estimatedSectionFooterHeight) {
-        self.tableView.estimatedSectionHeaderHeight = self.estimatedSectionHeaderHeight.floatValue;
-    }
-    if(self.estimatedSectionFooterHeight) {
-        self.tableView.estimatedSectionFooterHeight = self.estimatedSectionFooterHeight.floatValue;
-    }
-    
     //Empty defaults
     self.emptyScrollable = TRUE;
     self.emptyVerticalOffset = -100.0f;
@@ -423,11 +415,11 @@
 }
 
 -(BlazeTableViewCell *)nextCellFromIndexPath:(NSIndexPath *)indexPath
-{
+{    
     //Get next indexPath in the same section
     NSIndexPath *nextRowIndexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section];
     BlazeTableViewCell *nextRowCell = [self.tableView cellForRowAtIndexPath:nextRowIndexPath];
-    if(nextRowCell) {
+    if(nextRowCell) {        
         if(nextRowCell.row.disableEditing) {
             return [self nextCellFromIndexPath:nextRowIndexPath];
         }

@@ -39,8 +39,10 @@
 
 //Field Processors
 @property(nonatomic,strong) NSMutableArray *fieldProcessors;
+
+//Fields
+@property(nonatomic,weak) IBOutlet id mainField;
 @property(nonatomic,strong) IBOutletCollection(id) NSArray *additionalFields;
--(void)setupFieldProcessorsWithMainField:(id)mainField processorClass:(Class)processorClass;
 
 //Labels
 @property(nonatomic,weak) IBOutlet UILabel *titleLabel;

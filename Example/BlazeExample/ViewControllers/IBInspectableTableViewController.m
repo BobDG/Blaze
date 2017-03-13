@@ -6,8 +6,9 @@
 //  Copyright © 2016 GraafICT. All rights reserved.
 //
 
+#import "BlazeTextField.h"
+#import "BlazeTableViewCell.h"
 #import "IBInspectableTableViewController.h"
-#import "BlazeTextFieldTableViewCell.h"
 
 @interface IBInspectableTableViewController () <UITextFieldDelegate>
 
@@ -52,23 +53,23 @@
     row.floatingTitleColor = [UIColor blueColor];
     row.floatingTitleActiveColor = [UIColor blueColor];
     row.placeholder = @"I am an orange placeholder!";
-    row.configureCell = ^(UITableViewCell *cell){
-        BlazeTextFieldTableViewCell* aCell = (BlazeTextFieldTableViewCell*)cell;
-        aCell.textField.flAlwaysShow = FALSE;
-        aCell.textField.clipsToBounds = FALSE;
-        aCell.textField.flYPadding = -20.f;
-        [aCell updateCell];
+    row.configureCell = ^(BlazeTableViewCell *cell){
+        BlazeTextField *textField = (BlazeTextField *)cell.mainField;
+        textField.flAlwaysShow = FALSE;
+        textField.clipsToBounds = FALSE;
+        textField.flYPadding = -20.f;
+        [cell updateCell];
     };
     row.value = nil;
     [section addRow:row];
     
     row = [BlazeRow rowWithXibName:kIBInspectableBlazeTextField];
     row.placeholder = @"I want my baseline to be altered when active!";
-    row.configureCell = ^(UITableViewCell *cell){
-        BlazeTextFieldTableViewCell* aCell = (BlazeTextFieldTableViewCell*)cell;
-        aCell.textField.flAlterBaseline = TRUE;
-        aCell.textField.flAlwaysShow = FALSE;
-        [aCell updateCell];
+    row.configureCell = ^(BlazeTableViewCell *cell){
+        BlazeTextField *textField = (BlazeTextField *)cell.mainField;
+        textField.flAlterBaseline = TRUE;
+        textField.flAlwaysShow = FALSE;
+        [cell updateCell];
     };
     row.value = nil;
     [section addRow:row];

@@ -192,6 +192,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic,assign) BOOL tilesMultipleSelection;
 
 //Pickerview
+@property(nonatomic) bool pickerUseIndexValue;
 @property(nonatomic,strong) NSArray *selectorOptions;
 @property(nonatomic,strong) NSString *pickerObjectPropertyName;
 
@@ -214,6 +215,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic) NSUInteger dateMinuteInterval;
 @property(nonatomic,strong) NSDate *placeholderDate;
 @property(nonatomic) UIDatePickerMode datePickerMode;
+@property(nonatomic) bool dateFormatCapitalizedString;
 @property(nonatomic,strong) NSDateFormatter *dateFormatter;
 
 //TextField/TextView
