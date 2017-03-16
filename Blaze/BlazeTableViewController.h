@@ -68,6 +68,9 @@
 @property(nonatomic) bool enableRefreshControl;
 @property(nonatomic,copy) void (^refreshControlPulled)(void);
 
+//Floating Action Button
+-(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void(^)())tapped;
+
 //Collapsing - override for example to fix iOS9 crashes...
 -(void)collapseSection:(int)sectionIndex collapsed:(BOOL)collapsed;
 

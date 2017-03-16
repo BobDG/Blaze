@@ -21,18 +21,6 @@
 //TableViewHeaders
 #import "BlazeTableHeaderFooterView.h"
 
-//Definitions of basic XIB's
-#define BlazeXIBDateCell              @"BlazeDateTableViewCell"
-#define BlazeXIBTilesCell             @"BlazeTilesTableViewCell"
-#define BlazeXIBSliderCell            @"BlazeSliderTableViewCell"
-#define BlazeXIBSwitchCell            @"BlazeSwitchTableViewCell"
-#define BlazeXIBCheckboxCell          @"BlazeCheckboxTableViewCell"
-#define BlazeXIBTextViewCell          @"BlazeTextViewTableViewCell"
-#define BlazeXIBTextFieldCell         @"BlazeTextFieldTableViewCell"
-#define BlazeXIBPickerViewCell        @"BlazePickerViewTableViewCell"
-#define BlazeXIBTwoChoicesCell        @"BlazeTwoChoicesTableViewCell"
-#define BlazeXIBSegmentedControlCell  @"BlazeSegmentedControlTableViewCell"
-
 @interface BlazeTableViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 {
     
@@ -40,6 +28,12 @@
 
 //The previous/next textfield does not work when using indexPaths, these are not correctly reset when not calling reloadData. Therefore this boolean is set to TRUE when adding/removing rows dynamically so that when a user requests the next/previous textfield, rowID's are used instead of indexpaths!
 @property(nonatomic) bool dynamicRows;
+
+//Floating action button
+@property(nonatomic) bool floatingActionButtonEnabled;
+@property(nonatomic) float floatingActionButtonPadding;
+@property(nonatomic,strong) UIButton *floatingActionButton;
+@property(nonatomic,copy) void (^floatingActionButtonTapped)(void);
 
 //Indexes for sectionPicker
 @property(nonatomic,strong) NSMutableArray *sectionIndexesArray;
@@ -92,6 +86,16 @@
     //Load content on appear if active
     if(self.loadContentOnAppear) {
         [self loadTableContent];
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    //Correct frame floating action button
+    if(self.floatingActionButtonEnabled) {
+        [self scrollViewDidScroll:self.tableView];
     }
 }
 
@@ -172,6 +176,47 @@
 -(void)endRefreshing
 {
     [self.refreshControl endRefreshing];
+}
+
+#pragma mark - Floating action button
+
+-(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)())tapped
+{
+    //Clear
+    if(self.floatingActionButton) {
+        [self.floatingActionButton removeFromSuperview];
+        self.floatingActionButton = nil;
+    }
+    
+    //Enabled
+    self.floatingActionButtonEnabled = TRUE;
+    
+    //Padding
+    self.floatingActionButtonPadding = padding;
+    
+    //Set completion block
+    self.floatingActionButtonTapped = tapped;
+    
+    //Create button
+    self.floatingActionButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+    [self.floatingActionButton setImage:image forState:UIControlStateNormal];
+    [self.floatingActionButton addTarget:self action:@selector(tappedFloatingActionButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.tableView addSubview:self.floatingActionButton];
+}
+
+-(void)tappedFloatingActionButton
+{
+    [UIView animateWithDuration:0.1f animations:^{
+        self.floatingActionButton.transform = CGAffineTransformMakeScale(1.1f, 1.1f);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.1f animations:^{
+            self.floatingActionButton.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            if(self.floatingActionButtonTapped) {
+                self.floatingActionButtonTapped();
+            }
+        }];
+    }];
 }
 
 #pragma mark ZoomTableHeaderView
@@ -1304,6 +1349,16 @@
         return;
     }
     
+    //Floating Action Button
+    if(self.floatingActionButtonEnabled) {
+        CGRect frame = self.floatingActionButton.frame;
+        frame.origin.x = scrollView.frame.size.width-self.floatingActionButtonPadding-frame.size.width;
+        frame.origin.y = scrollView.frame.size.height-self.floatingActionButtonPadding-frame.size.height;
+        frame.origin.y += scrollView.contentOffset.y;
+        self.floatingActionButton.frame = frame;
+    }
+    
+    //ZoomTableHeaderView
     if(!self.zoomTableHeaderView) {
         return;
     }
