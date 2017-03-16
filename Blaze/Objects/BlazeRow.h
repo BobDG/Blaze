@@ -129,6 +129,9 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic,strong) UIColor *subsubtitleColor;
 @property(nonatomic,strong) NSAttributedString *attributedSubSubtitle;
 
+//Additional labels
+@property(nonatomic,strong) NSArray *additionalTitles;
+
 //Buttons
 @property(nonatomic,strong) NSString *buttonLeftTitle;
 @property(nonatomic,strong) NSString *buttonCenterTitle;

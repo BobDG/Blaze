@@ -48,6 +48,7 @@
 @property(nonatomic,weak) IBOutlet UILabel *titleLabel;
 @property(nonatomic,weak) IBOutlet UILabel *subtitleLabel;
 @property(nonatomic,weak) IBOutlet UILabel *subsubtitleLabel;
+@property(nonatomic,strong) IBOutletCollection(id) NSArray *additionalLabels;
 
 //Buttons
 @property(nonatomic,weak) IBOutlet UIButton *buttonLeft;

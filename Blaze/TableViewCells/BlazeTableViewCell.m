@@ -69,6 +69,13 @@
         [self updateLabel:self.subsubtitleLabel withText:self.row.subsubtitle attributedText:self.row.attributedSubSubtitle color:self.row.subsubtitleColor];
     }
     
+    //Additional Labels
+    if(self.row.additionalTitles.count > 0 && self.row.additionalTitles.count == self.additionalLabels.count) {
+        for(int i = 0; i < self.row.additionalTitles.count; i++) {
+            ((UILabel *)self.additionalLabels[i]).text = self.row.additionalTitles[i];
+        }
+    }
+    
     //Update imageviews IF connected
     if(self.imageViewLeft) {
         [self updateImageView:self.imageViewLeft withData:self.row.imageDataLeft imageURLString:self.row.imageURLStringLeft imageName:self.row.imageNameLeft contentMode:self.row.contentModeLeft renderingMode:self.row.imageRenderModeLeft tintColor:self.row.imageTintColorLeft];
