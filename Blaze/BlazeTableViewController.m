@@ -1098,7 +1098,6 @@
     BlazeRow *row = s.rows[indexPath.row];
     
     //For esimated heights, it's important to have it as close as possible to the real value. So if it's not set, we'll use the real values
-    
     if(row.estimatedRowHeight) {
         return row.estimatedRowHeight.floatValue;
     }
@@ -1106,6 +1105,10 @@
         return self.estimatedRowHeight.floatValue;
     }
     else if(row.rowHeight) {
+        //Super-weird but if I don't do this hack it will crash saying the height is -1... Oh Apple
+        if(row.rowHeight.floatValue == 1.0f) {
+            return 2.0f;
+        }
         return row.rowHeight.floatValue;
     }
     else if(row.rowHeightRatio) {

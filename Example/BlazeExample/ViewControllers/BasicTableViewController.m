@@ -58,7 +58,7 @@
     [section addRow:[[BlazeRow alloc] initWithXibName:kTextArrowTableViewCell title:@"Text views" segueIdentifier:@"TextViewsTableViewController"]];
     
     //Row with push using storyboard name/id
-    row = [BlazeRow rowWithTitle:@"Dynamic rows"];
+    row = [BlazeRow rowWithTitle:@"Dynamic rows"];    
     row.storyboardName = @"Main";
     row.storyboardID = @"DynamicRowsTableViewController";
     [section addRow:row];
