@@ -99,10 +99,17 @@ typedef NS_ENUM(NSInteger, ImageType) {
 //Row Reference types
 @property(nonatomic,strong) id value;
 @property(nonatomic,strong) NSString *xibName;
+@property(nonatomic,strong) UIColor *selectionBackgroundColor;
+
+//For tapped cells - push using segue/storyboard
 @property(nonatomic,strong) NSString *segueIdentifier;
 @property(nonatomic,strong) NSString *storyboardID;
 @property(nonatomic,strong) NSString *storyboardName;
-@property(nonatomic,strong) UIColor *selectionBackgroundColor;
+
+//For tapped cells - push using navigationcontroller
+@property(nonatomic) UITableViewStyle navigationTableViewStyle;
+@property(nonatomic,strong) NSString *navigationViewControllerClassName;
+@property(nonatomic,strong) NSString *navigationTableViewControllerClassName;
 
 //Object & Possible property name
 @property(nonatomic,strong) id object;

@@ -1040,7 +1040,7 @@
         for(BlazeSection *section in self.tableArray) {
             for(BlazeRow *row in section.rows) {
                 if(row.rowHeight) {
-                    height -= row.rowHeight.floatValue;
+                    height -= row.rowHeight.floatValue;                    
                 }
                 else if(row.rowHeightRatio) {
                     height -= row.rowHeightRatio.floatValue * tableView.frame.size.height;
@@ -1306,6 +1306,14 @@
     }
     else if(row.storyboardID.length && row.storyboardName.length) {
         UIViewController *vc = [[UIStoryboard storyboardWithName:row.storyboardName bundle:nil] instantiateViewControllerWithIdentifier:row.storyboardID];
+        [self.navigationController pushViewController:vc animated:TRUE];
+    }
+    else if(row.navigationViewControllerClassName.length) {
+        UIViewController *vc = [NSClassFromString(row.navigationViewControllerClassName) new];
+        [self.navigationController pushViewController:vc animated:TRUE];
+    }
+    else if(row.navigationTableViewControllerClassName.length) {
+        UITableViewController *vc = [[NSClassFromString(row.navigationTableViewControllerClassName) alloc] initWithStyle:row.navigationTableViewStyle];
         [self.navigationController pushViewController:vc animated:TRUE];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:TRUE];
