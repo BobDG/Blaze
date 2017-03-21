@@ -75,6 +75,14 @@
     //Update pagecontrol
     if(self.pageControl) {
         self.pageControl.numberOfPages = self.imageViewsArray.count;
+        
+        //Hide page-control possibly for only 1 image
+        if(self.row.scrollImagesHidePageControlForOneImage && self.pageControl.numberOfPages<=1) {
+            self.pageControl.hidden = TRUE;
+        }
+        else {
+            self.pageControl.hidden = FALSE;
+        }
     }
 }
 

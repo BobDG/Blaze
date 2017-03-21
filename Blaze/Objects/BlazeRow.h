@@ -219,6 +219,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 //ScrollImages
 @property(nonatomic) ImageType scrollImageType;
 @property(nonatomic) UIViewContentMode scrollImageContentMode;
+@property(nonatomic) bool scrollImagesHidePageControlForOneImage;
 @property(nonatomic,strong) NSArray *scrollImages;
 
 //Date
