@@ -99,6 +99,22 @@
     }
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    if(self.notifyCellsWhenDisappearing) {
+        //Loop rows
+        for(int i = 0; i < [self.tableView numberOfSections]; i++) {
+            for(int j = 0; j < [self.tableView numberOfRowsInSection:i]; j++) {
+                BlazeTableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:i]];
+                [cell willDisappear];
+            }
+        }
+
+    }
+}
+
 #pragma mark - Loading content
 
 -(void)loadTableContent

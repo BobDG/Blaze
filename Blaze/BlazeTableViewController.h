@@ -41,6 +41,9 @@
 //Separator Inset
 @property(nonatomic) bool noSeparatorInset;
 
+//Disappearing - notify cells to for example stop timers/video's playing, etc.
+@property(nonatomic) bool notifyCellsWhenDisappearing;
+
 //Header caching (for animations in headerviews)
 @property(nonatomic) bool sectionHeaderCaching;
 

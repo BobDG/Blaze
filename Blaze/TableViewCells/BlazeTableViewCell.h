@@ -17,6 +17,7 @@
 
 //Methods to override
 -(void)updateCell;
+-(void)willDisappear;
 
 //Callbacks
 @property(nonatomic,copy) void (^nextField)(void);

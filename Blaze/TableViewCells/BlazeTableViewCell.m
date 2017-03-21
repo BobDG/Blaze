@@ -54,6 +54,11 @@
     //To be overridden
 }
 
+-(void)willDisappear
+{
+    //To be overridden
+}
+
 -(void)setRow:(BlazeRow *)row
 {
     _row = row;
