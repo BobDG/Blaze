@@ -1324,7 +1324,7 @@
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BlazeSection *section = self.tableArray[indexPath.section];
-    BlazeRow *row = section.rows[indexPath.row];
+    BlazeRow *row = section.rows[indexPath.row];    
     return row.enableDeleting;
 }
 
@@ -1435,9 +1435,6 @@
         //Section header/footer
         if(s.headerXibName.length) {
             [self registerCustomHeader:s.headerXibName];
-            if(self.useSectionIndexPicker && s.headerTitle.length) {
-                [self.sectionIndexesArray addObject:[[s.headerTitle substringToIndex:1] uppercaseString]];
-            }
         }
         if(s.footerXibName.length) {
             [self registerCustomHeader:s.footerXibName];
@@ -1453,6 +1450,11 @@
             if(r.xibName.length) {
                 [self registerCustomCell:r.xibName];
             }
+        }
+        
+        //Section index picker
+        if(self.useSectionIndexPicker && s.headerTitle.length) {
+            [self.sectionIndexesArray addObject:[[s.headerTitle substringToIndex:1] uppercaseString]];
         }
     }
     
