@@ -50,9 +50,11 @@ typedef NS_ENUM(NSInteger, ImageType) {
 +(instancetype)rowWithXibName:(NSString *)xibName;
 +(instancetype)rowWithXibName:(NSString *)xibName height:(NSNumber *)height;
 +(instancetype)rowWithXibName:(NSString *)xibName title:(NSString *)title;
++(instancetype)rowWithXibName:(NSString *)xibName title:(NSString *)title subtitle:(NSString *)subtitle;
 -(instancetype)initWithXibName:(NSString *)xibName;
 -(instancetype)initWithXibName:(NSString *)xibName height:(NSNumber *)height;
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title;
+-(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title subtitle:(NSString *)subtitle;
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title segueIdentifier:(NSString *)segueIdentifier;
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title placeholder:(NSString *)placeholder;
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title value:(id)value placeholder:(NSString *)placeholder;

@@ -98,6 +98,11 @@
     return [[self alloc] initWithXibName:xibName title:title];
 }
 
++(instancetype)rowWithXibName:(NSString *)xibName title:(NSString *)title subtitle:(NSString *)subtitle
+{
+    return [[self alloc] initWithXibName:xibName title:title subtitle:subtitle];
+}
+
 -(instancetype)initWithXibName:(NSString *)xibName
 {
     return [self initWithXibName:xibName title:nil];
@@ -119,6 +124,21 @@
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title
 {
     return [self initWithXibName:xibName title:title placeholder:nil];
+}
+
+-(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title subtitle:(NSString *)subtitle
+{
+    self = [super init];
+    if(!self) {
+        return nil;
+    }
+    
+    self.title = title;
+    self.xibName = xibName;
+    self.subtitle = subtitle;
+    self.floatingLabelEnabled = FloatingLabelStateUndetermined;
+    
+    return self;
 }
 
 -(instancetype)initWithXibName:(NSString *)xibName title:(NSString *)title segueIdentifier:(NSString *)segueIdentifier
