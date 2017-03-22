@@ -34,6 +34,11 @@
         return;
     }
     
+    //Default animation
+    self.deleteAnimation = UITableViewRowAnimationLeft;
+    self.insertAnimation = UITableViewRowAnimationRight;
+    self.updateAnimation = UITableViewRowAnimationAutomatic;
+    
     //Arrays/Dictionaries
     self.updatedRows = [NSMutableDictionary new];
     self.insertedRows = [NSMutableDictionary new];
@@ -163,7 +168,7 @@
     for(BlazeSection *section in self.tableArray) {
         [section.rows removeObjectsInArray:rowObjects];
     }
-    [self.tableView deleteRowsAtIndexPaths:self.deletedRowIndexPaths withRowAnimation:UITableViewRowAnimationLeft];
+    [self.tableView deleteRowsAtIndexPaths:self.deletedRowIndexPaths withRowAnimation:self.deleteAnimation];
     
     //Deleted sections
     NSMutableIndexSet *indexSet = [NSMutableIndexSet new];
@@ -171,7 +176,7 @@
         [indexSet addIndex:[sectionIndex integerValue]];
         [self.tableArray removeObjectAtIndex:[sectionIndex integerValue]];
     }
-    [self.tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView deleteSections:indexSet withRowAnimation:self.deleteAnimation];
     
     //Inserted sections
     indexSet = [NSMutableIndexSet new];
@@ -180,7 +185,7 @@
         BlazeSection *section = [self sectionForSectionInfo:self.insertedSections[sectionIndex]];
         [self.tableArray insertObject:section atIndex:[sectionIndex integerValue]];
     }
-    [self.tableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertSections:indexSet withRowAnimation:self.insertAnimation];
     
     //Add rows
     NSMutableArray *indexPathsArray = [NSMutableArray new];
@@ -192,7 +197,7 @@
         [section.rows insertObject:row atIndex:indexPath.row];
         [indexPathsArray addObject:indexPath];
     }
-    [self.tableView insertRowsAtIndexPaths:indexPathsArray withRowAnimation:UITableViewRowAnimationRight];
+    [self.tableView insertRowsAtIndexPaths:indexPathsArray withRowAnimation:self.insertAnimation];
     
     //Update rows
     indexPathsArray = [NSMutableArray new];
@@ -202,7 +207,7 @@
         [section.rows replaceObjectAtIndex:indexPath.row withObject:row];
         [indexPathsArray addObject:indexPath];
     }
-    [self.tableView reloadRowsAtIndexPaths:indexPathsArray withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView reloadRowsAtIndexPaths:indexPathsArray withRowAnimation:self.updateAnimation];
     
     //End updates
     [self.tableView endUpdates];

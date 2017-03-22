@@ -71,6 +71,9 @@
 @property(nonatomic) bool enableRefreshControl;
 @property(nonatomic,copy) void (^refreshControlPulled)(void);
 
+//Scrolling
+@property(nonatomic,copy) void (^beganScrolling)(void);
+
 //Floating Action Button
 -(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void(^)())tapped;
 

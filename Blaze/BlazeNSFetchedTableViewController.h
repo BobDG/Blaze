@@ -23,6 +23,11 @@
 @property(nonatomic,strong) NSString *sectionNameKeyPath;
 @property(nonatomic,strong) NSManagedObjectContext *managedObjectContext;
 
+//Animations (Delete defaults to left, Insert defaults to right, update automatic)
+@property(nonatomic) UITableViewRowAnimation deleteAnimation;
+@property(nonatomic) UITableViewRowAnimation insertAnimation;
+@property(nonatomic) UITableViewRowAnimation updateAnimation;
+
 //Deleting
 @property(nonatomic) bool enableDeleting;
 

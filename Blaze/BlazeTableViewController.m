@@ -1367,6 +1367,10 @@
         return;
     }
     
+    if(self.beganScrolling) {
+        self.beganScrolling();
+    }
+    
     [self.view endEditing:TRUE];
 }
 

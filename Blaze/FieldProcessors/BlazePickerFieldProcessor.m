@@ -56,6 +56,9 @@
     }
     else {
         [pickerValues addObjectsFromArray:self.row.selectorOptions];
+        if(self.row.value) {
+            textValue = self.row.value;
+        }
     }
     self.pickerField.pickerValues = pickerValues;
     
@@ -71,8 +74,7 @@
             index = [self.row.value integerValue];
         }
     }
-    else {
-        textValue = self.row.value;
+    else {        
         if(textValue.length) {
             index = [pickerValues indexOfObject:textValue];
         }
