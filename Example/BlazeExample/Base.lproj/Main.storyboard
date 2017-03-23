@@ -233,7 +233,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2U-xD-Bwb">
                                 <rect key="frame" x="36" y="179.5" width="303" height="467.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zy3-1o-Uiv">
                                 <rect key="frame" x="36" y="40" width="303" height="119.5"/>
@@ -257,16 +257,31 @@ Also the pageControl has been enabled via inspectable!</string>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="pageControlEnabled" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="containerView" destination="h2U-xD-Bwb" id="bAI-3T-n2N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ta-z4-NYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4626" y="775"/>
+            <point key="canvasLocation" x="4562" y="772"/>
+        </scene>
+        <!--Page Content View Controller-->
+        <scene sceneID="vB6-Id-hI4">
+            <objects>
+                <tableViewController storyboardIdentifier="PageContentViewController" id="ugu-0r-7mv" customClass="PageContentViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="uCU-gm-Fpz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="ugu-0r-7mv" id="wSM-pG-gC8"/>
+                            <outlet property="delegate" destination="ugu-0r-7mv" id="CNk-51-v2m"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fb6-dw-vdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5341" y="768"/>
         </scene>
     </scenes>
 </document>

@@ -9,46 +9,73 @@
 #import "BlazePageViewController.h"
 #import "BlazePageTableViewController.h"
 
-@interface BlazePageViewController () <UIPageViewControllerDataSource>
+@interface BlazePageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
+{
+    
+}
 
 @end
 
 @implementation BlazePageViewController
 
--(instancetype)init
+#pragma mark - View methods
+
+-(void)viewDidLoad
 {
-    self = [super init];
-    if(self) {
-        self.pageControlEnabled = false;
-    }
-    return self;
+    [super viewDidLoad];
+    
+    //Setup
+    [self setupPageController];
+    
+    //Setup datasource
+    self.pageViewController.dataSource = self.pageControlEnabled ? self : nil;
 }
 
--(instancetype)initWithCoder:(NSCoder *)aDecoder
+-(void)viewWillAppear:(BOOL)animated
 {
-    self = [super initWithCoder:aDecoder];
-    if(self) {
-        self.pageControlEnabled = false;
+    [super viewWillAppear:animated];
+    
+    //Show first viewcontroller only once (not when returning)
+    if(!self.pageViewController.viewControllers.count && self.viewControllers.count) {
+        [self showIndex:0 direction:UIPageViewControllerNavigationDirectionForward animated:false completion:nil];
     }
-    return self;
 }
 
--(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+#pragma mark - Setup PageController
+
+-(void)setupPageController
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if(self) {
-        self.pageControlEnabled = false;
+    if(!_pageViewController) {
+        _pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+        self.pageViewController.delegate = self;
     }
-    return self;
+    
+    if(self.containerView) {
+        if(![self.pageViewController.view.superview isEqual:self.containerView]) {
+            [self.pageViewController.view removeFromSuperview];
+            [self.containerView addSubview:self.pageViewController.view];
+            [self.pageViewController.view setBounds:self.containerView.bounds];
+        }
+    } else {
+        if(![self.pageViewController.view.superview isEqual:self.view]) {
+            [self.pageViewController.view removeFromSuperview];
+            [self.view addSubview:self.pageViewController.view];
+            [self.pageViewController.view setBounds:self.view.bounds];
+        }
+    }
 }
 
--(void)awakeFromNib
+#pragma mark - Layout
+
+-(void)viewWillLayoutSubviews
 {
-    [super awakeFromNib];
-    if(self.pageControlEnabled != true) {
-        self.pageControlEnabled = false;
-    }
+    [super viewWillLayoutSubviews];
+    
+    //Reset frame
+    [self.pageViewController.view setFrame:self.containerView?self.containerView.bounds:self.view.bounds];
 }
+
+#pragma mark - Custom setters
 
 -(void)setViewControllers:(NSArray<BlazePageTableViewController *> *)viewControllers
 {
@@ -56,52 +83,6 @@
         return;
     }
     _viewControllers = viewControllers;
-}
-
--(void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    [self.pageViewController.view setFrame:self.containerView?self.containerView.bounds:self.view.bounds];
-}
-
--(void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self setupPageController];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    if(!self.pageViewController.viewControllers.count && self.viewControllers.count) {
-        [self showIndex:0 direction:UIPageViewControllerNavigationDirectionForward animated:false completion:nil];
-    }
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
--(void)setupPageController
-{
-    if(!_pageViewController) {
-        _pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-    }
-    
-    if(self.containerView) {
-        if([self.pageViewController.view isEqual:self.containerView]) {
-            [self.pageViewController.view removeFromSuperview];
-            [self.containerView addSubview:self.pageViewController.view];
-            [self.pageViewController.view setBounds:self.containerView.bounds];
-        }
-    } else {
-        if(![self.pageViewController.view isEqual:self.view]) {
-            [self.pageViewController.view removeFromSuperview];
-            [self.view addSubview:self.pageViewController.view];
-            [self.pageViewController.view setBounds:self.view.bounds];
-        }
-    }
 }
 
 -(void)setContainerView:(UIView *)containerView
@@ -113,29 +94,16 @@
     [self setupPageController];
 }
 
--(void)setPageControlEnabled:(BOOL)pageControlEnabled
-{
-    _pageControlEnabled = pageControlEnabled;
-    if(!_pageViewController) {
-        [self setupPageController];
-    }
-    if(_pageControlEnabled) {
-        self.pageViewController.dataSource = self;
-    } else {
-        self.pageViewController.dataSource = nil;
-    }
-
-}
-
 -(UIViewController *)viewControllerAtIndex:(NSUInteger)index
 {
-    if(index < self.viewControllers.count) {
-        self.currentIndex = index;
-        BlazePageTableViewController *viewController = self.viewControllers[index];
-        viewController.pageViewController = self;
-        return viewController;
+    if(index >= self.viewControllers.count) {
+        return nil;
     }
-    return nil;
+    
+    BlazePageTableViewController *viewController = self.viewControllers[index];
+    viewController.pageViewController = self;
+    viewController.index = index;
+    return viewController;
 }
 
 -(void)next
@@ -162,17 +130,6 @@
     }];
 }
 
--(void)showIndex:(NSUInteger)index direction:(UIPageViewControllerNavigationDirection)direction animated:(BOOL)animated completion:(void (^)(BOOL finished))completion
-{
-    if(index < self.viewControllers.count) {
-        [self.pageViewController setViewControllers:@[[self viewControllerAtIndex:index]] direction:direction animated:animated completion:completion];
-    } else {
-        if(completion) {
-            completion(false);
-        }
-    }
-}
-
 -(void)previous:(BOOL)animated
 {
     if(self.currentIndex == 0 || self.currentIndex == NSNotFound) {
@@ -185,6 +142,17 @@
             weakSelf.previousCompletionBlock(finished);
         }
     }];
+}
+
+-(void)showIndex:(NSUInteger)index direction:(UIPageViewControllerNavigationDirection)direction animated:(BOOL)animated completion:(void (^)(BOOL finished))completion
+{
+    if(index < self.viewControllers.count) {
+        [self.pageViewController setViewControllers:@[[self viewControllerAtIndex:index]] direction:direction animated:animated completion:completion];
+    } else {
+        if(completion) {
+            completion(false);
+        }
+    }
 }
 
 #pragma mark - UIPageViewControllerDataSource
@@ -201,13 +169,10 @@
 
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
-    
-    if (self.currentIndex == 0 || self.currentIndex == NSNotFound) {
+    if(self.currentIndex == 0 || self.currentIndex == NSNotFound) {
         return nil;
     }
-    
-    self.currentIndex++;
-    return [self viewControllerAtIndex:self.currentIndex];
+    return [self viewControllerAtIndex:self.currentIndex-1];
 }
 
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
@@ -215,13 +180,32 @@
     if(self.currentIndex == NSNotFound) {
         return nil;
     }
-    
-    self.currentIndex++;
-    if (self.currentIndex >= [self.viewControllers count]) {
+    if(self.currentIndex >= self.viewControllers.count) {
         return nil;
     }
-    return [self viewControllerAtIndex:self.currentIndex];
+    return [self viewControllerAtIndex:self.currentIndex+1];
 }
 
+#pragma mark - UIPageViewControllerDelegate
+
+-(void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed
+{
+    BlazePageTableViewController *viewController = [self.pageViewController.viewControllers lastObject];
+    self.currentIndex = [self.viewControllers indexOfObject:viewController];    
+}
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+

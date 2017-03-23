@@ -15,12 +15,12 @@
 
 @implementation BlazePageTableViewController
 
--(IBAction)next:(id)sender
+-(void)next
 {
     [self.pageViewController next];
 }
 
--(IBAction)previous:(id)sender
+-(void)previous
 {
     [self.pageViewController previous];
 }

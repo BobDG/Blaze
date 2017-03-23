@@ -108,9 +108,10 @@
         pageViewController.edgesForExtendedLayout = UIRectEdgeNone;
         NSArray *viewControllers = @[
                                      [[PageContentViewController alloc] initWithStyle:UITableViewStylePlain],
-                                     [[PageContentViewController alloc] initWithStyle:UITableViewStylePlain]
+                                     [[PageContentViewController alloc] initWithStyle:UITableViewStyleGrouped]
                                      ];
         [pageViewController setViewControllers:viewControllers];
+        //pageViewController.pageControlEnabled = TRUE;
         [self.navigationController pushViewController:pageViewController animated:true];
         
     }];
@@ -118,7 +119,7 @@
     
     //Row with BlazePageController using storyboard and containerview!
     //Under construction!
-    /*row = [BlazeRow rowWithTitle:@"Paged tableViewControllers from storyboard!"];
+    row = [BlazeRow rowWithTitle:@"Paged tableViewControllers from storyboard!"];
     [row setCellTapped:^{
         BlazePageViewController *pageViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"BlazePageViewController"];
         NSArray *viewControllers = @[
@@ -126,10 +127,10 @@
                                      [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PageContentViewController"]
                                      ];
         [pageViewController setViewControllers:viewControllers];
-        
+        pageViewController.pageControlEnabled = TRUE;
         [self.navigationController pushViewController:pageViewController animated:true];
     }];
-    [section addRow:row];*/
+    [section addRow:row];
 }
 
 @end

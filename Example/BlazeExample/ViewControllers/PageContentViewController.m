@@ -22,6 +22,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     [self loadTableContent];
 }
 
@@ -39,14 +40,14 @@
     row = [BlazeRow rowWithXibName:@"ButtonTableViewCell"];
     row.buttonCenterTitle = @"Next";
     row.buttonCenterTapped = ^ () {
-        [self next:nil];
+        [self next];
     };
     [section addRow:row];
     
     row = [BlazeRow rowWithXibName:@"ButtonTableViewCell"];
     row.buttonCenterTitle = @"Previous";
     row.buttonCenterTapped = ^ () {
-        [self previous:nil];
+        [self previous];
     };
     [section addRow:row];
     

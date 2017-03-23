@@ -11,10 +11,14 @@
 @class BlazePageViewController;
 
 @interface BlazePageTableViewController : BlazeTableViewController
+{
+    
+}
 
+@property(nonatomic) NSUInteger index;
 @property(nonatomic,strong) BlazePageViewController *pageViewController;
 
--(IBAction)next:(id)sender;
--(IBAction)previous:(id)sender;
+-(void)next;
+-(void)previous;
 
 @end

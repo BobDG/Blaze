@@ -10,25 +10,36 @@
 
 @class BlazePageTableViewController;
 
-IB_DESIGNABLE
 @interface BlazePageViewController : UIViewController
+{
+    
+}
 
+//Outlets/Inspectables
 @property(nonatomic,weak) IBOutlet UIView *containerView;
-@property(nonatomic,strong,readonly) UIPageViewController *pageViewController;
-@property(nonatomic,strong) NSArray<BlazePageTableViewController*> *viewControllers;
-@property(nonatomic,strong) BlazePageTableViewController *currentViewController;
-@property(nonatomic,assign) NSUInteger currentIndex;
-@property(nonatomic,assign) IBInspectable BOOL pageControlEnabled;
 
+//Index
+@property(nonatomic) NSUInteger currentIndex;
+
+//PageControl
+@property(nonatomic) bool pageControlEnabled;
+
+//PageViewController/ViewControllers
+@property(nonatomic,strong) UIPageViewController *pageViewController;
+@property(nonatomic,strong) BlazePageTableViewController *currentViewController;
+@property(nonatomic,strong) NSArray<BlazePageTableViewController*> *viewControllers;
+
+//Callbacks
 @property(nonatomic,copy) void (^nextCompletionBlock)(BOOL finished);
 @property(nonatomic,copy) void (^previousCompletionBlock)(BOOL finished);
 
--(BlazePageTableViewController*)viewControllerAtIndex:(NSUInteger)index;
--(void)setupPageController;
+//Methods
 -(void)next;
--(void)next:(BOOL)animated;
--(void)showIndex:(NSUInteger)index direction:(UIPageViewControllerNavigationDirection)direction animated:(BOOL)animated completion:(void (^)(BOOL finished))completion;
 -(void)previous;
+-(void)setupPageController;
+-(void)next:(BOOL)animated;
 -(void)previous:(BOOL)animated;
+-(BlazePageTableViewController *)viewControllerAtIndex:(NSUInteger)index;
+-(void)showIndex:(NSUInteger)index direction:(UIPageViewControllerNavigationDirection)direction animated:(BOOL)animated completion:(void (^)(BOOL finished))completion;
 
 @end
