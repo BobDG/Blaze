@@ -22,6 +22,9 @@
 
 /* Begin PBXBuildFile section */
 		AFA93F01117D37C9C3CCD745 /* Pods_BlazeExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C00BA881BB68741859570A3 /* Pods_BlazeExample.framework */; };
+		B07D8F851E83F3FE006130F5 /* BlazePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07D8F841E83F3FE006130F5 /* BlazePageViewController.m */; };
+		B07D8F881E841DB6006130F5 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07D8F871E841DB6006130F5 /* PageContentViewController.m */; };
+		B07D8F8B1E841E1A006130F5 /* BlazePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07D8F8A1E841E1A006130F5 /* BlazePageTableViewController.m */; };
 		B0944BE61DDAD1B700B66895 /* IBInspectableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0944BE51DDAD1B700B66895 /* IBInspectableTableViewController.m */; };
 		B0944BE81DDAD24900B66895 /* IBInspectableBlazeTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0944BE71DDAD24900B66895 /* IBInspectableBlazeTextField.xib */; };
 		B0CE2C121DACDEAA00A1A3C9 /* TilesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0CE2C111DACDEAA00A1A3C9 /* TilesTableViewCell.xib */; };
@@ -106,6 +109,12 @@
 		5C00BA881BB68741859570A3 /* Pods_BlazeExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlazeExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7414ACEAFC2C6C62B2C372A6 /* Pods-BlazeExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlazeExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample.debug.xcconfig"; sourceTree = "<group>"; };
 		9117633E2828C62B6A0A0603 /* Pods-BlazeExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlazeExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample.release.xcconfig"; sourceTree = "<group>"; };
+		B07D8F831E83F3FE006130F5 /* BlazePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePageViewController.h; sourceTree = "<group>"; };
+		B07D8F841E83F3FE006130F5 /* BlazePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePageViewController.m; sourceTree = "<group>"; };
+		B07D8F861E841DB6006130F5 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
+		B07D8F871E841DB6006130F5 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
+		B07D8F891E841E19006130F5 /* BlazePageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePageTableViewController.h; sourceTree = "<group>"; };
+		B07D8F8A1E841E1A006130F5 /* BlazePageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePageTableViewController.m; sourceTree = "<group>"; };
 		B0944BE41DDAD1B700B66895 /* IBInspectableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInspectableTableViewController.h; sourceTree = "<group>"; };
 		B0944BE51DDAD1B700B66895 /* IBInspectableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBInspectableTableViewController.m; sourceTree = "<group>"; };
 		B0944BE71DDAD24900B66895 /* IBInspectableBlazeTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IBInspectableBlazeTextField.xib; sourceTree = "<group>"; };
@@ -324,6 +333,8 @@
 				B0944BE51DDAD1B700B66895 /* IBInspectableTableViewController.m */,
 				ED45B2ED1E0159A5007814BA /* FetchedResultsTableViewController.h */,
 				ED45B2EE1E0159A5007814BA /* FetchedResultsTableViewController.m */,
+				B07D8F861E841DB6006130F5 /* PageContentViewController.h */,
+				B07D8F871E841DB6006130F5 /* PageContentViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -341,6 +352,10 @@
 			children = (
 				EDCB01C71E2282E20064E921 /* BlazeViewController.h */,
 				EDCB01C81E2282E20064E921 /* BlazeViewController.m */,
+				B07D8F831E83F3FE006130F5 /* BlazePageViewController.h */,
+				B07D8F841E83F3FE006130F5 /* BlazePageViewController.m */,
+				B07D8F891E841E19006130F5 /* BlazePageTableViewController.h */,
+				B07D8F8A1E841E1A006130F5 /* BlazePageTableViewController.m */,
 				ED02971B1D1729370039AA41 /* BlazeTableViewController.h */,
 				ED02971C1D1729370039AA41 /* BlazeTableViewController.m */,
 				ED45B2CA1E01546B007814BA /* BlazeNSFetchedTableViewController.h */,
@@ -749,12 +764,15 @@
 				ED4B39AB1E3625F1008D86B2 /* BlazeImagesScrollTableViewCell.m in Sources */,
 				ED02976F1D1729370039AA41 /* BlazeTextViewTableViewCell.m in Sources */,
 				EDF41DFF1DC8404100073C2D /* BlazeTextField.m in Sources */,
+				B07D8F8B1E841E1A006130F5 /* BlazePageTableViewController.m in Sources */,
 				ED45B2F51E015BBC007814BA /* TestEntity.m in Sources */,
+				B07D8F851E83F3FE006130F5 /* BlazePageViewController.m in Sources */,
 				ED0297681D1729370039AA41 /* BlazeSliderTableViewCell.m in Sources */,
 				ED3BDAD81E0BD5D000B230A6 /* BlazeImagePickerTableViewCell.m in Sources */,
 				ED0297581D1729370039AA41 /* BlazeTableViewController.m in Sources */,
 				ED933E051D1728A100B8155F /* AppDelegate.m in Sources */,
 				ED0297731D1729370039AA41 /* BlazeTableHeaderFooterView.m in Sources */,
+				B07D8F881E841DB6006130F5 /* PageContentViewController.m in Sources */,
 				ED2626AD1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m in Sources */,
 				ED02975E1D1729370039AA41 /* BlazeRow.m in Sources */,
 				ED0297111D1729220039AA41 /* BaseTableViewController.m in Sources */,
