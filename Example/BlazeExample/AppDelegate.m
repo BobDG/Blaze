@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "BlazePageViewController.h"
 
 @interface AppDelegate ()
 

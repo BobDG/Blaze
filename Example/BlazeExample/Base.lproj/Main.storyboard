@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Qhh-P6-GEH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Qhh-P6-GEH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,7 +33,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Wh-p4-qSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="606" y="-65"/>
+            <point key="canvasLocation" x="642" y="-70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Vu-py-ssX">
@@ -50,7 +51,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0TM-I0-R7K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607" y="-783"/>
+            <point key="canvasLocation" x="642" y="-788"/>
         </scene>
         <!--Cell Types-->
         <scene sceneID="sJb-2c-Q65">
@@ -70,7 +71,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFy-1g-Hb6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1038" y="778"/>
+            <point key="canvasLocation" x="-1002" y="773"/>
         </scene>
         <!--Dynamic Rows-->
         <scene sceneID="qSt-TF-JV9">
@@ -90,7 +91,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nXb-xr-E9w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-361" y="778"/>
+            <point key="canvasLocation" x="-326" y="773"/>
         </scene>
         <!--Zoom Header-->
         <scene sceneID="v7F-Gj-MGP">
@@ -110,7 +111,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fla-rQ-hAX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="330" y="778"/>
+            <point key="canvasLocation" x="366" y="773"/>
         </scene>
         <!--Empty State-->
         <scene sceneID="wTs-DR-jcw">
@@ -130,7 +131,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YEj-Gm-uNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2465" y="778"/>
+            <point key="canvasLocation" x="2502" y="773"/>
         </scene>
         <!--Row Heights-->
         <scene sceneID="M4Q-Up-fqT">
@@ -150,7 +151,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5sK-ow-vs5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1738" y="778"/>
+            <point key="canvasLocation" x="1774" y="773"/>
         </scene>
         <!--Textviews-->
         <scene sceneID="cjc-yH-SzW">
@@ -170,7 +171,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R7m-WU-RrA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028" y="778"/>
+            <point key="canvasLocation" x="1065" y="773"/>
         </scene>
         <!--IBInspectables-->
         <scene sceneID="c2A-5X-ITz">
@@ -190,7 +191,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b6E-Dw-e7X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3142" y="778"/>
+            <point key="canvasLocation" x="3178" y="773"/>
         </scene>
         <!--Fetched results-->
         <scene sceneID="jMd-az-3ZJ">
@@ -216,7 +217,56 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iLO-pR-4Ro" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3807" y="778"/>
+            <point key="canvasLocation" x="3842" y="773"/>
+        </scene>
+        <!--Blaze Page View Controller-->
+        <scene sceneID="Iey-j0-bZv">
+            <objects>
+                <viewController storyboardIdentifier="BlazePageViewController" id="rMg-rj-2AG" customClass="BlazePageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oxc-l6-SlW"/>
+                        <viewControllerLayoutGuide type="bottom" id="gAg-RL-xia"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ynv-ui-gxx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2U-xD-Bwb">
+                                <rect key="frame" x="36" y="179.5" width="303" height="467.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zy3-1o-Uiv">
+                                <rect key="frame" x="36" y="40" width="303" height="119.5"/>
+                                <string key="text">The BlazePageViewController is being 
+contained in the view below.
+Also the pageControl has been enabled via inspectable!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.19215686274509802" green="0.19215686274509802" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="h2U-xD-Bwb" secondAttribute="trailing" constant="20" id="HGy-C4-0n4"/>
+                            <constraint firstItem="h2U-xD-Bwb" firstAttribute="top" secondItem="Zy3-1o-Uiv" secondAttribute="bottom" constant="20" id="JkA-qB-1DX"/>
+                            <constraint firstItem="h2U-xD-Bwb" firstAttribute="leading" secondItem="Ynv-ui-gxx" secondAttribute="leadingMargin" constant="20" id="OAz-sU-EMl"/>
+                            <constraint firstItem="gAg-RL-xia" firstAttribute="top" secondItem="h2U-xD-Bwb" secondAttribute="bottom" constant="20" id="m3g-nk-9o6"/>
+                            <constraint firstItem="Zy3-1o-Uiv" firstAttribute="leading" secondItem="Ynv-ui-gxx" secondAttribute="leadingMargin" constant="20" id="n5y-Au-nPH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zy3-1o-Uiv" secondAttribute="trailing" constant="20" id="uxj-eH-vlg"/>
+                            <constraint firstItem="Zy3-1o-Uiv" firstAttribute="top" secondItem="oxc-l6-SlW" secondAttribute="bottom" constant="20" id="wXI-wB-Zsf"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="pageControlEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="containerView" destination="h2U-xD-Bwb" id="bAI-3T-n2N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ta-z4-NYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4626" y="775"/>
         </scene>
     </scenes>
 </document>

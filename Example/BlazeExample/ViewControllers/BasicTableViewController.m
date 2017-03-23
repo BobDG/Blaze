@@ -8,6 +8,8 @@
 
 #import "BasicTableViewController.h"
 #import "RowHeightsTableViewController.h"
+#import "BlazePageViewController.h"
+#import "PageContentViewController.h"
 
 @implementation BasicTableViewController
 
@@ -74,6 +76,7 @@
     row = [BlazeRow rowWithTitle:@"Row heights & ratios"];
     [row setCellTapped:^{
         RowHeightsTableViewController *vc = [[RowHeightsTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        vc.automaticallyAdjustsScrollViewInsets = false;
         vc.title = @"Row heights & ratios";
         [self.navigationController pushViewController:vc animated:TRUE];
     }];
@@ -95,6 +98,38 @@
         [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FetchedResultsTableViewController"] animated:TRUE];
     }];
     [section addRow:row];
+    
+    //Row with BlazePageController
+    row = [BlazeRow rowWithTitle:@"Paged tableViewControllers from code!"];
+    [row setCellTapped:^{
+        BlazePageViewController *pageViewController = [[BlazePageViewController alloc] init];
+        pageViewController.title = @"BlazePageViewController";
+        pageViewController.extendedLayoutIncludesOpaqueBars = false;
+        pageViewController.edgesForExtendedLayout = UIRectEdgeNone;
+        NSArray *viewControllers = @[
+                                     [[PageContentViewController alloc] initWithStyle:UITableViewStylePlain],
+                                     [[PageContentViewController alloc] initWithStyle:UITableViewStylePlain]
+                                     ];
+        [pageViewController setViewControllers:viewControllers];
+        [self.navigationController pushViewController:pageViewController animated:true];
+        
+    }];
+    [section addRow:row];
+    
+    //Row with BlazePageController using storyboard and containerview!
+    //Under construction!
+    /*row = [BlazeRow rowWithTitle:@"Paged tableViewControllers from storyboard!"];
+    [row setCellTapped:^{
+        BlazePageViewController *pageViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"BlazePageViewController"];
+        NSArray *viewControllers = @[
+                                     [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PageContentViewController"],
+                                     [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PageContentViewController"]
+                                     ];
+        [pageViewController setViewControllers:viewControllers];
+        
+        [self.navigationController pushViewController:pageViewController animated:true];
+    }];
+    [section addRow:row];*/
 }
 
 @end
