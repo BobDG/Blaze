@@ -194,6 +194,21 @@
     [self.refreshControl endRefreshing];
 }
 
+#pragma mark - InvertedTableView
+
+-(void)setInvertedTableView:(bool)invertedTableView
+{
+    _invertedTableView = invertedTableView;
+    
+    //Transform it
+    if(invertedTableView) {
+        self.tableView.transform = CGAffineTransformMakeScale(1, -1);
+    }
+    else {
+        self.tableView.transform = CGAffineTransformIdentity;
+    }
+}
+
 #pragma mark - Floating action button
 
 -(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)())tapped
@@ -1286,6 +1301,11 @@
         row.configureCell(cell);
     }
     
+    //Invert?
+    if(self.invertedTableView) {
+        cell.transform = CGAffineTransformMakeScale(1, -1);
+    }
+    
     //Return
     return cell;
 }
@@ -1502,7 +1522,15 @@
     }
 }
 
-- (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView
+-(CGAffineTransform)transformForEmptyDataSet:(UIScrollView *)scrollView
+{
+    if(self.invertedTableView) {
+        return CGAffineTransformMakeScale(1, -1);
+    }
+    return CGAffineTransformIdentity;
+}
+
+-(UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView
 {
     return self.emptyCustomView;
 }

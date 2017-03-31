@@ -274,6 +274,16 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
     return offset;
 }
 
+- (CGAffineTransform)dzn_transform
+{
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    
+    if (self.emptyDataSetSource && [self.emptyDataSetSource respondsToSelector:@selector(transformForEmptyDataSet:)]) {
+        transform = [self.emptyDataSetSource transformForEmptyDataSet:self];
+    }
+    return transform;
+}
+
 - (CGFloat)dzn_verticalSpace
 {
     if (self.emptyDataSetSource && [self.emptyDataSetSource respondsToSelector:@selector(spaceHeightForEmptyDataSet:)]) {
@@ -542,6 +552,9 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         [UIView performWithoutAnimation:^{
             [view layoutIfNeeded];            
         }];
+        
+        //Transform
+        view.transform = [self dzn_transform];
         
         // Configure scroll permission
         self.scrollEnabled = [self dzn_isScrollAllowed];

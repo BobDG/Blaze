@@ -153,6 +153,12 @@
  */
 - (CGFloat)spaceHeightForEmptyDataSet:(UIScrollView *)scrollView;
 
+
+/**
+ Transform for emptydataset
+ */
+- (CGAffineTransform)transformForEmptyDataSet:(UIScrollView *)scrollView;
+
 @end
 
 
