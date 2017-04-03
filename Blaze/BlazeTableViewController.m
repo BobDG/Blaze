@@ -1199,6 +1199,11 @@
         self.cachedSectionHeaders[@(section)] = headerView;
     }
     
+    //Invert if necessary
+    if(self.invertedTableView) {
+        headerView.transform = CGAffineTransformMakeScale(1, -1);
+    }
+    
     return headerView;
 }
 
@@ -1227,6 +1232,11 @@
     //Configure
     if(s.configureFooterView) {
         s.configureFooterView(footerView);
+    }
+    
+    //Invert if necessary
+    if(self.invertedTableView) {
+        footerView.transform = CGAffineTransformMakeScale(1, -1);
     }
     
     return footerView;
