@@ -45,6 +45,7 @@
 @property(nonatomic) bool notifyCellsWhenDisappearing;
 
 //Header caching (for animations in headerviews)
+-(void)clearSectionHeaderCache;
 @property(nonatomic) bool sectionHeaderCaching;
 
 //Inverted tableview (and cells/emptyview) - useful when showing e.g. messages from bottom to top incl. refreshcontrol at the bottom

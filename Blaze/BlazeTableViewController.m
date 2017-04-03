@@ -637,6 +637,13 @@
     [self.tableView endUpdates];
 }
 
+#pragma mark - Caching
+
+-(void)clearSectionHeaderCache
+{
+    [self.cachedSectionHeaders removeAllObjects];
+}
+
 #pragma mark Adding/Removing Rows/Sections
 
 -(void)addSection:(BlazeSection *)section
