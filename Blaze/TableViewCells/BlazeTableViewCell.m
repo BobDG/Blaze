@@ -284,10 +284,18 @@
 {
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectZero];
     toolBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    UIBarButtonItem *previousBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow_Left" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(previousField:)];
+    UIBarButtonItem *nextBB;
+    UIBarButtonItem *previousBB;
+    if(self.row.inputAccessoryViewType == InputAccessoryViewDefaultArrows) {
+        previousBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow_Left" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(previousField:)];
+        nextBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow_Right" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(nextField:)];
+    }
+    else if(self.row.inputAccessoryViewType == InputAccessoryViewDefaultStrings) {
+        previousBB = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Blaze_KeyboardButton_Previous", @"") style:UIBarButtonItemStylePlain target:self action:@selector(previousField:)];
+        nextBB = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Blaze_KeyboardButton_Next", @"") style:UIBarButtonItemStylePlain target:self action:@selector(nextField:)];
+    }
     UIBarButtonItem *fixedSpaceBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     fixedSpaceBB.width = 20.0f;
-    UIBarButtonItem *nextBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow_Right" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(nextField:)];
     UIBarButtonItem *flexibleSpaceBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *doneBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneField:)];
     [toolBar setItems:@[previousBB, fixedSpaceBB, nextBB, flexibleSpaceBB, doneBB]]; 

@@ -51,6 +51,9 @@
     //Default imageData
     self.imageData = UIImagePNGRepresentation([UIImage imageNamed:@"Blaze_Logo"]);
     
+    //Default
+    self.defaultInputAccessoryViewType = @(InputAccessoryViewDefaultStrings);
+    
     //Section index picker
     //self.useSectionIndexPicker = TRUE;
 }

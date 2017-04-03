@@ -10,7 +10,8 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
-    InputAccessoryViewDefault,
+    InputAccessoryViewDefaultArrows,
+    InputAccessoryViewDefaultStrings,
     InputAccessoryViewCancelSave,
 };
 

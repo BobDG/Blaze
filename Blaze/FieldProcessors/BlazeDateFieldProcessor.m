@@ -83,7 +83,7 @@
 -(void)updateAccessoryInputView
 {
     //Only for default inputAccessoryView
-    if(self.row.inputAccessoryViewType == InputAccessoryViewDefault) {
+    if(self.row.inputAccessoryViewType != InputAccessoryViewCancelSave) {
         //Get toolbar
         self.dateField.inputAccessoryView = [self.cell defaultInputAccessoryViewToolbar];
         
