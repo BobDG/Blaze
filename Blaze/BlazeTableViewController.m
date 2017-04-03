@@ -1179,8 +1179,7 @@
     
     //Collapsing
     if(s.canCollapse) {
-        __weak __typeof(self)weakSelf = self;
-        __weak __typeof(BlazeSection *)weakSection = s;
+        __weak __typeof(self)weakSelf = self;        
         [s setCollapseTapped:^{
             [weakSelf collapseSection:(int)section];
         }];
