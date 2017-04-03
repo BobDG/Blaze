@@ -75,6 +75,13 @@
     [self.pageViewController.view setFrame:self.containerView?self.containerView.bounds:self.view.bounds];
 }
 
+#pragma mark - Custom Getters
+
+-(BlazePageTableViewController *)currentViewController
+{
+    return self.pageViewController.viewControllers.firstObject;
+}
+
 #pragma mark - Custom setters
 
 -(void)setViewControllers:(NSArray<BlazePageTableViewController *> *)viewControllers
