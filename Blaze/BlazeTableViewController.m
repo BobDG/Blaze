@@ -600,7 +600,7 @@
 
 #pragma mark - Collapsing
 
--(void)collapseSection:(int)sectionIndex collapsed:(BOOL)collapsed
+-(void)collapseSection:(int)sectionIndex
 {
     //Dynamic rows
     self.dynamicRows = TRUE;
@@ -622,8 +622,11 @@
     //Begin updates
     [self.tableView beginUpdates];
     
+    //Change collapsed value here
+    section.collapsed = !section.collapsed;
+    
     //Add/remove rows
-    if(collapsed) {
+    if(section.collapsed) {
         [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:section.collapseAnimation];
     }
     else {
@@ -1179,7 +1182,7 @@
         __weak __typeof(self)weakSelf = self;
         __weak __typeof(BlazeSection *)weakSection = s;
         [s setCollapseTapped:^{
-            [weakSelf collapseSection:(int)section collapsed:weakSection.collapsed];
+            [weakSelf collapseSection:(int)section];
         }];
     }
     

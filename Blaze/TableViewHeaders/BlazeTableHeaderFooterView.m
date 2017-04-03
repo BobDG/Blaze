@@ -76,8 +76,7 @@
 
 -(IBAction)collapse:(id)sender
 {
-    self.section.collapsed = !self.section.collapsed;
-    [self willCollapse:self.section.collapsed];
+    [self willCollapse:!self.section.collapsed];
     if(self.section.collapseTapped) {
         self.section.collapseTapped();
     }

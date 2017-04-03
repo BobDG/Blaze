@@ -18,6 +18,10 @@
 {
     [super viewDidLoad];
     
+    //Section header/footer
+    self.tableView.estimatedSectionHeaderHeight = 40;
+    self.tableView.estimatedSectionFooterHeight = 40;
+    
     //Looks better when not translucent
     self.navigationController.navigationBar.translucent = FALSE;
     self.navigationController.automaticallyAdjustsScrollViewInsets = FALSE;
@@ -27,12 +31,9 @@
     
     //Parallax
     self.headerParallaxScrollRatio = 0.3f;
-    
-    //Load table
-    [self loadTable];
 }
 
--(void)loadTable
+-(void)loadTableContent
 {
     //Section
     BlazeSection *section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Draggable zoom header view & Optional parallax effect"];

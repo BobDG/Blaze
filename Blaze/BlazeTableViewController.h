@@ -81,7 +81,7 @@
 -(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void(^)())tapped;
 
 //Collapsing - override for example to fix iOS9 crashes...
--(void)collapseSection:(int)sectionIndex collapsed:(BOOL)collapsed;
+-(void)collapseSection:(int)sectionIndex;
 
 //Scrolling
 -(void)scrollToTop:(BOOL)animated;

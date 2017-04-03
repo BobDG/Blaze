@@ -24,11 +24,12 @@
 {
     [super viewDidLoad];
     
-    //Load table
-    [self loadTable];
+    //Section header/footer
+    self.tableView.estimatedSectionHeaderHeight = 40;
+    self.tableView.estimatedSectionFooterHeight = 40;
 }
 
--(void)loadTable
+-(void)loadTableContent
 {
     //Row & Section
     BlazeRow *row;

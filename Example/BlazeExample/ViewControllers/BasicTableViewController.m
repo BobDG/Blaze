@@ -6,10 +6,11 @@
 //  Copyright © 2016 GraafICT. All rights reserved.
 //
 
-#import "BasicTableViewController.h"
-#import "RowHeightsTableViewController.h"
 #import "BlazePageViewController.h"
+#import "BasicTableViewController.h"
 #import "PageContentViewController.h"
+#import "RowHeightsTableViewController.h"
+#import "CollapsingSectionsTableViewController.h"
 
 @implementation BasicTableViewController
 
@@ -37,11 +38,12 @@
         });
     }];
     
-    //Load table
-    [self loadTable];
+    //Section header/footer
+    self.tableView.estimatedSectionHeaderHeight = 40;
+    self.tableView.estimatedSectionFooterHeight = 40;
 }
 
--(void)loadTable
+-(void)loadTableContent
 {
     //Row & Section
     BlazeRow *row;
@@ -80,6 +82,11 @@
         vc.title = @"Row heights & ratios";
         [self.navigationController pushViewController:vc animated:TRUE];
     }];
+    [section addRow:row];
+    
+    //Collapsing sections
+    row = [BlazeRow rowWithTitle:@"Collapsing sections"];
+    row.navigationTableViewControllerClassName = NSStringFromClass([CollapsingSectionsTableViewController class]);
     [section addRow:row];
     
     //Segue again

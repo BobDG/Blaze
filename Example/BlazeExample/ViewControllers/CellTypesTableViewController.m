@@ -41,8 +41,9 @@
 {
     [super viewDidLoad];
     
-    //Load table
-    self.loadContentOnAppear = TRUE;
+    //Section header/footer
+    self.tableView.estimatedSectionHeaderHeight = 40;
+    self.tableView.estimatedSectionFooterHeight = 40;
     
     //Some empty space looks better
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 40)];

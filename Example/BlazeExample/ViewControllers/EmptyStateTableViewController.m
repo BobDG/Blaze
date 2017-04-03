@@ -17,6 +17,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    
     //Empty state
     self.emptyImage = [UIImage imageNamed:@"Blaze_Logo"];
     self.emptyBackgroundColor = [UIColor whiteColor];
@@ -48,7 +49,14 @@
 
 -(void)buttonTapped:(UIButton*)sender
 {
-    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Button", @"") message:NSLocalizedString(@"Tapped", @"") preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+    }]];
+    [self presentViewController:alertController animated:TRUE completion:^{
+        
+    }];
+    CFRunLoopWakeUp(CFRunLoopGetCurrent());
 }
 
 @end

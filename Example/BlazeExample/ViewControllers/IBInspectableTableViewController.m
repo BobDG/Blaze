@@ -18,8 +18,11 @@
 
 -(void)viewDidLoad
 {
-    [super viewDidLoad];
-    self.loadContentOnAppear = TRUE;
+    [super viewDidLoad];    
+    
+    //Section header/footer
+    self.tableView.estimatedSectionHeaderHeight = 40;
+    self.tableView.estimatedSectionFooterHeight = 40;
 }
 
 -(void)loadTableContent

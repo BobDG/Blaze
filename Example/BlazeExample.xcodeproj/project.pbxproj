@@ -103,6 +103,7 @@
 		EDF0E7E71D4111570036AEDA /* TwoChoicesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF0E7E61D4111570036AEDA /* TwoChoicesTableViewCell.xib */; };
 		EDF41DFF1DC8404100073C2D /* BlazeTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF41DFE1DC8404100073C2D /* BlazeTextField.m */; };
 		EDF41E021DC840E400073C2D /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF41E011DC840E400073C2D /* NSString+TextDirectionality.m */; };
+		EDFFE43C1E923D2A00E5A155 /* CollapsingSectionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFFE43B1E923D2A00E5A155 /* CollapsingSectionsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -240,6 +241,8 @@
 		EDF41DFE1DC8404100073C2D /* BlazeTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTextField.m; sourceTree = "<group>"; };
 		EDF41E001DC840E400073C2D /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TextDirectionality.h"; sourceTree = "<group>"; };
 		EDF41E011DC840E400073C2D /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TextDirectionality.m"; sourceTree = "<group>"; };
+		EDFFE43A1E923D2A00E5A155 /* CollapsingSectionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollapsingSectionsTableViewController.h; sourceTree = "<group>"; };
+		EDFFE43B1E923D2A00E5A155 /* CollapsingSectionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollapsingSectionsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +332,8 @@
 				ED0296FE1D1729220039AA41 /* TextViewsTableViewController.m */,
 				ED0296FF1D1729220039AA41 /* ZoomHeaderTableViewController.h */,
 				ED0297001D1729220039AA41 /* ZoomHeaderTableViewController.m */,
+				EDFFE43A1E923D2A00E5A155 /* CollapsingSectionsTableViewController.h */,
+				EDFFE43B1E923D2A00E5A155 /* CollapsingSectionsTableViewController.m */,
 				B0944BE41DDAD1B700B66895 /* IBInspectableTableViewController.h */,
 				B0944BE51DDAD1B700B66895 /* IBInspectableTableViewController.m */,
 				ED45B2ED1E0159A5007814BA /* FetchedResultsTableViewController.h */,
@@ -745,6 +750,7 @@
 				ED0297771D1729370039AA41 /* BlazeTextView.m in Sources */,
 				ED0297711D1729370039AA41 /* BlazeTilesTableViewCell.m in Sources */,
 				EDAF38AE1E76A94800F8A508 /* BlazeFieldProcessor.m in Sources */,
+				EDFFE43C1E923D2A00E5A155 /* CollapsingSectionsTableViewController.m in Sources */,
 				ED45B2CC1E01546B007814BA /* BlazeNSFetchedTableViewController.m in Sources */,
 				EDAF38AF1E76A94800F8A508 /* BlazePickerFieldProcessor.m in Sources */,
 				EDF0E7E41D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m in Sources */,

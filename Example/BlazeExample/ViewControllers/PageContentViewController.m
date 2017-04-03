@@ -17,13 +17,8 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
     
-    [self loadTableContent];
+    self.navigationItem.title = NSLocalizedString(@"Paging", @"");
 }
 
 -(void)loadTableContent
