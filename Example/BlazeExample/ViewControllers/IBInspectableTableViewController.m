@@ -27,6 +27,9 @@
 
 -(void)loadTableContent
 {
+    //Clear
+    [self.tableArray removeAllObjects];
+    
     //Row & Section
     BlazeRow *row;
     BlazeSection *section;
@@ -77,8 +80,8 @@
     row.value = nil;
     [section addRow:row];
     
-    
-    [self reloadTable:true];
+    //Reload
+    [self.tableView reloadData];
 }
 
 @end

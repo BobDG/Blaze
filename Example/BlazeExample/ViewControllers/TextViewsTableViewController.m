@@ -31,6 +31,9 @@
 
 -(void)loadTableContent
 {
+    //Clear
+    [self.tableArray removeAllObjects];
+    
     //Row & Section
     BlazeRow *row;
     BlazeSection *section;
@@ -54,6 +57,9 @@
     row.placeholder = @"Placeholder awesomeness";
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textViewValue2)]];
     [section addRow:row];
+    
+    //Reload
+    [self.tableView reloadData];
 }
 
 @end

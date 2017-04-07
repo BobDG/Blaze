@@ -21,6 +21,9 @@
 
 -(void)loadTableContent
 {
+    //Clear
+    [self.tableArray removeAllObjects];
+    
     //Row & Section
     BlazeRow *row;
     BlazeSection *section;
@@ -44,6 +47,9 @@
     row = [[BlazeRow alloc] initWithXibName:kTextTableViewCell title:@"Or a ratio, e.g. 30% of the screen height"];
     row.rowHeightRatio = @(0.3f);
     [section addRow:row];
+    
+    //Reload
+    [self.tableView reloadData];
 }
 
 @end

@@ -15,6 +15,9 @@
     
 }
 
+//Prefix sections
+@property(nonatomic,strong) NSArray<BlazeSection *> *prefixSections;
+
 //FetchedResults properties
 @property(nonatomic) bool disableFetchedResults;
 @property(nonatomic,strong) NSString *entityName;

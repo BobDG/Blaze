@@ -99,6 +99,11 @@
         return;
     }
     
+    //PrefixSections
+    if(self.prefixSections) {
+        [self.tableArray addObjectsFromArray:self.prefixSections];
+    }
+    
     //Create initial data
     for(int i = 0; i < self.fetchedResultsController.sections.count; i++) {
         id<NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[i];

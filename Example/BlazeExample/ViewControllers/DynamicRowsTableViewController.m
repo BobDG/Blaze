@@ -39,6 +39,9 @@ typedef NS_ENUM(NSInteger, RowID) {
 
 -(void)loadTableContent
 {
+    //Clear
+    [self.tableArray removeAllObjects];
+    
     //Row & Section
     BlazeRow *row;
     BlazeSection *section;
@@ -71,6 +74,9 @@ typedef NS_ENUM(NSInteger, RowID) {
     }]; 
     row.ID = RowHowMany;
     self.howManyFieldsRow = row;
+    
+    //Reload
+    [self.tableView reloadData];
 }
 
 -(void)updateRows

@@ -1334,6 +1334,17 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BlazeSection *section = self.tableArray[indexPath.section];
+    BlazeRow *row = section.rows[indexPath.row];
+    if(row.willDisplayCell) {
+        //Necessary for correct frames
+        [cell layoutIfNeeded];
+        row.willDisplayCell((BlazeTableViewCell *)cell);
+    }
+}
+
 #pragma mark - UITableview Datasource - Section Index
 
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
