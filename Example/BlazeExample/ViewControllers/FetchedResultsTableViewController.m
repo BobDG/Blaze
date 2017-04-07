@@ -36,6 +36,22 @@
     self.managedObjectContext = kCoreData.managedObjectContext;
     self.sectionNameKeyPath = @"index";
     self.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"index" ascending:TRUE], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:TRUE]];
+    
+    //Textfield section
+    BlazeSection *section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Prefix sections above fetched content :)"];
+    [self addSection:section];
+    
+    //Textfield
+    BlazeRow *row = [[BlazeRow alloc] initWithXibName:kFloatTextFieldTableViewCell];
+    row.floatingLabelEnabled = TRUE;
+    row.floatingTitleActiveColor = [UIColor redColor];
+    row.floatingTitleFont = [UIFont italicSystemFontOfSize:12.0f];
+    row.floatingTitle = @"Floating placeholder";
+    row.placeholder = @"Placeholder";
+    [section addRow:row];
+    
+    //Prefix sections
+    self.prefixSections = @[section];
 }
 
 #pragma mark - Methods to override

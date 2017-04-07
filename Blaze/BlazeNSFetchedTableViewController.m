@@ -124,6 +124,7 @@
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex
      forChangeType:(NSFetchedResultsChangeType)type
 {
+    sectionIndex = sectionIndex + self.prefixSections.count;
     switch (type) {
         case NSFetchedResultsChangeInsert:
             //NSLog(@"Insert section: %d", (int)sectionIndex);
@@ -141,6 +142,10 @@
 -(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath
      forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
 {
+    int prefixSectionsCount = (int)self.prefixSections.count;
+    indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section+prefixSectionsCount];
+    newIndexPath = [NSIndexPath indexPathForRow:newIndexPath.row inSection:newIndexPath.section+prefixSectionsCount];
+    
     if(type == NSFetchedResultsChangeInsert) {
         //NSLog(@"Insert row: %d-%d", (int)newIndexPath.section, (int)newIndexPath.row);
         self.insertedRows[newIndexPath] = anObject;
