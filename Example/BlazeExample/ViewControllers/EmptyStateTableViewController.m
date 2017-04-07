@@ -25,6 +25,8 @@
     self.emptyTitle = @"This is an example text for an empty state, you can provide colors, atributed text, image, background color, etc.\nCredits to DZNEmptyDataSet!";
     self.emptyTitleAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:18.0f weight:UIFontWeightLight], NSForegroundColorAttributeName:[UIColor darkGrayColor]};
     
+    
+    
     //Empty state custom view with hitTest for UIButton subview
 /*
     self.emptyBackgroundColor = [UIColor redColor];
@@ -45,6 +47,22 @@
     [view addSubview:btn];
     self.emptyCustomView = view;
  */
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    //Floating action button
+    __weak __typeof(self)weakSelf = self;
+    [self setupFloatingActionButtonWithImage:[UIImage imageNamed:@"Button_FAB_Red"] padding:32.0f tapped:^{
+        [weakSelf actionButtonTapped];
+    } animated:TRUE];
+}
+
+-(void)actionButtonTapped
+{
+    NSLog(@"Action button tapped!");
 }
 
 -(void)buttonTapped:(UIButton*)sender

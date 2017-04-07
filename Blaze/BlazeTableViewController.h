@@ -79,8 +79,9 @@
 //Scrolling
 @property(nonatomic,copy) void (^beganScrolling)(void);
 
-//Floating Action Button
+//Floating Action Button - Advise is to setup in viewdidappear to ensure correct frame and visible animation
 -(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void(^)())tapped;
+-(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)())tapped animated:(BOOL)animated;
 
 //Collapsing - override for example to fix iOS9 crashes...
 -(void)collapseSection:(int)sectionIndex;

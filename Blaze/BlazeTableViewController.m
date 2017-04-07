@@ -213,6 +213,11 @@
 
 -(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)())tapped
 {
+    [self setupFloatingActionButtonWithImage:image padding:padding tapped:tapped animated:FALSE];
+}
+
+-(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)())tapped animated:(BOOL)animated
+{
     //Clear
     if(self.floatingActionButton) {
         [self.floatingActionButton removeFromSuperview];
@@ -233,6 +238,15 @@
     [self.floatingActionButton setImage:image forState:UIControlStateNormal];
     [self.floatingActionButton addTarget:self action:@selector(tappedFloatingActionButton) forControlEvents:UIControlEventTouchUpInside];
     [self.tableView addSubview:self.floatingActionButton];
+    [self scrollViewDidScroll:self.tableView];
+    
+    //Animation
+    if(animated) {
+        self.floatingActionButton.transform = CGAffineTransformMakeScale(0.01, 0.01);
+        [UIView animateWithDuration:0.4f delay:0.0f usingSpringWithDamping:0.6f initialSpringVelocity:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
+            self.floatingActionButton.transform = CGAffineTransformIdentity;
+        } completion:nil];
+    }    
 }
 
 -(void)tappedFloatingActionButton
