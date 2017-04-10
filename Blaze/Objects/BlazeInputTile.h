@@ -15,9 +15,11 @@
 }
 
 -(id)initWithID:(int)ID text:(NSString *)text tintColor:(UIColor *)tintColor baseColor:(UIColor *)baseColor imageName:(NSString *)imageName;
+-(id)initWithID:(int)ID name:(NSString *)name text:(NSString *)text tintColor:(UIColor *)tintColor baseColor:(UIColor *)baseColor imageName:(NSString *)imageName;
 
 @property(nonatomic) int ID;
 @property(nonatomic,strong) NSString *text;
+@property(nonatomic,strong) NSString *name;
 @property(nonatomic,strong) UIColor *baseColor;
 @property(nonatomic,strong) UIColor *tintColor;
 @property(nonatomic,strong) NSString *imageName;

@@ -75,7 +75,12 @@
             }
         }
     } else {
-        cell.selected = indexPath.row == [self.row.value intValue];
+        if(self.row.value) {
+            cell.selected = indexPath.row == [self.row.value intValue];
+        }
+        else {
+            cell.selected = FALSE;
+        }
     }
     return cell;
 }
