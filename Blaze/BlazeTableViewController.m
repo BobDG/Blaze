@@ -69,9 +69,6 @@
     
     //Empty defaults
     self.emptyScrollable = TRUE;
-    self.emptyVerticalOffset = -100.0f;
-    self.emptyTableViewCellSeparatorStyle = -1;
-    self.filledTableViewCellSeparatorStyle = -1;
     self.emptyBackgroundColor = [UIColor clearColor];
     
     //Empty datasource & delegate
@@ -1561,12 +1558,12 @@
     }
     
     //Separator style
-    if((int)self.emptyTableViewCellSeparatorStyle != -1 && (int)self.filledTableViewCellSeparatorStyle != -1) {
+    if(self.emptyTableViewCellSeparatorStyle && self.filledTableViewCellSeparatorStyle) {
         if(self.tableArray.count) {
-            self.tableView.separatorStyle = self.filledTableViewCellSeparatorStyle;
+            self.tableView.separatorStyle = (UITableViewCellSeparatorStyle)self.filledTableViewCellSeparatorStyle.intValue;
         }
         else {
-            self.tableView.separatorStyle = self.emptyTableViewCellSeparatorStyle;
+            self.tableView.separatorStyle = (UITableViewCellSeparatorStyle)self.emptyTableViewCellSeparatorStyle.intValue;
         }
     }
 }

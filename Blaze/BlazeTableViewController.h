@@ -33,8 +33,8 @@
 @property(nonatomic,strong) NSDictionary *emptyTitleAttributes;
 @property(nonatomic,strong) UIView *emptyCustomView;
 @property(nonatomic,strong) NSNumber *defaultInputAccessoryViewType;
-@property(nonatomic) UITableViewCellSeparatorStyle filledTableViewCellSeparatorStyle;
-@property(nonatomic) UITableViewCellSeparatorStyle emptyTableViewCellSeparatorStyle;
+@property(nonatomic,strong) NSNumber *filledTableViewCellSeparatorStyle;
+@property(nonatomic,strong) NSNumber *emptyTableViewCellSeparatorStyle;
 
 //Section index picker (A-Z) - Implemented assuming sections are correctly formatted and have a unique first-letter
 @property(nonatomic) bool useSectionIndexPicker;
