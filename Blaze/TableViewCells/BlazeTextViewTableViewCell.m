@@ -37,7 +37,8 @@
     }
     
     //Editable
-    self.textView.userInteractionEnabled = !self.row.disableEditing;}
+    self.textView.userInteractionEnabled = !self.row.disableEditing;
+}
 
 -(void)awakeFromNib
 {
@@ -79,7 +80,13 @@
 
 -(void)done
 {
-    [self.textView resignFirstResponder];
+    [self.textView resignFirstResponder];    
+}
+
+#pragma mark - UITextViewDelegate
+
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
     if(self.row.doneChanging) {
         self.row.doneChanging();
     }

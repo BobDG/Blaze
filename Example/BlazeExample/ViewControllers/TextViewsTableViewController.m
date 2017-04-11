@@ -46,6 +46,9 @@
     row = [[BlazeRow alloc] initWithXibName:kTextViewTableViewCell title:@"Textview below"];
     row.placeholder = @"Textview 1";
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textViewValue1)]];
+    [row setDoneChanging:^{
+        NSLog(@"Done changing!");
+    }];
     [section addRow:row];
     
     //Textview 2
