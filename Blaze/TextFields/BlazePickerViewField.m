@@ -52,6 +52,7 @@
 
 -(void)pickerFieldCancelled
 {
+    [self.pickerView selectRow:self.selectedIndex inComponent:0 animated:FALSE];
     [self resignFirstResponder];
     if(self.pickerCancelled) {
         self.pickerCancelled();

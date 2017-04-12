@@ -32,9 +32,14 @@
 @property(nonatomic,strong) UIColor *emptyBackgroundColor;
 @property(nonatomic,strong) NSDictionary *emptyTitleAttributes;
 @property(nonatomic,strong) UIView *emptyCustomView;
-@property(nonatomic,strong) NSNumber *defaultInputAccessoryViewType;
 @property(nonatomic,strong) NSNumber *filledTableViewCellSeparatorStyle;
 @property(nonatomic,strong) NSNumber *emptyTableViewCellSeparatorStyle;
+
+//Default InputAccessoryView
+@property(nonatomic,strong) NSNumber *defaultInputAccessoryViewType;
+
+//Specific bundle for nibs
+@property(nonatomic,strong) NSBundle *bundle;
 
 //Section index picker (A-Z) - Implemented assuming sections are correctly formatted and have a unique first-letter
 @property(nonatomic) bool useSectionIndexPicker;

@@ -129,7 +129,7 @@
     }
     
     //Register cell
-    [self.tableView registerNib:[UINib nibWithNibName:xibName bundle:nil] forCellReuseIdentifier:xibName];
+    [self.tableView registerNib:[UINib nibWithNibName:xibName bundle:self.bundle] forCellReuseIdentifier:xibName];
     
     //Save
     [self.registeredCells addObject:xibName];
@@ -143,7 +143,7 @@
     }
     
     //Register header
-    [self.tableView registerNib:[UINib nibWithNibName:xibName bundle:nil] forHeaderFooterViewReuseIdentifier:xibName];
+    [self.tableView registerNib:[UINib nibWithNibName:xibName bundle:self.bundle] forHeaderFooterViewReuseIdentifier:xibName];
     
     //Save
     [self.registeredHeaders addObject:xibName];

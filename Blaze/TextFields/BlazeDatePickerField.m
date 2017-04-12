@@ -52,6 +52,7 @@
 
 -(void)dateFieldCancelled
 {
+    self.datePicker.date = self.date;
     [self resignFirstResponder];
     if(self.dateCancelled) {
         self.dateCancelled();
