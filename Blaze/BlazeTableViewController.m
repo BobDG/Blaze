@@ -74,6 +74,9 @@
     //Empty datasource & delegate
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
+    
+    //Default dismiss keyboard on drag
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -1436,8 +1439,6 @@
     if(self.beganScrolling) {
         self.beganScrolling();
     }
-    
-    [self.view endEditing:TRUE];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
