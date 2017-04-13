@@ -29,7 +29,12 @@
     _inputTile = inputTile;
     
     self.titleLabel.text = self.inputTile.text;
-    [self.imageView setImage:[[UIImage imageNamed:self.inputTile.imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    if(self.bundle) {
+        [self.imageView setImage:[[UIImage imageNamed:self.inputTile.imageName inBundle:self.bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    }
+    else {
+        [self.imageView setImage:[[UIImage imageNamed:self.inputTile.imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    }
 }
 
 -(void)setActive:(bool)active

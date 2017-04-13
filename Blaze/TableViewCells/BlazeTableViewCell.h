@@ -37,6 +37,7 @@
 
 //Properties
 @property(nonatomic,strong) BlazeRow *row;
+@property(nonatomic,strong) NSBundle *bundle;
 
 //Field Processors
 @property(nonatomic,strong) NSMutableArray *fieldProcessors;

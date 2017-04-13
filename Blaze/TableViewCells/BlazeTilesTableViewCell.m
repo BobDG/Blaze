@@ -31,7 +31,7 @@
     self.collectionView.ID = self.row.ID;
     
     if(self.row.tileCellXibName.length) {
-        [self.collectionView registerNib:[UINib nibWithNibName:self.row.tileCellXibName bundle:nil] forCellWithReuseIdentifier:self.row.tileCellXibName];
+        [self.collectionView registerNib:[UINib nibWithNibName:self.row.tileCellXibName bundle:self.bundle] forCellWithReuseIdentifier:self.row.tileCellXibName];
     }
     
     [self.collectionView reloadData];
@@ -60,6 +60,7 @@
     else {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:XIBDefaultTileCollectionViewCell forIndexPath:indexPath];
     }
+    cell.bundle = self.bundle;
     NSArray *tilesArray = self.row.tilesValues;
     cell.inputTile = tilesArray[indexPath.row];
     if(self.row.tilesMultipleSelection) {

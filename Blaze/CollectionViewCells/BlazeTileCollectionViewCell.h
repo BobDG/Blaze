@@ -17,6 +17,7 @@
 
 @property(nonatomic) bool active;
 
+@property(nonatomic,strong) NSBundle *bundle;
 @property(nonatomic,strong) BlazeInputTile *inputTile;
 
 @property(nonatomic,weak) IBOutlet UILabel *titleLabel;

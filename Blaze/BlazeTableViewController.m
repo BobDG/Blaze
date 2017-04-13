@@ -1291,6 +1291,9 @@
     BlazeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName forIndexPath:indexPath];
     //You could choose to return the cell here and configure in willdisplay but I found out that the UITableViewAutomaticDimension does not work anymore when you do that... So I will configure the cell here...
     
+    //Assuming the bundle will be the same
+    cell.bundle = self.bundle;
+    
     //Update row object
     cell.row = row;
     

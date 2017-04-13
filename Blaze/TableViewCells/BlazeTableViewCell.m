@@ -240,7 +240,11 @@
         [imageView setImageWithURL:[NSURL URLWithString:imageURLString] placeholderImage:[UIImage new]];
     }
     else if(imageName.length) {
-        imageView.image = [UIImage imageNamed:imageName];
+        if(self.bundle) {
+            imageView.image = [UIImage imageNamed:imageName inBundle:self.bundle compatibleWithTraitCollection:nil];
+        } else {
+            imageView.image = [UIImage imageNamed:imageName];
+        }
     }
     else {
         imageView.image = nil;
