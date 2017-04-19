@@ -77,7 +77,13 @@
     //Additional Labels
     if(self.row.additionalTitles.count > 0 && self.row.additionalTitles.count == self.additionalLabels.count) {
         for(int i = 0; i < self.row.additionalTitles.count; i++) {
-            ((UILabel *)self.additionalLabels[i]).text = self.row.additionalTitles[i];
+            id string = self.row.additionalTitles[i];
+            UILabel * label = (UILabel *)self.additionalLabels[i];
+            if([string isKindOfClass:[NSAttributedString class]]) {
+                label.attributedText = string;
+            } else {
+                label.text = string;
+            }
         }
     }
     
