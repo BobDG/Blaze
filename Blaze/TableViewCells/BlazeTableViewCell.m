@@ -289,7 +289,7 @@
     NSUInteger index = [self indexForCurrentFirstResponder];
     if(index != NSNotFound) {
         BlazeFieldProcessor *processor = self.fieldProcessors[index];
-        return processor.field;
+        return [processor.field becomeFirstResponder];
     }
     else if(self.mainField) {
         [self.mainField becomeFirstResponder];
