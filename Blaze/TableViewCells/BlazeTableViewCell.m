@@ -286,7 +286,15 @@
 
 -(BOOL)becomeFirstResponder
 {
-    return [self.mainField becomeFirstResponder];
+    NSUInteger index = [self indexForCurrentFirstResponder];
+    if(index != NSNotFound) {
+        BlazeFieldProcessor *processor = self.fieldProcessors[index];
+        return processor.field;
+    }
+    else if(self.mainField) {
+        [self.mainField becomeFirstResponder];
+    }
+    return FALSE;
 }
 
 #pragma mark - Next/Previous fields
