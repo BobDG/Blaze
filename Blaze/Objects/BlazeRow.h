@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
     ImageFromURL,
     ImageFromBundle,
     ImageFromData,
+    ImageFromBlazeImageData
 };
 
 @class BlazeTextField;
@@ -219,6 +220,8 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic) int numberOfPages;
 
 //ScrollImages
+@property(nonatomic) int scrollImagesWidth;
+@property(nonatomic) int scrollImagesPadding;
 @property(nonatomic) ImageType scrollImageType;
 @property(nonatomic) UIViewContentMode scrollImageContentMode;
 @property(nonatomic) bool scrollImagesHidePageControlForOneImage;

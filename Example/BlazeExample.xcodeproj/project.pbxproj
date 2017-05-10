@@ -99,6 +99,8 @@
 		EDAF38B21E76AA2A00F8A508 /* DifferentFieldsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDAF38B11E76AA2A00F8A508 /* DifferentFieldsTableViewCell.xib */; };
 		EDB8CFF51D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB8CFF41D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m */; };
 		EDCB01C91E2282E20064E921 /* BlazeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCB01C81E2282E20064E921 /* BlazeViewController.m */; };
+		EDEC02DD1EC3680E00FB9EB8 /* BlazeImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEC02DC1EC3680E00FB9EB8 /* BlazeImageData.m */; };
+		EDEC02DF1EC36A7C00FB9EB8 /* ScrollImagesVariableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEC02DE1EC36A7C00FB9EB8 /* ScrollImagesVariableTableViewCell.xib */; };
 		EDF0E7E41D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF0E7E21D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m */; };
 		EDF0E7E71D4111570036AEDA /* TwoChoicesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF0E7E61D4111570036AEDA /* TwoChoicesTableViewCell.xib */; };
 		EDF41DFF1DC8404100073C2D /* BlazeTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF41DFE1DC8404100073C2D /* BlazeTextField.m */; };
@@ -234,6 +236,9 @@
 		EDB8CFF41D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		EDCB01C71E2282E20064E921 /* BlazeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeViewController.h; sourceTree = "<group>"; };
 		EDCB01C81E2282E20064E921 /* BlazeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeViewController.m; sourceTree = "<group>"; };
+		EDEC02DB1EC3680E00FB9EB8 /* BlazeImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeImageData.h; sourceTree = "<group>"; };
+		EDEC02DC1EC3680E00FB9EB8 /* BlazeImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeImageData.m; sourceTree = "<group>"; };
+		EDEC02DE1EC36A7C00FB9EB8 /* ScrollImagesVariableTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollImagesVariableTableViewCell.xib; sourceTree = "<group>"; };
 		EDF0E7E11D410E430036AEDA /* BlazeTwoChoicesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTwoChoicesTableViewCell.h; sourceTree = "<group>"; };
 		EDF0E7E21D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTwoChoicesTableViewCell.m; sourceTree = "<group>"; };
 		EDF0E7E61D4111570036AEDA /* TwoChoicesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoChoicesTableViewCell.xib; sourceTree = "<group>"; };
@@ -300,6 +305,7 @@
 				ED4B39AE1E362FD7008D86B2 /* ScrollImagesTableViewCell.xib */,
 				B0944BE71DDAD24900B66895 /* IBInspectableBlazeTextField.xib */,
 				EDAF38B11E76AA2A00F8A508 /* DifferentFieldsTableViewCell.xib */,
+				EDEC02DE1EC36A7C00FB9EB8 /* ScrollImagesVariableTableViewCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -421,6 +427,8 @@
 				ED02972D1D1729370039AA41 /* BlazeSection.m */,
 				ED0297281D1729370039AA41 /* BlazeInputTile.h */,
 				ED0297291D1729370039AA41 /* BlazeInputTile.m */,
+				EDEC02DB1EC3680E00FB9EB8 /* BlazeImageData.h */,
+				EDEC02DC1EC3680E00FB9EB8 /* BlazeImageData.m */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -649,6 +657,7 @@
 				ED0297041D1729220039AA41 /* DateFieldTableViewCell.xib in Resources */,
 				ED02970E1D1729220039AA41 /* TextViewTableViewCell.xib in Resources */,
 				ED933E101D1728A100B8155F /* LaunchScreen.storyboard in Resources */,
+				EDEC02DF1EC36A7C00FB9EB8 /* ScrollImagesVariableTableViewCell.xib in Resources */,
 				ED3BDADB1E0BDBD300B230A6 /* Localizable.strings in Resources */,
 				ED02970D1D1729220039AA41 /* TextTableViewCell.xib in Resources */,
 				ED3BDAD51E0BD5A500B230A6 /* ImagePickerTableViewCell.xib in Resources */,
@@ -771,6 +780,7 @@
 				ED02976F1D1729370039AA41 /* BlazeTextViewTableViewCell.m in Sources */,
 				EDF41DFF1DC8404100073C2D /* BlazeTextField.m in Sources */,
 				B07D8F8B1E841E1A006130F5 /* BlazePageTableViewController.m in Sources */,
+				EDEC02DD1EC3680E00FB9EB8 /* BlazeImageData.m in Sources */,
 				ED45B2F51E015BBC007814BA /* TestEntity.m in Sources */,
 				B07D8F851E83F3FE006130F5 /* BlazePageViewController.m in Sources */,
 				ED0297681D1729370039AA41 /* BlazeSliderTableViewCell.m in Sources */,

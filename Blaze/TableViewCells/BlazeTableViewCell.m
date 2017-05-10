@@ -267,6 +267,19 @@
     }
 }
 
+-(void)updateImageView:(UIImageView *)imageView blazeImageData:(BlazeImageData *)imageData
+{
+    if(imageData.data) {
+        [self updateImageView:imageView imageData:imageData.data];
+    }
+    else if(imageData.urlStr.length) {
+        [self updateImageView:imageView imageURLString:imageData.urlStr];
+    }
+    else if(imageData.name.length) {
+        [self updateImageView:imageView imageName:imageData.name];
+    }
+}
+
 -(void)updateView:(UIView *)view backgroundColor:(UIColor *)backgroundColor
 {
     if(backgroundColor) {

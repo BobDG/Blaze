@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "BlazeRow.h"
+#import "BlazeImageData.h"
 
 @interface BlazeTableViewCell : UITableViewCell
 {
@@ -34,6 +35,7 @@
 -(void)updateImageView:(UIImageView *)imageView imageData:(NSData *)imageData;
 -(void)updateImageView:(UIImageView *)imageView imageName:(NSString *)imageName;
 -(void)updateImageView:(UIImageView *)imageView imageURLString:(NSString *)imageURLString;
+-(void)updateImageView:(UIImageView *)imageView blazeImageData:(BlazeImageData *)imageData;
 
 //Properties
 @property(nonatomic,strong) BlazeRow *row;
