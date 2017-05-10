@@ -211,6 +211,14 @@
 
 #pragma mark - Floating action button
 
+-(void)removeFloatingActionButton
+{
+    if(self.floatingActionButton) {
+        [self.floatingActionButton removeFromSuperview];
+    }
+    self.floatingActionButton = nil;
+}
+
 -(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)())tapped
 {
     [self setupFloatingActionButtonWithImage:image padding:padding tapped:tapped animated:FALSE];
