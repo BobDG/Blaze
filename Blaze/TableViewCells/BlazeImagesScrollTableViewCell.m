@@ -45,7 +45,6 @@
     
     //ScrollView properties
     self.scrollView.delegate = self;
-    self.scrollView.clipsToBounds = TRUE;
     self.scrollView.scrollsToTop = FALSE;
     self.scrollView.pagingEnabled = !self.imageWidth;
     self.scrollView.showsVerticalScrollIndicator = FALSE;
@@ -80,7 +79,7 @@
         [self.scrollView addSubview:imageView];
         [self.imageViewsArray addObject:imageView];
         
-        if(self.imageSelected) {
+        if(self.row.scrollImageSelected) {
             imageView.userInteractionEnabled = TRUE;
             [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)]];
         }
@@ -108,7 +107,9 @@
     if(index == NSNotFound) {
         return;
     }
-    self.imageSelected((int)index);
+    if(self.row.scrollImageSelected) {
+        self.row.scrollImageSelected((int)index);
+    }
 }
 
 #pragma mark Layout
