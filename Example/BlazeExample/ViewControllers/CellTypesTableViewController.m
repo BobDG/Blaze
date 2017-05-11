@@ -8,7 +8,7 @@
 
 #import "Constants.h"
 #import "BlazeInputTile.h"
-#import "BlazeImageData.h"
+#import "BlazeMediaData.h"
 #import "BlazeTextField.h"
 #import "CellTypesTableViewController.h"
 
@@ -357,8 +357,8 @@
     
     //ScrollImages with variable type of images and not full width
     row = [BlazeRow rowWithXibName:kScrollImagesVariableTableViewCell];
-    row.scrollImages = @[[BlazeImageData imageDataWithName:@"Blaze_Logo"], [BlazeImageData imageDataWithUrlStr:@"http://clipart-library.com/data_images/131333.png"], [BlazeImageData imageDataWithName:@"Blaze_Logo"], [BlazeImageData imageDataWithUrlStr:@"http://clipart-library.com/data_images/131333.png"], [BlazeImageData imageDataWithName:@"Blaze_Logo"], [BlazeImageData imageDataWithUrlStr:@"http://clipart-library.com/data_images/131333.png"]];
-    row.scrollImageType = ImageFromBlazeImageData;
+    row.scrollImages = @[[BlazeMediaData mediaDataWithName:@"Blaze_Logo"], [BlazeMediaData mediaDataWithUrlStr:@"http://clipart-library.com/data_images/131333.png"], [BlazeMediaData mediaDataWithName:@"Blaze_Logo"], [BlazeMediaData mediaDataWithUrlStr:@"http://clipart-library.com/data_images/131333.png"], [BlazeMediaData mediaDataWithName:@"Blaze_Logo"], [BlazeMediaData mediaDataWithUrlStr:@"http://clipart-library.com/data_images/131333.png"]];
+    row.scrollImageType = ImageFromBlazeMediaData;
     row.scrollImageContentMode = UIViewContentModeScaleAspectFill;
     row.scrollImagesWidth = 80.0f;
     row.scrollImagesPadding = 5.0f;

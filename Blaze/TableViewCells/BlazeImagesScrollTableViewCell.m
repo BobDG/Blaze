@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 GraafICT. All rights reserved.
 //
 
-#import "BlazeImageData.h"
+#import "BlazeMediaData.h"
 #import "BlazeImagesScrollTableViewCell.h"
 
 @interface BlazeImagesScrollTableViewCell () <UIScrollViewDelegate>
@@ -69,8 +69,8 @@
                 [self updateImageView:imageView imageData:imageData];
             break;
                 
-            case ImageFromBlazeImageData:
-                [self updateImageView:imageView blazeImageData:imageData];
+            case ImageFromBlazeMediaData:
+                [self updateImageView:imageView blazeMediaData:imageData];
             break;
                 
             default:

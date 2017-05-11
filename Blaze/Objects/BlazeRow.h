@@ -25,7 +25,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
     ImageFromURL,
     ImageFromBundle,
     ImageFromData,
-    ImageFromBlazeImageData
+    ImageFromBlazeMediaData
 };
 
 @class BlazeTextField;

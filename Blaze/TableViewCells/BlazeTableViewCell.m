@@ -267,16 +267,16 @@
     }
 }
 
--(void)updateImageView:(UIImageView *)imageView blazeImageData:(BlazeImageData *)imageData
+-(void)updateImageView:(UIImageView *)imageView blazeMediaData:(BlazeMediaData *)mediaData
 {
-    if(imageData.data) {
-        [self updateImageView:imageView imageData:imageData.data];
+    if(mediaData.data) {
+        [self updateImageView:imageView imageData:mediaData.data];
     }
-    else if(imageData.urlStr.length) {
-        [self updateImageView:imageView imageURLString:imageData.urlStr];
+    else if(mediaData.urlStr.length) {
+        [self updateImageView:imageView imageURLString:mediaData.urlStr];
     }
-    else if(imageData.name.length) {
-        [self updateImageView:imageView imageName:imageData.name];
+    else if(mediaData.name.length) {
+        [self updateImageView:imageView imageName:mediaData.name];
     }
 }
 
