@@ -49,7 +49,12 @@
     if(self.date) {
         self.dateField.date = self.date;
         if(self.dateFormatter) {
-            self.dateField.text = [self.dateFormatter stringFromDate:self.date];
+            if(self.row.dateFormatCapitalizedString) {
+                self.dateField.text = [[self.dateFormatter stringFromDate:self.date] capitalizedString];
+            }
+            else {
+                self.dateField.text = [self.dateFormatter stringFromDate:self.date];
+            }
         }
     }
     else {

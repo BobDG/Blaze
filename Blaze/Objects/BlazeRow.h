@@ -241,12 +241,12 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic) bool secureTextEntry;
 @property(nonatomic) UIKeyboardType keyboardType;
 @property(nonatomic) UITextAutocorrectionType autocorrectionType;
-@property(nonatomic) UITextAutocapitalizationType capitalizationType;
 @property(nonatomic,strong) NSString *placeholder;
 @property(nonatomic,strong) NSFormatter *formatter;
 @property(nonatomic,strong) UIColor *placeholderColor;
 @property(nonatomic,strong) NSString *textFieldPrefix;
 @property(nonatomic,strong) NSString *textFieldSuffix;
+@property(nonatomic,strong) NSNumber *capitalizationType;
 @property(nonatomic,strong) NSAttributedString *attributedPlaceholder;
 
 //Floating placeholder options
