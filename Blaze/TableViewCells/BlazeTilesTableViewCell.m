@@ -123,6 +123,7 @@
             self.row.value = [NSMutableArray new];
         }
         
+        self.previousMultipleSelectionValue = [self.row.value mutableCopy];
         NSUInteger idx = [self.row.value indexOfObject:tileIndex];
         if(idx != NSNotFound) {
             [self.row.value removeObjectAtIndex:idx];
@@ -140,6 +141,7 @@
         }
     }
 }
+
 
 @end
 
