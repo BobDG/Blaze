@@ -14,6 +14,8 @@
     
 }
 
+@property(nonatomic,strong) NSMutableArray<NSNumber*> *previousMultipleSelectionValue;
+
 @end
 
 @implementation BlazeTilesTableViewCell
@@ -65,27 +67,30 @@
     cell.inputTile = tilesArray[indexPath.row];
     if(self.row.tilesMultipleSelection) {
         if(![self.row.value isKindOfClass:[NSMutableArray class]]) {
-            cell.selected = false;
-        }
-        else {
-            NSUInteger idx = [self.row.value indexOfObject:@(indexPath.row)];
-            if(idx != NSNotFound) {
-                cell.selected = true;
-            } else {
+            cell.active = false;
+        } else {
+            bool activeNow = [self.row.value indexOfObject:@(indexPath.row)] != NSNotFound;
+            bool activeBefore = [self.previousMultipleSelectionValue indexOfObject:@(indexPath.row)] != NSNotFound;
+            if(activeBefore && activeNow) {
+                cell.active = true;
+            } else if (activeBefore && !activeNow) {
                 cell.selected = false;
+            } else if(!activeBefore && !activeNow) {
+                cell.active = false;
+            } else if(!activeBefore && activeNow) {
+                cell.selected = true;
             }
         }
     } else {
         if(self.row.value) {
-            cell.selected = indexPath.row == [self.row.value intValue];
+            cell.active = indexPath.row == [self.row.value intValue];
         }
         else {
-            cell.selected = FALSE;
+            cell.active = FALSE;
         }
     }
     return cell;
 }
-
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *tilesArray = self.row.tilesValues;
@@ -118,6 +123,7 @@
             self.row.value = [NSMutableArray new];
         }
         
+        self.previousMultipleSelectionValue = [self.row.value mutableCopy];
         NSUInteger idx = [self.row.value indexOfObject:tileIndex];
         if(idx != NSNotFound) {
             [self.row.value removeObjectAtIndex:idx];
@@ -135,6 +141,7 @@
         }
     }
 }
+
 
 @end
 
