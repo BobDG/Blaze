@@ -85,6 +85,7 @@
 @property(nonatomic,copy) void (^beganScrolling)(void);
 
 //Floating Action Button - Advise is to setup in viewdidappear to ensure correct frame and visible animation
+-(void)removeFloatingActionButton;
 -(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void(^)())tapped;
 -(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)())tapped animated:(BOOL)animated;
 

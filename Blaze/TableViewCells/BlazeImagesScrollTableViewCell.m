@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 GraafICT. All rights reserved.
 //
 
+#import "BlazeMediaData.h"
 #import "BlazeImagesScrollTableViewCell.h"
 
 @interface BlazeImagesScrollTableViewCell () <UIScrollViewDelegate>
@@ -34,25 +35,28 @@
 
 -(void)updateCell
 {
+    //Row properties
+    self.imageWidth = self.row.scrollImagesWidth;
+    self.imagePadding = self.row.scrollImagesPadding;
+    
     //Clear
     [self.imageViewsArray removeAllObjects];
     [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     //ScrollView properties
     self.scrollView.delegate = self;
-    self.scrollView.clipsToBounds = TRUE;
-    self.scrollView.pagingEnabled = TRUE;
     self.scrollView.scrollsToTop = FALSE;
+    self.scrollView.pagingEnabled = !self.imageWidth;
     self.scrollView.showsVerticalScrollIndicator = FALSE;
     self.scrollView.showsHorizontalScrollIndicator = FALSE;
     
     //ImageViews
     for(id imageData in self.row.scrollImages) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.scrollView.bounds];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         if(self.row.scrollImageContentMode != UIViewContentModeScaleToFill) {
             imageView.contentMode = self.row.scrollImageContentMode;
         }
-        imageView.clipsToBounds = TRUE;
+        imageView.clipsToBounds = TRUE;                
         switch (self.row.scrollImageType) {
             case ImageFromURL:
                 [self updateImageView:imageView imageURLString:imageData];
@@ -65,11 +69,20 @@
                 [self updateImageView:imageView imageData:imageData];
             break;
                 
+            case ImageFromBlazeMediaData:
+                [self updateImageView:imageView blazeMediaData:imageData];
+            break;
+                
             default:
                 break;
         }
         [self.scrollView addSubview:imageView];
         [self.imageViewsArray addObject:imageView];
+        
+        if(self.row.scrollImageSelected) {
+            imageView.userInteractionEnabled = TRUE;
+            [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)]];
+        }
     }
     
     //Update pagecontrol
@@ -86,6 +99,19 @@
     }
 }
 
+#pragma mark - Tapping
+
+-(void)imageTapped:(UITapGestureRecognizer *)recognizer
+{
+    NSUInteger index = [self.imageViewsArray indexOfObject:recognizer.view];
+    if(index == NSNotFound) {
+        return;
+    }
+    if(self.row.scrollImageSelected) {
+        self.row.scrollImageSelected((int)index);
+    }
+}
+
 #pragma mark Layout
 
 -(void)setFrame:(CGRect)frame
@@ -99,15 +125,16 @@
     //Width & height
     float width = self.scrollView.frame.size.width;
     float height = self.scrollView.frame.size.height;
+    float imageWidth = self.imageWidth ? self.imageWidth : width;
     
     //ImageView frames
     for(int i = 0; i < self.imageViewsArray.count; i++) {
         UIImageView *imageView = self.imageViewsArray[i];
-        imageView.frame = CGRectMake(i*width, 0, width, height);
+        imageView.frame = CGRectMake(i*(imageWidth+self.imagePadding), 0, imageWidth, height);
     }
     
     //ContentSize
-    self.scrollView.contentSize = CGSizeMake(self.imageViewsArray.count*width, height);
+    self.scrollView.contentSize = CGSizeMake(self.imageViewsArray.count*(imageWidth+self.imagePadding), height);
 }
 
 #pragma mark - UIScrollViewDelegate

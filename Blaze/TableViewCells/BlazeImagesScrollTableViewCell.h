@@ -15,6 +15,9 @@
     
 }
 
+@property(nonatomic) int imageWidth;
+@property(nonatomic) int imagePadding;
+
 @property(nonatomic,weak) IBOutlet UIScrollView *scrollView;
 
 @end

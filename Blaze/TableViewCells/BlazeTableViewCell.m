@@ -77,12 +77,13 @@
     //Additional Labels
     if(self.row.additionalTitles.count > 0 && self.row.additionalTitles.count == self.additionalLabels.count) {
         for(int i = 0; i < self.row.additionalTitles.count; i++) {
-            id string = self.row.additionalTitles[i];
-            UILabel * label = (UILabel *)self.additionalLabels[i];
-            if([string isKindOfClass:[NSAttributedString class]]) {
-                label.attributedText = string;
-            } else {
-                label.text = string;
+            id text = self.row.additionalTitles[i];
+            UILabel *label = (UILabel *)self.additionalLabels[i];
+            if([text isKindOfClass:[NSAttributedString class]]) {
+                label.attributedText = text;
+            }
+            else {
+                label.text = text;
             }
         }
     }
@@ -266,6 +267,19 @@
     }
 }
 
+-(void)updateImageView:(UIImageView *)imageView blazeMediaData:(BlazeMediaData *)mediaData
+{
+    if(mediaData.data) {
+        [self updateImageView:imageView imageData:mediaData.data];
+    }
+    else if(mediaData.urlStr.length) {
+        [self updateImageView:imageView imageURLString:mediaData.urlStr];
+    }
+    else if(mediaData.name.length) {
+        [self updateImageView:imageView imageName:mediaData.name];
+    }
+}
+
 -(void)updateView:(UIView *)view backgroundColor:(UIColor *)backgroundColor
 {
     if(backgroundColor) {
@@ -285,7 +299,15 @@
 
 -(BOOL)becomeFirstResponder
 {
-    return [self.mainField becomeFirstResponder];
+    NSUInteger index = [self indexForCurrentFirstResponder];
+    if(index != NSNotFound) {
+        BlazeFieldProcessor *processor = self.fieldProcessors[index];
+        return [processor.field becomeFirstResponder];
+    }
+    else if(self.mainField) {
+        [self.mainField becomeFirstResponder];
+    }
+    return FALSE;
 }
 
 #pragma mark - Next/Previous fields

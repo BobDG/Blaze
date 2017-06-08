@@ -45,7 +45,9 @@
     self.textField.keyboardType = self.row.keyboardType;
     self.textField.secureTextEntry = self.row.secureTextEntry;
     self.textField.autocorrectionType = self.row.autocorrectionType;
-    self.textField.autocapitalizationType = self.row.capitalizationType;
+    if(self.row.capitalizationType) {
+        self.textField.autocapitalizationType = [self.row.capitalizationType intValue];
+    }
     
     //Merge BlazeRow's configuration with the BlazeTextField
     [self.textField mergeBlazeRowWithInspectables:self.row];
@@ -127,7 +129,7 @@
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
+{ 
     if(self.row.doneChanging) { 
         self.row.doneChanging();
     }

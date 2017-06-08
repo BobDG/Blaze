@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
     ImageFromURL,
     ImageFromBundle,
     ImageFromData,
+    ImageFromBlazeMediaData
 };
 
 @class BlazeTextField;
@@ -82,6 +83,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic,copy) void (^buttonRightTapped)(void);
 @property(nonatomic,copy) void (^buttonCenterTapped)(void);
 @property(nonatomic,copy) void (^doneChanging)(void);
+@property(nonatomic,copy) void (^scrollImageSelected)(int index);
 @property(nonatomic,copy) void (^configureCell)(BlazeTableViewCell *cell);
 @property(nonatomic,copy) void (^willDisplayCell)(BlazeTableViewCell *cell);
 @property(nonatomic,copy) void (^multipleSelectionFinished)(NSMutableArray *selectedIndexPaths);
@@ -219,6 +221,8 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic) int numberOfPages;
 
 //ScrollImages
+@property(nonatomic) int scrollImagesWidth;
+@property(nonatomic) int scrollImagesPadding;
 @property(nonatomic) ImageType scrollImageType;
 @property(nonatomic) UIViewContentMode scrollImageContentMode;
 @property(nonatomic) bool scrollImagesHidePageControlForOneImage;
@@ -237,12 +241,12 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic) bool secureTextEntry;
 @property(nonatomic) UIKeyboardType keyboardType;
 @property(nonatomic) UITextAutocorrectionType autocorrectionType;
-@property(nonatomic) UITextAutocapitalizationType capitalizationType;
 @property(nonatomic,strong) NSString *placeholder;
 @property(nonatomic,strong) NSFormatter *formatter;
 @property(nonatomic,strong) UIColor *placeholderColor;
 @property(nonatomic,strong) NSString *textFieldPrefix;
 @property(nonatomic,strong) NSString *textFieldSuffix;
+@property(nonatomic,strong) NSNumber *capitalizationType;
 @property(nonatomic,strong) NSAttributedString *attributedPlaceholder;
 
 //Floating placeholder options

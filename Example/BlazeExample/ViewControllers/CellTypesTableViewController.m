@@ -8,8 +8,9 @@
 
 #import "Constants.h"
 #import "BlazeInputTile.h"
-#import "CellTypesTableViewController.h"
+#import "BlazeMediaData.h"
 #import "BlazeTextField.h"
+#import "CellTypesTableViewController.h"
 
 @interface CellTypesTableViewController ()
 {
@@ -349,9 +350,18 @@
     
     //ScrollImages with pagecontrol from url's
     row = [BlazeRow rowWithXibName:kScrollImagesTableViewCell];
-    row.scrollImages = @[@"http://www.wpclipart.com/education/encouraging_words/Awesome.png", @"http://clipart-library.com/data_images/131333.png", @"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQiapYdSAeS44sH7AVxBs_bkdv-6EjM9IGwVUR4WRounHh-9NqX"];
+    row.scrollImages = @[@"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTJ3XnCf9jhKYfpOVGi8gIH2PRS03_TXBBESrTKD9rOo05zj_tj", @"http://clipart-library.com/data_images/131333.png", @"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQiapYdSAeS44sH7AVxBs_bkdv-6EjM9IGwVUR4WRounHh-9NqX"];
     row.scrollImageType = ImageFromURL;
     row.scrollImageContentMode = UIViewContentModeScaleAspectFit;
+    [section addRow:row];
+    
+    //ScrollImages with variable type of images and not full width
+    row = [BlazeRow rowWithXibName:kScrollImagesVariableTableViewCell];
+    row.scrollImages = @[[BlazeMediaData mediaDataWithName:@"Blaze_Logo"], [BlazeMediaData mediaDataWithUrlStr:@"http://clipart-library.com/data_images/131333.png"], [BlazeMediaData mediaDataWithName:@"Blaze_Logo"], [BlazeMediaData mediaDataWithUrlStr:@"http://clipart-library.com/data_images/131333.png"], [BlazeMediaData mediaDataWithName:@"Blaze_Logo"], [BlazeMediaData mediaDataWithUrlStr:@"http://clipart-library.com/data_images/131333.png"]];
+    row.scrollImageType = ImageFromBlazeMediaData;
+    row.scrollImageContentMode = UIViewContentModeScaleAspectFill;
+    row.scrollImagesWidth = 80.0f;
+    row.scrollImagesPadding = 5.0f;
     [section addRow:row];
     
     //Reload
