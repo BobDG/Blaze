@@ -27,7 +27,6 @@
 		B07D8F8B1E841E1A006130F5 /* BlazePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07D8F8A1E841E1A006130F5 /* BlazePageTableViewController.m */; };
 		B0944BE61DDAD1B700B66895 /* IBInspectableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0944BE51DDAD1B700B66895 /* IBInspectableTableViewController.m */; };
 		B0944BE81DDAD24900B66895 /* IBInspectableBlazeTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0944BE71DDAD24900B66895 /* IBInspectableBlazeTextField.xib */; };
-		B0A491CB1EA729DC00D9A0A3 /* Blaze.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B0A491CA1EA729DC00D9A0A3 /* Blaze.podspec */; };
 		B0CE2C121DACDEAA00A1A3C9 /* TilesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0CE2C111DACDEAA00A1A3C9 /* TilesTableViewCell.xib */; };
 		ED0297031D1729220039AA41 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E11D1729220039AA41 /* ButtonTableViewCell.xib */; };
 		ED0297041D1729220039AA41 /* DateFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0296E21D1729220039AA41 /* DateFieldTableViewCell.xib */; };
@@ -74,6 +73,7 @@
 		ED0297771D1729370039AA41 /* BlazeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297571D1729370039AA41 /* BlazeTextView.m */; };
 		ED04163B1E3A0B7800A3F2CD /* FloatTwoTextFieldsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED04163A1E3A0B7800A3F2CD /* FloatTwoTextFieldsTableViewCell.xib */; };
 		ED0416401E3A118900A3F2CD /* TwoDateFieldsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED04163F1E3A118900A3F2CD /* TwoDateFieldsTableViewCell.xib */; };
+		ED20758B1EE94C140092004F /* Blaze.podspec in Resources */ = {isa = PBXBuildFile; fileRef = ED20758A1EE94C140092004F /* Blaze.podspec */; };
 		ED2626AD1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2626AB1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m */; };
 		ED2626B01D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2626AF1D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib */; };
 		ED3BDAD51E0BD5A500B230A6 /* ImagePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3BDAD41E0BD5A500B230A6 /* ImagePickerTableViewCell.xib */; };
@@ -122,7 +122,6 @@
 		B0944BE41DDAD1B700B66895 /* IBInspectableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInspectableTableViewController.h; sourceTree = "<group>"; };
 		B0944BE51DDAD1B700B66895 /* IBInspectableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBInspectableTableViewController.m; sourceTree = "<group>"; };
 		B0944BE71DDAD24900B66895 /* IBInspectableBlazeTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IBInspectableBlazeTextField.xib; sourceTree = "<group>"; };
-		B0A491CA1EA729DC00D9A0A3 /* Blaze.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Blaze.podspec; sourceTree = "<group>"; };
 		B0CE2C111DACDEAA00A1A3C9 /* TilesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TilesTableViewCell.xib; sourceTree = "<group>"; };
 		ED0296DF1D1729220039AA41 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		ED0296E11D1729220039AA41 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
@@ -195,6 +194,7 @@
 		ED0297571D1729370039AA41 /* BlazeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTextView.m; sourceTree = "<group>"; };
 		ED04163A1E3A0B7800A3F2CD /* FloatTwoTextFieldsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatTwoTextFieldsTableViewCell.xib; sourceTree = "<group>"; };
 		ED04163F1E3A118900A3F2CD /* TwoDateFieldsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoDateFieldsTableViewCell.xib; sourceTree = "<group>"; };
+		ED20758A1EE94C140092004F /* Blaze.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Blaze.podspec; path = ../Blaze.podspec; sourceTree = "<group>"; };
 		ED2626AA1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeCheckboxTableViewCell.h; sourceTree = "<group>"; };
 		ED2626AB1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeCheckboxTableViewCell.m; sourceTree = "<group>"; };
 		ED2626AF1D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckboxTableViewCell.xib; sourceTree = "<group>"; };
@@ -527,7 +527,7 @@
 		ED933DF41D1728A000B8155F = {
 			isa = PBXGroup;
 			children = (
-				B0A491CA1EA729DC00D9A0A3 /* Blaze.podspec */,
+				ED20758A1EE94C140092004F /* Blaze.podspec */,
 				ED933DFF1D1728A100B8155F /* BlazeExample */,
 				ED933DFE1D1728A100B8155F /* Products */,
 				130A59C13C95E139E3B27F1C /* Pods */,
@@ -678,9 +678,9 @@
 				B0944BE81DDAD24900B66895 /* IBInspectableBlazeTextField.xib in Resources */,
 				ED933E0D1D1728A100B8155F /* Assets.xcassets in Resources */,
 				ED0297081D1729220039AA41 /* PickerFieldTableViewCell.xib in Resources */,
+				ED20758B1EE94C140092004F /* Blaze.podspec in Resources */,
 				ED0297101D1729220039AA41 /* TableHeaderView.xib in Resources */,
 				EDF0E7E71D4111570036AEDA /* TwoChoicesTableViewCell.xib in Resources */,
-				B0A491CB1EA729DC00D9A0A3 /* Blaze.podspec in Resources */,
 				ED0297071D1729220039AA41 /* ImageTableViewCell.xib in Resources */,
 				B0CE2C121DACDEAA00A1A3C9 /* TilesTableViewCell.xib in Resources */,
 				ED0297601D1729370039AA41 /* Arrow_Left@2x.png in Resources */,

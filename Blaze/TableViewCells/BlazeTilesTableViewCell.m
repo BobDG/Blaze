@@ -121,8 +121,7 @@
     if(self.row.tilesMultipleSelection) {
         if(![self.row.value isKindOfClass:[NSMutableArray class]]) {
             self.row.value = [NSMutableArray new];
-        }
-        
+        }        
         self.previousMultipleSelectionValue = [self.row.value mutableCopy];
         NSUInteger idx = [self.row.value indexOfObject:tileIndex];
         if(idx != NSNotFound) {
