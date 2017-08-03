@@ -36,6 +36,7 @@
 
 //Updating predicate dynamically
 -(void)updatePredicate:(NSPredicate *)predicate;
+-(void)updatePredicate:(NSPredicate *)predicate sortDescriptors:(NSArray *)sortDescriptors;
 
 //Methods to override
 -(void)contentUpdated;

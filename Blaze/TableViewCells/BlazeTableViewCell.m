@@ -16,6 +16,8 @@
 #import "BlazeDateFieldProcessor.h"
 #import "BlazeTextFieldProcessor.h"
 #import "BlazePickerFieldProcessor.h"
+#import "BlazePickerViewMultipleField.h"
+#import "BlazePickerFieldMultipleProcessor.h"
 
 @implementation BlazeTableViewCell
 
@@ -418,6 +420,9 @@
         }
         else if([field isKindOfClass:[BlazePickerViewField class]]) {
             processor = [BlazePickerFieldProcessor new];
+        }
+        else if([field isKindOfClass:[BlazePickerViewMultipleField class]]) {
+            processor = [BlazePickerFieldMultipleProcessor new];
         }
         else if([field isKindOfClass:[BlazeTextField class]]) {
             processor = [BlazeTextFieldProcessor new];

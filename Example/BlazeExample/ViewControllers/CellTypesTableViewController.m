@@ -185,6 +185,19 @@
     }];
     [section addRow:row];
     
+    //Picker multiple columns
+    row = [[BlazeRow alloc] initWithXibName:kPickerFieldMultipleTableViewCell title:@"Picker w/ columns"];
+    row.placeholder = @"Picker placeholder";
+    row.floatingLabelEnabled = TRUE;
+    row.floatingTitleColor = [UIColor greenColor];
+    row.floatingTitleActiveColor = [UIColor greenColor];
+    row.floatingTitleFont = [UIFont systemFontOfSize:14.0f weight:UIFontWeightLight];
+    row.floatingTitle = @"Picker set!";
+    row.selectorOptions = @[@[@"Col1 - 1", @"Col1 - 2", @"Col1 - 3", @"Col1 - 4"], @[@"Col2 - 1", @"Col2 - 2", @"Col2 - 3", @"Col2 - 4"]];
+    row.selectorOptionsSecondColumnRanges = @[[NSValue valueWithRange:NSMakeRange(0, 1)], [NSValue valueWithRange:NSMakeRange(1, 1)], [NSValue valueWithRange:NSMakeRange(2, 1)], [NSValue valueWithRange:NSMakeRange(3, 1)]];
+    row.value = @[@(3), @(1)];
+    [section addRow:row];
+    
     //Button
     section = [[BlazeSection alloc] initWithHeaderXibName:kTableHeaderView headerTitle:@"Multiple fields, even different kinds within 1 cell? No problem :)"];
     [self addSection:section];

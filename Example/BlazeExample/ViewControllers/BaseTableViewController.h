@@ -32,6 +32,7 @@
 #define kDifferentFieldsTableViewCell       @"DifferentFieldsTableViewCell"
 #define kSegmentedControlTableViewCell      @"SegmentedControlTableViewCell"
 #define kFloatTwoTextFieldsTableViewCell    @"FloatTwoTextFieldsTableViewCell"
+#define kPickerFieldMultipleTableViewCell   @"PickerFieldMultipleTableViewCell"
 #define kScrollImagesVariableTableViewCell  @"ScrollImagesVariableTableViewCell"
 
 @interface BaseTableViewController : BlazeTableViewController

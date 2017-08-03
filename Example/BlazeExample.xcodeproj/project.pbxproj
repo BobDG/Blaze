@@ -99,6 +99,9 @@
 		EDAF38B01E76A94800F8A508 /* BlazeTextFieldProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAF38AC1E76A94800F8A508 /* BlazeTextFieldProcessor.m */; };
 		EDAF38B21E76AA2A00F8A508 /* DifferentFieldsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDAF38B11E76AA2A00F8A508 /* DifferentFieldsTableViewCell.xib */; };
 		EDB8CFF51D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB8CFF41D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m */; };
+		EDBDAB311EFAF4C5005ACE08 /* BlazePickerViewMultipleField.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBDAB301EFAF4C5005ACE08 /* BlazePickerViewMultipleField.m */; };
+		EDBDAB341EFAF692005ACE08 /* BlazePickerFieldMultipleProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBDAB331EFAF692005ACE08 /* BlazePickerFieldMultipleProcessor.m */; };
+		EDBDAB361EFAFB2B005ACE08 /* PickerFieldMultipleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDBDAB351EFAFB2B005ACE08 /* PickerFieldMultipleTableViewCell.xib */; };
 		EDCB01C91E2282E20064E921 /* BlazeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCB01C81E2282E20064E921 /* BlazeViewController.m */; };
 		EDEC02DD1EC3680E00FB9EB8 /* BlazeMediaData.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEC02DC1EC3680E00FB9EB8 /* BlazeMediaData.m */; };
 		EDEC02DF1EC36A7C00FB9EB8 /* ScrollImagesVariableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEC02DE1EC36A7C00FB9EB8 /* ScrollImagesVariableTableViewCell.xib */; };
@@ -236,6 +239,11 @@
 		EDAF38B11E76AA2A00F8A508 /* DifferentFieldsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DifferentFieldsTableViewCell.xib; sourceTree = "<group>"; };
 		EDB8CFF31D6AF32200F5D846 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		EDB8CFF41D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		EDBDAB2F1EFAF4C5005ACE08 /* BlazePickerViewMultipleField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePickerViewMultipleField.h; sourceTree = "<group>"; };
+		EDBDAB301EFAF4C5005ACE08 /* BlazePickerViewMultipleField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePickerViewMultipleField.m; sourceTree = "<group>"; };
+		EDBDAB321EFAF692005ACE08 /* BlazePickerFieldMultipleProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePickerFieldMultipleProcessor.h; sourceTree = "<group>"; };
+		EDBDAB331EFAF692005ACE08 /* BlazePickerFieldMultipleProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePickerFieldMultipleProcessor.m; sourceTree = "<group>"; };
+		EDBDAB351EFAFB2B005ACE08 /* PickerFieldMultipleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerFieldMultipleTableViewCell.xib; sourceTree = "<group>"; };
 		EDCB01C71E2282E20064E921 /* BlazeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeViewController.h; sourceTree = "<group>"; };
 		EDCB01C81E2282E20064E921 /* BlazeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeViewController.m; sourceTree = "<group>"; };
 		EDEC02DB1EC3680E00FB9EB8 /* BlazeMediaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeMediaData.h; sourceTree = "<group>"; };
@@ -295,6 +303,7 @@
 				ED0296E51D1729220039AA41 /* ImageTableViewCell.xib */,
 				ED3BDAD41E0BD5A500B230A6 /* ImagePickerTableViewCell.xib */,
 				ED0296E61D1729220039AA41 /* PickerFieldTableViewCell.xib */,
+				EDBDAB351EFAFB2B005ACE08 /* PickerFieldMultipleTableViewCell.xib */,
 				ED0296E71D1729220039AA41 /* SegmentedControlTableViewCell.xib */,
 				ED0296E81D1729220039AA41 /* SliderTableViewCell.xib */,
 				ED0296E91D1729220039AA41 /* SwitchTableViewCell.xib */,
@@ -489,6 +498,8 @@
 				ED0297521D1729370039AA41 /* BlazeDatePickerField.m */,
 				ED0297531D1729370039AA41 /* BlazePickerViewField.h */,
 				ED0297541D1729370039AA41 /* BlazePickerViewField.m */,
+				EDBDAB2F1EFAF4C5005ACE08 /* BlazePickerViewMultipleField.h */,
+				EDBDAB301EFAF4C5005ACE08 /* BlazePickerViewMultipleField.m */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -584,6 +595,8 @@
 				EDAF38A61E76A94800F8A508 /* BlazeDateFieldProcessor.m */,
 				EDAF38A91E76A94800F8A508 /* BlazePickerFieldProcessor.h */,
 				EDAF38AA1E76A94800F8A508 /* BlazePickerFieldProcessor.m */,
+				EDBDAB321EFAF692005ACE08 /* BlazePickerFieldMultipleProcessor.h */,
+				EDBDAB331EFAF692005ACE08 /* BlazePickerFieldMultipleProcessor.m */,
 			);
 			path = FieldProcessors;
 			sourceTree = "<group>";
@@ -670,6 +683,7 @@
 				ED0297191D1729220039AA41 /* ZoomHeaderView.xib in Resources */,
 				ED02970F1D1729220039AA41 /* TableFooterView.xib in Resources */,
 				ED02975B1D1729370039AA41 /* BlazeTileCollectionViewCell.xib in Resources */,
+				EDBDAB361EFAFB2B005ACE08 /* PickerFieldMultipleTableViewCell.xib in Resources */,
 				ED02970A1D1729220039AA41 /* SliderTableViewCell.xib in Resources */,
 				ED02970C1D1729220039AA41 /* TextArrowTableViewCell.xib in Resources */,
 				ED2626B01D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib in Resources */,
@@ -760,11 +774,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDBDAB311EFAF4C5005ACE08 /* BlazePickerViewMultipleField.m in Sources */,
 				ED0297771D1729370039AA41 /* BlazeTextView.m in Sources */,
 				ED0297711D1729370039AA41 /* BlazeTilesTableViewCell.m in Sources */,
 				EDAF38AE1E76A94800F8A508 /* BlazeFieldProcessor.m in Sources */,
 				EDFFE43C1E923D2A00E5A155 /* CollapsingSectionsTableViewController.m in Sources */,
 				ED45B2CC1E01546B007814BA /* BlazeNSFetchedTableViewController.m in Sources */,
+				EDBDAB341EFAF692005ACE08 /* BlazePickerFieldMultipleProcessor.m in Sources */,
 				EDAF38AF1E76A94800F8A508 /* BlazePickerFieldProcessor.m in Sources */,
 				EDF0E7E41D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m in Sources */,
 				EDAF38B01E76A94800F8A508 /* BlazeTextFieldProcessor.m in Sources */,

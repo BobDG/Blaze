@@ -86,6 +86,14 @@
     [self startFetching];
 }
 
+-(void)updatePredicate:(NSPredicate *)predicate sortDescriptors:(NSArray *)sortDescriptors
+{
+    [NSFetchedResultsController deleteCacheWithName:nil];
+    self.fetchedResultsController.fetchRequest.predicate = predicate;
+    self.fetchedResultsController.fetchRequest.sortDescriptors = sortDescriptors;
+    [self startFetching];
+}
+
 -(void)startFetching
 {
     //Clear
