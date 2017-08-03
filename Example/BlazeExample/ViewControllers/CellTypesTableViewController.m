@@ -193,9 +193,36 @@
     row.floatingTitleActiveColor = [UIColor greenColor];
     row.floatingTitleFont = [UIFont systemFontOfSize:14.0f weight:UIFontWeightLight];
     row.floatingTitle = @"Picker set!";
-    row.selectorOptions = @[@[@"Col1 - 1", @"Col1 - 2", @"Col1 - 3", @"Col1 - 4"], @[@"Col2 - 1", @"Col2 - 2", @"Col2 - 3", @"Col2 - 4"]];
-    row.selectorOptionsSecondColumnRanges = @[[NSValue valueWithRange:NSMakeRange(0, 1)], [NSValue valueWithRange:NSMakeRange(1, 1)], [NSValue valueWithRange:NSMakeRange(2, 1)], [NSValue valueWithRange:NSMakeRange(3, 1)]];
-    row.value = @[@(3), @(1)];
+    NSMutableArray *months = [NSMutableArray new];
+    for(NSString *month in [df monthSymbols]) {
+        [months addObject:[month capitalizedString]];
+    }
+    NSMutableArray *days = [NSMutableArray new];
+    for(int i = 0; i < 31; i++) {
+        [days addObject:[NSString stringWithFormat:@"%d", i+1]];
+    }
+    row.mainColumnIndex = 1;
+    row.rangesColumnIndex = 0;
+    row.selectorOptions = @[days, months];
+    row.selectorOptionsColumnRanges = @[
+                                              [NSValue valueWithRange:NSMakeRange(0, 31)], //Jan
+                                              [NSValue valueWithRange:NSMakeRange(0, 29)], //Feb
+                                              [NSValue valueWithRange:NSMakeRange(0, 31)], //Mar
+                                              [NSValue valueWithRange:NSMakeRange(0, 30)], //Apr
+                                              [NSValue valueWithRange:NSMakeRange(0, 31)], //Mei
+                                              [NSValue valueWithRange:NSMakeRange(0, 30)], //Jun
+                                              [NSValue valueWithRange:NSMakeRange(0, 31)], //Jul
+                                              [NSValue valueWithRange:NSMakeRange(0, 31)], //Aug
+                                              [NSValue valueWithRange:NSMakeRange(0, 30)], //Sep
+                                              [NSValue valueWithRange:NSMakeRange(0, 31)], //Okt
+                                              [NSValue valueWithRange:NSMakeRange(0, 30)], //Nov
+                                              [NSValue valueWithRange:NSMakeRange(0, 31)], //Dec
+                                              ];
+    row.value = @[@(1), @(1)];
+    __weak __typeof(BlazeRow *)weakPickerMultipleRow = row;
+    [row setValueChanged:^{
+        DLog(@"Value changed: %@", weakPickerMultipleRow.value);
+    }];
     [section addRow:row];
     
     //Button

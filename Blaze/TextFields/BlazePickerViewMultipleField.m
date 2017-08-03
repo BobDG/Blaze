@@ -111,13 +111,13 @@
     [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, attributedString.string.length)];
     
     //Got ranges?
-    if(!self.pickerSecondColumnRanges || component != 1) {
+    if(!self.pickerColumnRanges || component != self.rangesColumnIndex) {
         return attributedString;
     }
     
     //Check if it falls within the range
-    NSUInteger firstComponentSelectedRow = [self.pickerView selectedRowInComponent:0];
-    NSRange range = self.pickerSecondColumnRanges[firstComponentSelectedRow].rangeValue;
+    NSUInteger firstComponentSelectedRow = [self.pickerView selectedRowInComponent:self.mainColumnIndex];
+    NSRange range = self.pickerColumnRanges[firstComponentSelectedRow].rangeValue;
     if(!NSLocationInRange(row, range)) {
         [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, attributedString.string.length)];
     }
@@ -127,11 +127,11 @@
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     //Got ranges?
-    if(self.pickerSecondColumnRanges) {
+    if(self.pickerColumnRanges) {
         //For first component
-        if(component == 0) {
+        if(component == self.mainColumnIndex) {
             //Reload first
-            [self.pickerView reloadComponent:1];
+            [self.pickerView reloadComponent:self.rangesColumnIndex];
             
             //Callback first component change
             if(self.pickerSelectionChanged) {
@@ -140,14 +140,20 @@
         }
         
         //Check second component
-        NSUInteger firstComponentSelectedRow = [self.pickerView selectedRowInComponent:0];
-        NSRange range = self.pickerSecondColumnRanges[firstComponentSelectedRow].rangeValue;
-        NSUInteger secondComponentSelectedRow = [self.pickerView selectedRowInComponent:1];
-        if(!NSLocationInRange(secondComponentSelectedRow, range)) {
+        NSUInteger mainComponentSelectedRow = [self.pickerView selectedRowInComponent:self.mainColumnIndex];
+        NSRange range = self.pickerColumnRanges[mainComponentSelectedRow].rangeValue;
+        NSUInteger rangesComponentSelectedRow = [self.pickerView selectedRowInComponent:self.rangesColumnIndex];
+        if(!NSLocationInRange(rangesComponentSelectedRow, range)) {
             int finalRow = (int)range.location+(int)range.length-1;
-            [self.pickerView selectRow:finalRow inComponent:1 animated:TRUE];
-            self.pickerSelectionChanged(1, finalRow);
-            return;
+            [self.pickerView selectRow:finalRow inComponent:self.rangesColumnIndex animated:TRUE];
+            if(self.pickerSelectionChanged) {
+                self.pickerSelectionChanged(self.rangesColumnIndex, finalRow);
+            }
+        }
+        else if(component != self.mainColumnIndex) {
+            if(self.pickerSelectionChanged) {
+                self.pickerSelectionChanged((int)component, (int)row);
+            }
         }
         
         return;

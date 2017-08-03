@@ -13,10 +13,12 @@
     
 }
 
+@property(nonatomic) int mainColumnIndex;
+@property(nonatomic) int rangesColumnIndex;
 @property(nonatomic,strong) UIPickerView *pickerView;
 @property(nonatomic,strong) NSArray <NSArray *> *pickerValues;
 @property(nonatomic,strong) NSArray <NSNumber *> *selectedIndexes;
-@property(nonatomic,strong) NSArray <NSValue *> *pickerSecondColumnRanges;
+@property(nonatomic,strong) NSArray <NSValue *> *pickerColumnRanges;
 
 @property(nonatomic,copy) void (^pickerCancelled)(void);
 @property(nonatomic,copy) void (^pickerSelected)(NSArray <NSNumber *> *selectedIndexes);

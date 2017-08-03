@@ -47,18 +47,15 @@
     NSString *textValue = @"";
     NSMutableArray *pickerValues = [[NSMutableArray alloc] initWithArray:self.row.selectorOptions];
     if(self.row.value) {
-        NSLog(@"Got row value");
         NSArray *rowValues = (NSArray *)self.row.value;
         for(int i = 0; i < rowValues.count; i++) {
             int index = [rowValues[i] intValue];
             NSArray *options = pickerValues[i];
             if(i == rowValues.count-1) {
                 textValue = [textValue stringByAppendingString:options[index]];
-                NSLog(@"Text value: %@", textValue);
             }
             else {
                 textValue = [textValue stringByAppendingFormat:@"%@ ", options[index]];
-                NSLog(@"Text value: %@", textValue);
             }
         }
     }
@@ -71,7 +68,9 @@
     
     //Set picker values
     self.pickerField.pickerValues = pickerValues;
-    self.pickerField.pickerSecondColumnRanges = self.row.selectorOptionsSecondColumnRanges;
+    self.pickerField.mainColumnIndex = self.row.mainColumnIndex;
+    self.pickerField.rangesColumnIndex = self.row.rangesColumnIndex;
+    self.pickerField.pickerColumnRanges = self.row.selectorOptionsColumnRanges;
     self.pickerField.selectedIndexes = self.row.value;
     self.pickerField.text = textValue;
 }

@@ -210,8 +210,12 @@ typedef NS_ENUM(NSInteger, ImageType) {
 //Pickerview
 @property(nonatomic) bool pickerUseIndexValue;
 @property(nonatomic,strong) NSArray *selectorOptions;
-@property(nonatomic,strong) NSArray *selectorOptionsSecondColumnRanges;
 @property(nonatomic,strong) NSString *pickerObjectPropertyName;
+
+//Pickerview - multiple columns & ranges
+@property(nonatomic) int mainColumnIndex;
+@property(nonatomic) int rangesColumnIndex;
+@property(nonatomic,strong) NSArray *selectorOptionsColumnRanges;
 
 //Checkbox
 @property(nonatomic,strong) NSString *checkboxImageActive;
