@@ -24,6 +24,13 @@
     return imageData;
 }
 
++(instancetype)mediaDataWithImage:(UIImage *)image
+{
+    BlazeMediaData *imageData = [BlazeMediaData new];
+    imageData.image = image;
+    return imageData;
+}
+
 +(instancetype)mediaDataWithUrlStr:(NSString *)urlStr
 {
     BlazeMediaData *imageData = [BlazeMediaData new];
@@ -44,6 +51,14 @@
     BlazeMediaData *imageData = [BlazeMediaData new];
     imageData.mediaType = mediaType;
     imageData.name = name;
+    return imageData;
+}
+
++(instancetype)mediaDataWithImage:(UIImage *)image mediaType:(MediaType)mediaType
+{
+    BlazeMediaData *imageData = [BlazeMediaData new];
+    imageData.mediaType = mediaType;
+    imageData.image = image;
     return imageData;
 }
 
