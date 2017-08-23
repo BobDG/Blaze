@@ -38,6 +38,9 @@
     
     //Editable
     self.textView.userInteractionEnabled = !self.row.disableEditing;
+    
+    //AccessoryInputView
+    self.textView.inputAccessoryView = self.defaultInputAccessoryViewToolbar;
 }
 
 -(void)awakeFromNib
@@ -54,21 +57,6 @@
     //Set constant
     self.previousHeight = self.textViewHeightConstraint.constant;
     self.preferredHeightOneLine = self.previousHeight;
-    
-    //AccessoryInputView
-    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectZero];
-    toolBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    NSMutableArray *barbuttonItemsArray = [NSMutableArray new];
-    [barbuttonItemsArray addObject:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow_Left" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(previousField:)]];
-    UIBarButtonItem *fixedSpaceBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    fixedSpaceBB.width = 20.0f;
-    [barbuttonItemsArray addObject:fixedSpaceBB];
-    [barbuttonItemsArray addObject:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow_Right" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(nextField:)]];
-    [barbuttonItemsArray addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
-    [barbuttonItemsArray addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)]];
-    [toolBar setItems:barbuttonItemsArray];
-    [toolBar sizeToFit];
-    self.textView.inputAccessoryView = toolBar;
 }
 
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated
