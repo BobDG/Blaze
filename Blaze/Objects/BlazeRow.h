@@ -96,6 +96,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic) bool enableDeleting;
 @property(nonatomic) bool disableEditing;
 @property(nonatomic) bool rowHeightDynamic;
+@property(nonatomic) bool disableFirstResponderOnCellTap;
 
 //Heights
 @property(nonatomic,strong) NSNumber *rowHeight;

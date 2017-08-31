@@ -34,7 +34,7 @@
 {
     [super setSelected:selected animated:animated];
 
-    if(selected && self.mainField && !self.row.disableEditing) {
+    if(selected && self.mainField && !self.row.disableEditing && !self.row.disableFirstResponderOnCellTap) {
         [self.mainField becomeFirstResponder];
     }
 }
