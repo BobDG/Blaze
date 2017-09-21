@@ -219,12 +219,12 @@
     self.floatingActionButton = nil;
 }
 
--(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)())tapped
+-(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)(void))tapped
 {
     [self setupFloatingActionButtonWithImage:image padding:padding tapped:tapped animated:FALSE];
 }
 
--(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)())tapped animated:(BOOL)animated
+-(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)(void))tapped animated:(BOOL)animated
 {
     //Clear
     if(self.floatingActionButton) {
