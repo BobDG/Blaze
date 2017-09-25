@@ -86,8 +86,8 @@
 
 //Floating Action Button - Advise is to setup in viewdidappear to ensure correct frame and visible animation
 -(void)removeFloatingActionButton;
--(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void(^)())tapped;
--(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)())tapped animated:(BOOL)animated;
+-(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)(void))tapped;
+-(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)(void))tapped animated:(BOOL)animated;
 
 //Collapsing - override for example to fix iOS9 crashes...
 -(void)collapseSection:(int)sectionIndex;

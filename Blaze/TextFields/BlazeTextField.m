@@ -183,7 +183,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 
 -(void)showFloatingLabel:(BOOL)animated
 {
-    void (^showBlock)() = ^{
+    void (^showBlock)(void) = ^{
         self.floatingLabel.alpha = 1.0f;
         self.floatingLabel.frame = CGRectMake(self.floatingLabel.frame.origin.x,
                                           self.flYPadding,
@@ -205,7 +205,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 
 -(void)hideFloatingLabel:(BOOL)animated
 {
-    void (^hideBlock)() = ^{
+    void (^hideBlock)(void) = ^{
         self.floatingLabel.alpha = 0.0f;
         self.floatingLabel.frame = CGRectMake(self.floatingLabel.frame.origin.x,
                                           self.floatingLabel.font.lineHeight + self.placeholderYPadding,
