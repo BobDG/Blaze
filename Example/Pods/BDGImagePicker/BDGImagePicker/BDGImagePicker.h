@@ -14,9 +14,11 @@
 }
 
 /*** LOCALISATIONS ***/
-//  BDGImagePicker_Cancel
-//  BDGImagePicker_TakePhoto
-//  BDGImagePicker_ChoosePhoto
+/*
+"BDGImagePicker_Cancel" = "Cancel";
+"BDGImagePicker_TakePhoto" = "Take picture";
+"BDGImagePicker_ChoosePhoto" = "Choose photo";
+*/
 
 //Quick constructors
 -(instancetype)initWithAllowsEditing:(BOOL)allowsEditing;

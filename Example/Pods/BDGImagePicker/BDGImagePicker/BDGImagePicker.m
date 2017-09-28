@@ -137,7 +137,7 @@
     [self pickImageFromViewController:viewController];
 }
 
--(void)pickImageFromViewController:(UIViewController *)viewController imagePicked:(void(^)(UIImage *image))imagePicked pickerDismissed:(void(^)())pickerDismissed
+-(void)pickImageFromViewController:(UIViewController *)viewController imagePicked:(void(^)(UIImage *image))imagePicked pickerDismissed:(void(^)(void))pickerDismissed
 {
     self.pickerDismissed = pickerDismissed;
     [self pickImageFromViewController:viewController imagePicked:imagePicked];
@@ -149,7 +149,7 @@
     [self pickImageFromViewController:viewController sourceRect:sourceRect];
 }
 
--(void)pickImageFromViewController:(UIViewController *)viewController sourceRect:(CGRect)sourceRect imagePicked:(void(^)(UIImage *image))imagePicked pickerDismissed:(void(^)())pickerDismissed
+-(void)pickImageFromViewController:(UIViewController *)viewController sourceRect:(CGRect)sourceRect imagePicked:(void(^)(UIImage *image))imagePicked pickerDismissed:(void(^)(void))pickerDismissed
 {
     self.imagePicked = imagePicked;
     self.pickerDismissed = pickerDismissed;

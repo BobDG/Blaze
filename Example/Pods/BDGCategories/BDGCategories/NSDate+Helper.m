@@ -49,6 +49,13 @@
     return [components day];
 }
 
+-(NSInteger)numberOfMonthsUntilEndDate:(NSDate *)endDate
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitMonth fromDate:self toDate:endDate options:0];
+    return [components month];
+}
+
 -(NSInteger)numberOfYearsUntilEndDate:(NSDate *)endDate
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
