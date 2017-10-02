@@ -71,6 +71,9 @@
 @property(nonatomic,weak) IBOutlet UIView *viewRight;
 @property(nonatomic,weak) IBOutlet UIView *selectedView;
 
+//Constraints
+@property(nonatomic,strong) IBOutletCollection(id) NSArray *constraints;
+
 //PageControl
 @property(nonatomic,weak) IBOutlet UIPageControl *pageControl;
 

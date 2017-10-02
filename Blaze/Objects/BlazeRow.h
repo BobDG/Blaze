@@ -128,6 +128,9 @@ typedef NS_ENUM(NSInteger, ImageType) {
 //InputAccessoryViewType
 @property(nonatomic) InputAccessoryViewType inputAccessoryViewType;
 
+//Constraints
+@property(nonatomic,strong) NSArray <NSNumber *> *constraintConstants;
+
 //Title
 @property(nonatomic,strong) NSString *title;
 @property(nonatomic,strong) UIColor *titleColor;

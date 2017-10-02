@@ -135,6 +135,15 @@
         self.pageControl.numberOfPages = self.row.numberOfPages;
     }
     
+    //Update constraints IF available
+    if(self.constraints.count && self.row.constraintConstants.count && self.constraints.count == self.row.constraintConstants.count) {
+        for(int i = 0; i < self.constraints.count; i++) {
+            ((NSLayoutConstraint *)self.constraints[i]).constant = [self.row.constraintConstants[i] intValue];
+        }
+        [self setNeedsUpdateConstraints];
+        [self layoutIfNeeded];
+    }
+    
     //Field processors
     [self setupFieldProcessors];
     
@@ -384,21 +393,24 @@
 
 -(void)setupFieldProcessors
 {
-    if(!self.mainField) {
-        return;
-    }
-    
     //Fields
+    NSMutableArray *rows = [NSMutableArray new];
     NSMutableArray *fields = [NSMutableArray new];
-    [fields addObject:self.mainField];
+    if(self.mainField) {
+        [rows addObject:self.row];
+        [fields addObject:self.mainField];
+    }
     if(self.additionalFields.count) {
         [fields addObjectsFromArray:self.additionalFields];
+        if(self.row.additionalRows.count) {
+            [rows addObjectsFromArray:self.row.additionalRows];
+        }
     }
     
-    //Rows
-    NSMutableArray *rows = [NSMutableArray new];
-    [rows addObject:self.row];
-    [rows addObjectsFromArray:self.row.additionalRows];
+    //Got any?
+    if(!fields.count) {
+        return;
+    }
     
     //Clear fieldprocessors
     [self.fieldProcessors removeAllObjects];
