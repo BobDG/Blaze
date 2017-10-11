@@ -41,6 +41,9 @@
     
     //AccessoryInputView
     self.textView.inputAccessoryView = self.defaultInputAccessoryViewToolbar;
+    
+    //Reset height constraint because height will be resetted otherwise
+    [self updateHeightConstraint];
 }
 
 -(void)awakeFromNib
@@ -71,19 +74,11 @@
     [self.textView resignFirstResponder];    
 }
 
-#pragma mark - UITextViewDelegate
+#pragma mark - Constraint
 
--(void)textViewDidEndEditing:(UITextView *)textView
+-(BOOL)updateHeightConstraint
 {
-    if(self.row.doneChanging) {
-        self.row.doneChanging();
-    }
-}
-
--(void)textViewDidChange:(UITextView *)textView
-{
-    //Set height constraint
-    float heightThatFitsTextView = [textView sizeThatFits:CGSizeMake(textView.frame.size.width, CGFLOAT_MAX)].height;
+    float heightThatFitsTextView = [self.textView sizeThatFits:CGSizeMake(self.textView.frame.size.width, CGFLOAT_MAX)].height;
     float newConstant;
     if(heightThatFitsTextView>self.preferredHeightOneLine) {
         newConstant = heightThatFitsTextView;
@@ -96,12 +91,27 @@
         self.previousHeight = newConstant;
         [self setNeedsUpdateConstraints];
         [self layoutIfNeeded];
-        
+        return TRUE;
+    }
+    return FALSE;
+}
+
+#pragma mark - UITextViewDelegate
+
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    if(self.row.doneChanging) {
+        self.row.doneChanging();
+    }
+}
+
+-(void)textViewDidChange:(UITextView *)textView
+{
+    if([self updateHeightConstraint]) {
         if(self.heightUpdated) {
             self.heightUpdated();
         }
     }
-    
     self.row.value = textView.text;
     [self.row updatedValue:self.row.value];
 }
