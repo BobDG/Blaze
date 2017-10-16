@@ -146,6 +146,14 @@
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView;
 
 /**
+ Asks the data source for a vertical padding from the top. Using this will make sure the view is NOT centered in the middel
+ 
+ @param scrollView A scrollView subclass object informing the delegate.
+ @return The offset for vertical and horizontal alignment.
+ */
+- (NSNumber *)verticalTopPadding:(UIScrollView *)scrollView;
+
+/**
  Asks the data source for a vertical space between elements. Default is 11 pts.
  
  @param scrollView A scrollView subclass object informing the delegate.

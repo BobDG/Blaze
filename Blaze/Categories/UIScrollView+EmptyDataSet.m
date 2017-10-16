@@ -37,6 +37,7 @@
 
 @property (nonatomic, assign) CGFloat verticalOffset;
 @property (nonatomic, assign) CGFloat verticalSpace;
+@property (nonatomic, strong) NSNumber *verticalTopPadding;
 
 @property (nonatomic, assign) BOOL fadeInOnDisplay;
 
@@ -272,6 +273,16 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         offset = [self.emptyDataSetSource verticalOffsetForEmptyDataSet:self];
     }
     return offset;
+}
+
+- (NSNumber *)dzn_verticalTopPadding
+{
+    NSNumber *topPadding = nil;
+    
+    if (self.emptyDataSetSource && [self.emptyDataSetSource respondsToSelector:@selector(verticalTopPadding:)]) {
+        topPadding = [self.emptyDataSetSource verticalTopPadding:self];
+    }
+    return topPadding;
 }
 
 - (CGAffineTransform)dzn_transform
@@ -535,6 +546,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         
         // Configure offset
         view.verticalOffset = [self dzn_verticalOffset];
+        view.verticalTopPadding = [self dzn_verticalTopPadding];
         
         // Configure the empty dataset view
         view.backgroundColor = [self dzn_dataSetBackgroundColor];
@@ -940,16 +952,21 @@ Class dzn_baseClassToSwizzleForTarget(id target)
     // First, configure the content view constaints
     // The content view must alway be centered to its superview
     NSLayoutConstraint *centerXConstraint = [self equallyRelatedConstraintWithView:self.contentView attribute:NSLayoutAttributeCenterX];
-    NSLayoutConstraint *centerYConstraint = [self equallyRelatedConstraintWithView:self.contentView attribute:NSLayoutAttributeCenterY];
-    
     [self addConstraint:centerXConstraint];
-    [self addConstraint:centerYConstraint];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[contentView]|" options:0 metrics:nil views:@{@"contentView": self.contentView}]];
     
-    // When a custom offset is available, we adjust the vertical constraints' constants
-    if (self.verticalOffset != 0 && self.constraints.count > 0) {
-        centerYConstraint.constant = self.verticalOffset;
+    if(self.verticalTopPadding) {
+        [self.contentView.topAnchor constraintEqualToAnchor:self.topAnchor constant:self.verticalTopPadding.intValue].active = YES;
     }
+    else {
+        NSLayoutConstraint *centerYConstraint = [self equallyRelatedConstraintWithView:self.contentView attribute:NSLayoutAttributeCenterY];
+        [self addConstraint:centerYConstraint];
+        // When a custom offset is available, we adjust the vertical constraints' constants
+        if (self.verticalOffset != 0 && self.constraints.count > 0) {
+            centerYConstraint.constant = self.verticalOffset;
+        }
+    }
+    
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[contentView]|" options:0 metrics:nil views:@{@"contentView": self.contentView}]];
     
     // If applicable, set the custom view's constraints
     if (_customView) {

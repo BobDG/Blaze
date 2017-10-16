@@ -32,6 +32,7 @@
 @property(nonatomic,strong) UIColor *emptyBackgroundColor;
 @property(nonatomic,strong) NSDictionary *emptyTitleAttributes;
 @property(nonatomic,strong) UIView *emptyCustomView;
+@property(nonatomic,strong) NSNumber *emptyVerticalTopPadding;
 @property(nonatomic,strong) NSNumber *filledTableViewCellSeparatorStyle;
 @property(nonatomic,strong) NSNumber *emptyTableViewCellSeparatorStyle;
 

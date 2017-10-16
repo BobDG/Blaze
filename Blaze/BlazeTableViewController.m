@@ -1518,6 +1518,11 @@
     return self.emptyVerticalOffset;
 }
 
+-(NSNumber *)verticalTopPadding:(UIScrollView *)scrollView
+{
+    return self.emptyVerticalTopPadding;
+}
+
 -(BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView
 {
     return self.emptyScrollable;
