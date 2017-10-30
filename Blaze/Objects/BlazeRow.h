@@ -93,6 +93,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 
 //Row primitives
 @property(nonatomic) int ID;
+@property(nonatomic) bool disableBundle;
 @property(nonatomic) bool enableDeleting;
 @property(nonatomic) bool disableEditing;
 @property(nonatomic) bool rowHeightDynamic;
