@@ -17,6 +17,7 @@
 
 //Standard cells
 #import "BlazeTableViewCell.h"
+#import "BlazeTextViewTableViewCell.h"
 
 //TableViewHeaders
 #import "BlazeTableHeaderFooterView.h"
