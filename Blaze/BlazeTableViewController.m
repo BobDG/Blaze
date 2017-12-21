@@ -544,10 +544,25 @@
     NSIndexPath *previousRowIndexPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
     BlazeTableViewCell *previousRowCell = [self.tableView cellForRowAtIndexPath:previousRowIndexPath];
     if(previousRowCell) {
-        if(previousRowCell.row.disableEditing) {
+        if([previousRowCell isKindOfClass:[BlazeTextViewTableViewCell class]]) {
+            BlazeTextViewTableViewCell *c = (BlazeTextViewTableViewCell*)previousRowCell;
+            if(!c.row.disableEditing && c.canBecomeFirstResponder) {
+                return c;
+            }
+        }
+        if(previousRowCell.row.disableEditing || previousRowCell.fieldProcessors.count == 0) {
             return [self previousCellFromIndexPath:previousRowIndexPath];
         }
         return previousRowCell;
+    }
+    else if(indexPath.row>0) {
+        //The row DOES exist but simply out of view
+        [self.tableView scrollToRowAtIndexPath:previousRowIndexPath atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self activatePreviousFieldFromIndexPath:indexPath];
+        });
+        //Returning existing cell, otherwise the keyboard will dismiss and then pop back
+        return [self.tableView cellForRowAtIndexPath:indexPath];
     }
     
     //Get previous indexpath for the previous section
@@ -564,10 +579,25 @@
     NSIndexPath *previousSectionIndexPath = [NSIndexPath indexPathForRow:section.rows.count-1 inSection:previousSectionIndex];
     BlazeTableViewCell *previousSectionCell = [self.tableView cellForRowAtIndexPath:previousSectionIndexPath];
     if(previousSectionCell) {
-        if(previousSectionCell.row.disableEditing) {
+        if([previousSectionCell isKindOfClass:[BlazeTextViewTableViewCell class]]) {
+            BlazeTextViewTableViewCell *c = (BlazeTextViewTableViewCell*)previousSectionCell;
+            if(!c.row.disableEditing && c.canBecomeFirstResponder) {
+                return c;
+            }
+        }
+        if(previousSectionCell.row.disableEditing || previousSectionCell.fieldProcessors.count == 0) {
             return [self previousCellFromIndexPath:previousSectionIndexPath];
         }
         return previousSectionCell;
+    }
+    else if(section.rows.count>0) {
+        //The row DOES exist but simply out of view
+        [self.tableView scrollToRowAtIndexPath:previousSectionIndexPath atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self activatePreviousFieldFromIndexPath:indexPath];
+        });
+        //Returning existing cell, otherwise the keyboard will dismiss and then pop back
+        return [self.tableView cellForRowAtIndexPath:indexPath];
     }
     
     //Nothing..
