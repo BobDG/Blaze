@@ -518,8 +518,14 @@
     //Get next indexPath in the same section
     NSIndexPath *nextRowIndexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section];
     BlazeTableViewCell *nextRowCell = [self.tableView cellForRowAtIndexPath:nextRowIndexPath];
-    if(nextRowCell) {        
-        if(nextRowCell.row.disableEditing) {
+    if(nextRowCell) {
+        if([nextRowCell isKindOfClass:[BlazeTextViewTableViewCell class]]) {
+            BlazeTextViewTableViewCell *c = (BlazeTextViewTableViewCell*)nextRowCell;
+            if(!c.row.disableEditing && c.canBecomeFirstResponder) {
+                return c;
+            }
+        }
+        if(nextRowCell.row.disableEditing || nextRowCell.fieldProcessors.count == 0) {
             return [self nextCellFromIndexPath:nextRowIndexPath];
         }
         return nextRowCell;
@@ -529,7 +535,7 @@
     NSIndexPath *nextSectionIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section+1];
     BlazeTableViewCell *nextSectionCell = [self.tableView cellForRowAtIndexPath:nextSectionIndexPath];
     if(nextSectionCell) {
-        if(nextSectionCell.row.disableEditing) {
+        if(nextSectionCell.row.disableEditing || nextRowCell.fieldProcessors.count == 0) {
             return [self nextCellFromIndexPath:nextSectionIndexPath];
         }
         return nextSectionCell;
