@@ -24,10 +24,18 @@
 -(void)updateCheckboxImage
 {
     if([self.row.value boolValue]) {
-        self.checkboxImageView.image = [UIImage imageNamed:self.row.checkboxImageActive];
+        if(self.bundle) {
+            self.checkboxImageView.image = [UIImage imageNamed:self.row.checkboxImageActive inBundle:self.bundle compatibleWithTraitCollection:nil];
+        } else {
+            self.checkboxImageView.image = [UIImage imageNamed:self.row.checkboxImageActive];
+        }
     }
     else {
-        self.checkboxImageView.image = [UIImage imageNamed:self.row.checkboxImageInactive];
+        if(self.bundle) {
+            self.checkboxImageView.image = [UIImage imageNamed:self.row.checkboxImageInactive inBundle:self.bundle compatibleWithTraitCollection:nil];
+        } else {
+            self.checkboxImageView.image = [UIImage imageNamed:self.row.checkboxImageInactive];
+        }
     }
 }
 
