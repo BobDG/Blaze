@@ -284,6 +284,7 @@
     
     //Header container
     UIView *headerContainer = [[UIView alloc] initWithFrame:self.zoomTableHeaderView.bounds];
+    zoomTableHeaderView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     [headerContainer addSubview:self.zoomTableHeaderView];
     [headerContainer setClipsToBounds:NO];
     self.tableView.tableHeaderView = headerContainer;
