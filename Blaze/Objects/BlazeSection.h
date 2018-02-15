@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 
 @class BlazeRow;
+@class BlazeTableHeaderFooterView;
 
 @interface BlazeSection : NSObject
 {
@@ -55,7 +56,7 @@
 
 //Completion blocks
 @property(nonatomic,copy) void (^buttonTapped)(void);
-@property(nonatomic,copy) void (^configureHeaderView)(UITableViewHeaderFooterView *headerFooterView);
-@property(nonatomic,copy) void (^configureFooterView)(UITableViewHeaderFooterView *headerFooterView);
+@property(nonatomic,copy) void (^configureHeaderView)(BlazeTableHeaderFooterView *headerFooterView);
+@property(nonatomic,copy) void (^configureFooterView)(BlazeTableHeaderFooterView *headerFooterView);
 
 @end

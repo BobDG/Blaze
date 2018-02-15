@@ -10,6 +10,7 @@
 
 #import "BlazeRow.h"
 #import "BlazeSection.h"
+#import "BlazeTableViewCell.h"
 #import "NSObject+PropertyName.h"
 #import "UIScrollView+EmptyDataSet.h"
 
@@ -107,6 +108,7 @@
 -(NSIndexPath *)indexPathForRowID:(int)rowID;
 -(BlazeSection *)sectionForID:(int)sectionID;
 -(NSIndexPath *)indexPathForRow:(BlazeRow *)row;
+-(BlazeTableViewCell *)cellForRow:(BlazeRow *)row;
 -(BlazeRow *)rowForIndexPath:(NSIndexPath *)indexPath;
 
 //Reloading

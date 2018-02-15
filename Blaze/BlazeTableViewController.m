@@ -16,7 +16,6 @@
 #import "BlazeTileCollectionViewCell.h"
 
 //Standard cells
-#import "BlazeTableViewCell.h"
 #import "BlazeTextViewTableViewCell.h"
 
 //TableViewHeaders
@@ -445,6 +444,15 @@
     }
     
     return [NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex];
+}
+
+-(BlazeTableViewCell *)cellForRow:(BlazeRow *)row
+{
+    NSIndexPath *indexPath = [self indexPathForRow:row];
+    if(!indexPath) {
+        return nil;
+    }
+    return [self tableView:self.tableView cellForRowAtIndexPath:indexPath];
 }
 
 -(NSIndexPath *)indexPathForRowID:(int)rowID
