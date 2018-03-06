@@ -10,6 +10,25 @@
 
 @implementation BlazeSection
 
+#pragma mark - Abstract constructors
+
++(instancetype)sectionWithHeaderTitle:(NSString *)headerTitle
+{
+    return [[self alloc] initWithHeaderTitle:headerTitle];
+}
+
++(instancetype)sectionWithHeaderXibName:(NSString *)headerXibName
+{
+    return [[self alloc] initWithHeaderXibName:headerXibName];
+}
+
++(instancetype)sectionWithHeaderXibName:(NSString *)headerXibName headerTitle:(NSString *)headerTitle
+{
+    return [[self alloc] initWithHeaderXibName:headerXibName headerTitle:headerTitle];
+}
+
+#pragma mark - Public constructors
+
 -(id)init
 {
     self = [super init];
@@ -30,6 +49,18 @@
     }
     
     self.rowsXibName = rowsXibName;
+    
+    return self;
+}
+
+-(id)initWithHeaderXibName:(NSString *)headerXibName
+{
+    self = [self init];
+    if(!self) {
+        return nil;
+    }
+    
+    self.headerXibName = headerXibName;
     
     return self;
 }
