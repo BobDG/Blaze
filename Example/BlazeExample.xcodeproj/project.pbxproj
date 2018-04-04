@@ -88,6 +88,7 @@
 		ED45B2F51E015BBC007814BA /* TestEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = ED45B2F31E015BBC007814BA /* TestEntity.m */; };
 		ED4B39AB1E3625F1008D86B2 /* BlazeImagesScrollTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4B39AA1E3625F1008D86B2 /* BlazeImagesScrollTableViewCell.m */; };
 		ED4B39AF1E362FD7008D86B2 /* ScrollImagesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4B39AE1E362FD7008D86B2 /* ScrollImagesTableViewCell.xib */; };
+		ED8161942074C76C00E1DE58 /* BlazeAutomaticBreaksLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8161932074C76C00E1DE58 /* BlazeAutomaticBreaksLabel.m */; };
 		ED933E021D1728A100B8155F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED933E011D1728A100B8155F /* main.m */; };
 		ED933E051D1728A100B8155F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED933E041D1728A100B8155F /* AppDelegate.m */; };
 		ED933E0B1D1728A100B8155F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED933E091D1728A100B8155F /* Main.storyboard */; };
@@ -220,6 +221,8 @@
 		ED4B39A91E3625F1008D86B2 /* BlazeImagesScrollTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeImagesScrollTableViewCell.h; sourceTree = "<group>"; };
 		ED4B39AA1E3625F1008D86B2 /* BlazeImagesScrollTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeImagesScrollTableViewCell.m; sourceTree = "<group>"; };
 		ED4B39AE1E362FD7008D86B2 /* ScrollImagesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollImagesTableViewCell.xib; sourceTree = "<group>"; };
+		ED8161922074C76C00E1DE58 /* BlazeAutomaticBreaksLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlazeAutomaticBreaksLabel.h; sourceTree = "<group>"; };
+		ED8161932074C76C00E1DE58 /* BlazeAutomaticBreaksLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlazeAutomaticBreaksLabel.m; sourceTree = "<group>"; };
 		ED933DFD1D1728A100B8155F /* Blaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED933E011D1728A100B8155F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ED933E031D1728A100B8155F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -382,6 +385,7 @@
 				B07D8F841E83F3FE006130F5 /* BlazePageViewController.m */,
 				B07D8F891E841E19006130F5 /* BlazePageTableViewController.h */,
 				B07D8F8A1E841E1A006130F5 /* BlazePageTableViewController.m */,
+				ED8161912074C75D00E1DE58 /* Labels */,
 				ED0297271D1729370039AA41 /* Objects */,
 				ED02971D1D1729370039AA41 /* Categories */,
 				ED0297241D1729370039AA41 /* CollectionViews */,
@@ -533,6 +537,15 @@
 				ED45B2F11E015BBC007814BA /* _TestEntity.m */,
 			);
 			name = MoGenerator;
+			sourceTree = "<group>";
+		};
+		ED8161912074C75D00E1DE58 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				ED8161922074C76C00E1DE58 /* BlazeAutomaticBreaksLabel.h */,
+				ED8161932074C76C00E1DE58 /* BlazeAutomaticBreaksLabel.m */,
+			);
+			path = Labels;
 			sourceTree = "<group>";
 		};
 		ED933DF41D1728A000B8155F = {
@@ -795,6 +808,7 @@
 				EDBDAB341EFAF692005ACE08 /* BlazePickerFieldMultipleProcessor.m in Sources */,
 				EDAF38AF1E76A94800F8A508 /* BlazePickerFieldProcessor.m in Sources */,
 				EDF0E7E41D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m in Sources */,
+				ED8161942074C76C00E1DE58 /* BlazeAutomaticBreaksLabel.m in Sources */,
 				EDAF38B01E76A94800F8A508 /* BlazeTextFieldProcessor.m in Sources */,
 				ED02975F1D1729370039AA41 /* BlazeSection.m in Sources */,
 				ED0297121D1729220039AA41 /* BasicTableViewController.m in Sources */,

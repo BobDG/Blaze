@@ -67,13 +67,13 @@
     
     //Update Labels IF connected
     if(self.titleLabel) {
-        [self updateLabel:self.titleLabel withText:self.row.title attributedText:self.row.attributedTitle color:self.row.titleColor];
+        [self updateLabel:self.titleLabel withText:self.row.title attributedText:self.row.attributedTitle color:self.row.titleColor alignment:self.row.textAlignmentType];
     }
     if(self.subtitleLabel) {
-        [self updateLabel:self.subtitleLabel withText:self.row.subtitle attributedText:self.row.attributedSubtitle color:self.row.subtitleColor];
+        [self updateLabel:self.subtitleLabel withText:self.row.subtitle attributedText:self.row.attributedSubtitle color:self.row.subtitleColor alignment:self.row.textAlignmentType];
     }
     if(self.subsubtitleLabel) {
-        [self updateLabel:self.subsubtitleLabel withText:self.row.subsubtitle attributedText:self.row.attributedSubSubtitle color:self.row.subsubtitleColor];
+        [self updateLabel:self.subsubtitleLabel withText:self.row.subsubtitle attributedText:self.row.attributedSubSubtitle color:self.row.subsubtitleColor alignment:self.row.textAlignmentType];
     }
     
     //Additional Labels
@@ -176,7 +176,7 @@
 
 #pragma mark - Update default UIViews
 
--(void)updateLabel:(UILabel *)label withText:(NSString *)text attributedText:(NSAttributedString *)attributedText color:(UIColor *)color
+-(void)updateLabel:(UILabel *)label withText:(NSString *)text attributedText:(NSAttributedString *)attributedText color:(UIColor *)color alignment:(NSNumber *)alignment
 {
     if(attributedText.length) {
         label.attributedText = attributedText;
@@ -191,6 +191,11 @@
     //Color
     if(color) {
         label.textColor = color;
+    }
+    
+    //Alignment
+    if(alignment) {
+        label.textAlignment = (NSTextAlignment)[alignment intValue];
     }
 }
 

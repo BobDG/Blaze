@@ -52,7 +52,7 @@
     //Section
     section = [[BlazeSection alloc] initWithHeaderTitle:@"Custom headerview\nSelect different examples of Blaze below."];
     section.footerTitle = @"Custom footerview.\nCheck the code how these viewcontrollers are pushed in various ways.";
-    [section setConfigureHeaderView:^(UITableViewHeaderFooterView *headerView) {
+    [section setConfigureHeaderView:^(BlazeTableHeaderFooterView *headerView) {
         
     }];
     [self.tableArray addObject:section];
@@ -138,6 +138,9 @@
         [self.navigationController pushViewController:pageViewController animated:true];
     }];
     [section addRow:row];
+    
+    //Reload
+    [self.tableView reloadData];
 }
 
 @end

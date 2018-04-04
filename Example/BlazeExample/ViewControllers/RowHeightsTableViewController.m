@@ -34,8 +34,9 @@
     section.footerTitle = @"You can also say the rowheight should be dynamic and simply fill up the rest of the screen's height. It will calculate all other rowheights first and see how much space is left on the screen and assign that value. That will only work when you only use specific rowheights/ratios for all other rows though, not when using automatic rowheights based on constraints.";
     [self addSection:section];
     
-    //Standard
+    //Standard - left
     row = [[BlazeRow alloc] initWithXibName:kTextTableViewCell title:@"So this row will automatically become larger as long as you put your constraints in the right place! You can simply check the TextTableViewCell.xib file to see how it's done here. The same principle is used for the header/footer views."];
+    row.textAlignmentType = @(NSTextAlignmentCenter);
     [section addRow:row];
     
     //Hard

@@ -222,6 +222,14 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic) int rangesColumnIndex;
 @property(nonatomic,strong) NSArray *selectorOptionsColumnRanges;
 
+//Segmented control
+@property(nonatomic,strong) UIColor *segmentedControlTintColor;
+@property(nonatomic,strong) UIFont *segmentedControlActiveFont;
+@property(nonatomic,strong) UIFont *segmentedControlInactiveFont;
+@property(nonatomic,strong) UIColor *segmentedControlActiveTextColor;
+@property(nonatomic,strong) UIColor *segmentedControlInactiveTextColor;
+@property(nonatomic,strong) UIColor *segmentedControlActiveSegmentColor;
+
 //Checkbox
 @property(nonatomic,strong) NSString *checkboxImageActive;
 @property(nonatomic,strong) NSString *checkboxImageInactive;
@@ -247,7 +255,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic) bool dateFormatCapitalizedString;
 @property(nonatomic,strong) NSDateFormatter *dateFormatter;
 
-//TextField/TextView
+//Label/TextField/TextView
 @property(nonatomic) bool secureTextEntry;
 @property(nonatomic) UIKeyboardType keyboardType;
 @property(nonatomic) UITextAutocorrectionType autocorrectionType;
@@ -256,6 +264,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic,strong) UIColor *placeholderColor;
 @property(nonatomic,strong) NSString *textFieldPrefix;
 @property(nonatomic,strong) NSString *textFieldSuffix;
+@property(nonatomic,strong) NSNumber *textAlignmentType;
 @property(nonatomic,strong) NSNumber *capitalizationType;
 @property(nonatomic,strong) NSAttributedString *attributedPlaceholder;
 

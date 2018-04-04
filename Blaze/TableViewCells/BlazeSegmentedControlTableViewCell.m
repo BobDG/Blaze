@@ -25,6 +25,19 @@
         [self.segmentedControl insertSegmentWithTitle:self.row.selectorOptions[i] atIndex:i animated:FALSE];
     }
     
+    //Styling
+    if(self.row.segmentedControlTintColor) {
+        self.segmentedControl.tintColor = self.row.segmentedControlTintColor;
+    }
+    if(self.row.segmentedControlActiveFont && self.row.segmentedControlActiveTextColor) {
+        NSDictionary *attributes = @{NSFontAttributeName:self.row.segmentedControlActiveFont, NSForegroundColorAttributeName:self.row.segmentedControlActiveTextColor};
+        [self.segmentedControl setTitleTextAttributes:attributes forState:UIControlStateSelected];
+    }
+    if(self.row.segmentedControlInactiveFont && self.row.segmentedControlInactiveTextColor) {
+        NSDictionary *attributes = @{NSFontAttributeName:self.row.segmentedControlInactiveFont, NSForegroundColorAttributeName:self.row.segmentedControlInactiveTextColor};
+        [self.segmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    }
+    
     self.segmentedControl.selectedSegmentIndex = [self.row.value intValue];
 }
 
@@ -39,3 +52,34 @@
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
