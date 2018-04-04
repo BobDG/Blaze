@@ -769,7 +769,8 @@ Class dzn_baseClassToSwizzleForTarget(id target)
 {
     self.frame = self.superview.bounds;
     
-    void(^fadeInBlock)(void) = ^{_contentView.alpha = 1.0;};
+    __weak __typeof(self)weakSelf = self;
+    void(^fadeInBlock)(void) = ^{weakSelf.contentView.alpha = 1.0;};
     
     if (self.fadeInOnDisplay) {
         [UIView animateWithDuration:0.25
