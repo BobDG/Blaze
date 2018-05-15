@@ -38,10 +38,11 @@
     if(CGRectIsEmpty(sourceRect)) {
         sourceRect = self.imagePickerImageView.frame;
     }
+    __weak __typeof(self)weakSelf = self;
     [self.imagePicker pickImageFromViewController:self.row.imagePickerViewController sourceRect:sourceRect imagePicked:^(UIImage *image) {
-        self.imagePickerImageView.image = image;
-        self.row.value = UIImagePNGRepresentation(image);
-        [self.row updatedValue:self.row.value];
+        weakSelf.imagePickerImageView.image = image;
+        weakSelf.row.value = UIImagePNGRepresentation(image);
+        [weakSelf.row updatedValue:weakSelf.row.value];
     }];
 }
 
