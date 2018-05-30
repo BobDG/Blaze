@@ -301,6 +301,36 @@
     [UIView setAnimationsEnabled:TRUE];
 }
 
+-(void)reloadTable
+{
+    [self.tableView reloadData];
+}
+
+-(void)reloadTableAndScrollToTop
+{
+    [self reloadTableAndScrollToTop:FALSE];
+}
+
+-(void)reloadTableAndScrollToTop:(BOOL)animated
+{
+    if(animated) {
+        [self.tableView reloadData];
+        [self.tableView layoutIfNeeded];
+        if(self.tableArray.count > 0) {
+            BlazeSection *section = self.tableArray.firstObject;
+            if(section.rows.count) {
+                [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
+            }
+        }
+    }
+    else {
+        [self.tableView setContentOffset:CGPointZero animated:NO];
+        [self.tableView reloadData];
+        [self.tableView layoutIfNeeded];
+        [self.tableView setContentOffset:CGPointZero animated:NO];
+    }
+}
+
 -(void)reloadTable:(BOOL)animated
 {
     if(animated && ([self.tableView numberOfSections] == [self numberOfSectionsInTableView:self.tableView])) {
@@ -1173,7 +1203,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     BlazeSection *s = self.tableArray[section];
-    
+
     if(s.headerHeight) {
         return s.headerHeight.floatValue;
     }

@@ -112,11 +112,14 @@
 -(BlazeRow *)rowForIndexPath:(NSIndexPath *)indexPath;
 
 //Reloading
+-(void)reloadTable;
 -(void)reloadHeightsQuickly;
+-(void)reloadTableAndScrollToTop;
 -(void)reloadTable:(BOOL)animated;
 -(void)reloadCellForID:(int)rowID;
 -(void)reloadTableWithFadeTransition;
 -(void)reloadCellForRow:(BlazeRow *)row;
+-(void)reloadTableAndScrollToTop:(BOOL)animated;
 -(void)reloadTableWithAnimation:(UITableViewRowAnimation)animation;
 -(void)reloadCellForID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation;
 -(void)reloadCellForRow:(BlazeRow *)row withRowAnimation:(UITableViewRowAnimation)animation;
