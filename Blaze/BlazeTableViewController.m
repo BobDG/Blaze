@@ -1176,7 +1176,19 @@
     else if(row.rowHeightDynamic) {
         float nrOfDynamicHeights = 0;
         float height = tableView.frame.size.height;
+        if(tableView.tableHeaderView != nil) {
+            height -= tableView.tableHeaderView.frame.size.height;
+        }
+        if(tableView.tableFooterView != nil) {
+            height -= tableView.tableFooterView.frame.size.height;
+        }
         for(BlazeSection *section in self.tableArray) {
+            if(section.headerHeight) {
+                height -= section.headerHeight.intValue;
+            }
+            if(section.footerHeight) {
+                height -= section.footerHeight.intValue;
+            }
             for(BlazeRow *row in section.rows) {
                 if(row.rowHeight) {
                     height -= row.rowHeight.floatValue;                    
