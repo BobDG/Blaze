@@ -77,6 +77,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 //CompletionBlocks
 @property(nonatomic,copy) void (^cellTapped)(void);
 @property(nonatomic,copy) void (^cellDeleted)(void);
+@property(nonatomic,copy) void (^askToDelete)(void);
 @property(nonatomic,copy) void (^valueChanged)(void);
 @property(nonatomic,copy) void (^valueChangedWithValue)(id value);
 @property(nonatomic,copy) void (^buttonLeftTapped)(void);

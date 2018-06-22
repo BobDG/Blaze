@@ -1511,7 +1511,7 @@
 {
     BlazeSection *section = self.tableArray[indexPath.section];
     BlazeRow *row = section.rows[indexPath.row];    
-    return row.enableDeleting;
+    return (row.enableDeleting || row.askToDelete != nil);
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -1521,6 +1521,10 @@
         BlazeRow *row = section.rows[indexPath.row];
         if(row.cellDeleted) {
             row.cellDeleted();
+        }
+        else if(row.askToDelete) {
+            row.askToDelete();
+            return;
         }
         [self.tableView beginUpdates];
         [section.rows removeObject:row];
