@@ -69,7 +69,7 @@
 
 -(void)dateFieldSelected
 {
-    [self resignFirstResponder];
+    [self endEditing:TRUE];
     self.date = self.datePicker.date;
     if(self.dateSelected) {
         self.dateSelected(self.datePicker.date);

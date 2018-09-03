@@ -142,8 +142,8 @@
     if(self.row.textFieldDidEndEditing) {
         self.row.textFieldDidEndEditing(self.dateField);
     }
-    if(self.row.doneChanging) {
-        self.row.doneChanging();
+    if(self.row.inputAccessoryViewType == InputAccessoryViewCancelSave && self.row.doneChanging) {
+        self.row.doneChanging();        
     }
 }
 

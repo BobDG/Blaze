@@ -162,7 +162,7 @@
     if(self.row.textFieldDidEndEditing) {
         self.row.textFieldDidEndEditing(self.pickerField);
     }
-    if(self.row.doneChanging) {
+    if(self.row.inputAccessoryViewType == InputAccessoryViewCancelSave && self.row.doneChanging) {
         self.row.doneChanging();
     }
 }
