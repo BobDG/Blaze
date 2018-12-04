@@ -1552,6 +1552,11 @@
         return;
     }
     
+    //If the super wants to get it
+    if(self.didScroll) {
+        self.didScroll(scrollView.contentOffset.y);
+    }
+    
     //Floating Action Button
     if(self.floatingActionButtonEnabled) {
         CGRect frame = self.floatingActionButton.frame;
@@ -1582,6 +1587,20 @@
     headerFrame.size.height = CGRectGetHeight(self.tableView.tableHeaderView.bounds) + fabs(offset);
     self.zoomTableHeaderView.frame = headerFrame;
     [self.zoomTableHeaderView layoutIfNeeded];
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if(self.didEndDragging) {
+        self.didEndDragging();
+    }
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if(self.didEndDecelerating) {
+        self.didEndDecelerating();
+    }
 }
 
 #pragma mark - DNZEmptyDataSet delegates

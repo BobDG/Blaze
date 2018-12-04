@@ -85,6 +85,9 @@
 
 //Scrolling
 @property(nonatomic,copy) void (^beganScrolling)(void);
+@property(nonatomic,copy) void (^didEndDragging)(void);
+@property(nonatomic,copy) void (^didEndDecelerating)(void);
+@property(nonatomic,copy) void (^didScroll)(float offsetY);
 
 //Floating Action Button - Advise is to setup in viewdidappear to ensure correct frame and visible animation
 -(void)removeFloatingActionButton;
@@ -123,6 +126,9 @@
 -(void)reloadTableWithAnimation:(UITableViewRowAnimation)animation;
 -(void)reloadCellForID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation;
 -(void)reloadCellForRow:(BlazeRow *)row withRowAnimation:(UITableViewRowAnimation)animation;
+
+//Becoming first responder
+-(void)activateNextFieldFromIndexPath:(NSIndexPath *)indexPath;
 
 //Adding sections
 -(void)addSection:(BlazeSection *)section;
