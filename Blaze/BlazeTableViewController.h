@@ -11,8 +11,8 @@
 #import "BlazeRow.h"
 #import "BlazeSection.h"
 #import "BlazeTableViewCell.h"
+#import "UIScrollView+Reload.h"
 #import "NSObject+PropertyName.h"
-#import "UIScrollView+EmptyDataSet.h"
 
 @interface BlazeTableViewController : UITableViewController
 {
@@ -25,17 +25,11 @@
 @property(nonatomic,strong) NSString *footerXibName;
 
 //Empty set variables
-@property(nonatomic) bool emptyScrollable;
-@property(nonatomic) float emptyVerticalOffset;
-@property(nonatomic,strong) UIImage *emptyImage;
-@property(nonatomic,strong) NSString *emptyTitle;
-@property(nonatomic,strong) NSAttributedString *emptyAttributedTitle;
-@property(nonatomic,strong) UIColor *emptyBackgroundColor;
-@property(nonatomic,strong) NSDictionary *emptyTitleAttributes;
-@property(nonatomic,strong) UIView *emptyCustomView;
-@property(nonatomic,strong) NSNumber *emptyVerticalTopPadding;
-@property(nonatomic,strong) NSNumber *filledTableViewCellSeparatorStyle;
+@property(nonatomic,strong) UIView *emptyStateView;
+@property(nonatomic,strong) NSNumber *emptyStateVerticalOffsetTop;
+@property(nonatomic,strong) NSNumber *emptyStateVerticalOffsetCenter;
 @property(nonatomic,strong) NSNumber *emptyTableViewCellSeparatorStyle;
+@property(nonatomic,strong) NSNumber *filledTableViewCellSeparatorStyle;
 
 //Default InputAccessoryView
 @property(nonatomic,strong) NSNumber *defaultInputAccessoryViewType;

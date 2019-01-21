@@ -21,13 +21,17 @@
 //TableViewHeaders
 #import "BlazeTableHeaderFooterView.h"
 
-@interface BlazeTableViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface BlazeTableViewController () <BDGReloadDataSetDelegate>
 {
     
 }
 
 //The previous/next textfield does not work when using indexPaths, these are not correctly reset when not calling reloadData. Therefore this boolean is set to TRUE when adding/removing rows dynamically so that when a user requests the next/previous textfield, rowID's are used instead of indexpaths!
 @property(nonatomic) bool dynamicRows;
+
+//Only calculate/update emptystateview height once
+@property(nonatomic) int emptyStateViewHeight;
+@property(nonatomic) bool emptyStateViewTopSet;
 
 //Floating action button
 @property(nonatomic) bool floatingActionButtonEnabled;
@@ -67,13 +71,8 @@
     //No scrollbars
     self.tableView.showsVerticalScrollIndicator = FALSE;
     
-    //Empty defaults
-    self.emptyScrollable = TRUE;
-    self.emptyBackgroundColor = [UIColor clearColor];
-    
-    //Empty datasource & delegate
-    self.tableView.emptyDataSetSource = self;
-    self.tableView.emptyDataSetDelegate = self;
+    //Empty state delegate
+    self.tableView.reloadDataSetDelegate = self;
     
     //Default dismiss keyboard on drag
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
@@ -303,6 +302,7 @@
 
 -(void)reloadTable
 {
+    //[self emptyDataSetWillReload:self.tableView];
     [self.tableView reloadData];
 }
 
@@ -337,7 +337,7 @@
         NSRange range = NSMakeRange(0, [self numberOfSectionsInTableView:self.tableView]);
         NSIndexSet *sections = [NSIndexSet indexSetWithIndexesInRange:range];
         [self.tableView reloadSections:sections withRowAnimation:UITableViewRowAnimationAutomatic];
-        [self.tableView reloadEmptyDataSet];
+        [self dataSetWillReload:self.tableView];
     }
     else {
         [self.tableView reloadData];
@@ -350,7 +350,7 @@
         NSRange range = NSMakeRange(0, [self numberOfSectionsInTableView:self.tableView]);
         NSIndexSet *sections = [NSIndexSet indexSetWithIndexesInRange:range];
         [self.tableView reloadSections:sections withRowAnimation:animation];
-        [self.tableView reloadEmptyDataSet];
+        [self dataSetWillReload:self.tableView];
     }
     else {
         [self.tableView reloadData];
@@ -1603,45 +1603,9 @@
     }
 }
 
-#pragma mark - DNZEmptyDataSet delegates
+#pragma mark - Reload & Empty state
 
--(NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
-{
-    if(self.emptyAttributedTitle) {
-        return self.emptyAttributedTitle;
-    }
-    if(!(self.emptyTitle.length)) {
-        return nil;
-    }
-    return [[NSAttributedString alloc] initWithString:self.emptyTitle attributes:self.emptyTitleAttributes];
-}
-
--(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
-{
-    return self.emptyImage;
-}
-
--(UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
-{
-    return self.emptyBackgroundColor;
-}
-
--(CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
-{
-    return self.emptyVerticalOffset;
-}
-
--(NSNumber *)verticalTopPadding:(UIScrollView *)scrollView
-{
-    return self.emptyVerticalTopPadding;
-}
-
--(BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView
-{
-    return self.emptyScrollable;
-}
-
--(void)emptyDataSetWillReload:(UIScrollView *)scrollView
+-(void)dataSetWillReload:(UIScrollView *)scrollView
 {
     if(self.useSectionIndexPicker) {
         [self.sectionIndexesArray removeAllObjects];
@@ -1687,7 +1651,12 @@
         [self registerCustomCell:self.rowsXibName];
     }
     
-    //Separator style
+    //Empty view
+    if(self.emptyStateView) {
+        self.emptyStateView.hidden = self.tableArray.count > 0;
+    }
+    
+    //Separator style for empty state
     if(self.emptyTableViewCellSeparatorStyle && self.filledTableViewCellSeparatorStyle) {
         if(self.tableArray.count) {
             self.tableView.separatorStyle = (UITableViewCellSeparatorStyle)self.filledTableViewCellSeparatorStyle.intValue;
@@ -1698,25 +1667,84 @@
     }
 }
 
--(CGAffineTransform)transformForEmptyDataSet:(UIScrollView *)scrollView
+-(void)setEmptyStateView:(UIView *)emptyStateView
 {
-    if(self.invertedTableView) {
-        return CGAffineTransformMakeScale(1, -1);
+    //Clear any previous
+    if(_emptyStateView) {
+        [_emptyStateView removeFromSuperview];
+        _emptyStateView = nil;
     }
-    return CGAffineTransformIdentity;
+    
+    _emptyStateView = emptyStateView;
+    //We need to know which height is exactly needed for the empty state view
+    //Tests have shown that the bounds width is already correct here for the tableview. Negative bound for the top not yet!
+    //But we can use the constraint width here to calculate the necessary height for the state view
+    emptyStateView.hidden = TRUE;
+    self.emptyStateViewTopSet = false;
+    self.emptyStateView.translatesAutoresizingMaskIntoConstraints = FALSE;
+    [self.tableView addSubview:emptyStateView];
+    [self.tableView addConstraint:[NSLayoutConstraint constraintWithItem:emptyStateView
+                                                               attribute:NSLayoutAttributeWidth
+                                                               relatedBy:NSLayoutRelationEqual
+                                                                  toItem:self.tableView
+                                                               attribute:NSLayoutAttributeWidth
+                                                              multiplier:1.0
+                                                                constant:0]];
+    [self.tableView setNeedsUpdateConstraints];
+    [self.tableView layoutIfNeeded];
+    self.emptyStateViewHeight = ceil(self.emptyStateView.frame.size.height);
 }
 
--(UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView
+-(void)layoutEmptyStateView
 {
-    return self.emptyCustomView;
+    if(!self.emptyStateView) {
+        return;
+    }
+    
+    if(self.emptyStateViewTopSet) {
+        return;
+    }
+    
+    //Only update the frame if we already have the calculated height
+    if(!self.emptyStateViewHeight) {
+        return;
+    }
+    
+    //Set the final height using the actual visible tableview height (doing + since the bounds are negative)
+    float actualTableViewHeight = self.tableView.bounds.size.height + self.tableView.bounds.origin.y;
+    float topSpaceConstant = round((actualTableViewHeight-self.emptyStateViewHeight)/2);
+    
+    //Check if vertical top or center offset is provided. If so, change the constant accordingly
+    if(self.emptyStateVerticalOffsetTop != nil) {
+        topSpaceConstant = self.emptyStateVerticalOffsetTop.intValue;
+    }
+    else if(self.emptyStateVerticalOffsetCenter != nil) {
+        topSpaceConstant += self.emptyStateVerticalOffsetCenter.intValue;
+    }
+    [self.tableView addConstraint:[NSLayoutConstraint constraintWithItem:self.emptyStateView
+                                                               attribute:NSLayoutAttributeTop
+                                                               relatedBy:NSLayoutRelationEqual
+                                                                  toItem:self.tableView
+                                                               attribute:NSLayoutAttributeTop
+                                                              multiplier:1.0
+                                                                constant:topSpaceConstant]];
+    self.emptyStateViewTopSet = true;
+}
+
+#pragma mark - Layout subviews
+
+-(void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    
+    [self layoutEmptyStateView];
 }
 
 #pragma mark Dealloc
 
 -(void)dealloc
 {
-    self.tableView.emptyDataSetDelegate = nil;
-    self.tableView.emptyDataSetSource = nil;
+    self.tableView.reloadDataSetDelegate = nil;
     self.tableView.delegate = nil;
 }
 
