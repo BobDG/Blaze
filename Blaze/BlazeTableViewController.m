@@ -1603,7 +1603,7 @@
     }
 }
 
-#pragma mark - Reload & Empty state
+#pragma mark - Dataset Reload
 
 -(void)dataSetWillReload:(UIScrollView *)scrollView
 {
@@ -1667,6 +1667,8 @@
     }
 }
 
+#pragma mark - EmptyStateView
+
 -(void)setEmptyStateView:(UIView *)emptyStateView
 {
     //Clear any previous
@@ -1676,9 +1678,15 @@
     }
     
     _emptyStateView = emptyStateView;
+    
+    //Sometimes it's being set to nil, let's not crash the app by moving forward then
+    if(!emptyStateView) {
+        return;
+    }
+    
     //We need to know which height is exactly needed for the empty state view
     //Tests have shown that the bounds width is already correct here for the tableview. Negative bound for the top not yet!
-    //But we can use the constraint width here to calculate the necessary height for the state view
+    //But we can use the constraint width here to calculate the necessary height for the state view. Also let's center it immediately.
     emptyStateView.hidden = TRUE;
     self.emptyStateViewTopSet = false;
     self.emptyStateView.translatesAutoresizingMaskIntoConstraints = FALSE;
@@ -1688,6 +1696,13 @@
                                                                relatedBy:NSLayoutRelationEqual
                                                                   toItem:self.tableView
                                                                attribute:NSLayoutAttributeWidth
+                                                              multiplier:1.0
+                                                                constant:0]];
+    [self.tableView addConstraint:[NSLayoutConstraint constraintWithItem:emptyStateView
+                                                               attribute:NSLayoutAttributeCenterX
+                                                               relatedBy:NSLayoutRelationEqual
+                                                                  toItem:self.tableView
+                                                               attribute:NSLayoutAttributeCenterX
                                                               multiplier:1.0
                                                                 constant:0]];
     [self.tableView setNeedsUpdateConstraints];
