@@ -1,0 +1,6 @@
+framework module BDGMacros {
+  umbrella header "BDGMacros-umbrella.h"
+
+  export *
+  module * { export * }
+}

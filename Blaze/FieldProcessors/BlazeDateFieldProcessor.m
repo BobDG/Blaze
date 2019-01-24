@@ -90,7 +90,7 @@
     //Only for default inputAccessoryView
     if(self.row.inputAccessoryViewType != InputAccessoryViewCancelSave) {
         //Get toolbar
-        self.dateField.inputAccessoryView = [self.cell defaultInputAccessoryViewToolbar];
+        self.dateField.inputAccessoryView = [self.cell defaultInputAccessoryView];
         
         //Update
         __weak __typeof(self)weakSelf = self;

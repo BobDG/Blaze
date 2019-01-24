@@ -5,6 +5,9 @@
 //  Copyright (c) 2015 GraafICT. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
+#import <BDGCategories/UIImage+Helper.h>
+
 #import "BDGImagePicker.h"
 
 @interface BDGImagePicker () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -72,6 +75,60 @@
     return self;
 }
 
+#pragma mark - Quick access to take picture/photo library (e.g. when using custom alertcontroller)
+
+-(void)pictureFromCamera:(UIViewController *)viewController imagePicked:(void(^)(UIImage *image))imagePicked
+{
+    self.imagePicked = imagePicked;
+    
+    NSString *mediaType = AVMediaTypeVideo;
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+    if(authStatus == AVAuthorizationStatusDenied || authStatus == AVAuthorizationStatusRestricted) {
+        [BDGImagePicker showCameraAccessRequiredPopupFromViewController:viewController];
+        return;
+    }
+    
+    self.takingPicture = TRUE;
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = self.allowsEditing;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    if(self.frontCamera) {
+        picker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+    }
+    if(self.video) {
+        picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
+    }
+    [viewController presentViewController:picker animated:TRUE completion:^{
+    }];
+    CFRunLoopWakeUp(CFRunLoopGetCurrent());
+}
+
+-(void)pictureFromPhotoLibrary:(UIViewController *)viewController imagePicked:(void(^)(UIImage *image))imagePicked
+{
+    [self pictureFromPhotoLibrary:viewController sourceRect:CGRectZero imagePicked:imagePicked];
+}
+
+-(void)pictureFromPhotoLibrary:(UIViewController *)viewController sourceRect:(CGRect)sourceRect imagePicked:(void(^)(UIImage *image))imagePicked
+{
+    self.imagePicked = imagePicked;
+    
+    self.takingPicture = FALSE;
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = self.allowsEditing;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        self.popoverController = [[UIPopoverController alloc] initWithContentViewController:picker];
+        [self.popoverController presentPopoverFromRect:sourceRect inView:viewController.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+    else {
+        [viewController presentViewController:picker animated:TRUE completion:^{
+        }];
+    }
+    CFRunLoopWakeUp(CFRunLoopGetCurrent());
+}
+
 #pragma mark PickImage methods
 
 -(void)pickImageFromViewController:(UIViewController *)viewController
@@ -88,37 +145,11 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     if([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
         [alertController addAction:[UIAlertAction actionWithTitle:takePhoto style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            self.takingPicture = TRUE;
-            UIImagePickerController * picker = [[UIImagePickerController alloc] init];
-            picker.delegate = self;
-            picker.allowsEditing = self.allowsEditing;
-            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-            if(self.frontCamera) {
-                picker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-            }
-            if(self.video) {
-                picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
-            }
-            [viewController presentViewController:picker animated:TRUE completion:^{
-            }];
-            CFRunLoopWakeUp(CFRunLoopGetCurrent());
+            [self pictureFromCamera:viewController imagePicked:self.imagePicked];
         }]];
     }
-    [alertController addAction:[UIAlertAction actionWithTitle:choosePhoto style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        self.takingPicture = FALSE;
-        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-        picker.delegate = self;
-        picker.allowsEditing = self.allowsEditing;
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-            self.popoverController = [[UIPopoverController alloc] initWithContentViewController:picker];
-            [self.popoverController presentPopoverFromRect:sourceRect inView:viewController.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        }
-        else {
-            [viewController presentViewController:picker animated:TRUE completion:^{
-            }];
-        }
-        CFRunLoopWakeUp(CFRunLoopGetCurrent());
+    [alertController addAction:[UIAlertAction actionWithTitle:choosePhoto style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {        
+        [self pictureFromPhotoLibrary:viewController sourceRect:sourceRect imagePicked:self.imagePicked];
     }]];
     [alertController addAction:[UIAlertAction actionWithTitle:cancel style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         
@@ -170,10 +201,22 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *selectedImage = nil;
+    
     //Edited
     if(self.allowsEditing) {
-        selectedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+        if(self.takingPicture) {
+            selectedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+        }
+        else {
+            //There's a bug causing black bars when choosing from the camera roll
+            selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+            selectedImage = [selectedImage fixOrientation];
+            
+            CGRect crop = [[info valueForKey:UIImagePickerControllerCropRect] CGRectValue];
+            selectedImage = [selectedImage cropToRect:crop];
+        }
     }
+    
     //Original
     if(!selectedImage) {
         selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
@@ -197,6 +240,23 @@
             self.pickerDismissed();
         }
     }];
+}
+
+#pragma mark - Popup methods
+
++(void)showCameraAccessRequiredPopupFromViewController:(UIViewController *)viewController
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"BDGImagePicker_Camera_Denied_Popup_Title", @"") message:NSLocalizedString(@"BDGImagePicker_Camera_Denied_Popup_Message", @"") preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"BDGImagePicker_Camera_Denied_Popup_Button_Settings", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"BDGImagePicker_Cancel", @"") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        //Do nothing
+    }]];
+    [viewController presentViewController:alertController animated:TRUE completion:^{
+        
+    }];
+    CFRunLoopWakeUp(CFRunLoopGetCurrent());
 }
 
 #pragma mark UINavigationController delegate methods

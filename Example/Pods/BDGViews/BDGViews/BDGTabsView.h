@@ -15,13 +15,14 @@
 
 //Styling
 @property(nonatomic) bool centered;
-@property(nonatomic) int cornerRadius;
-@property(nonatomic) bool fillBackground;
 @property(nonatomic) bool upperCase;
+@property(nonatomic) bool fillBackground;
+@property(nonatomic) bool disableScrolling;
+@property(nonatomic) bool lineWidthExcludesPadding;
+@property(nonatomic) int cornerRadius;
 @property(nonatomic) float lineHeight;
 @property(nonatomic) float paddingSides;
 @property(nonatomic) float paddingBetween;
-@property(nonatomic) bool disableScrolling;
 @property(nonatomic,strong) UIFont *tagFont;
 @property(nonatomic,strong) UIColor *lineColor;
 @property(nonatomic,strong) UIColor *activeColor;

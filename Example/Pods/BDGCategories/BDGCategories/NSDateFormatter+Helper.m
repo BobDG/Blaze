@@ -85,8 +85,7 @@
         for(NSString *hourChar in @[@"h", @"H"]){
             NSUInteger count =  [set countForObject:hourChar];
             if(count == 1) {
-                [mutableFormat replaceOccurrencesOfString:hourChar withString:[hourChar stringByAppendingString:hourChar] options:0 range:NSMakeRange(0, mutableFormat.length)];
-                NSLog(@"%@", mutableFormat);
+                [mutableFormat replaceOccurrencesOfString:hourChar withString:[hourChar stringByAppendingString:hourChar] options:0 range:NSMakeRange(0, mutableFormat.length)];                
                 dateFormat = mutableFormat;
             }
         }

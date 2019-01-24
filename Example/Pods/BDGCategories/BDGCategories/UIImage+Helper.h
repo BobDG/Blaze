@@ -10,12 +10,14 @@
 @interface UIImage (Helper)
 
 +(UIImage *)imageNamed:(NSString *)name deviceSpecific:(BOOL)deviceSpecific extension:(NSString *)extension;
+-(UIImage *)fixOrientation;
 -(UIImage *)blurredImage:(CGFloat)blurAmount;
--(UIImage *)imageAtRect:(CGRect)rect;
+-(UIImage *)cropToRect:(CGRect)rect;
 -(UIImage *)imageByScalingProportionallyToMinimumSize:(CGSize)targetSize;
 -(UIImage *)imageByScalingProportionallyToSize:(CGSize)targetSize;
 -(UIImage *)imageByScalingToSize:(CGSize)targetSize;
 -(UIImage *)imageRotatedByRadians:(CGFloat)radians;
 -(UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
+
 
 @end

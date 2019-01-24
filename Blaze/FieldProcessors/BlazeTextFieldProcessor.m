@@ -59,7 +59,7 @@
     self.textField.delegate = self;
     
     //InputAccessoryView
-    self.textField.inputAccessoryView = [self.cell defaultInputAccessoryViewToolbar];
+    self.textField.inputAccessoryView = [self.cell defaultInputAccessoryView];
 }
 
 #pragma mark - Prefix/Suffixes

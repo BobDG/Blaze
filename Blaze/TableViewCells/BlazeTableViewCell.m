@@ -328,17 +328,21 @@
 
 #pragma mark - Next/Previous fields
 
--(UIToolbar *)defaultInputAccessoryViewToolbar
+-(UIView *)defaultInputAccessoryView
 {
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectZero];
     toolBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     UIBarButtonItem *nextBB;
     UIBarButtonItem *previousBB;
-    if(self.row.inputAccessoryViewType == InputAccessoryViewDefaultArrows) {
+    if(self.row.inputAccessoryViewType == InputAccessoryViewArrowsLeftRight) {
         previousBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow_Left" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(previousField:)];
         nextBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow_Right" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(nextField:)];
     }
-    else if(self.row.inputAccessoryViewType == InputAccessoryViewDefaultStrings) {
+    else if(self.row.inputAccessoryViewType == InputAccessoryViewArrowsUpDown) {
+        previousBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow_Up" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(previousField:)];
+        nextBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow_Down" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(nextField:)];
+    }
+    else if(self.row.inputAccessoryViewType == InputAccessoryViewStrings) {
         previousBB = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Blaze_KeyboardButton_Previous", @"") style:UIBarButtonItemStylePlain target:self action:@selector(previousField:)];
         nextBB = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Blaze_KeyboardButton_Next", @"") style:UIBarButtonItemStylePlain target:self action:@selector(nextField:)];
     }
@@ -348,6 +352,23 @@
     UIBarButtonItem *doneBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneField:)];
     [toolBar setItems:@[previousBB, fixedSpaceBB, nextBB, flexibleSpaceBB, doneBB]]; 
     [toolBar sizeToFit];
+    
+    //In case of a special additional accessoryview button
+    if(self.row.inputAccessoryButton) {
+        UIView *returnView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, toolBar.frame.size.width, toolBar.frame.size.height*2)];
+        UIButton *button = [[UIButton alloc] initWithFrame:toolBar.bounds];
+        button.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        if(self.row.inputAccessoryButtonColor) {
+            button.backgroundColor = self.row.inputAccessoryButtonColor;
+        }
+        [button setAttributedTitle:self.row.inputAccessoryButtonTitle forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(accessoryButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+        [returnView addSubview:button];
+        toolBar.frame = CGRectMake(0, toolBar.frame.size.height, toolBar.frame.size.width, toolBar.frame.size.height);
+        [returnView addSubview:toolBar];        
+        return returnView;
+    }
+    
     return toolBar;
 }
 
@@ -356,6 +377,13 @@
     [self endEditing:TRUE];
     if(self.row.doneChanging) {
         self.row.doneChanging();
+    }
+}
+
+-(void)accessoryButtonTapped
+{
+    if(self.row.inputAccessoryButtonTapped) {
+        self.row.inputAccessoryButtonTapped();
     }
 }
 

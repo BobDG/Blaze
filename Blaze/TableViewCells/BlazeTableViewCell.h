@@ -26,7 +26,7 @@
 @property(nonatomic,copy) void (^heightUpdated)(void);
 
 //Next/Previous field
--(UIToolbar *)defaultInputAccessoryViewToolbar;
+-(UIView *)defaultInputAccessoryView;
 -(IBAction)doneField:(UIBarButtonItem *)sender;
 -(IBAction)nextField:(UIBarButtonItem *)sender;
 -(IBAction)previousField:(UIBarButtonItem *)sender;

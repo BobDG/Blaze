@@ -98,7 +98,7 @@
     //Only for default inputAccessoryView
     if(self.row.inputAccessoryViewType != InputAccessoryViewCancelSave) {
         //Get toolbar
-        self.pickerField.inputAccessoryView = [self.cell defaultInputAccessoryViewToolbar];
+        self.pickerField.inputAccessoryView = [self.cell defaultInputAccessoryView];
         
         //Update for changes
         __weak __typeof(self)weakSelf = self;

@@ -40,7 +40,7 @@
     self.textView.userInteractionEnabled = !self.row.disableEditing;
     
     //AccessoryInputView
-    self.textView.inputAccessoryView = self.defaultInputAccessoryViewToolbar;
+    self.textView.inputAccessoryView = self.defaultInputAccessoryView;
     
     //Reset height constraint because height will be resetted otherwise
     [self updateHeightConstraint];

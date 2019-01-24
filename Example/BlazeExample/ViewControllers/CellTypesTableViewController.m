@@ -52,8 +52,18 @@
     //Default imageData
     self.imageData = UIImagePNGRepresentation([UIImage imageNamed:@"Blaze_Logo"]);
     
-    //Default
-    self.defaultInputAccessoryViewType = @(InputAccessoryViewDefaultStrings);
+    //Default accessory type
+    self.defaultInputAccessoryViewType = @(InputAccessoryViewArrowsUpDown);
+    
+    //Input accessory button
+    self.inputAccessoryButton = TRUE;
+    self.inputAccessoryButtonTitle = [[NSAttributedString alloc] initWithString:@"Awesome SANDER"
+                                                                    attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],
+                                                                                 NSFontAttributeName:[UIFont systemFontOfSize:17.0f weight:UIFontWeightSemibold]}];
+    self.inputAccessoryButtonColor = UIColorFromRGB(0xf64747);
+    [self setInputAccessoryButtonTapped:^{
+        DLog(@"Sick DAUDE!");
+    }];
     
     //Section index picker
     //self.useSectionIndexPicker = TRUE;
@@ -98,7 +108,7 @@
     
     //Textfield number
     row = [[BlazeRow alloc] initWithXibName:kFloatTextFieldTableViewCell];
-    row.floatingLabelEnabled = FALSE;
+    row.floatingLabelEnabled = FALSE;    
     row.placeholder = @"Textfield with numberformatter & non-editable suffix";
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textFieldNumberValue)]];
     NSNumberFormatter *nf = [NSNumberFormatter new];

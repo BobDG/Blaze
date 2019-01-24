@@ -60,35 +60,83 @@
 
 +(id)mapObjects:(NSArray *)objects toClass:(Class)objectClass
 {
+    return [self mapObjects:objects toClass:objectClass dateFormatter:nil];
+}
+
++(id)mapObjects:(NSArray *)objects toClass:(Class)objectClass dateFormatter:(NSDateFormatter *)dateFormatter
+{
+    return [self mapObjects:objects toClass:objectClass dateFormatter:dateFormatter mappingDictionary:nil];
+}
+
++(id)mapObjects:(NSArray *)objects toClass:(Class)objectClass dateFormatter:(NSDateFormatter *)dateFormatter mappingDictionary:(NSDictionary *)mappingDictionary
+{
+    return [self mapObjects:objects toClass:objectClass dateFormatter:dateFormatter mappingDictionary:mappingDictionary arrayMappingDictionary:nil];
+}
+
++(id)mapObjects:(NSArray *)objects toClass:(Class)objectClass dateFormatter:(NSDateFormatter *)dateFormatter mappingDictionary:(NSDictionary *)mappingDictionary arrayMappingDictionary:(NSDictionary *)arrayMappingDictionary
+{
     NSMutableArray *returnArray = [[NSMutableArray alloc] init];
     for(NSDictionary *dictionary in objects) {
-        [returnArray addObject:[self mapDictionary:dictionary toClass:objectClass]];
+        [returnArray addObject:[self mapDictionary:dictionary toClass:objectClass dateFormatter:dateFormatter mappingDictionary:mappingDictionary arrayMappingDictionary:arrayMappingDictionary]];
     }
     return returnArray;
 }
 
 +(id)mapDictionary:(NSDictionary *)dictionary toClass:(Class)objectClass
 {
+    return [self mapDictionary:dictionary toClass:objectClass dateFormatter:nil];
+}
+
++(id)mapDictionary:(NSDictionary *)dictionary toClass:(Class)objectClass dateFormatter:(NSDateFormatter *)dateFormatter
+{
+    return [self mapDictionary:dictionary toClass:objectClass dateFormatter:dateFormatter mappingDictionary:nil];
+}
+
++(id)mapDictionary:(NSDictionary *)dictionary toClass:(Class)objectClass dateFormatter:(NSDateFormatter *)dateFormatter mappingDictionary:(NSDictionary *)mappingDictionary
+{
+    return [self mapDictionary:dictionary toClass:objectClass dateFormatter:dateFormatter mappingDictionary:mappingDictionary arrayMappingDictionary:nil];
+}
+
++(id)mapDictionary:(NSDictionary *)dictionary toClass:(Class)objectClass dateFormatter:(NSDateFormatter *)dateFormatter mappingDictionary:(NSDictionary *)mappingDictionary arrayMappingDictionary:(NSDictionary *)arrayMappingDictionary
+{
     id object = [[objectClass alloc] init];
     NSDictionary *objectProperties = [object PRLclassProperties];
     for(NSString *propertyName in objectProperties.allKeys) {
-        //Does the dictionary contain this value
-        if(!dictionary[propertyName]) {
-            continue;
-        }
-        
-        if(dictionary[propertyName] == [NSNull null]) {
-            continue;
-        }
-        
         NSString *propertyType = objectProperties[propertyName];
+        
+        NSString *propertyNameInDict = propertyName;
+        if(mappingDictionary[propertyName]) {
+            propertyNameInDict = mappingDictionary[propertyName];
+        }
+        
+        //Does the dictionary contain this value
+        if(!dictionary[propertyNameInDict] || dictionary[propertyNameInDict] == [NSNull null]) {
+            NSLog(@"Dictionary does not contain the provided mapping string: %@", propertyNameInDict);
+            continue;
+        }
+        
+        id value = dictionary[propertyNameInDict];
         if(propertyType.length == 1 || [[propertyType substringWithRange:NSMakeRange(0, 2)] isEqualToString:@"NS"]) {
             //Either primitive or Apple-method (assuming from a JSON dictionary you can only directly fill NS-type objects)
-            [object setValue:dictionary[propertyName] forKey:propertyName];
+            if([propertyType isEqualToString:@"NSDate"] && dateFormatter != nil) {
+                [object setValue:[dateFormatter dateFromString:value] forKey:propertyName];
+            }
+            else if([propertyType isEqualToString:@"NSArray"]) {
+                if(!arrayMappingDictionary[propertyName]) {
+                    NSLog(@"It's an array but the array mapping dictionary does not contain the property name: %@", propertyName);
+                    continue;
+                }
+                NSString *classname = arrayMappingDictionary[propertyName];
+                NSArray *objects = [NSObject mapObjects:value toClass:NSClassFromString(classname) dateFormatter:dateFormatter mappingDictionary:mappingDictionary arrayMappingDictionary:arrayMappingDictionary];
+                [object setValue:objects forKey:propertyName];
+            }
+            else {
+                [object setValue:value forKey:propertyName];
+            }
         }
         else {
             //Custom! Let's go a level deeper then
-            id customObject = [self mapDictionary:dictionary[propertyName] toClass:NSClassFromString(propertyType)];
+            id customObject = [self mapDictionary:value toClass:NSClassFromString(propertyType)];
             [object setValue:customObject forKey:propertyName];
         }
     }

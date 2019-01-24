@@ -17,10 +17,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //Empty state
-    self.emptyBackgroundColor = [UIColor whiteColor];
-    
+        
     //Load
     self.loadContentOnAppear = TRUE;
 }

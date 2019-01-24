@@ -660,6 +660,17 @@
     }
 }
 
+-(void)activateFirstField
+{
+    [self activateFieldForIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+}
+
+-(void)activateFieldForIndexPath:(NSIndexPath *)indexPath
+{
+    BlazeTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [self activateFirstResponderForCell:cell];
+}
+
 -(void)activateNextFieldFromIndexPath:(NSIndexPath *)indexPath
 {
     //Get next cell
@@ -1382,6 +1393,14 @@
     //Possibly overwrite default accessoryview type
     if(self.defaultInputAccessoryViewType && row.inputAccessoryViewType != InputAccessoryViewCancelSave) {
         row.inputAccessoryViewType = (InputAccessoryViewType)[self.defaultInputAccessoryViewType intValue];
+    }
+    
+    //Possibly overwrite default accessoryview button
+    if(self.inputAccessoryButton) {
+        row.inputAccessoryButton = self.inputAccessoryButton;
+        row.inputAccessoryButtonColor = self.inputAccessoryButtonColor;
+        row.inputAccessoryButtonTitle = self.inputAccessoryButtonTitle;
+        row.inputAccessoryButtonTapped = self.inputAccessoryButtonTapped;
     }
     
     BlazeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName forIndexPath:indexPath];

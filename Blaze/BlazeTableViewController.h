@@ -31,8 +31,14 @@
 @property(nonatomic,strong) NSNumber *emptyTableViewCellSeparatorStyle;
 @property(nonatomic,strong) NSNumber *filledTableViewCellSeparatorStyle;
 
-//Default InputAccessoryView
+//InputAccessoryView type
 @property(nonatomic,strong) NSNumber *defaultInputAccessoryViewType;
+
+//InputAccessoryView button
+@property(nonatomic) bool inputAccessoryButton;
+@property(nonatomic,strong) UIColor *inputAccessoryButtonColor;
+@property(nonatomic,strong) NSAttributedString *inputAccessoryButtonTitle;
+@property(nonatomic,copy) void (^inputAccessoryButtonTapped)(void);
 
 //Specific bundle for nibs
 @property(nonatomic,strong) NSBundle *bundle;
@@ -122,6 +128,8 @@
 -(void)reloadCellForRow:(BlazeRow *)row withRowAnimation:(UITableViewRowAnimation)animation;
 
 //Becoming first responder
+-(void)activateFirstField;
+-(void)activateFieldForIndexPath:(NSIndexPath *)indexPath;
 -(void)activateNextFieldFromIndexPath:(NSIndexPath *)indexPath;
 
 //Adding sections

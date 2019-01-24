@@ -18,35 +18,7 @@
 {
     [super viewDidLoad];
     
-    //Empty state
-    self.emptyImage = [UIImage imageNamed:@"Blaze_Logo"];
-    self.emptyBackgroundColor = [UIColor whiteColor];
-    self.emptyVerticalOffset = -100.0f;
-    self.emptyTitle = @"This is an example text for an empty state, you can provide colors, atributed text, image, background color, etc.\nCredits to DZNEmptyDataSet!";
-    self.emptyTitleAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:18.0f weight:UIFontWeightLight], NSForegroundColorAttributeName:[UIColor darkGrayColor]};
-    
-    
-    
-    //Empty state custom view with hitTest for UIButton subview
-/*
-    self.emptyBackgroundColor = [UIColor redColor];
-    UIView *view = [UIView new];
-    self.emptyVerticalOffset = -300.0f;
-    UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(50, 200, 250, 50)];
-    lbl.text = @"Custom label!";
-    lbl.backgroundColor = [UIColor yellowColor];
-    [view addSubview:lbl];
-    
-    
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(50, 0, 200, 200);
-    btn.backgroundColor = [UIColor yellowColor];
-    [btn setTitle:@"HitTest" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [view addSubview:btn];
-    self.emptyCustomView = view;
- */
+    //Empty state    
 }
 
 -(void)viewDidAppear:(BOOL)animated

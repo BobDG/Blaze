@@ -10,9 +10,10 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
-    InputAccessoryViewDefaultArrows,
-    InputAccessoryViewDefaultStrings,
-    InputAccessoryViewCancelSave,
+    InputAccessoryViewArrowsLeftRight,
+    InputAccessoryViewArrowsUpDown,
+    InputAccessoryViewStrings,
+    InputAccessoryViewCancelSave
 };
 
 typedef NS_ENUM(NSInteger, FloatingLabelEnabledState) {
@@ -129,6 +130,10 @@ typedef NS_ENUM(NSInteger, ImageType) {
 
 //InputAccessoryViewType
 @property(nonatomic) InputAccessoryViewType inputAccessoryViewType;
+@property(nonatomic) bool inputAccessoryButton;
+@property(nonatomic,strong) UIColor *inputAccessoryButtonColor;
+@property(nonatomic,strong) NSAttributedString *inputAccessoryButtonTitle;
+@property(nonatomic,copy) void (^inputAccessoryButtonTapped)(void);
 
 //Constraints
 @property(nonatomic,strong) NSArray <NSNumber *> *constraintConstants;

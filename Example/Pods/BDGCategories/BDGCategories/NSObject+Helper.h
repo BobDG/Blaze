@@ -15,10 +15,20 @@
 -(void)setValuesForKeysWithDictionarySafely:(NSDictionary *)keyedValues;
 
 //Class methods
-+(id)mapObjects:(NSArray *)objects toClass:(Class)objectClass;
 +(void)copyPropertiesFrom:(id)fromObject toObject:(id)toObject;
-+(id)mapDictionary:(NSDictionary *)dictionary toClass:(Class)objectClass;
 +(id)convertDictionaryToObject:(NSDictionary *)dictionary objectType:(Class)objectType;
 +(NSMutableArray *)convertDictionaryToObjects:(NSArray *)dictionaries objectType:(Class)objectType;
+
+//Mapping array of objects
++(id)mapObjects:(NSArray *)objects toClass:(Class)objectClass;
++(id)mapObjects:(NSArray *)objects toClass:(Class)objectClass dateFormatter:(NSDateFormatter *)dateFormatter;
++(id)mapObjects:(NSArray *)objects toClass:(Class)objectClass dateFormatter:(NSDateFormatter *)dateFormatter mappingDictionary:(NSDictionary *)mappingDictionary;
++(id)mapObjects:(NSArray *)objects toClass:(Class)objectClass dateFormatter:(NSDateFormatter *)dateFormatter mappingDictionary:(NSDictionary *)mappingDictionary arrayMappingDictionary:(NSDictionary *)arrayMappingDictionary;
+
+//Mapping one object
++(id)mapDictionary:(NSDictionary *)dictionary toClass:(Class)objectClass;
++(id)mapDictionary:(NSDictionary *)dictionary toClass:(Class)objectClass dateFormatter:(NSDateFormatter *)dateFormatter;
++(id)mapDictionary:(NSDictionary *)dictionary toClass:(Class)objectClass dateFormatter:(NSDateFormatter *)dateFormatter mappingDictionary:(NSDictionary *)mappingDictionary;
++(id)mapDictionary:(NSDictionary *)dictionary toClass:(Class)objectClass dateFormatter:(NSDateFormatter *)dateFormatter mappingDictionary:(NSDictionary *)mappingDictionary arrayMappingDictionary:(NSDictionary *)arrayMappingDictionary;
 
 @end

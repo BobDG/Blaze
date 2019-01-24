@@ -34,6 +34,19 @@
     return self;
 }
 
+-(instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if(!self) {
+        return nil;
+    }
+    
+    //Array
+    self.tagLabelsArray = [NSMutableArray new];
+    
+    return self;
+}
+
 -(void)setTags:(NSArray *)tags
 {
     //Set it
@@ -144,9 +157,15 @@
             }
             
             //Animate line/offset changes
+            float lineOriginX = label.frame.origin.x;
+            float lineWidth = label.frame.size.width;
+            if(self.lineWidthExcludesPadding) {
+                lineOriginX += self.paddingBetween;
+                lineWidth -= self.paddingBetween * 2;
+            }
             [UIView animateWithDuration:animationDuration animations:^{
                 self.scrollView.contentOffset = CGPointMake(offset, 0);
-                self.lineView.frame = CGRectMake(label.frame.origin.x, self.scrollView.frame.size.height-2, label.frame.size.width, self.lineHeight);
+                self.lineView.frame = CGRectMake(lineOriginX, self.scrollView.frame.size.height-self.lineHeight, lineWidth, self.lineHeight);
             }];
         }
         else {
@@ -174,10 +193,11 @@
 -(void)tagSelected:(UITapGestureRecognizer *)recognizer
 {
     NSUInteger index = [self.tagLabelsArray indexOfObject:recognizer.view];
-    self.activeTag = self.tags[index];    
+    id selectedTag = self.tags[index];
     if(self.tagSelected) {
-        self.tagSelected(self.tags[index]);
+        self.tagSelected(selectedTag);
     }
+    self.activeTag = selectedTag;
 }
 
 #pragma mark - Layout

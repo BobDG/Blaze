@@ -22,9 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		AFA93F01117D37C9C3CCD745 /* Pods_BlazeExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C00BA881BB68741859570A3 /* Pods_BlazeExample.framework */; };
-		B07D8F851E83F3FE006130F5 /* BlazePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07D8F841E83F3FE006130F5 /* BlazePageViewController.m */; };
 		B07D8F881E841DB6006130F5 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07D8F871E841DB6006130F5 /* PageContentViewController.m */; };
-		B07D8F8B1E841E1A006130F5 /* BlazePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07D8F8A1E841E1A006130F5 /* BlazePageTableViewController.m */; };
 		B0944BE61DDAD1B700B66895 /* IBInspectableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0944BE51DDAD1B700B66895 /* IBInspectableTableViewController.m */; };
 		B0944BE81DDAD24900B66895 /* IBInspectableBlazeTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0944BE71DDAD24900B66895 /* IBInspectableBlazeTextField.xib */; };
 		B0CE2C121DACDEAA00A1A3C9 /* TilesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0CE2C111DACDEAA00A1A3C9 /* TilesTableViewCell.xib */; };
@@ -51,65 +49,69 @@
 		ED0297171D1729220039AA41 /* TextViewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0296FE1D1729220039AA41 /* TextViewsTableViewController.m */; };
 		ED0297181D1729220039AA41 /* ZoomHeaderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297001D1729220039AA41 /* ZoomHeaderTableViewController.m */; };
 		ED0297191D1729220039AA41 /* ZoomHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0297021D1729220039AA41 /* ZoomHeaderView.xib */; };
-		ED0297581D1729370039AA41 /* BlazeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02971C1D1729370039AA41 /* BlazeTableViewController.m */; };
-		ED0297591D1729370039AA41 /* NSObject+PropertyName.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02971F1D1729370039AA41 /* NSObject+PropertyName.m */; };
-		ED02975A1D1729370039AA41 /* BlazeTileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297221D1729370039AA41 /* BlazeTileCollectionViewCell.m */; };
-		ED02975B1D1729370039AA41 /* BlazeTileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0297231D1729370039AA41 /* BlazeTileCollectionViewCell.xib */; };
-		ED02975C1D1729370039AA41 /* BlazeTilesCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297261D1729370039AA41 /* BlazeTilesCollectionView.m */; };
-		ED02975D1D1729370039AA41 /* BlazeInputTile.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297291D1729370039AA41 /* BlazeInputTile.m */; };
-		ED02975E1D1729370039AA41 /* BlazeRow.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02972B1D1729370039AA41 /* BlazeRow.m */; };
-		ED02975F1D1729370039AA41 /* BlazeSection.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02972D1D1729370039AA41 /* BlazeSection.m */; };
-		ED0297601D1729370039AA41 /* Arrow_Left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED02972F1D1729370039AA41 /* Arrow_Left@2x.png */; };
-		ED0297611D1729370039AA41 /* Arrow_Right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0297301D1729370039AA41 /* Arrow_Right@2x.png */; };
-		ED0297661D1729370039AA41 /* BlazeSegmentedControlTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297391D1729370039AA41 /* BlazeSegmentedControlTableViewCell.m */; };
-		ED0297681D1729370039AA41 /* BlazeSliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02973C1D1729370039AA41 /* BlazeSliderTableViewCell.m */; };
-		ED02976A1D1729370039AA41 /* BlazeSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02973F1D1729370039AA41 /* BlazeSwitchTableViewCell.m */; };
-		ED02976C1D1729370039AA41 /* BlazeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297421D1729370039AA41 /* BlazeTableViewCell.m */; };
-		ED02976F1D1729370039AA41 /* BlazeTextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297471D1729370039AA41 /* BlazeTextViewTableViewCell.m */; };
-		ED0297711D1729370039AA41 /* BlazeTilesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02974A1D1729370039AA41 /* BlazeTilesTableViewCell.m */; };
-		ED0297731D1729370039AA41 /* BlazeTableHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02974E1D1729370039AA41 /* BlazeTableHeaderFooterView.m */; };
-		ED0297751D1729370039AA41 /* BlazeDatePickerField.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297521D1729370039AA41 /* BlazeDatePickerField.m */; };
-		ED0297761D1729370039AA41 /* BlazePickerViewField.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297541D1729370039AA41 /* BlazePickerViewField.m */; };
-		ED0297771D1729370039AA41 /* BlazeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0297571D1729370039AA41 /* BlazeTextView.m */; };
 		ED04163B1E3A0B7800A3F2CD /* FloatTwoTextFieldsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED04163A1E3A0B7800A3F2CD /* FloatTwoTextFieldsTableViewCell.xib */; };
 		ED0416401E3A118900A3F2CD /* TwoDateFieldsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED04163F1E3A118900A3F2CD /* TwoDateFieldsTableViewCell.xib */; };
 		ED20758B1EE94C140092004F /* Blaze.podspec in Resources */ = {isa = PBXBuildFile; fileRef = ED20758A1EE94C140092004F /* Blaze.podspec */; };
-		ED2626AD1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2626AB1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m */; };
 		ED2626B01D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2626AF1D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib */; };
 		ED3BDAD51E0BD5A500B230A6 /* ImagePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3BDAD41E0BD5A500B230A6 /* ImagePickerTableViewCell.xib */; };
-		ED3BDAD81E0BD5D000B230A6 /* BlazeImagePickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3BDAD71E0BD5D000B230A6 /* BlazeImagePickerTableViewCell.m */; };
 		ED3BDADB1E0BDBD300B230A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED3BDAD91E0BDBD300B230A6 /* Localizable.strings */; };
-		ED45B2CC1E01546B007814BA /* BlazeNSFetchedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED45B2CB1E01546B007814BA /* BlazeNSFetchedTableViewController.m */; };
 		ED45B2CE1E0154CA007814BA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED45B2CD1E0154CA007814BA /* CoreData.framework */; };
 		ED45B2DC1E0154EF007814BA /* BDGCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = ED45B2D11E0154EF007814BA /* BDGCoreData.m */; };
 		ED45B2E01E01550C007814BA /* BlazeExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED45B2DE1E01550C007814BA /* BlazeExample.xcdatamodeld */; };
 		ED45B2EF1E0159A5007814BA /* FetchedResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED45B2EE1E0159A5007814BA /* FetchedResultsTableViewController.m */; };
 		ED45B2F41E015BBC007814BA /* _TestEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = ED45B2F11E015BBC007814BA /* _TestEntity.m */; };
 		ED45B2F51E015BBC007814BA /* TestEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = ED45B2F31E015BBC007814BA /* TestEntity.m */; };
-		ED4B39AB1E3625F1008D86B2 /* BlazeImagesScrollTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4B39AA1E3625F1008D86B2 /* BlazeImagesScrollTableViewCell.m */; };
 		ED4B39AF1E362FD7008D86B2 /* ScrollImagesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4B39AE1E362FD7008D86B2 /* ScrollImagesTableViewCell.xib */; };
-		ED8161942074C76C00E1DE58 /* BlazeAutomaticBreaksLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8161932074C76C00E1DE58 /* BlazeAutomaticBreaksLabel.m */; };
+		ED5A16DC21FA041300F5F77E /* BlazeTextFieldProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A168621FA041300F5F77E /* BlazeTextFieldProcessor.m */; };
+		ED5A16DD21FA041300F5F77E /* BlazePickerFieldProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A168A21FA041300F5F77E /* BlazePickerFieldProcessor.m */; };
+		ED5A16DE21FA041300F5F77E /* BlazePickerFieldMultipleProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A168C21FA041300F5F77E /* BlazePickerFieldMultipleProcessor.m */; };
+		ED5A16DF21FA041300F5F77E /* BlazeFieldProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A168D21FA041300F5F77E /* BlazeFieldProcessor.m */; };
+		ED5A16E021FA041300F5F77E /* BlazeDateFieldProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A168E21FA041300F5F77E /* BlazeDateFieldProcessor.m */; };
+		ED5A16E121FA041300F5F77E /* BlazeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A168F21FA041300F5F77E /* BlazeViewController.m */; };
+		ED5A16E221FA041300F5F77E /* BlazeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A169021FA041300F5F77E /* BlazeTableViewController.m */; };
+		ED5A16E321FA041300F5F77E /* BlazeDatePickerField.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A169221FA041300F5F77E /* BlazeDatePickerField.m */; };
+		ED5A16E421FA041300F5F77E /* BlazePickerViewMultipleField.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A169321FA041300F5F77E /* BlazePickerViewMultipleField.m */; };
+		ED5A16E521FA041300F5F77E /* BlazePickerViewField.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A169421FA041300F5F77E /* BlazePickerViewField.m */; };
+		ED5A16E621FA041300F5F77E /* BlazeTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A169621FA041300F5F77E /* BlazeTextField.m */; };
+		ED5A16E721FA041300F5F77E /* Arrow_Left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5A169B21FA041300F5F77E /* Arrow_Left@2x.png */; };
+		ED5A16E821FA041300F5F77E /* Arrow_Down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5A169C21FA041300F5F77E /* Arrow_Down@2x.png */; };
+		ED5A16E921FA041300F5F77E /* Arrow_Up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5A169D21FA041300F5F77E /* Arrow_Up@2x.png */; };
+		ED5A16EA21FA041300F5F77E /* Arrow_Right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5A169E21FA041300F5F77E /* Arrow_Right@2x.png */; };
+		ED5A16EB21FA041400F5F77E /* BlazeTextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16A021FA041300F5F77E /* BlazeTextViewTableViewCell.m */; };
+		ED5A16EC21FA041400F5F77E /* BlazeImagesScrollTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16A121FA041300F5F77E /* BlazeImagesScrollTableViewCell.m */; };
+		ED5A16ED21FA041400F5F77E /* BlazeImagePickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16A221FA041300F5F77E /* BlazeImagePickerTableViewCell.m */; };
+		ED5A16EE21FA041400F5F77E /* BlazeCheckboxTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16A421FA041300F5F77E /* BlazeCheckboxTableViewCell.m */; };
+		ED5A16EF21FA041400F5F77E /* BlazeTilesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16A821FA041300F5F77E /* BlazeTilesTableViewCell.m */; };
+		ED5A16F021FA041400F5F77E /* BlazeSliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16AC21FA041300F5F77E /* BlazeSliderTableViewCell.m */; };
+		ED5A16F121FA041400F5F77E /* BlazeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16AF21FA041300F5F77E /* BlazeTableViewCell.m */; };
+		ED5A16F221FA041400F5F77E /* BlazeTwoChoicesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16B021FA041300F5F77E /* BlazeTwoChoicesTableViewCell.m */; };
+		ED5A16F321FA041400F5F77E /* BlazeSegmentedControlTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16B121FA041300F5F77E /* BlazeSegmentedControlTableViewCell.m */; };
+		ED5A16F421FA041400F5F77E /* BlazeSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16B321FA041300F5F77E /* BlazeSwitchTableViewCell.m */; };
+		ED5A16F521FA041400F5F77E /* BlazeAutomaticBreaksLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16B721FA041300F5F77E /* BlazeAutomaticBreaksLabel.m */; };
+		ED5A16F621FA041400F5F77E /* BlazeNSFetchedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16B821FA041300F5F77E /* BlazeNSFetchedTableViewController.m */; };
+		ED5A16F721FA041400F5F77E /* BlazeSection.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16BA21FA041300F5F77E /* BlazeSection.m */; };
+		ED5A16F821FA041400F5F77E /* BlazeRow.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16BC21FA041300F5F77E /* BlazeRow.m */; };
+		ED5A16F921FA041400F5F77E /* BlazeInputTile.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16BE21FA041300F5F77E /* BlazeInputTile.m */; };
+		ED5A16FA21FA041400F5F77E /* BlazeMediaData.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16C021FA041300F5F77E /* BlazeMediaData.m */; };
+		ED5A16FB21FA041400F5F77E /* BlazeTileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED5A16C521FA041300F5F77E /* BlazeTileCollectionViewCell.xib */; };
+		ED5A16FC21FA041400F5F77E /* BlazeTileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16C621FA041300F5F77E /* BlazeTileCollectionViewCell.m */; };
+		ED5A16FD21FA041400F5F77E /* BlazePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16C921FA041300F5F77E /* BlazePageTableViewController.m */; };
+		ED5A16FE21FA041400F5F77E /* BlazeTableHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16CC21FA041300F5F77E /* BlazeTableHeaderFooterView.m */; };
+		ED5A16FF21FA041400F5F77E /* BlazeTilesCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16CE21FA041300F5F77E /* BlazeTilesCollectionView.m */; };
+		ED5A170021FA041400F5F77E /* NSObject+PropertyName.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16D221FA041300F5F77E /* NSObject+PropertyName.m */; };
+		ED5A170121FA041400F5F77E /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16D321FA041300F5F77E /* NSString+TextDirectionality.m */; };
+		ED5A170221FA041400F5F77E /* UIScrollView+Reload.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16D621FA041300F5F77E /* UIScrollView+Reload.m */; };
+		ED5A170321FA041400F5F77E /* BlazeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16D921FA041300F5F77E /* BlazeTextView.m */; };
+		ED5A170421FA041400F5F77E /* BlazePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16DA21FA041300F5F77E /* BlazePageViewController.m */; };
 		ED933E021D1728A100B8155F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED933E011D1728A100B8155F /* main.m */; };
 		ED933E051D1728A100B8155F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED933E041D1728A100B8155F /* AppDelegate.m */; };
 		ED933E0B1D1728A100B8155F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED933E091D1728A100B8155F /* Main.storyboard */; };
 		ED933E0D1D1728A100B8155F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED933E0C1D1728A100B8155F /* Assets.xcassets */; };
 		ED933E101D1728A100B8155F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED933E0E1D1728A100B8155F /* LaunchScreen.storyboard */; };
-		EDAF38AD1E76A94800F8A508 /* BlazeDateFieldProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAF38A61E76A94800F8A508 /* BlazeDateFieldProcessor.m */; };
-		EDAF38AE1E76A94800F8A508 /* BlazeFieldProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAF38A81E76A94800F8A508 /* BlazeFieldProcessor.m */; };
-		EDAF38AF1E76A94800F8A508 /* BlazePickerFieldProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAF38AA1E76A94800F8A508 /* BlazePickerFieldProcessor.m */; };
-		EDAF38B01E76A94800F8A508 /* BlazeTextFieldProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAF38AC1E76A94800F8A508 /* BlazeTextFieldProcessor.m */; };
 		EDAF38B21E76AA2A00F8A508 /* DifferentFieldsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDAF38B11E76AA2A00F8A508 /* DifferentFieldsTableViewCell.xib */; };
-		EDB8CFF51D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB8CFF41D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m */; };
-		EDBDAB311EFAF4C5005ACE08 /* BlazePickerViewMultipleField.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBDAB301EFAF4C5005ACE08 /* BlazePickerViewMultipleField.m */; };
-		EDBDAB341EFAF692005ACE08 /* BlazePickerFieldMultipleProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBDAB331EFAF692005ACE08 /* BlazePickerFieldMultipleProcessor.m */; };
 		EDBDAB361EFAFB2B005ACE08 /* PickerFieldMultipleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDBDAB351EFAFB2B005ACE08 /* PickerFieldMultipleTableViewCell.xib */; };
-		EDCB01C91E2282E20064E921 /* BlazeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCB01C81E2282E20064E921 /* BlazeViewController.m */; };
-		EDEC02DD1EC3680E00FB9EB8 /* BlazeMediaData.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEC02DC1EC3680E00FB9EB8 /* BlazeMediaData.m */; };
 		EDEC02DF1EC36A7C00FB9EB8 /* ScrollImagesVariableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEC02DE1EC36A7C00FB9EB8 /* ScrollImagesVariableTableViewCell.xib */; };
-		EDF0E7E41D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF0E7E21D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m */; };
 		EDF0E7E71D4111570036AEDA /* TwoChoicesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF0E7E61D4111570036AEDA /* TwoChoicesTableViewCell.xib */; };
-		EDF41DFF1DC8404100073C2D /* BlazeTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF41DFE1DC8404100073C2D /* BlazeTextField.m */; };
-		EDF41E021DC840E400073C2D /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF41E011DC840E400073C2D /* NSString+TextDirectionality.m */; };
 		EDFFE43C1E923D2A00E5A155 /* CollapsingSectionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFFE43B1E923D2A00E5A155 /* CollapsingSectionsTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -117,12 +119,8 @@
 		5C00BA881BB68741859570A3 /* Pods_BlazeExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlazeExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7414ACEAFC2C6C62B2C372A6 /* Pods-BlazeExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlazeExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample.debug.xcconfig"; sourceTree = "<group>"; };
 		9117633E2828C62B6A0A0603 /* Pods-BlazeExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlazeExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample.release.xcconfig"; sourceTree = "<group>"; };
-		B07D8F831E83F3FE006130F5 /* BlazePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePageViewController.h; sourceTree = "<group>"; };
-		B07D8F841E83F3FE006130F5 /* BlazePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePageViewController.m; sourceTree = "<group>"; };
 		B07D8F861E841DB6006130F5 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
 		B07D8F871E841DB6006130F5 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
-		B07D8F891E841E19006130F5 /* BlazePageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePageTableViewController.h; sourceTree = "<group>"; };
-		B07D8F8A1E841E1A006130F5 /* BlazePageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePageTableViewController.m; sourceTree = "<group>"; };
 		B0944BE41DDAD1B700B66895 /* IBInspectableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInspectableTableViewController.h; sourceTree = "<group>"; };
 		B0944BE51DDAD1B700B66895 /* IBInspectableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBInspectableTableViewController.m; sourceTree = "<group>"; };
 		B0944BE71DDAD24900B66895 /* IBInspectableBlazeTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IBInspectableBlazeTextField.xib; sourceTree = "<group>"; };
@@ -159,55 +157,12 @@
 		ED0296FF1D1729220039AA41 /* ZoomHeaderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomHeaderTableViewController.h; sourceTree = "<group>"; };
 		ED0297001D1729220039AA41 /* ZoomHeaderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomHeaderTableViewController.m; sourceTree = "<group>"; };
 		ED0297021D1729220039AA41 /* ZoomHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZoomHeaderView.xib; sourceTree = "<group>"; };
-		ED02971B1D1729370039AA41 /* BlazeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTableViewController.h; sourceTree = "<group>"; };
-		ED02971C1D1729370039AA41 /* BlazeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTableViewController.m; sourceTree = "<group>"; };
-		ED02971E1D1729370039AA41 /* NSObject+PropertyName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PropertyName.h"; sourceTree = "<group>"; };
-		ED02971F1D1729370039AA41 /* NSObject+PropertyName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PropertyName.m"; sourceTree = "<group>"; };
-		ED0297211D1729370039AA41 /* BlazeTileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTileCollectionViewCell.h; sourceTree = "<group>"; };
-		ED0297221D1729370039AA41 /* BlazeTileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTileCollectionViewCell.m; sourceTree = "<group>"; };
-		ED0297231D1729370039AA41 /* BlazeTileCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlazeTileCollectionViewCell.xib; sourceTree = "<group>"; };
-		ED0297251D1729370039AA41 /* BlazeTilesCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTilesCollectionView.h; sourceTree = "<group>"; };
-		ED0297261D1729370039AA41 /* BlazeTilesCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTilesCollectionView.m; sourceTree = "<group>"; };
-		ED0297281D1729370039AA41 /* BlazeInputTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeInputTile.h; sourceTree = "<group>"; };
-		ED0297291D1729370039AA41 /* BlazeInputTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeInputTile.m; sourceTree = "<group>"; };
-		ED02972A1D1729370039AA41 /* BlazeRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeRow.h; sourceTree = "<group>"; };
-		ED02972B1D1729370039AA41 /* BlazeRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeRow.m; sourceTree = "<group>"; };
-		ED02972C1D1729370039AA41 /* BlazeSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeSection.h; sourceTree = "<group>"; };
-		ED02972D1D1729370039AA41 /* BlazeSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeSection.m; sourceTree = "<group>"; };
-		ED02972F1D1729370039AA41 /* Arrow_Left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow_Left@2x.png"; sourceTree = "<group>"; };
-		ED0297301D1729370039AA41 /* Arrow_Right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow_Right@2x.png"; sourceTree = "<group>"; };
-		ED0297381D1729370039AA41 /* BlazeSegmentedControlTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeSegmentedControlTableViewCell.h; sourceTree = "<group>"; };
-		ED0297391D1729370039AA41 /* BlazeSegmentedControlTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeSegmentedControlTableViewCell.m; sourceTree = "<group>"; };
-		ED02973B1D1729370039AA41 /* BlazeSliderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeSliderTableViewCell.h; sourceTree = "<group>"; };
-		ED02973C1D1729370039AA41 /* BlazeSliderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeSliderTableViewCell.m; sourceTree = "<group>"; };
-		ED02973E1D1729370039AA41 /* BlazeSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeSwitchTableViewCell.h; sourceTree = "<group>"; };
-		ED02973F1D1729370039AA41 /* BlazeSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeSwitchTableViewCell.m; sourceTree = "<group>"; };
-		ED0297411D1729370039AA41 /* BlazeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTableViewCell.h; sourceTree = "<group>"; };
-		ED0297421D1729370039AA41 /* BlazeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTableViewCell.m; sourceTree = "<group>"; };
-		ED0297461D1729370039AA41 /* BlazeTextViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTextViewTableViewCell.h; sourceTree = "<group>"; };
-		ED0297471D1729370039AA41 /* BlazeTextViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTextViewTableViewCell.m; sourceTree = "<group>"; };
-		ED0297491D1729370039AA41 /* BlazeTilesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTilesTableViewCell.h; sourceTree = "<group>"; };
-		ED02974A1D1729370039AA41 /* BlazeTilesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTilesTableViewCell.m; sourceTree = "<group>"; };
-		ED02974D1D1729370039AA41 /* BlazeTableHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTableHeaderFooterView.h; sourceTree = "<group>"; };
-		ED02974E1D1729370039AA41 /* BlazeTableHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTableHeaderFooterView.m; sourceTree = "<group>"; };
-		ED0297511D1729370039AA41 /* BlazeDatePickerField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeDatePickerField.h; sourceTree = "<group>"; };
-		ED0297521D1729370039AA41 /* BlazeDatePickerField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeDatePickerField.m; sourceTree = "<group>"; };
-		ED0297531D1729370039AA41 /* BlazePickerViewField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePickerViewField.h; sourceTree = "<group>"; };
-		ED0297541D1729370039AA41 /* BlazePickerViewField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePickerViewField.m; sourceTree = "<group>"; };
-		ED0297561D1729370039AA41 /* BlazeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTextView.h; sourceTree = "<group>"; };
-		ED0297571D1729370039AA41 /* BlazeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTextView.m; sourceTree = "<group>"; };
 		ED04163A1E3A0B7800A3F2CD /* FloatTwoTextFieldsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatTwoTextFieldsTableViewCell.xib; sourceTree = "<group>"; };
 		ED04163F1E3A118900A3F2CD /* TwoDateFieldsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoDateFieldsTableViewCell.xib; sourceTree = "<group>"; };
 		ED20758A1EE94C140092004F /* Blaze.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Blaze.podspec; path = ../Blaze.podspec; sourceTree = "<group>"; };
-		ED2626AA1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeCheckboxTableViewCell.h; sourceTree = "<group>"; };
-		ED2626AB1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeCheckboxTableViewCell.m; sourceTree = "<group>"; };
 		ED2626AF1D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckboxTableViewCell.xib; sourceTree = "<group>"; };
 		ED3BDAD41E0BD5A500B230A6 /* ImagePickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePickerTableViewCell.xib; sourceTree = "<group>"; };
-		ED3BDAD61E0BD5D000B230A6 /* BlazeImagePickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeImagePickerTableViewCell.h; sourceTree = "<group>"; };
-		ED3BDAD71E0BD5D000B230A6 /* BlazeImagePickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeImagePickerTableViewCell.m; sourceTree = "<group>"; };
 		ED3BDADA1E0BDBD300B230A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		ED45B2CA1E01546B007814BA /* BlazeNSFetchedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeNSFetchedTableViewController.h; sourceTree = "<group>"; };
-		ED45B2CB1E01546B007814BA /* BlazeNSFetchedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeNSFetchedTableViewController.m; sourceTree = "<group>"; };
 		ED45B2CD1E0154CA007814BA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		ED45B2D01E0154EF007814BA /* BDGCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDGCoreData.h; sourceTree = "<group>"; };
 		ED45B2D11E0154EF007814BA /* BDGCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDGCoreData.m; sourceTree = "<group>"; };
@@ -218,11 +173,84 @@
 		ED45B2F11E015BBC007814BA /* _TestEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TestEntity.m; sourceTree = "<group>"; };
 		ED45B2F21E015BBC007814BA /* TestEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestEntity.h; sourceTree = "<group>"; };
 		ED45B2F31E015BBC007814BA /* TestEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestEntity.m; sourceTree = "<group>"; };
-		ED4B39A91E3625F1008D86B2 /* BlazeImagesScrollTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeImagesScrollTableViewCell.h; sourceTree = "<group>"; };
-		ED4B39AA1E3625F1008D86B2 /* BlazeImagesScrollTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeImagesScrollTableViewCell.m; sourceTree = "<group>"; };
 		ED4B39AE1E362FD7008D86B2 /* ScrollImagesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollImagesTableViewCell.xib; sourceTree = "<group>"; };
-		ED8161922074C76C00E1DE58 /* BlazeAutomaticBreaksLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlazeAutomaticBreaksLabel.h; sourceTree = "<group>"; };
-		ED8161932074C76C00E1DE58 /* BlazeAutomaticBreaksLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlazeAutomaticBreaksLabel.m; sourceTree = "<group>"; };
+		ED5A168521FA041300F5F77E /* BlazePickerFieldProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePickerFieldProcessor.h; sourceTree = "<group>"; };
+		ED5A168621FA041300F5F77E /* BlazeTextFieldProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTextFieldProcessor.m; sourceTree = "<group>"; };
+		ED5A168721FA041300F5F77E /* BlazeFieldProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeFieldProcessor.h; sourceTree = "<group>"; };
+		ED5A168821FA041300F5F77E /* BlazePickerFieldMultipleProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePickerFieldMultipleProcessor.h; sourceTree = "<group>"; };
+		ED5A168921FA041300F5F77E /* BlazeDateFieldProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeDateFieldProcessor.h; sourceTree = "<group>"; };
+		ED5A168A21FA041300F5F77E /* BlazePickerFieldProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePickerFieldProcessor.m; sourceTree = "<group>"; };
+		ED5A168B21FA041300F5F77E /* BlazeTextFieldProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTextFieldProcessor.h; sourceTree = "<group>"; };
+		ED5A168C21FA041300F5F77E /* BlazePickerFieldMultipleProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePickerFieldMultipleProcessor.m; sourceTree = "<group>"; };
+		ED5A168D21FA041300F5F77E /* BlazeFieldProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeFieldProcessor.m; sourceTree = "<group>"; };
+		ED5A168E21FA041300F5F77E /* BlazeDateFieldProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeDateFieldProcessor.m; sourceTree = "<group>"; };
+		ED5A168F21FA041300F5F77E /* BlazeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeViewController.m; sourceTree = "<group>"; };
+		ED5A169021FA041300F5F77E /* BlazeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTableViewController.m; sourceTree = "<group>"; };
+		ED5A169221FA041300F5F77E /* BlazeDatePickerField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeDatePickerField.m; sourceTree = "<group>"; };
+		ED5A169321FA041300F5F77E /* BlazePickerViewMultipleField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePickerViewMultipleField.m; sourceTree = "<group>"; };
+		ED5A169421FA041300F5F77E /* BlazePickerViewField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePickerViewField.m; sourceTree = "<group>"; };
+		ED5A169521FA041300F5F77E /* BlazeTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTextField.h; sourceTree = "<group>"; };
+		ED5A169621FA041300F5F77E /* BlazeTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTextField.m; sourceTree = "<group>"; };
+		ED5A169721FA041300F5F77E /* BlazePickerViewField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePickerViewField.h; sourceTree = "<group>"; };
+		ED5A169821FA041300F5F77E /* BlazeDatePickerField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeDatePickerField.h; sourceTree = "<group>"; };
+		ED5A169921FA041300F5F77E /* BlazePickerViewMultipleField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePickerViewMultipleField.h; sourceTree = "<group>"; };
+		ED5A169B21FA041300F5F77E /* Arrow_Left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow_Left@2x.png"; sourceTree = "<group>"; };
+		ED5A169C21FA041300F5F77E /* Arrow_Down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow_Down@2x.png"; sourceTree = "<group>"; };
+		ED5A169D21FA041300F5F77E /* Arrow_Up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow_Up@2x.png"; sourceTree = "<group>"; };
+		ED5A169E21FA041300F5F77E /* Arrow_Right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow_Right@2x.png"; sourceTree = "<group>"; };
+		ED5A16A021FA041300F5F77E /* BlazeTextViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTextViewTableViewCell.m; sourceTree = "<group>"; };
+		ED5A16A121FA041300F5F77E /* BlazeImagesScrollTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeImagesScrollTableViewCell.m; sourceTree = "<group>"; };
+		ED5A16A221FA041300F5F77E /* BlazeImagePickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeImagePickerTableViewCell.m; sourceTree = "<group>"; };
+		ED5A16A321FA041300F5F77E /* BlazeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTableViewCell.h; sourceTree = "<group>"; };
+		ED5A16A421FA041300F5F77E /* BlazeCheckboxTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeCheckboxTableViewCell.m; sourceTree = "<group>"; };
+		ED5A16A521FA041300F5F77E /* BlazeSliderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeSliderTableViewCell.h; sourceTree = "<group>"; };
+		ED5A16A621FA041300F5F77E /* BlazeTwoChoicesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTwoChoicesTableViewCell.h; sourceTree = "<group>"; };
+		ED5A16A721FA041300F5F77E /* BlazeSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeSwitchTableViewCell.h; sourceTree = "<group>"; };
+		ED5A16A821FA041300F5F77E /* BlazeTilesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTilesTableViewCell.m; sourceTree = "<group>"; };
+		ED5A16A921FA041300F5F77E /* BlazeSegmentedControlTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeSegmentedControlTableViewCell.h; sourceTree = "<group>"; };
+		ED5A16AA21FA041300F5F77E /* BlazeImagesScrollTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeImagesScrollTableViewCell.h; sourceTree = "<group>"; };
+		ED5A16AB21FA041300F5F77E /* BlazeTextViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTextViewTableViewCell.h; sourceTree = "<group>"; };
+		ED5A16AC21FA041300F5F77E /* BlazeSliderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeSliderTableViewCell.m; sourceTree = "<group>"; };
+		ED5A16AD21FA041300F5F77E /* BlazeCheckboxTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeCheckboxTableViewCell.h; sourceTree = "<group>"; };
+		ED5A16AE21FA041300F5F77E /* BlazeImagePickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeImagePickerTableViewCell.h; sourceTree = "<group>"; };
+		ED5A16AF21FA041300F5F77E /* BlazeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTableViewCell.m; sourceTree = "<group>"; };
+		ED5A16B021FA041300F5F77E /* BlazeTwoChoicesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTwoChoicesTableViewCell.m; sourceTree = "<group>"; };
+		ED5A16B121FA041300F5F77E /* BlazeSegmentedControlTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeSegmentedControlTableViewCell.m; sourceTree = "<group>"; };
+		ED5A16B221FA041300F5F77E /* BlazeTilesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTilesTableViewCell.h; sourceTree = "<group>"; };
+		ED5A16B321FA041300F5F77E /* BlazeSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeSwitchTableViewCell.m; sourceTree = "<group>"; };
+		ED5A16B421FA041300F5F77E /* BlazePageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePageTableViewController.h; sourceTree = "<group>"; };
+		ED5A16B621FA041300F5F77E /* BlazeAutomaticBreaksLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeAutomaticBreaksLabel.h; sourceTree = "<group>"; };
+		ED5A16B721FA041300F5F77E /* BlazeAutomaticBreaksLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeAutomaticBreaksLabel.m; sourceTree = "<group>"; };
+		ED5A16B821FA041300F5F77E /* BlazeNSFetchedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeNSFetchedTableViewController.m; sourceTree = "<group>"; };
+		ED5A16BA21FA041300F5F77E /* BlazeSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeSection.m; sourceTree = "<group>"; };
+		ED5A16BB21FA041300F5F77E /* BlazeInputTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeInputTile.h; sourceTree = "<group>"; };
+		ED5A16BC21FA041300F5F77E /* BlazeRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeRow.m; sourceTree = "<group>"; };
+		ED5A16BD21FA041300F5F77E /* BlazeMediaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeMediaData.h; sourceTree = "<group>"; };
+		ED5A16BE21FA041300F5F77E /* BlazeInputTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeInputTile.m; sourceTree = "<group>"; };
+		ED5A16BF21FA041300F5F77E /* BlazeSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeSection.h; sourceTree = "<group>"; };
+		ED5A16C021FA041300F5F77E /* BlazeMediaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeMediaData.m; sourceTree = "<group>"; };
+		ED5A16C121FA041300F5F77E /* BlazeRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeRow.h; sourceTree = "<group>"; };
+		ED5A16C221FA041300F5F77E /* BlazePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePageViewController.h; sourceTree = "<group>"; };
+		ED5A16C421FA041300F5F77E /* BlazeTileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTileCollectionViewCell.h; sourceTree = "<group>"; };
+		ED5A16C521FA041300F5F77E /* BlazeTileCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlazeTileCollectionViewCell.xib; sourceTree = "<group>"; };
+		ED5A16C621FA041300F5F77E /* BlazeTileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTileCollectionViewCell.m; sourceTree = "<group>"; };
+		ED5A16C721FA041300F5F77E /* BlazeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeViewController.h; sourceTree = "<group>"; };
+		ED5A16C821FA041300F5F77E /* BlazeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTableViewController.h; sourceTree = "<group>"; };
+		ED5A16C921FA041300F5F77E /* BlazePageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePageTableViewController.m; sourceTree = "<group>"; };
+		ED5A16CB21FA041300F5F77E /* BlazeTableHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTableHeaderFooterView.h; sourceTree = "<group>"; };
+		ED5A16CC21FA041300F5F77E /* BlazeTableHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTableHeaderFooterView.m; sourceTree = "<group>"; };
+		ED5A16CE21FA041300F5F77E /* BlazeTilesCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTilesCollectionView.m; sourceTree = "<group>"; };
+		ED5A16CF21FA041300F5F77E /* BlazeTilesCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTilesCollectionView.h; sourceTree = "<group>"; };
+		ED5A16D121FA041300F5F77E /* UIScrollView+Reload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Reload.h"; sourceTree = "<group>"; };
+		ED5A16D221FA041300F5F77E /* NSObject+PropertyName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PropertyName.m"; sourceTree = "<group>"; };
+		ED5A16D321FA041300F5F77E /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TextDirectionality.m"; sourceTree = "<group>"; };
+		ED5A16D421FA041300F5F77E /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TextDirectionality.h"; sourceTree = "<group>"; };
+		ED5A16D521FA041300F5F77E /* NSObject+PropertyName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PropertyName.h"; sourceTree = "<group>"; };
+		ED5A16D621FA041300F5F77E /* UIScrollView+Reload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Reload.m"; sourceTree = "<group>"; };
+		ED5A16D821FA041300F5F77E /* BlazeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTextView.h; sourceTree = "<group>"; };
+		ED5A16D921FA041300F5F77E /* BlazeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTextView.m; sourceTree = "<group>"; };
+		ED5A16DA21FA041300F5F77E /* BlazePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePageViewController.m; sourceTree = "<group>"; };
+		ED5A16DB21FA041300F5F77E /* BlazeNSFetchedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeNSFetchedTableViewController.h; sourceTree = "<group>"; };
 		ED933DFD1D1728A100B8155F /* Blaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED933E011D1728A100B8155F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ED933E031D1728A100B8155F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -231,34 +259,10 @@
 		ED933E0C1D1728A100B8155F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED933E0F1D1728A100B8155F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED933E111D1728A100B8155F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EDAF38A51E76A94800F8A508 /* BlazeDateFieldProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeDateFieldProcessor.h; sourceTree = "<group>"; };
-		EDAF38A61E76A94800F8A508 /* BlazeDateFieldProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeDateFieldProcessor.m; sourceTree = "<group>"; };
-		EDAF38A71E76A94800F8A508 /* BlazeFieldProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeFieldProcessor.h; sourceTree = "<group>"; };
-		EDAF38A81E76A94800F8A508 /* BlazeFieldProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeFieldProcessor.m; sourceTree = "<group>"; };
-		EDAF38A91E76A94800F8A508 /* BlazePickerFieldProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePickerFieldProcessor.h; sourceTree = "<group>"; };
-		EDAF38AA1E76A94800F8A508 /* BlazePickerFieldProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePickerFieldProcessor.m; sourceTree = "<group>"; };
-		EDAF38AB1E76A94800F8A508 /* BlazeTextFieldProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTextFieldProcessor.h; sourceTree = "<group>"; };
-		EDAF38AC1E76A94800F8A508 /* BlazeTextFieldProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTextFieldProcessor.m; sourceTree = "<group>"; };
 		EDAF38B11E76AA2A00F8A508 /* DifferentFieldsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DifferentFieldsTableViewCell.xib; sourceTree = "<group>"; };
-		EDB8CFF31D6AF32200F5D846 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
-		EDB8CFF41D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
-		EDBDAB2F1EFAF4C5005ACE08 /* BlazePickerViewMultipleField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePickerViewMultipleField.h; sourceTree = "<group>"; };
-		EDBDAB301EFAF4C5005ACE08 /* BlazePickerViewMultipleField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePickerViewMultipleField.m; sourceTree = "<group>"; };
-		EDBDAB321EFAF692005ACE08 /* BlazePickerFieldMultipleProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePickerFieldMultipleProcessor.h; sourceTree = "<group>"; };
-		EDBDAB331EFAF692005ACE08 /* BlazePickerFieldMultipleProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePickerFieldMultipleProcessor.m; sourceTree = "<group>"; };
 		EDBDAB351EFAFB2B005ACE08 /* PickerFieldMultipleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerFieldMultipleTableViewCell.xib; sourceTree = "<group>"; };
-		EDCB01C71E2282E20064E921 /* BlazeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeViewController.h; sourceTree = "<group>"; };
-		EDCB01C81E2282E20064E921 /* BlazeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeViewController.m; sourceTree = "<group>"; };
-		EDEC02DB1EC3680E00FB9EB8 /* BlazeMediaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeMediaData.h; sourceTree = "<group>"; };
-		EDEC02DC1EC3680E00FB9EB8 /* BlazeMediaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeMediaData.m; sourceTree = "<group>"; };
 		EDEC02DE1EC36A7C00FB9EB8 /* ScrollImagesVariableTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollImagesVariableTableViewCell.xib; sourceTree = "<group>"; };
-		EDF0E7E11D410E430036AEDA /* BlazeTwoChoicesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTwoChoicesTableViewCell.h; sourceTree = "<group>"; };
-		EDF0E7E21D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTwoChoicesTableViewCell.m; sourceTree = "<group>"; };
 		EDF0E7E61D4111570036AEDA /* TwoChoicesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoChoicesTableViewCell.xib; sourceTree = "<group>"; };
-		EDF41DFD1DC8404100073C2D /* BlazeTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTextField.h; sourceTree = "<group>"; };
-		EDF41DFE1DC8404100073C2D /* BlazeTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTextField.m; sourceTree = "<group>"; };
-		EDF41E001DC840E400073C2D /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TextDirectionality.h"; sourceTree = "<group>"; };
-		EDF41E011DC840E400073C2D /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TextDirectionality.m"; sourceTree = "<group>"; };
 		EDFFE43A1E923D2A00E5A155 /* CollapsingSectionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollapsingSectionsTableViewController.h; sourceTree = "<group>"; };
 		EDFFE43B1E923D2A00E5A155 /* CollapsingSectionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollapsingSectionsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -372,151 +376,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		ED02971A1D1729370039AA41 /* Blaze */ = {
-			isa = PBXGroup;
-			children = (
-				EDCB01C71E2282E20064E921 /* BlazeViewController.h */,
-				EDCB01C81E2282E20064E921 /* BlazeViewController.m */,
-				ED02971B1D1729370039AA41 /* BlazeTableViewController.h */,
-				ED02971C1D1729370039AA41 /* BlazeTableViewController.m */,
-				ED45B2CA1E01546B007814BA /* BlazeNSFetchedTableViewController.h */,
-				ED45B2CB1E01546B007814BA /* BlazeNSFetchedTableViewController.m */,
-				B07D8F831E83F3FE006130F5 /* BlazePageViewController.h */,
-				B07D8F841E83F3FE006130F5 /* BlazePageViewController.m */,
-				B07D8F891E841E19006130F5 /* BlazePageTableViewController.h */,
-				B07D8F8A1E841E1A006130F5 /* BlazePageTableViewController.m */,
-				ED8161912074C75D00E1DE58 /* Labels */,
-				ED0297271D1729370039AA41 /* Objects */,
-				ED02971D1D1729370039AA41 /* Categories */,
-				ED0297241D1729370039AA41 /* CollectionViews */,
-				ED0297201D1729370039AA41 /* CollectionViewCells */,
-				EDAF38A41E76A94800F8A508 /* FieldProcessors */,
-				ED02972E1D1729370039AA41 /* Resources */,
-				ED0297311D1729370039AA41 /* TableViewCells */,
-				ED02974C1D1729370039AA41 /* TableViewHeaders */,
-				ED0297501D1729370039AA41 /* TextFields */,
-				ED0297551D1729370039AA41 /* TextViews */,
-			);
-			name = Blaze;
-			path = ../../Blaze;
-			sourceTree = "<group>";
-		};
-		ED02971D1D1729370039AA41 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				EDF41E001DC840E400073C2D /* NSString+TextDirectionality.h */,
-				EDF41E011DC840E400073C2D /* NSString+TextDirectionality.m */,
-				ED02971E1D1729370039AA41 /* NSObject+PropertyName.h */,
-				ED02971F1D1729370039AA41 /* NSObject+PropertyName.m */,
-				EDB8CFF31D6AF32200F5D846 /* UIScrollView+EmptyDataSet.h */,
-				EDB8CFF41D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		ED0297201D1729370039AA41 /* CollectionViewCells */ = {
-			isa = PBXGroup;
-			children = (
-				ED0297211D1729370039AA41 /* BlazeTileCollectionViewCell.h */,
-				ED0297221D1729370039AA41 /* BlazeTileCollectionViewCell.m */,
-				ED0297231D1729370039AA41 /* BlazeTileCollectionViewCell.xib */,
-			);
-			path = CollectionViewCells;
-			sourceTree = "<group>";
-		};
-		ED0297241D1729370039AA41 /* CollectionViews */ = {
-			isa = PBXGroup;
-			children = (
-				ED0297251D1729370039AA41 /* BlazeTilesCollectionView.h */,
-				ED0297261D1729370039AA41 /* BlazeTilesCollectionView.m */,
-			);
-			path = CollectionViews;
-			sourceTree = "<group>";
-		};
-		ED0297271D1729370039AA41 /* Objects */ = {
-			isa = PBXGroup;
-			children = (
-				ED02972A1D1729370039AA41 /* BlazeRow.h */,
-				ED02972B1D1729370039AA41 /* BlazeRow.m */,
-				ED02972C1D1729370039AA41 /* BlazeSection.h */,
-				ED02972D1D1729370039AA41 /* BlazeSection.m */,
-				ED0297281D1729370039AA41 /* BlazeInputTile.h */,
-				ED0297291D1729370039AA41 /* BlazeInputTile.m */,
-				EDEC02DB1EC3680E00FB9EB8 /* BlazeMediaData.h */,
-				EDEC02DC1EC3680E00FB9EB8 /* BlazeMediaData.m */,
-			);
-			path = Objects;
-			sourceTree = "<group>";
-		};
-		ED02972E1D1729370039AA41 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				ED02972F1D1729370039AA41 /* Arrow_Left@2x.png */,
-				ED0297301D1729370039AA41 /* Arrow_Right@2x.png */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		ED0297311D1729370039AA41 /* TableViewCells */ = {
-			isa = PBXGroup;
-			children = (
-				ED0297411D1729370039AA41 /* BlazeTableViewCell.h */,
-				ED0297421D1729370039AA41 /* BlazeTableViewCell.m */,
-				ED3BDAD61E0BD5D000B230A6 /* BlazeImagePickerTableViewCell.h */,
-				ED3BDAD71E0BD5D000B230A6 /* BlazeImagePickerTableViewCell.m */,
-				ED0297381D1729370039AA41 /* BlazeSegmentedControlTableViewCell.h */,
-				ED0297391D1729370039AA41 /* BlazeSegmentedControlTableViewCell.m */,
-				ED02973B1D1729370039AA41 /* BlazeSliderTableViewCell.h */,
-				ED02973C1D1729370039AA41 /* BlazeSliderTableViewCell.m */,
-				ED02973E1D1729370039AA41 /* BlazeSwitchTableViewCell.h */,
-				ED02973F1D1729370039AA41 /* BlazeSwitchTableViewCell.m */,
-				ED0297461D1729370039AA41 /* BlazeTextViewTableViewCell.h */,
-				ED0297471D1729370039AA41 /* BlazeTextViewTableViewCell.m */,
-				ED0297491D1729370039AA41 /* BlazeTilesTableViewCell.h */,
-				ED02974A1D1729370039AA41 /* BlazeTilesTableViewCell.m */,
-				ED2626AA1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.h */,
-				ED2626AB1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m */,
-				EDF0E7E11D410E430036AEDA /* BlazeTwoChoicesTableViewCell.h */,
-				EDF0E7E21D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m */,
-				ED4B39A91E3625F1008D86B2 /* BlazeImagesScrollTableViewCell.h */,
-				ED4B39AA1E3625F1008D86B2 /* BlazeImagesScrollTableViewCell.m */,
-			);
-			path = TableViewCells;
-			sourceTree = "<group>";
-		};
-		ED02974C1D1729370039AA41 /* TableViewHeaders */ = {
-			isa = PBXGroup;
-			children = (
-				ED02974D1D1729370039AA41 /* BlazeTableHeaderFooterView.h */,
-				ED02974E1D1729370039AA41 /* BlazeTableHeaderFooterView.m */,
-			);
-			path = TableViewHeaders;
-			sourceTree = "<group>";
-		};
-		ED0297501D1729370039AA41 /* TextFields */ = {
-			isa = PBXGroup;
-			children = (
-				EDF41DFD1DC8404100073C2D /* BlazeTextField.h */,
-				EDF41DFE1DC8404100073C2D /* BlazeTextField.m */,
-				ED0297511D1729370039AA41 /* BlazeDatePickerField.h */,
-				ED0297521D1729370039AA41 /* BlazeDatePickerField.m */,
-				ED0297531D1729370039AA41 /* BlazePickerViewField.h */,
-				ED0297541D1729370039AA41 /* BlazePickerViewField.m */,
-				EDBDAB2F1EFAF4C5005ACE08 /* BlazePickerViewMultipleField.h */,
-				EDBDAB301EFAF4C5005ACE08 /* BlazePickerViewMultipleField.m */,
-			);
-			path = TextFields;
-			sourceTree = "<group>";
-		};
-		ED0297551D1729370039AA41 /* TextViews */ = {
-			isa = PBXGroup;
-			children = (
-				ED0297561D1729370039AA41 /* BlazeTextView.h */,
-				ED0297571D1729370039AA41 /* BlazeTextView.m */,
-			);
-			path = TextViews;
-			sourceTree = "<group>";
-		};
 		ED45B2CF1E0154EF007814BA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -539,13 +398,177 @@
 			name = MoGenerator;
 			sourceTree = "<group>";
 		};
-		ED8161912074C75D00E1DE58 /* Labels */ = {
+		ED5A168321FA041300F5F77E /* Blaze */ = {
 			isa = PBXGroup;
 			children = (
-				ED8161922074C76C00E1DE58 /* BlazeAutomaticBreaksLabel.h */,
-				ED8161932074C76C00E1DE58 /* BlazeAutomaticBreaksLabel.m */,
+				ED5A16C721FA041300F5F77E /* BlazeViewController.h */,
+				ED5A168F21FA041300F5F77E /* BlazeViewController.m */,
+				ED5A16C821FA041300F5F77E /* BlazeTableViewController.h */,
+				ED5A169021FA041300F5F77E /* BlazeTableViewController.m */,
+				ED5A16C221FA041300F5F77E /* BlazePageViewController.h */,
+				ED5A16DA21FA041300F5F77E /* BlazePageViewController.m */,
+				ED5A16B421FA041300F5F77E /* BlazePageTableViewController.h */,
+				ED5A16C921FA041300F5F77E /* BlazePageTableViewController.m */,
+				ED5A16DB21FA041300F5F77E /* BlazeNSFetchedTableViewController.h */,
+				ED5A16B821FA041300F5F77E /* BlazeNSFetchedTableViewController.m */,
+				ED5A168421FA041300F5F77E /* FieldProcessors */,
+				ED5A169121FA041300F5F77E /* TextFields */,
+				ED5A169A21FA041300F5F77E /* Resources */,
+				ED5A169F21FA041300F5F77E /* TableViewCells */,
+				ED5A16B521FA041300F5F77E /* Labels */,
+				ED5A16B921FA041300F5F77E /* Objects */,
+				ED5A16C321FA041300F5F77E /* CollectionViewCells */,
+				ED5A16CA21FA041300F5F77E /* TableViewHeaders */,
+				ED5A16CD21FA041300F5F77E /* CollectionViews */,
+				ED5A16D021FA041300F5F77E /* Categories */,
+				ED5A16D721FA041300F5F77E /* TextViews */,
+			);
+			name = Blaze;
+			path = ../../Blaze;
+			sourceTree = "<group>";
+		};
+		ED5A168421FA041300F5F77E /* FieldProcessors */ = {
+			isa = PBXGroup;
+			children = (
+				ED5A168521FA041300F5F77E /* BlazePickerFieldProcessor.h */,
+				ED5A168621FA041300F5F77E /* BlazeTextFieldProcessor.m */,
+				ED5A168721FA041300F5F77E /* BlazeFieldProcessor.h */,
+				ED5A168821FA041300F5F77E /* BlazePickerFieldMultipleProcessor.h */,
+				ED5A168921FA041300F5F77E /* BlazeDateFieldProcessor.h */,
+				ED5A168A21FA041300F5F77E /* BlazePickerFieldProcessor.m */,
+				ED5A168B21FA041300F5F77E /* BlazeTextFieldProcessor.h */,
+				ED5A168C21FA041300F5F77E /* BlazePickerFieldMultipleProcessor.m */,
+				ED5A168D21FA041300F5F77E /* BlazeFieldProcessor.m */,
+				ED5A168E21FA041300F5F77E /* BlazeDateFieldProcessor.m */,
+			);
+			path = FieldProcessors;
+			sourceTree = "<group>";
+		};
+		ED5A169121FA041300F5F77E /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				ED5A169221FA041300F5F77E /* BlazeDatePickerField.m */,
+				ED5A169321FA041300F5F77E /* BlazePickerViewMultipleField.m */,
+				ED5A169421FA041300F5F77E /* BlazePickerViewField.m */,
+				ED5A169521FA041300F5F77E /* BlazeTextField.h */,
+				ED5A169621FA041300F5F77E /* BlazeTextField.m */,
+				ED5A169721FA041300F5F77E /* BlazePickerViewField.h */,
+				ED5A169821FA041300F5F77E /* BlazeDatePickerField.h */,
+				ED5A169921FA041300F5F77E /* BlazePickerViewMultipleField.h */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		ED5A169A21FA041300F5F77E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ED5A169B21FA041300F5F77E /* Arrow_Left@2x.png */,
+				ED5A169C21FA041300F5F77E /* Arrow_Down@2x.png */,
+				ED5A169D21FA041300F5F77E /* Arrow_Up@2x.png */,
+				ED5A169E21FA041300F5F77E /* Arrow_Right@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		ED5A169F21FA041300F5F77E /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				ED5A16A321FA041300F5F77E /* BlazeTableViewCell.h */,
+				ED5A16AF21FA041300F5F77E /* BlazeTableViewCell.m */,
+				ED5A16A021FA041300F5F77E /* BlazeTextViewTableViewCell.m */,
+				ED5A16A121FA041300F5F77E /* BlazeImagesScrollTableViewCell.m */,
+				ED5A16A221FA041300F5F77E /* BlazeImagePickerTableViewCell.m */,
+				ED5A16A421FA041300F5F77E /* BlazeCheckboxTableViewCell.m */,
+				ED5A16A521FA041300F5F77E /* BlazeSliderTableViewCell.h */,
+				ED5A16A621FA041300F5F77E /* BlazeTwoChoicesTableViewCell.h */,
+				ED5A16A721FA041300F5F77E /* BlazeSwitchTableViewCell.h */,
+				ED5A16A821FA041300F5F77E /* BlazeTilesTableViewCell.m */,
+				ED5A16A921FA041300F5F77E /* BlazeSegmentedControlTableViewCell.h */,
+				ED5A16AA21FA041300F5F77E /* BlazeImagesScrollTableViewCell.h */,
+				ED5A16AB21FA041300F5F77E /* BlazeTextViewTableViewCell.h */,
+				ED5A16AC21FA041300F5F77E /* BlazeSliderTableViewCell.m */,
+				ED5A16AD21FA041300F5F77E /* BlazeCheckboxTableViewCell.h */,
+				ED5A16AE21FA041300F5F77E /* BlazeImagePickerTableViewCell.h */,
+				ED5A16B021FA041300F5F77E /* BlazeTwoChoicesTableViewCell.m */,
+				ED5A16B121FA041300F5F77E /* BlazeSegmentedControlTableViewCell.m */,
+				ED5A16B221FA041300F5F77E /* BlazeTilesTableViewCell.h */,
+				ED5A16B321FA041300F5F77E /* BlazeSwitchTableViewCell.m */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		ED5A16B521FA041300F5F77E /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				ED5A16B621FA041300F5F77E /* BlazeAutomaticBreaksLabel.h */,
+				ED5A16B721FA041300F5F77E /* BlazeAutomaticBreaksLabel.m */,
 			);
 			path = Labels;
+			sourceTree = "<group>";
+		};
+		ED5A16B921FA041300F5F77E /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				ED5A16C121FA041300F5F77E /* BlazeRow.h */,
+				ED5A16BC21FA041300F5F77E /* BlazeRow.m */,
+				ED5A16BF21FA041300F5F77E /* BlazeSection.h */,
+				ED5A16BA21FA041300F5F77E /* BlazeSection.m */,
+				ED5A16BB21FA041300F5F77E /* BlazeInputTile.h */,
+				ED5A16BE21FA041300F5F77E /* BlazeInputTile.m */,
+				ED5A16BD21FA041300F5F77E /* BlazeMediaData.h */,
+				ED5A16C021FA041300F5F77E /* BlazeMediaData.m */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		ED5A16C321FA041300F5F77E /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				ED5A16C421FA041300F5F77E /* BlazeTileCollectionViewCell.h */,
+				ED5A16C521FA041300F5F77E /* BlazeTileCollectionViewCell.xib */,
+				ED5A16C621FA041300F5F77E /* BlazeTileCollectionViewCell.m */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		ED5A16CA21FA041300F5F77E /* TableViewHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				ED5A16CB21FA041300F5F77E /* BlazeTableHeaderFooterView.h */,
+				ED5A16CC21FA041300F5F77E /* BlazeTableHeaderFooterView.m */,
+			);
+			path = TableViewHeaders;
+			sourceTree = "<group>";
+		};
+		ED5A16CD21FA041300F5F77E /* CollectionViews */ = {
+			isa = PBXGroup;
+			children = (
+				ED5A16CE21FA041300F5F77E /* BlazeTilesCollectionView.m */,
+				ED5A16CF21FA041300F5F77E /* BlazeTilesCollectionView.h */,
+			);
+			path = CollectionViews;
+			sourceTree = "<group>";
+		};
+		ED5A16D021FA041300F5F77E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				ED5A16D121FA041300F5F77E /* UIScrollView+Reload.h */,
+				ED5A16D221FA041300F5F77E /* NSObject+PropertyName.m */,
+				ED5A16D321FA041300F5F77E /* NSString+TextDirectionality.m */,
+				ED5A16D421FA041300F5F77E /* NSString+TextDirectionality.h */,
+				ED5A16D521FA041300F5F77E /* NSObject+PropertyName.h */,
+				ED5A16D621FA041300F5F77E /* UIScrollView+Reload.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		ED5A16D721FA041300F5F77E /* TextViews */ = {
+			isa = PBXGroup;
+			children = (
+				ED5A16D821FA041300F5F77E /* BlazeTextView.h */,
+				ED5A16D921FA041300F5F77E /* BlazeTextView.m */,
+			);
+			path = TextViews;
 			sourceTree = "<group>";
 		};
 		ED933DF41D1728A000B8155F = {
@@ -573,7 +596,7 @@
 				ED0296DF1D1729220039AA41 /* Constants.h */,
 				ED933E031D1728A100B8155F /* AppDelegate.h */,
 				ED933E041D1728A100B8155F /* AppDelegate.m */,
-				ED02971A1D1729370039AA41 /* Blaze */,
+				ED5A168321FA041300F5F77E /* Blaze */,
 				ED0296E01D1729220039AA41 /* TableViewCells */,
 				ED0296ED1D1729220039AA41 /* TableViewHeaders */,
 				ED0296F01D1729220039AA41 /* ViewControllers */,
@@ -597,23 +620,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EDAF38A41E76A94800F8A508 /* FieldProcessors */ = {
-			isa = PBXGroup;
-			children = (
-				EDAF38A71E76A94800F8A508 /* BlazeFieldProcessor.h */,
-				EDAF38A81E76A94800F8A508 /* BlazeFieldProcessor.m */,
-				EDAF38AB1E76A94800F8A508 /* BlazeTextFieldProcessor.h */,
-				EDAF38AC1E76A94800F8A508 /* BlazeTextFieldProcessor.m */,
-				EDAF38A51E76A94800F8A508 /* BlazeDateFieldProcessor.h */,
-				EDAF38A61E76A94800F8A508 /* BlazeDateFieldProcessor.m */,
-				EDAF38A91E76A94800F8A508 /* BlazePickerFieldProcessor.h */,
-				EDAF38AA1E76A94800F8A508 /* BlazePickerFieldProcessor.m */,
-				EDBDAB321EFAF692005ACE08 /* BlazePickerFieldMultipleProcessor.h */,
-				EDBDAB331EFAF692005ACE08 /* BlazePickerFieldMultipleProcessor.m */,
-			);
-			path = FieldProcessors;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -626,7 +632,6 @@
 				ED933DFA1D1728A000B8155F /* Frameworks */,
 				ED933DFB1D1728A000B8155F /* Resources */,
 				5A67A0752BD11611DA9D56FB /* [CP] Embed Pods Frameworks */,
-				A0B23A4B9D7100C5B5D12A92 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -643,7 +648,7 @@
 		ED933DF51D1728A000B8155F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = GraafICT;
 				TargetAttributes = {
 					ED45B2E11E01554F007814BA = {
@@ -682,20 +687,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED0297611D1729370039AA41 /* Arrow_Right@2x.png in Resources */,
 				ED0297041D1729220039AA41 /* DateFieldTableViewCell.xib in Resources */,
+				ED5A16E921FA041300F5F77E /* Arrow_Up@2x.png in Resources */,
 				ED02970E1D1729220039AA41 /* TextViewTableViewCell.xib in Resources */,
 				ED933E101D1728A100B8155F /* LaunchScreen.storyboard in Resources */,
+				ED5A16E721FA041300F5F77E /* Arrow_Left@2x.png in Resources */,
 				EDEC02DF1EC36A7C00FB9EB8 /* ScrollImagesVariableTableViewCell.xib in Resources */,
 				ED3BDADB1E0BDBD300B230A6 /* Localizable.strings in Resources */,
+				ED5A16EA21FA041300F5F77E /* Arrow_Right@2x.png in Resources */,
 				ED02970D1D1729220039AA41 /* TextTableViewCell.xib in Resources */,
 				ED3BDAD51E0BD5A500B230A6 /* ImagePickerTableViewCell.xib in Resources */,
 				ED4B39AF1E362FD7008D86B2 /* ScrollImagesTableViewCell.xib in Resources */,
 				ED0297061D1729220039AA41 /* FloatTextFieldTableViewCell.xib in Resources */,
 				ED0297051D1729220039AA41 /* EmptySpaceTableViewCell.xib in Resources */,
 				ED0297191D1729220039AA41 /* ZoomHeaderView.xib in Resources */,
+				ED5A16E821FA041300F5F77E /* Arrow_Down@2x.png in Resources */,
+				ED5A16FB21FA041400F5F77E /* BlazeTileCollectionViewCell.xib in Resources */,
 				ED02970F1D1729220039AA41 /* TableFooterView.xib in Resources */,
-				ED02975B1D1729370039AA41 /* BlazeTileCollectionViewCell.xib in Resources */,
 				EDBDAB361EFAFB2B005ACE08 /* PickerFieldMultipleTableViewCell.xib in Resources */,
 				ED02970A1D1729220039AA41 /* SliderTableViewCell.xib in Resources */,
 				ED02970C1D1729220039AA41 /* TextArrowTableViewCell.xib in Resources */,
@@ -710,7 +718,6 @@
 				EDF0E7E71D4111570036AEDA /* TwoChoicesTableViewCell.xib in Resources */,
 				ED0297071D1729220039AA41 /* ImageTableViewCell.xib in Resources */,
 				B0CE2C121DACDEAA00A1A3C9 /* TilesTableViewCell.xib in Resources */,
-				ED0297601D1729370039AA41 /* Arrow_Left@2x.png in Resources */,
 				ED933E0B1D1728A100B8155F /* Main.storyboard in Resources */,
 				ED02970B1D1729220039AA41 /* SwitchTableViewCell.xib in Resources */,
 				ED0297091D1729220039AA41 /* SegmentedControlTableViewCell.xib in Resources */,
@@ -732,6 +739,7 @@
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/BDGCategories/BDGCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/BDGImagePicker/BDGImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/BDGMacros/BDGMacros.framework",
 				"${BUILT_PRODUCTS_DIR}/BDGViews/BDGViews.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -739,26 +747,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BDGCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BDGImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BDGMacros.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BDGViews.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A0B23A4B9D7100C5B5D12A92 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlazeExample/Pods-BlazeExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D7BE52F67072EB1814534BBD /* [CP] Check Pods Manifest.lock */ = {
@@ -799,60 +793,60 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDBDAB311EFAF4C5005ACE08 /* BlazePickerViewMultipleField.m in Sources */,
-				ED0297771D1729370039AA41 /* BlazeTextView.m in Sources */,
-				ED0297711D1729370039AA41 /* BlazeTilesTableViewCell.m in Sources */,
-				EDAF38AE1E76A94800F8A508 /* BlazeFieldProcessor.m in Sources */,
+				ED5A16FE21FA041400F5F77E /* BlazeTableHeaderFooterView.m in Sources */,
+				ED5A16EF21FA041400F5F77E /* BlazeTilesTableViewCell.m in Sources */,
+				ED5A170221FA041400F5F77E /* UIScrollView+Reload.m in Sources */,
+				ED5A16EB21FA041400F5F77E /* BlazeTextViewTableViewCell.m in Sources */,
 				EDFFE43C1E923D2A00E5A155 /* CollapsingSectionsTableViewController.m in Sources */,
-				ED45B2CC1E01546B007814BA /* BlazeNSFetchedTableViewController.m in Sources */,
-				EDBDAB341EFAF692005ACE08 /* BlazePickerFieldMultipleProcessor.m in Sources */,
-				EDAF38AF1E76A94800F8A508 /* BlazePickerFieldProcessor.m in Sources */,
-				EDF0E7E41D410E430036AEDA /* BlazeTwoChoicesTableViewCell.m in Sources */,
-				ED8161942074C76C00E1DE58 /* BlazeAutomaticBreaksLabel.m in Sources */,
-				EDAF38B01E76A94800F8A508 /* BlazeTextFieldProcessor.m in Sources */,
-				ED02975F1D1729370039AA41 /* BlazeSection.m in Sources */,
+				ED5A16E221FA041300F5F77E /* BlazeTableViewController.m in Sources */,
 				ED0297121D1729220039AA41 /* BasicTableViewController.m in Sources */,
-				EDAF38AD1E76A94800F8A508 /* BlazeDateFieldProcessor.m in Sources */,
+				ED5A16FC21FA041400F5F77E /* BlazeTileCollectionViewCell.m in Sources */,
+				ED5A16F321FA041400F5F77E /* BlazeSegmentedControlTableViewCell.m in Sources */,
+				ED5A170121FA041400F5F77E /* NSString+TextDirectionality.m in Sources */,
 				ED45B2F41E015BBC007814BA /* _TestEntity.m in Sources */,
-				ED02976C1D1729370039AA41 /* BlazeTableViewCell.m in Sources */,
-				ED02976A1D1729370039AA41 /* BlazeSwitchTableViewCell.m in Sources */,
-				ED02975D1D1729370039AA41 /* BlazeInputTile.m in Sources */,
+				ED5A16E521FA041300F5F77E /* BlazePickerViewField.m in Sources */,
 				B0944BE61DDAD1B700B66895 /* IBInspectableTableViewController.m in Sources */,
+				ED5A170321FA041400F5F77E /* BlazeTextView.m in Sources */,
+				ED5A16DF21FA041300F5F77E /* BlazeFieldProcessor.m in Sources */,
 				ED0297181D1729220039AA41 /* ZoomHeaderTableViewController.m in Sources */,
 				ED0297171D1729220039AA41 /* TextViewsTableViewController.m in Sources */,
-				ED0297591D1729370039AA41 /* NSObject+PropertyName.m in Sources */,
 				ED0297151D1729220039AA41 /* EmptyStateTableViewController.m in Sources */,
-				ED4B39AB1E3625F1008D86B2 /* BlazeImagesScrollTableViewCell.m in Sources */,
-				ED02976F1D1729370039AA41 /* BlazeTextViewTableViewCell.m in Sources */,
-				EDF41DFF1DC8404100073C2D /* BlazeTextField.m in Sources */,
-				B07D8F8B1E841E1A006130F5 /* BlazePageTableViewController.m in Sources */,
-				EDEC02DD1EC3680E00FB9EB8 /* BlazeMediaData.m in Sources */,
 				ED45B2F51E015BBC007814BA /* TestEntity.m in Sources */,
-				B07D8F851E83F3FE006130F5 /* BlazePageViewController.m in Sources */,
-				ED0297681D1729370039AA41 /* BlazeSliderTableViewCell.m in Sources */,
-				ED3BDAD81E0BD5D000B230A6 /* BlazeImagePickerTableViewCell.m in Sources */,
-				ED0297581D1729370039AA41 /* BlazeTableViewController.m in Sources */,
+				ED5A16ED21FA041400F5F77E /* BlazeImagePickerTableViewCell.m in Sources */,
 				ED933E051D1728A100B8155F /* AppDelegate.m in Sources */,
-				ED0297731D1729370039AA41 /* BlazeTableHeaderFooterView.m in Sources */,
+				ED5A16F621FA041400F5F77E /* BlazeNSFetchedTableViewController.m in Sources */,
 				B07D8F881E841DB6006130F5 /* PageContentViewController.m in Sources */,
-				ED2626AD1D17E81000C3A1E4 /* BlazeCheckboxTableViewCell.m in Sources */,
-				ED02975E1D1729370039AA41 /* BlazeRow.m in Sources */,
+				ED5A16DE21FA041300F5F77E /* BlazePickerFieldMultipleProcessor.m in Sources */,
+				ED5A16F921FA041400F5F77E /* BlazeInputTile.m in Sources */,
+				ED5A16E421FA041300F5F77E /* BlazePickerViewMultipleField.m in Sources */,
+				ED5A16FD21FA041400F5F77E /* BlazePageTableViewController.m in Sources */,
+				ED5A16F721FA041400F5F77E /* BlazeSection.m in Sources */,
 				ED0297111D1729220039AA41 /* BaseTableViewController.m in Sources */,
-				EDF41E021DC840E400073C2D /* NSString+TextDirectionality.m in Sources */,
-				EDCB01C91E2282E20064E921 /* BlazeViewController.m in Sources */,
-				EDB8CFF51D6AF32200F5D846 /* UIScrollView+EmptyDataSet.m in Sources */,
+				ED5A16E621FA041300F5F77E /* BlazeTextField.m in Sources */,
+				ED5A16E121FA041300F5F77E /* BlazeViewController.m in Sources */,
+				ED5A16F021FA041400F5F77E /* BlazeSliderTableViewCell.m in Sources */,
+				ED5A16F221FA041400F5F77E /* BlazeTwoChoicesTableViewCell.m in Sources */,
 				ED933E021D1728A100B8155F /* main.m in Sources */,
-				ED0297661D1729370039AA41 /* BlazeSegmentedControlTableViewCell.m in Sources */,
-				ED02975A1D1729370039AA41 /* BlazeTileCollectionViewCell.m in Sources */,
 				ED0297131D1729220039AA41 /* CellTypesTableViewController.m in Sources */,
+				ED5A16FF21FA041400F5F77E /* BlazeTilesCollectionView.m in Sources */,
 				ED45B2EF1E0159A5007814BA /* FetchedResultsTableViewController.m in Sources */,
+				ED5A16EC21FA041400F5F77E /* BlazeImagesScrollTableViewCell.m in Sources */,
+				ED5A170021FA041400F5F77E /* NSObject+PropertyName.m in Sources */,
+				ED5A16DC21FA041300F5F77E /* BlazeTextFieldProcessor.m in Sources */,
+				ED5A16F821FA041400F5F77E /* BlazeRow.m in Sources */,
 				ED45B2DC1E0154EF007814BA /* BDGCoreData.m in Sources */,
-				ED02975C1D1729370039AA41 /* BlazeTilesCollectionView.m in Sources */,
+				ED5A16F121FA041400F5F77E /* BlazeTableViewCell.m in Sources */,
+				ED5A16EE21FA041400F5F77E /* BlazeCheckboxTableViewCell.m in Sources */,
+				ED5A170421FA041400F5F77E /* BlazePageViewController.m in Sources */,
 				ED0297161D1729220039AA41 /* RowHeightsTableViewController.m in Sources */,
-				ED0297761D1729370039AA41 /* BlazePickerViewField.m in Sources */,
 				ED45B2E01E01550C007814BA /* BlazeExample.xcdatamodeld in Sources */,
+				ED5A16DD21FA041300F5F77E /* BlazePickerFieldProcessor.m in Sources */,
+				ED5A16F521FA041400F5F77E /* BlazeAutomaticBreaksLabel.m in Sources */,
+				ED5A16F421FA041400F5F77E /* BlazeSwitchTableViewCell.m in Sources */,
+				ED5A16E021FA041300F5F77E /* BlazeDateFieldProcessor.m in Sources */,
+				ED5A16FA21FA041400F5F77E /* BlazeMediaData.m in Sources */,
 				ED0297141D1729220039AA41 /* DynamicRowsTableViewController.m in Sources */,
-				ED0297751D1729370039AA41 /* BlazeDatePickerField.m in Sources */,
+				ED5A16E321FA041300F5F77E /* BlazeDatePickerField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -915,12 +909,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -968,12 +964,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
