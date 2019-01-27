@@ -6,9 +6,9 @@
 //  Copyright © 2016 GraafICT. All rights reserved.
 //
 
+#import "BlazeRow.h"
 #import "BlazeTextField.h"
 #import "NSString+TextDirectionality.h"
-#import "BlazeRow.h"
 
 static CGFloat const kFloatingLabelShowAnimationDuration = 0.3f;
 static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;

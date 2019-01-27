@@ -6,9 +6,9 @@
 //  Copyright © 2017 GraafICT. All rights reserved.
 //
 
-#import "BlazeFieldProcessor.h"
+#import "BlazeInputProcessor.h"
 
-@interface BlazeDateFieldProcessor : BlazeFieldProcessor
+@interface BlazeDateFieldProcessor : BlazeInputProcessor
 {
     
 }

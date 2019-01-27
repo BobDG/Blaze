@@ -42,7 +42,7 @@
 @property(nonatomic,strong) NSBundle *bundle;
 
 //Field Processors
-@property(nonatomic,strong) NSMutableArray *fieldProcessors;
+@property(nonatomic,strong) NSMutableArray *inputProcessors;
 
 //Fields
 @property(nonatomic,weak) IBOutlet id mainField;
@@ -73,6 +73,9 @@
 
 //Constraints
 @property(nonatomic,strong) IBOutletCollection(id) NSArray *constraints;
+
+//Textview constraint
+@property(nonatomic,weak) IBOutlet NSLayoutConstraint *textViewHeightConstraint;
 
 //PageControl
 @property(nonatomic,weak) IBOutlet UIPageControl *pageControl;

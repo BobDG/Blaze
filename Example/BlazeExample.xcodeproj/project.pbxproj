@@ -65,7 +65,7 @@
 		ED5A16DC21FA041300F5F77E /* BlazeTextFieldProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A168621FA041300F5F77E /* BlazeTextFieldProcessor.m */; };
 		ED5A16DD21FA041300F5F77E /* BlazePickerFieldProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A168A21FA041300F5F77E /* BlazePickerFieldProcessor.m */; };
 		ED5A16DE21FA041300F5F77E /* BlazePickerFieldMultipleProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A168C21FA041300F5F77E /* BlazePickerFieldMultipleProcessor.m */; };
-		ED5A16DF21FA041300F5F77E /* BlazeFieldProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A168D21FA041300F5F77E /* BlazeFieldProcessor.m */; };
+		ED5A16DF21FA041300F5F77E /* BlazeInputProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A168D21FA041300F5F77E /* BlazeInputProcessor.m */; };
 		ED5A16E021FA041300F5F77E /* BlazeDateFieldProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A168E21FA041300F5F77E /* BlazeDateFieldProcessor.m */; };
 		ED5A16E121FA041300F5F77E /* BlazeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A168F21FA041300F5F77E /* BlazeViewController.m */; };
 		ED5A16E221FA041300F5F77E /* BlazeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A169021FA041300F5F77E /* BlazeTableViewController.m */; };
@@ -77,7 +77,6 @@
 		ED5A16E821FA041300F5F77E /* Arrow_Down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5A169C21FA041300F5F77E /* Arrow_Down@2x.png */; };
 		ED5A16E921FA041300F5F77E /* Arrow_Up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5A169D21FA041300F5F77E /* Arrow_Up@2x.png */; };
 		ED5A16EA21FA041300F5F77E /* Arrow_Right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5A169E21FA041300F5F77E /* Arrow_Right@2x.png */; };
-		ED5A16EB21FA041400F5F77E /* BlazeTextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16A021FA041300F5F77E /* BlazeTextViewTableViewCell.m */; };
 		ED5A16EC21FA041400F5F77E /* BlazeImagesScrollTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16A121FA041300F5F77E /* BlazeImagesScrollTableViewCell.m */; };
 		ED5A16ED21FA041400F5F77E /* BlazeImagePickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16A221FA041300F5F77E /* BlazeImagePickerTableViewCell.m */; };
 		ED5A16EE21FA041400F5F77E /* BlazeCheckboxTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16A421FA041300F5F77E /* BlazeCheckboxTableViewCell.m */; };
@@ -86,7 +85,6 @@
 		ED5A16F121FA041400F5F77E /* BlazeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16AF21FA041300F5F77E /* BlazeTableViewCell.m */; };
 		ED5A16F221FA041400F5F77E /* BlazeTwoChoicesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16B021FA041300F5F77E /* BlazeTwoChoicesTableViewCell.m */; };
 		ED5A16F321FA041400F5F77E /* BlazeSegmentedControlTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16B121FA041300F5F77E /* BlazeSegmentedControlTableViewCell.m */; };
-		ED5A16F421FA041400F5F77E /* BlazeSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16B321FA041300F5F77E /* BlazeSwitchTableViewCell.m */; };
 		ED5A16F521FA041400F5F77E /* BlazeAutomaticBreaksLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16B721FA041300F5F77E /* BlazeAutomaticBreaksLabel.m */; };
 		ED5A16F621FA041400F5F77E /* BlazeNSFetchedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16B821FA041300F5F77E /* BlazeNSFetchedTableViewController.m */; };
 		ED5A16F721FA041400F5F77E /* BlazeSection.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5A16BA21FA041300F5F77E /* BlazeSection.m */; };
@@ -109,6 +107,8 @@
 		ED933E0D1D1728A100B8155F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED933E0C1D1728A100B8155F /* Assets.xcassets */; };
 		ED933E101D1728A100B8155F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED933E0E1D1728A100B8155F /* LaunchScreen.storyboard */; };
 		EDAF38B21E76AA2A00F8A508 /* DifferentFieldsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDAF38B11E76AA2A00F8A508 /* DifferentFieldsTableViewCell.xib */; };
+		EDB9DD9C21FE220900A5C886 /* BlazeSwitchProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB9DD9B21FE220900A5C886 /* BlazeSwitchProcessor.m */; };
+		EDB9DD9F21FE358000A5C886 /* BlazeTextViewProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB9DD9E21FE358000A5C886 /* BlazeTextViewProcessor.m */; };
 		EDBDAB361EFAFB2B005ACE08 /* PickerFieldMultipleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDBDAB351EFAFB2B005ACE08 /* PickerFieldMultipleTableViewCell.xib */; };
 		EDEC02DF1EC36A7C00FB9EB8 /* ScrollImagesVariableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEC02DE1EC36A7C00FB9EB8 /* ScrollImagesVariableTableViewCell.xib */; };
 		EDF0E7E71D4111570036AEDA /* TwoChoicesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF0E7E61D4111570036AEDA /* TwoChoicesTableViewCell.xib */; };
@@ -176,13 +176,13 @@
 		ED4B39AE1E362FD7008D86B2 /* ScrollImagesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollImagesTableViewCell.xib; sourceTree = "<group>"; };
 		ED5A168521FA041300F5F77E /* BlazePickerFieldProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePickerFieldProcessor.h; sourceTree = "<group>"; };
 		ED5A168621FA041300F5F77E /* BlazeTextFieldProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTextFieldProcessor.m; sourceTree = "<group>"; };
-		ED5A168721FA041300F5F77E /* BlazeFieldProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeFieldProcessor.h; sourceTree = "<group>"; };
+		ED5A168721FA041300F5F77E /* BlazeInputProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeInputProcessor.h; sourceTree = "<group>"; };
 		ED5A168821FA041300F5F77E /* BlazePickerFieldMultipleProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePickerFieldMultipleProcessor.h; sourceTree = "<group>"; };
 		ED5A168921FA041300F5F77E /* BlazeDateFieldProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeDateFieldProcessor.h; sourceTree = "<group>"; };
 		ED5A168A21FA041300F5F77E /* BlazePickerFieldProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePickerFieldProcessor.m; sourceTree = "<group>"; };
 		ED5A168B21FA041300F5F77E /* BlazeTextFieldProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTextFieldProcessor.h; sourceTree = "<group>"; };
 		ED5A168C21FA041300F5F77E /* BlazePickerFieldMultipleProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazePickerFieldMultipleProcessor.m; sourceTree = "<group>"; };
-		ED5A168D21FA041300F5F77E /* BlazeFieldProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeFieldProcessor.m; sourceTree = "<group>"; };
+		ED5A168D21FA041300F5F77E /* BlazeInputProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeInputProcessor.m; sourceTree = "<group>"; };
 		ED5A168E21FA041300F5F77E /* BlazeDateFieldProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeDateFieldProcessor.m; sourceTree = "<group>"; };
 		ED5A168F21FA041300F5F77E /* BlazeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeViewController.m; sourceTree = "<group>"; };
 		ED5A169021FA041300F5F77E /* BlazeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTableViewController.m; sourceTree = "<group>"; };
@@ -198,18 +198,15 @@
 		ED5A169C21FA041300F5F77E /* Arrow_Down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow_Down@2x.png"; sourceTree = "<group>"; };
 		ED5A169D21FA041300F5F77E /* Arrow_Up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow_Up@2x.png"; sourceTree = "<group>"; };
 		ED5A169E21FA041300F5F77E /* Arrow_Right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow_Right@2x.png"; sourceTree = "<group>"; };
-		ED5A16A021FA041300F5F77E /* BlazeTextViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTextViewTableViewCell.m; sourceTree = "<group>"; };
 		ED5A16A121FA041300F5F77E /* BlazeImagesScrollTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeImagesScrollTableViewCell.m; sourceTree = "<group>"; };
 		ED5A16A221FA041300F5F77E /* BlazeImagePickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeImagePickerTableViewCell.m; sourceTree = "<group>"; };
 		ED5A16A321FA041300F5F77E /* BlazeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTableViewCell.h; sourceTree = "<group>"; };
 		ED5A16A421FA041300F5F77E /* BlazeCheckboxTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeCheckboxTableViewCell.m; sourceTree = "<group>"; };
 		ED5A16A521FA041300F5F77E /* BlazeSliderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeSliderTableViewCell.h; sourceTree = "<group>"; };
 		ED5A16A621FA041300F5F77E /* BlazeTwoChoicesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTwoChoicesTableViewCell.h; sourceTree = "<group>"; };
-		ED5A16A721FA041300F5F77E /* BlazeSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeSwitchTableViewCell.h; sourceTree = "<group>"; };
 		ED5A16A821FA041300F5F77E /* BlazeTilesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTilesTableViewCell.m; sourceTree = "<group>"; };
 		ED5A16A921FA041300F5F77E /* BlazeSegmentedControlTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeSegmentedControlTableViewCell.h; sourceTree = "<group>"; };
 		ED5A16AA21FA041300F5F77E /* BlazeImagesScrollTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeImagesScrollTableViewCell.h; sourceTree = "<group>"; };
-		ED5A16AB21FA041300F5F77E /* BlazeTextViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTextViewTableViewCell.h; sourceTree = "<group>"; };
 		ED5A16AC21FA041300F5F77E /* BlazeSliderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeSliderTableViewCell.m; sourceTree = "<group>"; };
 		ED5A16AD21FA041300F5F77E /* BlazeCheckboxTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeCheckboxTableViewCell.h; sourceTree = "<group>"; };
 		ED5A16AE21FA041300F5F77E /* BlazeImagePickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeImagePickerTableViewCell.h; sourceTree = "<group>"; };
@@ -217,7 +214,6 @@
 		ED5A16B021FA041300F5F77E /* BlazeTwoChoicesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeTwoChoicesTableViewCell.m; sourceTree = "<group>"; };
 		ED5A16B121FA041300F5F77E /* BlazeSegmentedControlTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeSegmentedControlTableViewCell.m; sourceTree = "<group>"; };
 		ED5A16B221FA041300F5F77E /* BlazeTilesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeTilesTableViewCell.h; sourceTree = "<group>"; };
-		ED5A16B321FA041300F5F77E /* BlazeSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeSwitchTableViewCell.m; sourceTree = "<group>"; };
 		ED5A16B421FA041300F5F77E /* BlazePageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazePageTableViewController.h; sourceTree = "<group>"; };
 		ED5A16B621FA041300F5F77E /* BlazeAutomaticBreaksLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlazeAutomaticBreaksLabel.h; sourceTree = "<group>"; };
 		ED5A16B721FA041300F5F77E /* BlazeAutomaticBreaksLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlazeAutomaticBreaksLabel.m; sourceTree = "<group>"; };
@@ -260,6 +256,10 @@
 		ED933E0F1D1728A100B8155F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED933E111D1728A100B8155F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDAF38B11E76AA2A00F8A508 /* DifferentFieldsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DifferentFieldsTableViewCell.xib; sourceTree = "<group>"; };
+		EDB9DD9A21FE220900A5C886 /* BlazeSwitchProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlazeSwitchProcessor.h; sourceTree = "<group>"; };
+		EDB9DD9B21FE220900A5C886 /* BlazeSwitchProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlazeSwitchProcessor.m; sourceTree = "<group>"; };
+		EDB9DD9D21FE358000A5C886 /* BlazeTextViewProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlazeTextViewProcessor.h; sourceTree = "<group>"; };
+		EDB9DD9E21FE358000A5C886 /* BlazeTextViewProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlazeTextViewProcessor.m; sourceTree = "<group>"; };
 		EDBDAB351EFAFB2B005ACE08 /* PickerFieldMultipleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerFieldMultipleTableViewCell.xib; sourceTree = "<group>"; };
 		EDEC02DE1EC36A7C00FB9EB8 /* ScrollImagesVariableTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollImagesVariableTableViewCell.xib; sourceTree = "<group>"; };
 		EDF0E7E61D4111570036AEDA /* TwoChoicesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoChoicesTableViewCell.xib; sourceTree = "<group>"; };
@@ -411,7 +411,7 @@
 				ED5A16C921FA041300F5F77E /* BlazePageTableViewController.m */,
 				ED5A16DB21FA041300F5F77E /* BlazeNSFetchedTableViewController.h */,
 				ED5A16B821FA041300F5F77E /* BlazeNSFetchedTableViewController.m */,
-				ED5A168421FA041300F5F77E /* FieldProcessors */,
+				ED5A168421FA041300F5F77E /* InputProcessors */,
 				ED5A169121FA041300F5F77E /* TextFields */,
 				ED5A169A21FA041300F5F77E /* Resources */,
 				ED5A169F21FA041300F5F77E /* TableViewCells */,
@@ -427,34 +427,38 @@
 			path = ../../Blaze;
 			sourceTree = "<group>";
 		};
-		ED5A168421FA041300F5F77E /* FieldProcessors */ = {
+		ED5A168421FA041300F5F77E /* InputProcessors */ = {
 			isa = PBXGroup;
 			children = (
-				ED5A168521FA041300F5F77E /* BlazePickerFieldProcessor.h */,
-				ED5A168621FA041300F5F77E /* BlazeTextFieldProcessor.m */,
-				ED5A168721FA041300F5F77E /* BlazeFieldProcessor.h */,
-				ED5A168821FA041300F5F77E /* BlazePickerFieldMultipleProcessor.h */,
-				ED5A168921FA041300F5F77E /* BlazeDateFieldProcessor.h */,
-				ED5A168A21FA041300F5F77E /* BlazePickerFieldProcessor.m */,
+				ED5A168721FA041300F5F77E /* BlazeInputProcessor.h */,
+				ED5A168D21FA041300F5F77E /* BlazeInputProcessor.m */,
+				EDB9DD9A21FE220900A5C886 /* BlazeSwitchProcessor.h */,
+				EDB9DD9B21FE220900A5C886 /* BlazeSwitchProcessor.m */,
 				ED5A168B21FA041300F5F77E /* BlazeTextFieldProcessor.h */,
-				ED5A168C21FA041300F5F77E /* BlazePickerFieldMultipleProcessor.m */,
-				ED5A168D21FA041300F5F77E /* BlazeFieldProcessor.m */,
+				ED5A168621FA041300F5F77E /* BlazeTextFieldProcessor.m */,
+				EDB9DD9D21FE358000A5C886 /* BlazeTextViewProcessor.h */,
+				EDB9DD9E21FE358000A5C886 /* BlazeTextViewProcessor.m */,
+				ED5A168921FA041300F5F77E /* BlazeDateFieldProcessor.h */,
 				ED5A168E21FA041300F5F77E /* BlazeDateFieldProcessor.m */,
+				ED5A168521FA041300F5F77E /* BlazePickerFieldProcessor.h */,
+				ED5A168A21FA041300F5F77E /* BlazePickerFieldProcessor.m */,
+				ED5A168821FA041300F5F77E /* BlazePickerFieldMultipleProcessor.h */,
+				ED5A168C21FA041300F5F77E /* BlazePickerFieldMultipleProcessor.m */,
 			);
-			path = FieldProcessors;
+			path = InputProcessors;
 			sourceTree = "<group>";
 		};
 		ED5A169121FA041300F5F77E /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
-				ED5A169221FA041300F5F77E /* BlazeDatePickerField.m */,
-				ED5A169321FA041300F5F77E /* BlazePickerViewMultipleField.m */,
-				ED5A169421FA041300F5F77E /* BlazePickerViewField.m */,
 				ED5A169521FA041300F5F77E /* BlazeTextField.h */,
 				ED5A169621FA041300F5F77E /* BlazeTextField.m */,
 				ED5A169721FA041300F5F77E /* BlazePickerViewField.h */,
+				ED5A169421FA041300F5F77E /* BlazePickerViewField.m */,
 				ED5A169821FA041300F5F77E /* BlazeDatePickerField.h */,
+				ED5A169221FA041300F5F77E /* BlazeDatePickerField.m */,
 				ED5A169921FA041300F5F77E /* BlazePickerViewMultipleField.h */,
+				ED5A169321FA041300F5F77E /* BlazePickerViewMultipleField.m */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -475,24 +479,20 @@
 			children = (
 				ED5A16A321FA041300F5F77E /* BlazeTableViewCell.h */,
 				ED5A16AF21FA041300F5F77E /* BlazeTableViewCell.m */,
-				ED5A16A021FA041300F5F77E /* BlazeTextViewTableViewCell.m */,
-				ED5A16A121FA041300F5F77E /* BlazeImagesScrollTableViewCell.m */,
-				ED5A16A221FA041300F5F77E /* BlazeImagePickerTableViewCell.m */,
-				ED5A16A421FA041300F5F77E /* BlazeCheckboxTableViewCell.m */,
-				ED5A16A521FA041300F5F77E /* BlazeSliderTableViewCell.h */,
-				ED5A16A621FA041300F5F77E /* BlazeTwoChoicesTableViewCell.h */,
-				ED5A16A721FA041300F5F77E /* BlazeSwitchTableViewCell.h */,
+				ED5A16B221FA041300F5F77E /* BlazeTilesTableViewCell.h */,
 				ED5A16A821FA041300F5F77E /* BlazeTilesTableViewCell.m */,
-				ED5A16A921FA041300F5F77E /* BlazeSegmentedControlTableViewCell.h */,
-				ED5A16AA21FA041300F5F77E /* BlazeImagesScrollTableViewCell.h */,
-				ED5A16AB21FA041300F5F77E /* BlazeTextViewTableViewCell.h */,
+				ED5A16A521FA041300F5F77E /* BlazeSliderTableViewCell.h */,
 				ED5A16AC21FA041300F5F77E /* BlazeSliderTableViewCell.m */,
 				ED5A16AD21FA041300F5F77E /* BlazeCheckboxTableViewCell.h */,
+				ED5A16A421FA041300F5F77E /* BlazeCheckboxTableViewCell.m */,
 				ED5A16AE21FA041300F5F77E /* BlazeImagePickerTableViewCell.h */,
+				ED5A16A221FA041300F5F77E /* BlazeImagePickerTableViewCell.m */,
+				ED5A16AA21FA041300F5F77E /* BlazeImagesScrollTableViewCell.h */,
+				ED5A16A121FA041300F5F77E /* BlazeImagesScrollTableViewCell.m */,
+				ED5A16A621FA041300F5F77E /* BlazeTwoChoicesTableViewCell.h */,
 				ED5A16B021FA041300F5F77E /* BlazeTwoChoicesTableViewCell.m */,
+				ED5A16A921FA041300F5F77E /* BlazeSegmentedControlTableViewCell.h */,
 				ED5A16B121FA041300F5F77E /* BlazeSegmentedControlTableViewCell.m */,
-				ED5A16B221FA041300F5F77E /* BlazeTilesTableViewCell.h */,
-				ED5A16B321FA041300F5F77E /* BlazeSwitchTableViewCell.m */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -553,11 +553,11 @@
 			isa = PBXGroup;
 			children = (
 				ED5A16D121FA041300F5F77E /* UIScrollView+Reload.h */,
-				ED5A16D221FA041300F5F77E /* NSObject+PropertyName.m */,
-				ED5A16D321FA041300F5F77E /* NSString+TextDirectionality.m */,
-				ED5A16D421FA041300F5F77E /* NSString+TextDirectionality.h */,
-				ED5A16D521FA041300F5F77E /* NSObject+PropertyName.h */,
 				ED5A16D621FA041300F5F77E /* UIScrollView+Reload.m */,
+				ED5A16D521FA041300F5F77E /* NSObject+PropertyName.h */,
+				ED5A16D221FA041300F5F77E /* NSObject+PropertyName.m */,
+				ED5A16D421FA041300F5F77E /* NSString+TextDirectionality.h */,
+				ED5A16D321FA041300F5F77E /* NSString+TextDirectionality.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -794,10 +794,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED5A16FE21FA041400F5F77E /* BlazeTableHeaderFooterView.m in Sources */,
+				EDB9DD9F21FE358000A5C886 /* BlazeTextViewProcessor.m in Sources */,
 				ED5A16EF21FA041400F5F77E /* BlazeTilesTableViewCell.m in Sources */,
 				ED5A170221FA041400F5F77E /* UIScrollView+Reload.m in Sources */,
-				ED5A16EB21FA041400F5F77E /* BlazeTextViewTableViewCell.m in Sources */,
 				EDFFE43C1E923D2A00E5A155 /* CollapsingSectionsTableViewController.m in Sources */,
+				EDB9DD9C21FE220900A5C886 /* BlazeSwitchProcessor.m in Sources */,
 				ED5A16E221FA041300F5F77E /* BlazeTableViewController.m in Sources */,
 				ED0297121D1729220039AA41 /* BasicTableViewController.m in Sources */,
 				ED5A16FC21FA041400F5F77E /* BlazeTileCollectionViewCell.m in Sources */,
@@ -807,7 +808,7 @@
 				ED5A16E521FA041300F5F77E /* BlazePickerViewField.m in Sources */,
 				B0944BE61DDAD1B700B66895 /* IBInspectableTableViewController.m in Sources */,
 				ED5A170321FA041400F5F77E /* BlazeTextView.m in Sources */,
-				ED5A16DF21FA041300F5F77E /* BlazeFieldProcessor.m in Sources */,
+				ED5A16DF21FA041300F5F77E /* BlazeInputProcessor.m in Sources */,
 				ED0297181D1729220039AA41 /* ZoomHeaderTableViewController.m in Sources */,
 				ED0297171D1729220039AA41 /* TextViewsTableViewController.m in Sources */,
 				ED0297151D1729220039AA41 /* EmptyStateTableViewController.m in Sources */,
@@ -842,7 +843,6 @@
 				ED45B2E01E01550C007814BA /* BlazeExample.xcdatamodeld in Sources */,
 				ED5A16DD21FA041300F5F77E /* BlazePickerFieldProcessor.m in Sources */,
 				ED5A16F521FA041400F5F77E /* BlazeAutomaticBreaksLabel.m in Sources */,
-				ED5A16F421FA041400F5F77E /* BlazeSwitchTableViewCell.m in Sources */,
 				ED5A16E021FA041300F5F77E /* BlazeDateFieldProcessor.m in Sources */,
 				ED5A16FA21FA041400F5F77E /* BlazeMediaData.m in Sources */,
 				ED0297141D1729220039AA41 /* DynamicRowsTableViewController.m in Sources */,

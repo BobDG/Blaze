@@ -1,31 +1,35 @@
 //
-//  BlazeTableTextViewCell.m
-//  Blaze
+//  BlazeTextViewProcessor.m
+//  BlazeExample
 //
-//  Created by Bob de Graaf on 16-04-15.
-//  Copyright (c) 2015 GraafICT. All rights reserved.
+//  Created by Bob de Graaf on 27/01/2019.
+//  Copyright © 2019 GraafICT. All rights reserved.
 //
 
-#import "BlazeTextViewTableViewCell.h"
+#import "BlazeTextView.h"
+#import "BlazeTextViewProcessor.h"
 
-@interface BlazeTextViewTableViewCell () <UITextViewDelegate>
-{
+@interface BlazeTextViewProcessor() <UITextViewDelegate> {
     
 }
 
 @property(nonatomic) float previousHeight;
 @property(nonatomic) float preferredHeightOneLine;
-@property(nonatomic,weak) IBOutlet NSLayoutConstraint *textViewHeightConstraint;
+@property(nonatomic,strong) BlazeTextView *textView;
 
 @end
 
-@implementation BlazeTextViewTableViewCell
+@implementation BlazeTextViewProcessor
 
--(void)updateCell
+-(void)update
 {
+    //Set textview
+    self.textView = self.input;
+    
     //Text
     self.textView.text = self.row.value;
     
+    //Placeholder
     if(self.row.attributedPlaceholder.length) {
         self.textView.attributedPlaceholder = self.row.attributedPlaceholder;
     }
@@ -40,15 +44,7 @@
     self.textView.userInteractionEnabled = !self.row.disableEditing;
     
     //AccessoryInputView
-    self.textView.inputAccessoryView = self.defaultInputAccessoryView;
-    
-    //Reset height constraint because height will be resetted otherwise
-    [self updateHeightConstraint];
-}
-
--(void)awakeFromNib
-{
-    [super awakeFromNib];
+    self.textView.inputAccessoryView = [self.cell defaultInputAccessoryView];
     
     //Delegate
     self.textView.delegate = self;
@@ -58,23 +54,14 @@
     self.textView.scrollEnabled = FALSE;
     
     //Set constant
-    self.previousHeight = self.textViewHeightConstraint.constant;
+    self.previousHeight = self.cell.textViewHeightConstraint.constant;
     self.preferredHeightOneLine = self.previousHeight;
+    
+    //Reset height constraint because height will be resetted otherwise
+    [self updateHeightConstraint];
 }
 
--(void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    if(selected && self.textView.userInteractionEnabled) {
-        [self.textView becomeFirstResponder];
-    }
-}
-
--(void)done
-{
-    [self.textView resignFirstResponder];    
-}
-
-#pragma mark - Constraint
+#pragma mark - Constraints
 
 -(BOOL)updateHeightConstraint
 {
@@ -87,10 +74,10 @@
         newConstant = self.preferredHeightOneLine;
     }
     if(newConstant != self.previousHeight) {
-        self.textViewHeightConstraint.constant = newConstant;
+        self.cell.textViewHeightConstraint.constant = newConstant;
         self.previousHeight = newConstant;
-        [self setNeedsUpdateConstraints];
-        [self layoutIfNeeded];
+        [self.cell setNeedsUpdateConstraints];
+        [self.cell layoutIfNeeded];
         return TRUE;
     }
     return FALSE;
@@ -108,54 +95,12 @@
 -(void)textViewDidChange:(UITextView *)textView
 {
     if([self updateHeightConstraint]) {
-        if(self.heightUpdated) {
-            self.heightUpdated();
+        if(self.cell.heightUpdated) {
+            self.cell.heightUpdated();
         }
     }
     self.row.value = textView.text;
     [self.row updatedValue:self.row.value];
 }
-#pragma mark - FirstResponder
-
--(BOOL)canBecomeFirstResponder
-{
-    return self.textView.userInteractionEnabled;
-}
-
--(BOOL)becomeFirstResponder
-{
-    return [self.textView becomeFirstResponder];
-}
-
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

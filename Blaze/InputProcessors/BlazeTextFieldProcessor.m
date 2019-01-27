@@ -23,7 +23,7 @@
 -(void)update
 {
     //Set textfield
-    self.textField = self.field;
+    self.textField = self.input;
     
     //Formatter
     if(self.row.formatter) {

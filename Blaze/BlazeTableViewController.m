@@ -15,9 +15,6 @@
 #import "BlazeTilesCollectionView.h"
 #import "BlazeTileCollectionViewCell.h"
 
-//Standard cells
-#import "BlazeTextViewTableViewCell.h"
-
 //TableViewHeaders
 #import "BlazeTableHeaderFooterView.h"
 
@@ -553,18 +550,12 @@
 }
 
 -(BlazeTableViewCell *)nextCellFromIndexPath:(NSIndexPath *)indexPath
-{    
+{
     //Get next indexPath in the same section
     NSIndexPath *nextRowIndexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section];
     BlazeTableViewCell *nextRowCell = [self.tableView cellForRowAtIndexPath:nextRowIndexPath];
     if(nextRowCell) {
-        if([nextRowCell isKindOfClass:[BlazeTextViewTableViewCell class]]) {
-            BlazeTextViewTableViewCell *c = (BlazeTextViewTableViewCell*)nextRowCell;
-            if(!c.row.disableEditing && c.canBecomeFirstResponder) {
-                return c;
-            }
-        }
-        if(nextRowCell.row.disableEditing || nextRowCell.fieldProcessors.count == 0) {
+        if(!nextRowCell.canBecomeFirstResponder || nextRowCell.inputProcessors.count == 0) {
             return [self nextCellFromIndexPath:nextRowIndexPath];
         }
         return nextRowCell;
@@ -574,7 +565,7 @@
     NSIndexPath *nextSectionIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section+1];
     BlazeTableViewCell *nextSectionCell = [self.tableView cellForRowAtIndexPath:nextSectionIndexPath];
     if(nextSectionCell) {
-        if(nextSectionCell.row.disableEditing || nextRowCell.fieldProcessors.count == 0) {
+        if(!nextSectionCell.canBecomeFirstResponder || nextSectionCell.inputProcessors.count == 0) {
             return [self nextCellFromIndexPath:nextSectionIndexPath];
         }
         return nextSectionCell;
@@ -590,13 +581,7 @@
     NSIndexPath *previousRowIndexPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
     BlazeTableViewCell *previousRowCell = [self.tableView cellForRowAtIndexPath:previousRowIndexPath];
     if(previousRowCell) {
-        if([previousRowCell isKindOfClass:[BlazeTextViewTableViewCell class]]) {
-            BlazeTextViewTableViewCell *c = (BlazeTextViewTableViewCell*)previousRowCell;
-            if(!c.row.disableEditing && c.canBecomeFirstResponder) {
-                return c;
-            }
-        }
-        if(previousRowCell.row.disableEditing || previousRowCell.fieldProcessors.count == 0) {
+        if(!previousRowCell.canBecomeFirstResponder || previousRowCell.inputProcessors.count == 0) {
             return [self previousCellFromIndexPath:previousRowIndexPath];
         }
         return previousRowCell;
@@ -625,13 +610,7 @@
     NSIndexPath *previousSectionIndexPath = [NSIndexPath indexPathForRow:section.rows.count-1 inSection:previousSectionIndex];
     BlazeTableViewCell *previousSectionCell = [self.tableView cellForRowAtIndexPath:previousSectionIndexPath];
     if(previousSectionCell) {
-        if([previousSectionCell isKindOfClass:[BlazeTextViewTableViewCell class]]) {
-            BlazeTextViewTableViewCell *c = (BlazeTextViewTableViewCell*)previousSectionCell;
-            if(!c.row.disableEditing && c.canBecomeFirstResponder) {
-                return c;
-            }
-        }
-        if(previousSectionCell.row.disableEditing || previousSectionCell.fieldProcessors.count == 0) {
+        if(!previousSectionCell.canBecomeFirstResponder || previousSectionCell.inputProcessors.count == 0) {
             return [self previousCellFromIndexPath:previousSectionIndexPath];
         }
         return previousSectionCell;

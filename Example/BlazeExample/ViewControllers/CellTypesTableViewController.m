@@ -324,10 +324,11 @@
     [self addSection:section];
     
     //Switch
+    self.switchValue = @(TRUE);
     row = [[BlazeRow alloc] initWithXibName:kSwitchTableViewCell title:@"Switcheroo"];
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(switchValue)]];
     [row setValueChanged:^{
-        DLog(@"Switch changed: %@", [self.switchValue boolValue] ? @"ON" : @"OFF");
+        DLog(@"Switch turned %@", [self.switchValue boolValue] ? @"ON" : @"OFF");
     }];
     [section addRow:row];
     

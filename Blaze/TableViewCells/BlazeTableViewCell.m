@@ -8,11 +8,14 @@
 
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
+#import "BlazeTextView.h"
 #import "BlazeTextField.h"
 #import "BlazeTableViewCell.h"
-#import "BlazeFieldProcessor.h"
+#import "BlazeInputProcessor.h"
 #import "BlazeDatePickerField.h"
 #import "BlazePickerViewField.h"
+#import "BlazeSwitchProcessor.h"
+#import "BlazeTextViewProcessor.h"
 #import "BlazeDateFieldProcessor.h"
 #import "BlazeTextFieldProcessor.h"
 #import "BlazePickerFieldProcessor.h"
@@ -144,8 +147,8 @@
         [self layoutIfNeeded];
     }
     
-    //Field processors
-    [self setupFieldProcessors];
+    //Input processors
+    [self setupInputProcessors];
     
     //Update cell (for subclasses)
     [self updateCell];
@@ -307,7 +310,7 @@
 
 -(BOOL)canBecomeFirstResponder
 {
-    if(!self.mainField) {
+    if(!self.mainField || [self.mainField isKindOfClass:[UISwitch class]]) {
         return FALSE;
     }
     return !self.row.disableEditing;
@@ -317,8 +320,8 @@
 {
     NSUInteger index = [self indexForCurrentFirstResponder];
     if(index != NSNotFound) {
-        BlazeFieldProcessor *processor = self.fieldProcessors[index];
-        return [processor.field becomeFirstResponder];
+        BlazeInputProcessor *processor = self.inputProcessors[index];
+        return [processor.input becomeFirstResponder];
     }
     else if(self.mainField) {
         [self.mainField becomeFirstResponder];
@@ -389,12 +392,12 @@
 
 -(void)nextField:(UIBarButtonItem *)sender
 {
-    if(self.fieldProcessors.count>1) {
+    if(self.inputProcessors.count>1) {
         NSUInteger index = [self indexForCurrentFirstResponder];
         if(index != NSNotFound) {
-            if(index+1 < self.fieldProcessors.count) {
-                BlazeFieldProcessor *nextProcessor = self.fieldProcessors[index+1];
-                [nextProcessor.field becomeFirstResponder];
+            if(index+1 < self.inputProcessors.count) {
+                BlazeInputProcessor *nextProcessor = self.inputProcessors[index+1];
+                [nextProcessor.input becomeFirstResponder];
                 return;
             }
         }
@@ -406,12 +409,12 @@
 
 -(void)previousField:(UIBarButtonItem *)sender
 {
-    if(self.fieldProcessors.count>1) {
+    if(self.inputProcessors.count>1) {
         NSUInteger index = [self indexForCurrentFirstResponder];
         if(index != NSNotFound) {
             if((int)index-1 >= 0) {
-                BlazeFieldProcessor *nextProcessor = self.fieldProcessors[index-1];
-                [nextProcessor.field becomeFirstResponder];
+                BlazeInputProcessor *nextProcessor = self.inputProcessors[index-1];
+                [nextProcessor.input becomeFirstResponder];
                 return;
             }
         }
@@ -422,85 +425,91 @@
     }
 }
 
-#pragma mark - FieldProcessors
+#pragma mark - InputProcessors
 
--(void)setupFieldProcessors
+-(void)setupInputProcessors
 {
-    //Fields
+    //Inputs
     NSMutableArray *rows = [NSMutableArray new];
-    NSMutableArray *fields = [NSMutableArray new];
+    NSMutableArray *inputs = [NSMutableArray new];
     if(self.mainField) {
         [rows addObject:self.row];
-        [fields addObject:self.mainField];
+        [inputs addObject:self.mainField];
     }
     if(self.additionalFields.count) {
-        [fields addObjectsFromArray:self.additionalFields];
+        [inputs addObjectsFromArray:self.additionalFields];
         if(self.row.additionalRows.count) {
             [rows addObjectsFromArray:self.row.additionalRows];
         }
     }
     
     //Got any?
-    if(!fields.count) {
+    if(!inputs.count) {
         return;
     }
     
     //Clear fieldprocessors
-    [self.fieldProcessors removeAllObjects];
+    [self.inputProcessors removeAllObjects];
     
     //Always create new processors, otherwise they are reused and inherit wrong properties they might not override
     for(int i = 0; i < rows.count; i++) {
         //Index check
-        if(i >= fields.count) {
+        if(i >= inputs.count) {
             break;
         }
         
-        //Field
-        id field = fields[i];
+        //Input
+        id input = inputs[i];
         
         //Determine Processor
-        BlazeFieldProcessor *processor;
-        if([field isKindOfClass:[BlazeDatePickerField class]]) {
+        BlazeInputProcessor *processor;
+        if([input isMemberOfClass:[BlazeTextField class]]) {
+            processor = [BlazeTextFieldProcessor new];
+        }
+        else if([input isMemberOfClass:[BlazeDatePickerField class]]) {
             processor = [BlazeDateFieldProcessor new];
         }
-        else if([field isKindOfClass:[BlazePickerViewField class]]) {
+        else if([input isMemberOfClass:[BlazePickerViewField class]]) {
             processor = [BlazePickerFieldProcessor new];
         }
-        else if([field isKindOfClass:[BlazePickerViewMultipleField class]]) {
-            processor = [BlazePickerFieldMultipleProcessor new];
+        else if([input isMemberOfClass:[UISwitch class]]) {
+            processor = [BlazeSwitchProcessor new];
         }
-        else if([field isKindOfClass:[BlazeTextField class]]) {
-            processor = [BlazeTextFieldProcessor new];
+        else if([input isMemberOfClass:[BlazeTextView class]]) {
+            processor = [BlazeTextViewProcessor new];
+        }
+        else if([input isMemberOfClass:[BlazePickerViewMultipleField class]]) {
+            processor = [BlazePickerFieldMultipleProcessor new];
         }
         
         //Set processor properties
-        processor.field = field;
+        processor.input = input;
         processor.row = rows[i];
         processor.cell = self;
         [processor update];
         
         //Add it
-        [self.fieldProcessors addObject:processor];
+        [self.inputProcessors addObject:processor];
     }
 }
 
 -(NSUInteger)indexForCurrentFirstResponder
 {
-    for(int i = 0; i < self.fieldProcessors.count; i++) {
-        BlazeFieldProcessor *processor = self.fieldProcessors[i];
-        if([processor.field isFirstResponder]) {
+    for(int i = 0; i < self.inputProcessors.count; i++) {
+        BlazeInputProcessor *processor = self.inputProcessors[i];
+        if([processor.input isFirstResponder]) {
             return i;
         }
     }
     return NSNotFound;
 }
 
--(NSMutableArray *)fieldProcessors
+-(NSMutableArray *)inputProcessors
 {
-    if(!_fieldProcessors) {
-        _fieldProcessors = [NSMutableArray new];
+    if(!_inputProcessors) {
+        _inputProcessors = [NSMutableArray new];
     }
-    return _fieldProcessors;
+    return _inputProcessors;
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  BlazeFieldProcessor.h
+//  BlazeInputProcessor.h
 //  BlazeExample
 //
 //  Created by Bob de Graaf on 28-01-17.
@@ -12,14 +12,14 @@
 #import "BlazeRow.h"
 #import "BlazeTableViewCell.h"
 
-@interface BlazeFieldProcessor : NSObject
+@interface BlazeInputProcessor : NSObject
 {
     
 }
 
 -(void)update;
 
-@property(nonatomic,strong) id field;
+@property(nonatomic,strong) id input;
 @property(nonatomic,strong) BlazeRow *row;
 @property(nonatomic,strong) BlazeTableViewCell *cell;
 

@@ -26,7 +26,7 @@
 -(void)update
 {
     //Set field
-    self.dateField = self.field;
+    self.dateField = self.input;
     
     //Date & formatter
     self.date = self.row.value;

@@ -6,8 +6,8 @@
 //  Copyright © 2017 GraafICT. All rights reserved.
 //
 
-#import "BlazeFieldProcessor.h"
+#import "BlazeInputProcessor.h"
 
-@interface BlazePickerFieldProcessor : BlazeFieldProcessor
+@interface BlazePickerFieldProcessor : BlazeInputProcessor
 
 @end

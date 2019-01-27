@@ -23,7 +23,7 @@
 -(void)update
 {
     //Set field
-    self.pickerField = self.field;
+    self.pickerField = self.input;
     
     //AccessoryInputView
     [self updateAccessoryInputView];
