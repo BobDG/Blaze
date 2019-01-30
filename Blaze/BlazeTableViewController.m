@@ -159,8 +159,13 @@
     }
 }
 
--(void)registerCustomCellsInTableArray
+-(void)registerAllCustomCells
 {
+    //Section index picker
+    if(self.useSectionIndexPicker) {
+        [self.sectionIndexesArray removeAllObjects];
+    }
+    
     for(BlazeSection *s in self.tableArray) {
         //Section header/footer
         if(s.headerXibName.length) {
@@ -1029,8 +1034,8 @@
         return;
     }
     
-    //Register possibly
-    [self registerCustomCellsInTableArray];
+    //Register all cells
+    [self registerAllCustomCells];
     
     //Begin updates
     [self.tableView beginUpdates];
@@ -1064,8 +1069,8 @@
         return;
     }
     
-    //Register possibly
-    [self registerCustomCellsInTableArray];
+    //Register all cells
+    [self registerAllCustomCells];
     
     //Begin updates
     [self.tableView beginUpdates];
@@ -1096,8 +1101,8 @@
         return;
     }
     
-    //Register possibly
-    [self registerCustomCellsInTableArray];
+    //Register all cells
+    [self registerAllCustomCells];
     
     //Begin updates
     [self.tableView beginUpdates];
@@ -1173,8 +1178,8 @@
         return;
     }
     
-    //Register possibly
-    [self registerCustomCellsInTableArray];
+    //Register all cells
+    [self registerAllCustomCells];
     
     //Begin updates
     [self.tableView beginUpdates];
@@ -1206,8 +1211,8 @@
         return;
     }
     
-    //Register possibly
-    [self registerCustomCellsInTableArray];
+    //Register all cells
+    [self registerAllCustomCells];
     
     //Begin updates
     [self.tableView beginUpdates];
@@ -1692,14 +1697,10 @@
 
 -(void)dataSetWillReload:(UIScrollView *)scrollView
 {
-    if(self.useSectionIndexPicker) {
-        [self.sectionIndexesArray removeAllObjects];
-    }
-    
     //Register all cells
-    [self registerCustomCellsInTableArray];
+    [self registerAllCustomCells];
     
-    //Empty view
+    //Hide/unhide empty view
     if(self.emptyStateView) {
         self.emptyStateView.hidden = self.tableArray.count > 0;
     }
