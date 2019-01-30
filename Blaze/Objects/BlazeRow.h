@@ -121,9 +121,10 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic,strong) NSString *navigationViewControllerClassName;
 @property(nonatomic,strong) NSString *navigationTableViewControllerClassName;
 
-//Object & Possible property name
+//Object, Cell & Possible property name (note that cell might be nil if not visible)
 @property(nonatomic,strong) id object;
-@property(nonatomic, strong) NSString *propertyName;
+@property(nonatomic,strong) NSString *propertyName;
+@property(nonatomic,strong) BlazeTableViewCell *cell;
 
 //Additional rows for additional fields
 @property(nonatomic,strong) NSArray *additionalRows;

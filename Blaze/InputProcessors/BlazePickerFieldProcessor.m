@@ -93,6 +93,11 @@
     self.pickerField.selectedIndex = (int)index;
 }
 
+-(BOOL)canBecomeFirstResponder
+{
+    return TRUE;
+}
+
 -(void)updateAccessoryInputView
 {
     //Only for default inputAccessoryView

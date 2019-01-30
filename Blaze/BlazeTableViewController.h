@@ -123,9 +123,11 @@
 -(void)reloadTableWithFadeTransition;
 -(void)reloadCellForRow:(BlazeRow *)row;
 -(void)reloadTableAndScrollToTop:(BOOL)animated;
+-(void)reloadCellsForRows:(NSArray <BlazeRow *> *)rows;
 -(void)reloadTableWithAnimation:(UITableViewRowAnimation)animation;
 -(void)reloadCellForID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation;
 -(void)reloadCellForRow:(BlazeRow *)row withRowAnimation:(UITableViewRowAnimation)animation;
+-(void)reloadCellsForRows:(NSArray <BlazeRow *> *)rows withRowAnimation:(UITableViewRowAnimation)animation;
 
 //Becoming first responder
 -(void)activateFirstField;
@@ -147,6 +149,7 @@
 -(void)addRow:(BlazeRow *)row atIndexPath:(NSIndexPath *)indexPath;
 -(void)addRows:(NSArray *)rows atIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
 -(void)addRow:(BlazeRow *)row atIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation;
+-(void)addRows:(NSArray <BlazeRow *> *)rows startingIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation;
 
 //Adding rows with older ID methods
 -(void)addRow:(BlazeRow *)row afterRowID:(int)afterRowID;

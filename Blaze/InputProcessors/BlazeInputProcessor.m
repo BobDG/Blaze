@@ -15,4 +15,10 @@
     //To override
 }
 
+-(BOOL)canBecomeFirstResponder
+{
+    //To override
+    return FALSE;
+}
+
 @end

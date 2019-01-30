@@ -23,9 +23,6 @@
     
 }
 
-//The previous/next textfield does not work when using indexPaths, these are not correctly reset when not calling reloadData. Therefore this boolean is set to TRUE when adding/removing rows dynamically so that when a user requests the next/previous textfield, rowID's are used instead of indexpaths!
-@property(nonatomic) bool dynamicRows;
-
 //Only calculate/update emptystateview height once
 @property(nonatomic) int emptyStateViewHeight;
 @property(nonatomic) bool emptyStateViewTopSet;
@@ -134,6 +131,13 @@
     [self.registeredCells addObject:xibName];
 }
 
+-(void)registerCustomCells:(NSArray <NSString *> *)cellNames
+{
+    for(NSString *className in cellNames) {
+        [self registerCustomCell:className];
+    }
+}
+
 -(void)registerCustomHeader:(NSString *)xibName
 {
     //Check if registered already
@@ -155,10 +159,46 @@
     }
 }
 
--(void)registerCustomCells:(NSArray <NSString *> *)cellNames
+-(void)registerCustomCellsInTableArray
 {
-    for(NSString *className in cellNames) {
-        [self registerCustomCell:className];
+    for(BlazeSection *s in self.tableArray) {
+        //Section header/footer
+        if(s.headerXibName.length) {
+            [self registerCustomHeader:s.headerXibName];
+        }
+        if(s.footerXibName.length) {
+            [self registerCustomHeader:s.footerXibName];
+        }
+        
+        //Section rows
+        if(s.rowsXibName.length) {
+            [self registerCustomCell:s.rowsXibName];
+        }
+        
+        //Rows
+        for(BlazeRow *r in s.rows) {
+            if(r.xibName.length) {
+                [self registerCustomCell:r.xibName];
+            }
+        }
+        
+        //Section index picker
+        if(self.useSectionIndexPicker && s.headerTitle.length) {
+            [self.sectionIndexesArray addObject:[[s.headerTitle substringToIndex:1] uppercaseString]];
+        }
+    }
+    
+    //Self headers/cells
+    if(self.headerXibName.length) {
+        [self registerCustomHeader:self.headerXibName];
+    }
+    if(self.footerXibName.length) {
+        [self registerCustomHeader:self.footerXibName];
+    }
+    
+    //Self rows
+    if(self.rowsXibName.length) {
+        [self registerCustomCell:self.rowsXibName];
     }
 }
 
@@ -299,7 +339,6 @@
 
 -(void)reloadTable
 {
-    //[self emptyDataSetWillReload:self.tableView];
     [self.tableView reloadData];
 }
 
@@ -445,6 +484,24 @@
         return;
     }
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
+}
+
+-(void)reloadCellsForRows:(NSArray <BlazeRow *> *)rows
+{
+    [self reloadCellsForRows:rows withRowAnimation:UITableViewRowAnimationFade];
+}
+
+-(void)reloadCellsForRows:(NSArray <BlazeRow *> *)rows withRowAnimation:(UITableViewRowAnimation)animation
+{
+    NSMutableArray *indexPaths = [NSMutableArray new];
+    for(BlazeRow *row in rows) {
+        NSIndexPath *indexPath = [self indexPathForRow:row];
+        if(!indexPath) {
+            continue;
+        }
+        [indexPaths addObject:indexPath];
+    }
+    [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
 -(NSIndexPath *)indexPathForRow:(BlazeRow *)row
@@ -657,6 +714,14 @@
     [self activateFirstResponderForCell:cell];
 }
 
+-(void)activateNextFieldFromRow:(BlazeRow *)row
+{
+    NSIndexPath *indexPath = [self indexPathForRow:row];
+    if(indexPath != nil) {
+        [self activateNextFieldFromIndexPath:indexPath];
+    }
+}
+
 -(void)activateNextFieldFromRowID:(int)rowID
 {
     NSIndexPath *indexPath = [self indexPathForRowID:rowID];
@@ -675,6 +740,14 @@
     [self activateFirstResponderForCell:cell];
 }
 
+-(void)activatePreviousFieldFromRow:(BlazeRow *)row
+{
+    NSIndexPath *indexPath = [self indexPathForRow:row];
+    if(indexPath != nil) {
+        [self activatePreviousFieldFromIndexPath:indexPath];
+    }
+}
+
 -(void)activatePreviousFieldFromRowID:(int)rowID
 {
     NSIndexPath *indexPath = [self indexPathForRowID:rowID];
@@ -690,9 +763,6 @@
 
 -(void)collapseSection:(int)sectionIndex
 {
-    //Dynamic rows
-    self.dynamicRows = TRUE;
-    
     //Possibly delete rows
     BlazeSection *section = self.tableArray[sectionIndex];
     NSMutableArray *indexPaths = [NSMutableArray new];
@@ -732,18 +802,10 @@
     [self.cachedSectionHeaders removeAllObjects];
 }
 
-#pragma mark Adding/Removing Rows/Sections
-
--(void)addSection:(BlazeSection *)section
-{
-    [self.tableArray addObject:section];
-}
+#pragma mark Removing old style
 
 -(void)removeRowsInSection:(int)sectionIndex fromIndex:(int)rowIndex
 {
-    //Dynamic rows
-    self.dynamicRows = TRUE;
-    
     //Possibly delete rows
     BlazeSection *section = self.tableArray[sectionIndex];
     NSMutableArray *indexPathsToDelete = [NSMutableArray new];
@@ -776,9 +838,6 @@
 
 -(void)removeRowWithID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation
 {
-    //Dynamic rows
-    self.dynamicRows = TRUE;
-    
     //Get current indexPath
     NSIndexPath *indexPath = [self indexPathForRowID:rowID];
     
@@ -803,9 +862,6 @@
 
 -(void)removeSectionWithID:(int)sectionID
 {
-    //Dynamic rows
-    self.dynamicRows = TRUE;
-    
     //Get section
     BlazeSection *section = [self sectionForID:sectionID];
     
@@ -849,9 +905,6 @@
 
 -(void)deleteRows:(NSArray *)rows withRowAnimation:(UITableViewRowAnimation)animation
 {
-    //Dynamic rows
-    self.dynamicRows = TRUE;
-    
     //Begin updates
     [self.tableView beginUpdates];
     
@@ -914,9 +967,6 @@
 
 -(void)deleteRow:(BlazeRow *)row withRowAnimation:(UITableViewRowAnimation)animation
 {
-    //Dynamic rows
-    self.dynamicRows = TRUE;
-    
     //Row exists
     NSIndexPath *indexPath = [self indexPathForRow:row];
     if(!indexPath) {
@@ -953,6 +1003,11 @@
 
 #pragma mark - Adding
 
+-(void)addSection:(BlazeSection *)section
+{
+    [self.tableArray addObject:section];
+}
+
 -(void)addRow:(BlazeRow *)row afterRowID:(int)afterRowID
 {
     [self addRow:row afterRowID:afterRowID withRowAnimation:UITableViewRowAnimationFade];
@@ -960,9 +1015,6 @@
 
 -(void)addRow:(BlazeRow *)row afterRowID:(int)afterRowID withRowAnimation:(UITableViewRowAnimation)animation
 {
-    //Dynamic rows
-    self.dynamicRows = TRUE;
-    
     //Row exists
     NSIndexPath *existingIndexPath = [self indexPathForRowID:row.ID];
     if(existingIndexPath) {
@@ -976,6 +1028,9 @@
     if(!currentIndexPath) {
         return;
     }
+    
+    //Register possibly
+    [self registerCustomCellsInTableArray];
     
     //Begin updates
     [self.tableView beginUpdates];
@@ -996,9 +1051,6 @@
 
 -(void)addSection:(BlazeSection *)section afterSectionID:(int)afterSectionID
 {
-    //Dynamic rows
-    self.dynamicRows = TRUE;
-    
     //Section exists already?
     if([self sectionForID:section.ID]) {
         return;
@@ -1011,6 +1063,9 @@
     if(!currentIndexPath) {
         return;
     }
+    
+    //Register possibly
+    [self registerCustomCellsInTableArray];
     
     //Begin updates
     [self.tableView beginUpdates];
@@ -1035,14 +1090,14 @@
 
 -(void)addRows:(NSArray *)rows atIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
 {
-    //Dynamic rows
-    self.dynamicRows = TRUE;
-    
     //Count check
     if(rows.count != indexPaths.count) {
         NSLog(@"Number of rows doesn't match number of indexpaths!");
         return;
     }
+    
+    //Register possibly
+    [self registerCustomCellsInTableArray];
     
     //Begin updates
     [self.tableView beginUpdates];
@@ -1097,9 +1152,6 @@
 
 -(void)addRow:(BlazeRow *)row atIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation
 {
-    //Dynamic rows
-    self.dynamicRows = TRUE;
-    
     //Row exists
     NSIndexPath *existingIndexPath = [self indexPathForRow:row];
     if(existingIndexPath) {
@@ -1121,6 +1173,9 @@
         return;
     }
     
+    //Register possibly
+    [self registerCustomCellsInTableArray];
+    
     //Begin updates
     [self.tableView beginUpdates];
     
@@ -1129,6 +1184,46 @@
     
     //Add cell
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
+    
+    //End updates
+    [self.tableView endUpdates];
+}
+
+-(void)addRows:(NSArray <BlazeRow *> *)rows startingIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation
+{
+    //Section index check
+    if(indexPath.section >= self.tableArray.count) {
+        NSLog(@"Section does not exist!");
+        return;
+    }
+    
+    //Get section
+    BlazeSection *section = self.tableArray[indexPath.section];
+    
+    //Row index check
+    if(indexPath.row > section.rows.count+1) {
+        NSLog(@"Row index is too high!");
+        return;
+    }
+    
+    //Register possibly
+    [self registerCustomCellsInTableArray];
+    
+    //Begin updates
+    [self.tableView beginUpdates];
+    
+    //Create indexpaths array and add rows to section
+    NSMutableArray *finalIndexPaths = [NSMutableArray new];
+    int startingIndex = indexPath.row;
+    for(int i = 0; i < rows.count; i++) {
+        BlazeRow *row = rows[i];
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:startingIndex+i inSection:indexPath.section];        
+        [section.rows insertObject:row atIndex:newIndexPath.row];
+        [finalIndexPaths addObject:newIndexPath];
+    }
+    
+    //Add cells
+    [self.tableView insertRowsAtIndexPaths:finalIndexPaths withRowAnimation:animation];
     
     //End updates
     [self.tableView endUpdates];
@@ -1416,21 +1511,12 @@
         [tableView setContentOffset:currentOffset];
         [UIView setAnimationsEnabled:TRUE];
     }];
+    __weak __typeof(BlazeTableViewCell *)weakCell = cell;
     [cell setNextField:^{
-        if(self.dynamicRows) {
-            [self activateNextFieldFromRowID:row.ID];
-        }
-        else {
-            [self activateNextFieldFromIndexPath:indexPath];
-        }
+        [self activateNextFieldFromRow:weakCell.row];
     }];
     [cell setPreviousField:^{
-        if(self.dynamicRows) {
-            [self activatePreviousFieldFromRowID:row.ID];
-        }
-        else {
-            [self activatePreviousFieldFromIndexPath:indexPath];
-        }
+        [self activatePreviousFieldFromRow:weakCell.row];
     }];
     
     //Custom cell to configure
@@ -1451,6 +1537,7 @@
 {
     BlazeSection *section = self.tableArray[indexPath.section];
     BlazeRow *row = section.rows[indexPath.row];
+    row.cell = cell;
     if(row.willDisplayCell) {
         //Necessary for correct frames
         [cell layoutIfNeeded];
@@ -1609,45 +1696,8 @@
         [self.sectionIndexesArray removeAllObjects];
     }
     
-    for(BlazeSection *s in self.tableArray) {
-        //Section header/footer
-        if(s.headerXibName.length) {
-            [self registerCustomHeader:s.headerXibName];
-        }
-        if(s.footerXibName.length) {
-            [self registerCustomHeader:s.footerXibName];
-        }
-        
-        //Section rows
-        if(s.rowsXibName.length) {
-            [self registerCustomCell:s.rowsXibName];
-        }
-        
-        //Rows
-        for(BlazeRow *r in s.rows) {
-            if(r.xibName.length) {
-                [self registerCustomCell:r.xibName];
-            }
-        }
-        
-        //Section index picker
-        if(self.useSectionIndexPicker && s.headerTitle.length) {
-            [self.sectionIndexesArray addObject:[[s.headerTitle substringToIndex:1] uppercaseString]];
-        }
-    }
-    
-    //Self headers/cells
-    if(self.headerXibName.length) {
-        [self registerCustomHeader:self.headerXibName];
-    }
-    if(self.footerXibName.length) {
-        [self registerCustomHeader:self.footerXibName];
-    }
-    
-    //Self rows
-    if(self.rowsXibName.length) {
-        [self registerCustomCell:self.rowsXibName];
-    }
+    //Register all cells
+    [self registerCustomCellsInTableArray];
     
     //Empty view
     if(self.emptyStateView) {

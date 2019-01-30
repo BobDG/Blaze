@@ -18,6 +18,7 @@
 }
 
 -(void)update;
+-(BOOL)canBecomeFirstResponder;
 
 @property(nonatomic,strong) id input;
 @property(nonatomic,strong) BlazeRow *row;

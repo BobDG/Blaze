@@ -61,6 +61,11 @@
     [self updateHeightConstraint];
 }
 
+-(BOOL)canBecomeFirstResponder
+{
+    return TRUE;
+}
+
 #pragma mark - Constraints
 
 -(BOOL)updateHeightConstraint

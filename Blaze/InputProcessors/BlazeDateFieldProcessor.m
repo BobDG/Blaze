@@ -85,6 +85,11 @@
     }];
 }
 
+-(BOOL)canBecomeFirstResponder
+{
+    return TRUE;
+}
+
 -(void)updateAccessoryInputView
 {
     //Only for default inputAccessoryView

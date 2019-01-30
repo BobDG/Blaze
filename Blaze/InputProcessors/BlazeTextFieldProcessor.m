@@ -22,13 +22,19 @@
 
 -(void)update
 {
+    NSLog(@"Updating textfield, floating title: %@", self.row.floatingTitle);
+    NSLog(@"Updating textfield within processor, value: %@", self.row.value);
+    
     //Set textfield
     self.textField = self.input;
     
     //Formatter
     if(self.row.formatter) {
+        NSLog(@"Got formatter");
         if([self.row.formatter isKindOfClass:[NSNumberFormatter class]]) {
+            NSLog(@"Number formatter: %@", [((NSNumberFormatter *)self.row.formatter) stringFromNumber:self.row.value]);
             self.textField.text =  [((NSNumberFormatter *)self.row.formatter) stringFromNumber:self.row.value];
+            NSLog(@"Final text: %@", self.textField.text);
         }
         else {
             self.textField.text = [self.row.formatter stringForObjectValue:self.row.value];
@@ -60,6 +66,11 @@
     
     //InputAccessoryView
     self.textField.inputAccessoryView = [self.cell defaultInputAccessoryView];
+}
+
+-(BOOL)canBecomeFirstResponder
+{
+    return TRUE;
 }
 
 #pragma mark - Prefix/Suffixes

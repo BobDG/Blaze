@@ -395,10 +395,12 @@
     if(self.inputProcessors.count>1) {
         NSUInteger index = [self indexForCurrentFirstResponder];
         if(index != NSNotFound) {
-            if(index+1 < self.inputProcessors.count) {
-                BlazeInputProcessor *nextProcessor = self.inputProcessors[index+1];
-                [nextProcessor.input becomeFirstResponder];
-                return;
+            for(int i = (int)index+1; i < self.inputProcessors.count; i++) {
+                BlazeInputProcessor *nextProcessor = self.inputProcessors[i];
+                if(nextProcessor.canBecomeFirstResponder) {
+                    [nextProcessor.input becomeFirstResponder];
+                    return;
+                }
             }
         }
     }
@@ -412,10 +414,12 @@
     if(self.inputProcessors.count>1) {
         NSUInteger index = [self indexForCurrentFirstResponder];
         if(index != NSNotFound) {
-            if((int)index-1 >= 0) {
-                BlazeInputProcessor *nextProcessor = self.inputProcessors[index-1];
-                [nextProcessor.input becomeFirstResponder];
-                return;
+            for(int i = (int)index -1; i >= 0; i--) {
+                BlazeInputProcessor *nextProcessor = self.inputProcessors[i];
+                if(nextProcessor.canBecomeFirstResponder) {
+                    [nextProcessor.input becomeFirstResponder];
+                    return;
+                }
             }
         }
     }
