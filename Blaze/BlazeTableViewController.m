@@ -1214,7 +1214,7 @@
     
     //Create indexpaths array and add rows to section
     NSMutableArray *finalIndexPaths = [NSMutableArray new];
-    int startingIndex = indexPath.row;
+    int startingIndex = (int)indexPath.row;
     for(int i = 0; i < rows.count; i++) {
         BlazeRow *row = rows[i];
         NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:startingIndex+i inSection:indexPath.section];        
@@ -1537,7 +1537,7 @@
 {
     BlazeSection *section = self.tableArray[indexPath.section];
     BlazeRow *row = section.rows[indexPath.row];
-    row.cell = cell;
+    row.cell = (BlazeTableViewCell *)cell;
     if(row.willDisplayCell) {
         //Necessary for correct frames
         [cell layoutIfNeeded];
