@@ -34,6 +34,12 @@ IB_DESIGNABLE
 @property(nonatomic) IBInspectable CGFloat flYPadding;
 
 /**
+ * Floating title font default size
+ * Defaults to 10.
+ */
+@property(nonatomic) IBInspectable CGFloat flFontSize;
+
+/**
  * Padding to be applied to the x coordinate of the floating label upon presentation.
  * Defaults to zero
  */

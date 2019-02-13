@@ -82,6 +82,9 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     }
     
     //Update font if applicable
+    if(self.flFontSize > 0) {        
+        row.floatingTitleFont = [UIFont systemFontOfSize:self.flFontSize];
+    }
     self.flFont = row.floatingTitleFont;
     
     //Update titlecolor - row has preference
@@ -140,7 +143,8 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
         textFieldFont = self.font;
     }
     
-    return [UIFont fontWithName:textFieldFont.fontName size:roundf(textFieldFont.pointSize * 0.7f)];
+    float fontSize = roundf(textFieldFont.pointSize * 0.7f);
+    return [UIFont fontWithName:textFieldFont.fontName size:fontSize];
 }
 
 -(void)updateDefaultFloatingLabelFont
