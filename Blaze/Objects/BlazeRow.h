@@ -106,6 +106,9 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic,strong) NSNumber *rowHeightRatio;
 @property(nonatomic,strong) NSNumber *estimatedRowHeight;
 
+//ID for cached heights
+@property(nonatomic,strong) NSString *cachedHeightID;
+
 //Row Reference types
 @property(nonatomic,strong) id value;
 @property(nonatomic,strong) NSString *xibName;

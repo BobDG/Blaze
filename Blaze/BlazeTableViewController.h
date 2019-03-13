@@ -54,7 +54,11 @@
 
 //Header caching (for animations in headerviews)
 -(void)clearSectionHeaderCache;
-@property(nonatomic) bool sectionHeaderCaching;
+@property(nonatomic) bool cacheSectionHeaders;
+
+//Row heights caching
+-(void)clearRowHeightsCache;
+@property(nonatomic) bool cacheRowHeights;
 
 //Inverted tableview (and cells/emptyview) - useful when showing e.g. messages from bottom to top incl. refreshcontrol at the bottom
 @property(nonatomic) bool invertedTableView;

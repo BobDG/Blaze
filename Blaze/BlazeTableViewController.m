@@ -36,7 +36,8 @@
 //Indexes for sectionPicker
 @property(nonatomic,strong) NSMutableArray *sectionIndexesArray;
 
-//Section headerviews for caching
+//Caching section headerviews/row heights
+@property(nonatomic,strong) NSMutableDictionary *cachedRowHeights;
 @property(nonatomic,strong) NSMutableDictionary *cachedSectionHeaders;
 
 //Contains names of current registered cells
@@ -802,9 +803,30 @@
 
 #pragma mark - Caching
 
+-(void)setCacheSectionHeaders:(bool)cacheSectionHeaders
+{
+    _cacheSectionHeaders = cacheSectionHeaders;
+    if(cacheSectionHeaders && self.cachedSectionHeaders == nil) {
+        self.cachedSectionHeaders = [NSMutableDictionary new];
+    }
+}
+
+-(void)setCacheRowHeights:(bool)cacheRowHeights
+{
+    _cacheRowHeights = cacheRowHeights;
+    if(cacheRowHeights && self.cachedRowHeights == nil) {
+        self.cachedRowHeights = [NSMutableDictionary new];
+    }
+}
+
 -(void)clearSectionHeaderCache
 {
     [self.cachedSectionHeaders removeAllObjects];
+}
+
+-(void)clearRowHeightsCache
+{
+    [self.cachedRowHeights removeAllObjects];
 }
 
 #pragma mark Removing old style
@@ -1257,7 +1279,12 @@
     BlazeSection *s = self.tableArray[indexPath.section];
     BlazeRow *row = s.rows[indexPath.row];
     
-    if(row.rowHeight) {
+    if(self.cacheRowHeights && row.cachedHeightID.length > 0) {
+        if(self.cachedRowHeights[row.cachedHeightID] != nil) {
+            return [self.cachedRowHeights[row.cachedHeightID] floatValue];
+        }
+    }
+    else if(row.rowHeight) {
         return row.rowHeight.floatValue;
     }
     else if(row.rowHeightRatio) {
@@ -1338,8 +1365,13 @@
     BlazeSection *s = self.tableArray[indexPath.section];
     BlazeRow *row = s.rows[indexPath.row];
     
-    //For esimated heights, it's important to have it as close as possible to the real value. So if it's not set, we'll use the real values
-    if(row.estimatedRowHeight) {
+    //For estimated heights, it's important to have it as close as possible to the real value. So if it's not set, we'll use the real values
+    if(self.cacheRowHeights && row.cachedHeightID.length > 0) {
+        if(self.cachedRowHeights[row.cachedHeightID] != nil) {
+            return [self.cachedRowHeights[row.cachedHeightID] floatValue];
+        }
+    }
+    else if(row.estimatedRowHeight) {
         return row.estimatedRowHeight.floatValue;
     }
     else if(self.estimatedRowHeight) {
@@ -1365,7 +1397,7 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     //Return cached one if using caching
-    if(self.sectionHeaderCaching) {
+    if(self.cacheSectionHeaders) {
         if(self.cachedSectionHeaders[@(section)]) {
             return self.cachedSectionHeaders[@(section)];
         }
@@ -1404,7 +1436,7 @@
     }
     
     //Save it when using caching
-    if(self.sectionHeaderCaching) {
+    if(self.cacheSectionHeaders) {
         self.cachedSectionHeaders[@(section)] = headerView;
     }
     
@@ -1547,6 +1579,9 @@
         //Necessary for correct frames
         [cell layoutIfNeeded];
         row.willDisplayCell((BlazeTableViewCell *)cell);
+    }
+    if(self.cacheRowHeights && row.cachedHeightID.length > 0 && self.cachedRowHeights[row.cachedHeightID] == nil) {
+        self.cachedRowHeights[row.cachedHeightID] = @(cell.frame.size.height);
     }
 }
 

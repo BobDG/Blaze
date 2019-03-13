@@ -22,7 +22,7 @@
     self.navigationItem.title = NSLocalizedString(@"Collapsing sections", @"");
     
     //Caching - best to use this to for example show arrows animating while collapsing
-    self.sectionHeaderCaching = TRUE;
+    self.cacheSectionHeaders = TRUE;
     
     //Xibs to use for every header
     self.headerXibName = kTableHeaderView;

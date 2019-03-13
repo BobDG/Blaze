@@ -46,6 +46,9 @@
     self.tableView.estimatedSectionHeaderHeight = 40;
     self.tableView.estimatedSectionFooterHeight = 40;
     
+    //Let's cache row heights for speed
+    self.cacheRowHeights = TRUE;
+    
     //Some empty space looks better
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 40)];
     
@@ -57,12 +60,12 @@
     
     //Input accessory button
     self.inputAccessoryButton = TRUE;
-    self.inputAccessoryButtonTitle = [[NSAttributedString alloc] initWithString:@"Awesome SANDER"
+    self.inputAccessoryButtonTitle = [[NSAttributedString alloc] initWithString:@"Awesome"
                                                                     attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],
                                                                                  NSFontAttributeName:[UIFont systemFontOfSize:17.0f weight:UIFontWeightSemibold]}];
     self.inputAccessoryButtonColor = UIColorFromRGB(0xf64747);
     [self setInputAccessoryButtonTapped:^{
-        DLog(@"Sick DAUDE!");
+        DLog(@"Sick DUDE!!");
     }];
     
     //Section index picker
@@ -87,6 +90,7 @@
     row.imagePickerAllowsEditing = TRUE;
     row.imagePickerViewController = self;
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(imageData)]];
+    row.cachedHeightID = @"1";
     [section addRow:row];    
     
     //Textfield section
@@ -104,6 +108,7 @@
     [row setValueChanged:^{
         DLog(@"Text changed: %@", self.textfieldValue);
     }];
+    row.cachedHeightID = @"2";
     [section addRow:row];
     
     //Textfield number
@@ -120,6 +125,7 @@
     [row setValueChanged:^{
         DLog(@"Suffix/prefix field changed: %@", self.textFieldNumberValue);
     }];
+    row.cachedHeightID = @"3";
     [section addRow:row];
     
     //Textfield completion blocks
@@ -138,6 +144,7 @@
         textField.text = @"Am I interfering?";
         return FALSE;
     }];
+    row.cachedHeightID = @"4";
     [section addRow:row];
     
     //Date & Picker
@@ -163,6 +170,7 @@
     [row setValueChanged:^{
         DLog(@"Changed date: %@", self.date);
     }];
+    row.cachedHeightID = @"5";
     [section addRow:row];
     
     //Picker
@@ -175,6 +183,7 @@
     row.floatingTitle = @"Picker set!";    
     [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(pickerValue)]];
     row.selectorOptions = @[@"Automatic next/previous", @"buttons always work", @"Doesn't matter if you", @"use textfields", @"or datepickers", @"or pickerviews", @"or multiple sections"];
+    row.cachedHeightID = @"6";
     [section addRow:row];
     
     //Picker using index
@@ -193,6 +202,7 @@
     [row setValueChanged:^{
         DLog(@"Value changed: %d", [weakRow.value intValue]);
     }];
+    row.cachedHeightID = @"7";
     [section addRow:row];
     
     //Picker multiple columns
@@ -233,6 +243,7 @@
     [row setValueChanged:^{
         DLog(@"Value changed: %@", weakPickerMultipleRow.value);
     }];
+    row.cachedHeightID = @"8";
     [section addRow:row];
     
     //Button
@@ -284,6 +295,7 @@
         //Set additional rows
         row.additionalRows = @[row2, row3];
     }
+    row.cachedHeightID = @"9";
     [section addRow:row];
     
     //Button
@@ -299,6 +311,7 @@
     [row setButtonCenterTapped:^{
         showM1(@"Button tapped!");
     }];
+    row.cachedHeightID = @"10";
     [section addRow:row];
     
     //Slider
@@ -317,6 +330,7 @@
     [row setValueChanged:^{
         DLog(@"Slider changed: %.1f", [self.sliderValue floatValue]);
     }];
+    row.cachedHeightID = @"11";
     [section addRow:row];
     
     //Slider
@@ -330,6 +344,7 @@
     [row setValueChanged:^{
         DLog(@"Switch turned %@", [self.switchValue boolValue] ? @"ON" : @"OFF");
     }];
+    row.cachedHeightID = @"12";
     [section addRow:row];
     
     //Checkbox
@@ -340,6 +355,7 @@
     [row setValueChanged:^{
         DLog(@"Checkbox changed: %@", [self.checkBoxValue boolValue] ? @"ON" : @"OFF");
     }];
+    row.cachedHeightID = @"13";
     [section addRow:row];
     
     //Two choices
@@ -351,6 +367,7 @@
     [row setValueChanged:^{
         DLog(@"Two choices changed: %d", [self.twoChoicesValue intValue]);
     }];
+    row.cachedHeightID = @"14";
     [section addRow:row];
     
     //Slider
@@ -364,6 +381,7 @@
     [row setValueChanged:^{
         DLog(@"Segment changed: %d", [self.segmentedControlValue intValue]);
     }];
+    row.cachedHeightID = @"15";
     [section addRow:row];
 
     //Tiles
@@ -381,6 +399,7 @@
                         [[BlazeInputTile alloc] initWithID:2 text:@"tile 3" tintColor:UIColorFromRGB(0xF5AB35) baseColor:UIColorFromRGB(0x22A7F0) imageName:nil],
                         [[BlazeInputTile alloc] initWithID:3 text:@"tile 4" tintColor:UIColorFromRGB(0xF5AB35) baseColor:UIColorFromRGB(0x22A7F0) imageName:nil]
                         ];
+    row.cachedHeightID = @"16";
     [section addRow:row];
     
     //Image
@@ -390,6 +409,7 @@
     //Image
     row = [BlazeRow rowWithXibName:kImageTableViewCell];
     row.imageNameCenter = @"Blaze_Logo";
+    row.cachedHeightID = @"17";
     [section addRow:row];
     
     //ScrollImages with pagecontrol from bundle
@@ -397,6 +417,7 @@
     row.scrollImages = @[@"Blaze_Logo", @"Blaze_Logo", @"Blaze_Logo"];
     row.scrollImageType = ImageFromBundle;
     row.scrollImageContentMode = UIViewContentModeScaleAspectFit;
+    row.cachedHeightID = @"18";
     [section addRow:row];
     
     //ScrollImages with pagecontrol from url's
@@ -404,6 +425,7 @@
     row.scrollImages = @[@"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTJ3XnCf9jhKYfpOVGi8gIH2PRS03_TXBBESrTKD9rOo05zj_tj", @"http://clipart-library.com/data_images/131333.png", @"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQiapYdSAeS44sH7AVxBs_bkdv-6EjM9IGwVUR4WRounHh-9NqX"];
     row.scrollImageType = ImageFromURL;
     row.scrollImageContentMode = UIViewContentModeScaleAspectFit;
+    row.cachedHeightID = @"19";
     [section addRow:row];
     
     //ScrollImages with variable type of images and not full width
@@ -413,6 +435,7 @@
     row.scrollImageContentMode = UIViewContentModeScaleAspectFill;
     row.scrollImagesWidth = 80.0f;
     row.scrollImagesPadding = 5.0f;
+    row.cachedHeightID = @"20";
     [section addRow:row];
     
     //Reload
