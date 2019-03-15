@@ -930,6 +930,26 @@
     [self deleteRow:row withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
+-(void)deleteRowWithObject:(id)object
+{
+    [self deleteRowWithObject:object withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+-(void)deleteRowWithObject:(id)object withRowAnimation:(UITableViewRowAnimation)animation
+{
+    for(BlazeSection *section in self.tableArray) {
+        for(BlazeRow *row in section.rows) {
+            if(row.object == object) {
+                [self deleteRow:row withRowAnimation:animation];
+                return;
+            }
+        }
+    }
+    
+    //If we come here it means we didn't find it... let's simply reload!
+    [self reloadTable];
+}
+
 -(void)deleteRows:(NSArray *)rows withRowAnimation:(UITableViewRowAnimation)animation
 {
     //Begin updates

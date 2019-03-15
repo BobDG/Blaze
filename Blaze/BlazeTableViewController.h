@@ -145,6 +145,8 @@
 //Deleting rows
 -(void)deleteRow:(BlazeRow *)row;
 -(void)deleteRows:(NSArray *)rows;
+-(void)deleteRowWithObject:(id)object;
+-(void)deleteRowWithObject:(id)object withRowAnimation:(UITableViewRowAnimation)animation;
 -(void)deleteRow:(BlazeRow *)row withRowAnimation:(UITableViewRowAnimation)animation;
 -(void)deleteRows:(NSArray *)rows withRowAnimation:(UITableViewRowAnimation)animation;
 
