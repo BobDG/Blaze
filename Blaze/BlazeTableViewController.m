@@ -542,7 +542,7 @@
     if(!indexPath) {
         return nil;
     }
-    return (BlazeTableViewCell *)[self tableView:self.tableView cellForRowAtIndexPath:indexPath];
+    return (BlazeTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];    
 }
 
 -(NSIndexPath *)indexPathForRowID:(int)rowID
