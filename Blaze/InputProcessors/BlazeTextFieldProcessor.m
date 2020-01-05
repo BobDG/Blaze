@@ -28,7 +28,16 @@
     //Formatter
     if(self.row.formatter) {
         if([self.row.formatter isKindOfClass:[NSNumberFormatter class]]) {
-            self.textField.text =  [((NSNumberFormatter *)self.row.formatter) stringFromNumber:self.row.value];
+            //When it's a number and a 0, not user-friendly that the 0 needs to be backspaced, so let's only fill it if it's not 0
+            NSString *text = @"";
+            NSNumber *value = (NSNumber *)self.row.value;
+            if(value != nil) {
+                float floatValue = [value floatValue];
+                if(floatValue != 0) {
+                    text = [((NSNumberFormatter *)self.row.formatter) stringFromNumber:self.row.value];
+                }
+            }
+            self.textField.text = text;
         }
         else {
             self.textField.text = [self.row.formatter stringForObjectValue:self.row.value];
