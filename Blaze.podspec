@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name           	= 'Blaze'
-  s.version        	= '1.1.20'
+  s.version        	= '1.1.21'
   s.summary        	= 'Blazingly fast Tableviewcontroller framework'
   s.license 	    	= 'MIT'
   s.description    	= 'Blazingly fast Tableviewcontroller framework with many advantages'

@@ -81,6 +81,12 @@
 -(void)updateTextFieldPrefixAndSuffix:(UITextField *)textField
 {
     if(self.textField.text.length) {
+        //If we have a number formatter, first update the textfield text to ensure it looks nice
+        if(self.row.formatter && [self.row.formatter isKindOfClass:[NSNumberFormatter class]]) {
+            self.textField.text = [(NSNumberFormatter *)(self.row.formatter) stringFromNumber:self.row.value];
+        }
+        
+        //Check prefix and suffix
         if(self.row.textFieldPrefix.length && self.row.textFieldSuffix.length) {
             textField.text = [NSString stringWithFormat:@"%@%@%@", self.row.textFieldPrefix, self.textField.text, self.row.textFieldSuffix];
         }
