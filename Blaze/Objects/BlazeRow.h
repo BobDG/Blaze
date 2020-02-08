@@ -80,6 +80,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic,copy) void (^cellDeleted)(void);
 @property(nonatomic,copy) void (^askToDelete)(void);
 @property(nonatomic,copy) void (^valueChanged)(void);
+@property(nonatomic,copy) void (^cellReordered)(int index);
 @property(nonatomic,copy) void (^valueChangedWithValue)(id value);
 @property(nonatomic,copy) void (^buttonLeftTapped)(void);
 @property(nonatomic,copy) void (^buttonRightTapped)(void);
@@ -96,8 +97,9 @@ typedef NS_ENUM(NSInteger, ImageType) {
 //Row primitives
 @property(nonatomic) int ID;
 @property(nonatomic) bool disableBundle;
-@property(nonatomic) bool enableDeleting;
 @property(nonatomic) bool disableEditing;
+@property(nonatomic) bool enableDeleting;
+@property(nonatomic) bool enableReordering;
 @property(nonatomic) bool rowHeightDynamic;
 @property(nonatomic) bool disableFirstResponderOnCellTap;
 

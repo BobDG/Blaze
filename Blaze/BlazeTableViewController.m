@@ -1678,6 +1678,35 @@
     }
 }
 
+#pragma mark - Reordering
+
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BlazeSection *section = self.tableArray[indexPath.section];
+    BlazeRow *row = section.rows[indexPath.row];
+    return row.enableReordering;
+}
+
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    BlazeSection *section = self.tableArray[sourceIndexPath.section];
+    BlazeRow *row = section.rows[sourceIndexPath.row];
+    [section.rows removeObjectAtIndex:sourceIndexPath.row];
+    [section.rows insertObject:row atIndex:destinationIndexPath.row];
+    if(row.cellReordered) {
+        row.cellReordered((int)destinationIndexPath.row);
+    }
+}
+
+-(NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
+{
+    //Do not allow section changes
+    if(sourceIndexPath.section != proposedDestinationIndexPath.section) {
+        return [NSIndexPath indexPathForRow:sourceIndexPath.row inSection:sourceIndexPath.section];
+    }
+    return proposedDestinationIndexPath;
+}
+
 #pragma mark UIScrollViewDelegate
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
