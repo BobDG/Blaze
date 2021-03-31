@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name           	= 'Blaze'
-  s.version        	= '1.1.23'
+  s.version        	= '1.1.24'
   s.summary        	= 'Blazingly fast Tableviewcontroller framework'
   s.license 	    	= 'MIT'
   s.description    	= 'Blazingly fast Tableviewcontroller framework with many advantages'
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.source         	= { :git => 'https://github.com/BobDG/Blaze.git', :tag => s.version.to_s }
   s.source_files   	= 'Blaze/**/*.{h,m}'
   s.resources 		= ['Blaze/**/*.{xib}', 'Blaze/**/*.{png}']
-  s.platform       	= :ios, '9.0'
+  s.platform       	= :ios, '14.0'
   s.requires_arc   	= true
   s.module_name 	= 'Blaze'
   s.dependency 		'AFNetworking'
