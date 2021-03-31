@@ -264,6 +264,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic) NSUInteger dateMinuteInterval;
 @property(nonatomic,strong) NSDate *placeholderDate;
 @property(nonatomic) UIDatePickerMode datePickerMode;
+@property(nonatomic) UIDatePickerStyle datePickerStyle;
 @property(nonatomic) bool dateFormatCapitalizedString;
 @property(nonatomic,strong) NSDateFormatter *dateFormatter;
 

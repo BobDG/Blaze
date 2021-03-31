@@ -33,6 +33,7 @@
     self.dateFormatter = self.row.dateFormatter;
     self.dateField.placeholder = self.row.placeholder;
     self.dateField.datePicker.datePickerMode = self.row.datePickerMode;
+    self.dateField.datePicker.preferredDatePickerStyle = self.row.datePickerStyle;
     
     //Min date
     self.dateField.datePicker.minimumDate = self.row.minDate;
