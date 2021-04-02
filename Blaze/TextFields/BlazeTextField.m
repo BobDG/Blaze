@@ -142,9 +142,15 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     if (!textFieldFont) {
         textFieldFont = self.font;
     }
-    
     float fontSize = roundf(textFieldFont.pointSize * 0.7f);
-    return [UIFont fontWithName:textFieldFont.fontName size:fontSize];
+    
+    //From iOS13, you can't access system fonts by name, so here we check the prefix and use systemFontOfSize if necessary
+    if([textFieldFont.fontName hasPrefix:@".SF"]) {
+        return [UIFont systemFontOfSize:fontSize];
+    }
+    else {
+        return [UIFont fontWithName:textFieldFont.fontName size:fontSize];
+    }
 }
 
 -(void)updateDefaultFloatingLabelFont
