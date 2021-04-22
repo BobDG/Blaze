@@ -66,7 +66,8 @@
     //No scrollbars
     self.tableView.showsVerticalScrollIndicator = FALSE;
     
-    //Empty state delegate
+    //Empty state delegate & rows
+    self.emptyStateMinRows = 0;
     self.tableView.reloadDataSetDelegate = self;
     
     //Default dismiss keyboard on drag
@@ -1786,7 +1787,7 @@
     
     //Hide/unhide empty view
     if(self.emptyStateView) {
-        self.emptyStateView.hidden = self.tableArray.count > 0;
+        self.emptyStateView.hidden = self.tableArray.count > self.emptyStateMinRows;
     }
     
     //Separator style for empty state

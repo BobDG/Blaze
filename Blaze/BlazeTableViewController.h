@@ -25,6 +25,7 @@
 @property(nonatomic,strong) NSString *footerXibName;
 
 //Empty set variables
+@property(nonatomic) int emptyStateMinRows;
 @property(nonatomic,strong) UIView *emptyStateView;
 @property(nonatomic,strong) NSNumber *emptyStateVerticalOffsetTop;
 @property(nonatomic,strong) NSNumber *emptyStateVerticalOffsetCenter;
