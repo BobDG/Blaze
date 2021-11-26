@@ -34,6 +34,9 @@
     self.dateField.placeholder = self.row.placeholder;
     self.dateField.datePicker.datePickerMode = self.row.datePickerMode;
     self.dateField.datePicker.preferredDatePickerStyle = self.row.datePickerStyle;
+    if(self.row.datePickerBackgroundColor) {
+        self.dateField.datePicker.backgroundColor = self.row.datePickerBackgroundColor;
+    }
     
     //Min date
     self.dateField.datePicker.minimumDate = self.row.minDate;

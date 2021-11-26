@@ -267,6 +267,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic) UIDatePickerStyle datePickerStyle;
 @property(nonatomic) bool dateFormatCapitalizedString;
 @property(nonatomic,strong) NSDateFormatter *dateFormatter;
+@property(nonatomic,strong) UIColor *datePickerBackgroundColor;
 
 //Label/TextField/TextView
 @property(nonatomic) bool secureTextEntry;
