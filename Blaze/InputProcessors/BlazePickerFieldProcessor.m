@@ -86,6 +86,9 @@
         return;
     }
     
+    //Reload components in case the values have changed
+    [self.pickerField.pickerView reloadAllComponents];
+    
     //Update index row & field
     if(index < pickerValues.count) {
         self.pickerField.text = pickerValues[index];

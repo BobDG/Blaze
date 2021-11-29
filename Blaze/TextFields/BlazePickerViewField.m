@@ -87,6 +87,10 @@
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
+    if(row >= self.pickerValues.count) {
+        NSLog(@"WARNING - Row index %d too high for pickervalues count %d, you should check this! Returning nil for now...", row, self.pickerValues.count);
+        return nil;
+    }
     return self.pickerValues[row];
 }
 
