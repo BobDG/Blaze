@@ -1,6 +1,0 @@
-framework module BDGViews {
-  umbrella header "BDGViews-umbrella.h"
-
-  export *
-  module * { export * }
-}

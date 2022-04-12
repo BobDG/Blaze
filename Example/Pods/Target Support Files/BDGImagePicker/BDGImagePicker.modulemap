@@ -1,6 +1,0 @@
-framework module BDGImagePicker {
-  umbrella header "BDGImagePicker-umbrella.h"
-
-  export *
-  module * { export * }
-}
