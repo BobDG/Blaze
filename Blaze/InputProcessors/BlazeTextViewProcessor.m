@@ -23,6 +23,10 @@
 
 -(void)update
 {
+    if(!self.row) {
+        return;
+    }
+    
     //Set textview
     self.textView = self.input;
     
@@ -44,7 +48,9 @@
     self.textView.userInteractionEnabled = !self.row.disableEditing;
     
     //AccessoryInputView
-    self.textView.inputAccessoryView = [self.cell defaultInputAccessoryView];
+    if(self.cell) {
+        self.textView.inputAccessoryView = [self.cell defaultInputAccessoryView];
+    }
     
     //Delegate
     self.textView.delegate = self;
@@ -54,7 +60,9 @@
     self.textView.scrollEnabled = FALSE;
     
     //Set constant
-    self.previousHeight = self.cell.textViewHeightConstraint.constant;
+    if(self.cell) {
+        self.previousHeight = self.cell.textViewHeightConstraint.constant;
+    }
     self.preferredHeightOneLine = self.previousHeight;
     
     //Reset height constraint because height will be resetted otherwise
@@ -79,10 +87,12 @@
         newConstant = self.preferredHeightOneLine;
     }
     if(newConstant != self.previousHeight) {
-        self.cell.textViewHeightConstraint.constant = newConstant;
-        self.previousHeight = newConstant;
-        [self.cell setNeedsUpdateConstraints];
-        [self.cell layoutIfNeeded];
+        if(self.cell) {
+            self.cell.textViewHeightConstraint.constant = newConstant;
+            self.previousHeight = newConstant;
+            [self.cell setNeedsUpdateConstraints];
+            [self.cell layoutIfNeeded];
+        }
         return TRUE;
     }
     return FALSE;
@@ -92,6 +102,10 @@
 
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
+    if(!self.row) {
+        return;
+    }
+    
     if(self.row.doneChanging) {
         self.row.doneChanging();
     }
@@ -99,9 +113,15 @@
 
 -(void)textViewDidChange:(UITextView *)textView
 {
+    if(!self.row) {
+        return;
+    }
+    
     if([self updateHeightConstraint]) {
-        if(self.cell.heightUpdated) {
-            self.cell.heightUpdated();
+        if(self.cell) {
+            if(self.cell.heightUpdated) {
+                self.cell.heightUpdated();
+            }
         }
     }
     self.row.value = textView.text;

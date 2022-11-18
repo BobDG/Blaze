@@ -22,6 +22,10 @@
 
 -(void)update
 {
+    if(!self.row) {
+        return;
+    }
+    
     //Set field
     self.pickerField = self.input;
     
@@ -33,11 +37,17 @@
     
     __weak __typeof(self)weakSelf = self;
     [self.pickerField setPickerCancelled:^{
-        [weakSelf.pickerField resignFirstResponder];
+        __strong typeof(self)strongSelf = weakSelf;
+        if(strongSelf) {
+            [strongSelf.pickerField resignFirstResponder];
+        }
     }];
     [self.pickerField setPickerSelected:^(NSArray <NSNumber *> *selectedIndexes) {
-        [weakSelf.pickerField resignFirstResponder];
-        [weakSelf updateSelectedIndexes:selectedIndexes];
+        __strong typeof(self)strongSelf = weakSelf;
+        if(strongSelf) {
+            [strongSelf.pickerField resignFirstResponder];
+            [strongSelf updateSelectedIndexes:selectedIndexes];
+        }
     }];
     
     //Editable
@@ -82,6 +92,14 @@
 
 -(void)updateAccessoryInputView
 {
+    //Check if weak properties still exist
+    if(!self.cell) {
+        return;
+    }
+    if(!self.row) {
+        return;
+    }
+    
     //Only for default inputAccessoryView
     if(self.row.inputAccessoryViewType != InputAccessoryViewCancelSave) {
         //Get toolbar
@@ -90,15 +108,22 @@
         //Update for changes
         __weak __typeof(self)weakSelf = self;
         [self.pickerField setPickerSelectionChanged:^(int section, int index) {
-            NSMutableArray *rowValues = [[NSMutableArray alloc] initWithArray:weakSelf.row.value];
-            rowValues[section] = @(index);
-            [weakSelf updateSelectedIndexes:rowValues];
+            __strong typeof(self)strongSelf = weakSelf;
+            if(strongSelf) {
+                NSMutableArray *rowValues = [[NSMutableArray alloc] initWithArray:strongSelf.row.value];
+                rowValues[section] = @(index);
+                [strongSelf updateSelectedIndexes:rowValues];
+            }
         }];
     }
 }
 
 -(void)updateSelectedIndexes:(NSArray <NSNumber *> *)selectedIndexes
 {
+    if(!self.row) {
+        return;
+    }
+    
     NSString *pickerFieldText = @"";
     NSMutableArray *rowValues = [[NSMutableArray alloc] initWithArray:self.row.value];
     for(int i = 0; i < selectedIndexes.count; i++) {
@@ -137,6 +162,10 @@
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    if(!self.row) {
+        return;
+    }
+    
     if(self.row.inputAccessoryViewType == InputAccessoryViewCancelSave) {
         return;
     }
@@ -164,6 +193,10 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
+    if(!self.row) {
+        return;
+    }
+    
     if(self.row.textFieldDidEndEditing) {
         self.row.textFieldDidEndEditing(self.pickerField);
     }

@@ -22,6 +22,10 @@
 
 -(void)update
 {
+    if(!self.row) {
+        return;
+    }
+    
     //Set field
     self.pickerField = self.input;
     
@@ -33,11 +37,17 @@
     
     __weak __typeof(self)weakSelf = self;
     [self.pickerField setPickerCancelled:^{
-        [weakSelf.pickerField resignFirstResponder];
+        __strong typeof(self)strongSelf = weakSelf;
+        if(strongSelf) {
+            [strongSelf.pickerField resignFirstResponder];
+        }
     }];
     [self.pickerField setPickerSelected:^(int index) {
-        [weakSelf.pickerField resignFirstResponder];
-        [weakSelf updateSelectedIndex:index];
+        __strong typeof(self)strongSelf = weakSelf;
+        if(strongSelf) {
+            [strongSelf.pickerField resignFirstResponder];
+            [strongSelf updateSelectedIndex:index];
+        }
     }];
     
     //Editable
@@ -103,6 +113,14 @@
 
 -(void)updateAccessoryInputView
 {
+    //Check if weak properties still exist
+    if(!self.cell) {
+        return;
+    }
+    if(!self.row) {
+        return;
+    }
+    
     //Only for default inputAccessoryView
     if(self.row.inputAccessoryViewType != InputAccessoryViewCancelSave) {
         //Get toolbar
@@ -111,13 +129,20 @@
         //Update for changes
         __weak __typeof(self)weakSelf = self;
         [self.pickerField setPickerSelectionChanged:^(int index) {
-            [weakSelf updateSelectedIndex:index];
+            __strong typeof(self)strongSelf = weakSelf;
+            if(strongSelf) {
+                [strongSelf updateSelectedIndex:index];
+            }
         }];
     }
 }
 
 -(void)updateSelectedIndex:(int)index
 {
+    if(!self.row) {
+        return;
+    }
+    
     if(index < self.pickerField.pickerValues.count) {
         //Value
         if(self.row.pickerUseIndexValue) {
@@ -139,6 +164,10 @@
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    if(!self.row) {
+        return;
+    }
+    
     if(self.row.inputAccessoryViewType == InputAccessoryViewCancelSave) {
         return;
     }
@@ -162,6 +191,10 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
+    if(!self.row) {
+        return;
+    }
+    
     if(self.row.textFieldDidEndEditing) {
         self.row.textFieldDidEndEditing(self.pickerField);
     }

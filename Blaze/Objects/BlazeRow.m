@@ -213,17 +213,17 @@
 
 #pragma mark - Object & updated
 
--(void)setAffectedObject:(id)affectedObject affectedPropertyName:(NSString *)affectedPropertyName
+-(void)setAffectedWeakObject:(id)affectedObject affectedPropertyName:(NSString *)affectedPropertyName
 {
-    self.object = affectedObject;
+    self.weakAffectedObject = affectedObject;
     self.propertyName = affectedPropertyName;
-    self.value = [self.object valueForKey:self.propertyName];    
+    self.value = [self.weakAffectedObject valueForKey:self.propertyName];
 }
 
 -(void)didUpdateValue:(id)value
 {
-    if(self.object && self.propertyName.length) {
-        [self.object setValue:value forKey:self.propertyName];
+    if(self.weakAffectedObject && self.propertyName.length) {
+        [self.weakAffectedObject setValue:value forKey:self.propertyName];
     }
     if(self.doneChanging) {
         self.doneChanging();
@@ -232,8 +232,8 @@
 
 -(void)updatedValue:(id)value
 {
-    if(self.object && self.propertyName.length) {
-        [self.object setValue:value forKey:self.propertyName];
+    if(self.weakAffectedObject && self.propertyName.length) {
+        [self.weakAffectedObject setValue:value forKey:self.propertyName];
     }
     if(self.valueChanged) {
         self.valueChanged();

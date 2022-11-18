@@ -21,7 +21,7 @@
 -(BOOL)canBecomeFirstResponder;
 
 @property(nonatomic,strong) id input;
-@property(nonatomic,strong) BlazeRow *row;
-@property(nonatomic,strong) BlazeTableViewCell *cell;
+@property(nonatomic,weak) BlazeRow *row;
+@property(nonatomic,weak) BlazeTableViewCell *cell;
 
 @end

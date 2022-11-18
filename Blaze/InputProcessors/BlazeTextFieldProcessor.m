@@ -21,7 +21,11 @@
 @implementation BlazeTextFieldProcessor
 
 -(void)update
-{    
+{
+    if(!self.row) {
+        return;
+    }
+    
     //Set textfield
     self.textField = self.input;
     
@@ -67,7 +71,10 @@
     //Update
     self.textField.delegate = self;
     
-    //InputAccessoryView
+    //InputAccessoryView (if cell exists)
+    if(!self.cell) {
+        return;
+    }
     self.textField.inputAccessoryView = [self.cell defaultInputAccessoryView];
 }
 
@@ -80,6 +87,10 @@
 
 -(void)updateTextFieldPrefixAndSuffix:(UITextField *)textField
 {
+    if(!self.row) {
+        return;
+    }
+    
     if(self.textField.text.length) {
         //If we have a number formatter, first update the textfield text to ensure it looks nice
         if(self.row.formatter && [self.row.formatter isKindOfClass:[NSNumberFormatter class]]) {
@@ -103,6 +114,10 @@
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    if(!self.row) {
+        return;
+    }
+    
     if(self.row.textFieldSuffix.length) {
         textField.text = [textField.text stringByReplacingOccurrencesOfString:self.row.textFieldSuffix withString:@""];
     }
@@ -116,6 +131,10 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
+    if(!self.row) {
+        return;
+    }
+    
     [self updateTextFieldPrefixAndSuffix:textField];
     if(self.row.textFieldDidEndEditing) {
         self.row.textFieldDidEndEditing(self.textField);
@@ -124,6 +143,10 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    if(!self.row) {
+        return FALSE;
+    }
+    
     if(self.row.textFieldShouldChangeCharactersInRange) {
         BOOL result = self.row.textFieldShouldChangeCharactersInRange(self.textField, range, string);
         if(!result) {
@@ -149,12 +172,18 @@
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
-{ 
+{
+    if(!self.row) {
+        return TRUE;
+    }
+    
     if(self.row.doneChanging) { 
         self.row.doneChanging();
     }
-    if(self.cell.nextField) {
-        [self.cell nextField:nil];        
+    if(self.cell) {
+        if(self.cell.nextField) {
+            [self.cell nextField:nil];
+        }
     }
     else {
         [textField resignFirstResponder];

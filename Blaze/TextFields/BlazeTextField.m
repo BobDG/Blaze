@@ -193,12 +193,16 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 
 -(void)showFloatingLabel:(BOOL)animated
 {
+    __weak __typeof(self)weakSelf = self;
     void (^showBlock)(void) = ^{
-        self.floatingLabel.alpha = 1.0f;
-        self.floatingLabel.frame = CGRectMake(self.floatingLabel.frame.origin.x,
-                                          self.flYPadding,
-                                          self.floatingLabel.frame.size.width,
-                                          self.floatingLabel.frame.size.height);
+        __strong typeof(self)strongSelf = weakSelf;
+        if(strongSelf) {
+            strongSelf.floatingLabel.alpha = 1.0f;
+            strongSelf.floatingLabel.frame = CGRectMake(strongSelf.floatingLabel.frame.origin.x,
+                                                        strongSelf.flYPadding,
+                                                        strongSelf.floatingLabel.frame.size.width,
+                                                        strongSelf.floatingLabel.frame.size.height);
+        }
     };
     
     if (animated || 0 != self.animateEvenIfNotFirstResponder) {
@@ -215,12 +219,16 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 
 -(void)hideFloatingLabel:(BOOL)animated
 {
+    __weak __typeof(self)weakSelf = self;
     void (^hideBlock)(void) = ^{
-        self.floatingLabel.alpha = 0.0f;
-        self.floatingLabel.frame = CGRectMake(self.floatingLabel.frame.origin.x,
-                                          self.floatingLabel.font.lineHeight + self.placeholderYPadding,
-                                          self.floatingLabel.frame.size.width,
-                                          self.floatingLabel.frame.size.height);
+        __strong typeof(self)strongSelf = weakSelf;
+        if(strongSelf) {
+            strongSelf.floatingLabel.alpha = 0.0f;
+            strongSelf.floatingLabel.frame = CGRectMake(strongSelf.floatingLabel.frame.origin.x,
+                                                        strongSelf.floatingLabel.font.lineHeight + strongSelf.placeholderYPadding,
+                                                        strongSelf.floatingLabel.frame.size.width,
+                                                        strongSelf.floatingLabel.frame.size.height);
+        }
         
     };
     

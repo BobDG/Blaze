@@ -294,22 +294,37 @@
     //Animation
     if(animated) {
         self.floatingActionButton.transform = CGAffineTransformMakeScale(0.01, 0.01);
+        __weak __typeof(self)weakSelf = self;
         [UIView animateWithDuration:0.4f delay:0.0f usingSpringWithDamping:0.6f initialSpringVelocity:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-            self.floatingActionButton.transform = CGAffineTransformIdentity;
+            __strong typeof(self) strongSelf = weakSelf;
+            if(strongSelf) {
+                strongSelf.floatingActionButton.transform = CGAffineTransformIdentity;
+            }
         } completion:nil];
     }    
 }
 
 -(void)tappedFloatingActionButton
 {
+    __weak __typeof(self)weakSelf = self;
     [UIView animateWithDuration:0.1f animations:^{
-        self.floatingActionButton.transform = CGAffineTransformMakeScale(1.1f, 1.1f);
+        __strong typeof(self) strongSelf = weakSelf;
+        if(strongSelf) {
+            strongSelf.floatingActionButton.transform = CGAffineTransformMakeScale(1.1f, 1.1f);
+        }
     } completion:^(BOOL finished) {
+        __weak __typeof(self)weakSelf = self;
         [UIView animateWithDuration:0.1f animations:^{
-            self.floatingActionButton.transform = CGAffineTransformIdentity;
+            __strong typeof(self) strongSelf = weakSelf;
+            if(strongSelf) {
+                strongSelf.floatingActionButton.transform = CGAffineTransformIdentity;
+            }
         } completion:^(BOOL finished) {
-            if(self.floatingActionButtonTapped) {
-                self.floatingActionButtonTapped();
+            __strong typeof(self) strongSelf = weakSelf;
+            if(strongSelf) {
+                if(strongSelf.floatingActionButtonTapped) {
+                    strongSelf.floatingActionButtonTapped();
+                }
             }
         }];
     }];
@@ -402,8 +417,12 @@
 
 -(void)reloadTableWithFadeTransition
 {
+    __weak __typeof(self)weakSelf = self;
     [UIView transitionWithView:self.tableView duration:0.3f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-        [self.tableView reloadData];
+        __strong typeof(self) strongSelf = weakSelf;
+        if(strongSelf) {
+            [strongSelf.tableView reloadData];
+        }
     } completion:^(BOOL finished) {
     }];
 }
@@ -653,8 +672,12 @@
     else if(indexPath.row>0) {
         //The row DOES exist but simply out of view
         [self.tableView scrollToRowAtIndexPath:previousRowIndexPath atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
+        __weak __typeof(self)weakSelf = self;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self activatePreviousFieldFromIndexPath:indexPath];
+            __strong typeof(self) strongSelf = weakSelf;
+            if(strongSelf) {
+                [strongSelf activatePreviousFieldFromIndexPath:indexPath];
+            }
         });
         //Returning existing cell, otherwise the keyboard will dismiss and then pop back
         return [self.tableView cellForRowAtIndexPath:indexPath];
@@ -682,8 +705,12 @@
     else if(section.rows.count>0) {
         //The row DOES exist but simply out of view
         [self.tableView scrollToRowAtIndexPath:previousSectionIndexPath atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
+        __weak __typeof(self)weakSelf = self;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self activatePreviousFieldFromIndexPath:indexPath];
+            __strong typeof(self) strongSelf = weakSelf;
+            if(strongSelf) {
+                [strongSelf activatePreviousFieldFromIndexPath:indexPath];
+            }
         });
         //Returning existing cell, otherwise the keyboard will dismiss and then pop back
         return [self.tableView cellForRowAtIndexPath:indexPath];
@@ -1439,9 +1466,12 @@
     
     //Collapsing
     if(s.canCollapse) {
-        __weak __typeof(self)weakSelf = self;        
+        __weak __typeof(self)weakSelf = self;
         [s setCollapseTapped:^{
-            [weakSelf collapseSection:(int)section];
+            __strong typeof(self) strongSelf = weakSelf;
+            if(strongSelf) {
+                [strongSelf collapseSection:(int)section];
+            }
         }];
     }
     
@@ -1561,20 +1591,37 @@
     }
     
     //Completion blocks
-    [cell setHeightUpdated:^{
-        CGPoint currentOffset = tableView.contentOffset;
-        [UIView setAnimationsEnabled:FALSE];
-        [tableView beginUpdates];
-        [tableView endUpdates];
-        [tableView setContentOffset:currentOffset];
-        [UIView setAnimationsEnabled:TRUE];
-    }];
+    __weak __typeof(self)weakSelf = self;
     __weak __typeof(BlazeTableViewCell *)weakCell = cell;
+    
+    [cell setHeightUpdated:^{
+        __strong typeof(self) strongSelf = weakSelf;
+        if(strongSelf) {
+            CGPoint currentOffset = strongSelf.tableView.contentOffset;
+            [UIView setAnimationsEnabled:FALSE];
+            [strongSelf.tableView beginUpdates];
+            [strongSelf.tableView endUpdates];
+            [strongSelf.tableView setContentOffset:currentOffset];
+            [UIView setAnimationsEnabled:TRUE];
+        }
+    }];
     [cell setNextField:^{
-        [self activateNextFieldFromRow:weakCell.row];
+        __strong typeof(self) strongSelf = weakSelf;
+        __strong typeof(BlazeTableViewCell *)strongCell = weakCell;
+        if(strongSelf) {
+            if(strongCell) {
+                [strongSelf activateNextFieldFromRow:strongCell.row];
+            }
+        }
     }];
     [cell setPreviousField:^{
-        [self activatePreviousFieldFromRow:weakCell.row];
+        __strong typeof(self) strongSelf = weakSelf;
+        __strong typeof(BlazeTableViewCell *)strongCell = weakCell;
+        if(strongSelf) {
+            if(strongCell) {
+                [strongSelf activatePreviousFieldFromRow:strongCell.row];
+            }
+        }
     }];
     
     //Custom cell to configure
@@ -1706,6 +1753,7 @@
         return [NSIndexPath indexPathForRow:sourceIndexPath.row inSection:sourceIndexPath.section];
     }
     return proposedDestinationIndexPath;
+    return proposedDestinationIndexPath;
 }
 
 #pragma mark UIScrollViewDelegate
@@ -1785,26 +1833,20 @@
     //Register all cells
     [self registerAllCustomCells];
     
-    //Hide/unhide empty view
-    if(self.emptyStateView) {
-        self.emptyStateView.hidden = self.tableArray.count > self.emptyStateMinRows;
-    }
-    
-    //Separator style for empty state
-    if(self.emptyTableViewCellSeparatorStyle && self.filledTableViewCellSeparatorStyle) {
-        if(self.tableArray.count) {
-            self.tableView.separatorStyle = (UITableViewCellSeparatorStyle)self.filledTableViewCellSeparatorStyle.intValue;
-        }
-        else {
-            self.tableView.separatorStyle = (UITableViewCellSeparatorStyle)self.emptyTableViewCellSeparatorStyle.intValue;
-        }
-    }
+    //Check empty state
+    [self checkEmptyState];
 }
 
 #pragma mark - EmptyStateView
 
 -(void)setEmptyStateView:(UIView *)emptyStateView
 {
+    //In rare cases the tableview frame is not yet correct, resulting in a incorrect frame for the emptystateview
+    if(self.tableView.frame.size.width < 1) {
+        [self performSelector:@selector(setEmptyStateView:) withObject:emptyStateView afterDelay:0.2];
+        return;
+    }
+    
     //Clear any previous
     if(_emptyStateView) {
         [_emptyStateView removeFromSuperview];
@@ -1878,6 +1920,27 @@
                                                               multiplier:1.0
                                                                 constant:topSpaceConstant]];
     self.emptyStateViewTopSet = true;
+    
+    //Sometimes (when frames are somehow retrieved later) the empty view is not created yet when datasetreload is called. So always check once more here
+    [self checkEmptyState];
+}
+
+-(void)checkEmptyState
+{
+    //Hide/unhide empty view
+    if(self.emptyStateView) {
+        self.emptyStateView.hidden = self.tableArray.count > self.emptyStateMinRows;
+    }
+    
+    //Separator style for empty state
+    if(self.emptyTableViewCellSeparatorStyle && self.filledTableViewCellSeparatorStyle) {
+        if(self.tableArray.count) {
+            self.tableView.separatorStyle = (UITableViewCellSeparatorStyle)self.filledTableViewCellSeparatorStyle.intValue;
+        }
+        else {
+            self.tableView.separatorStyle = (UITableViewCellSeparatorStyle)self.emptyTableViewCellSeparatorStyle.intValue;
+        }
+    }
 }
 
 #pragma mark - Layout subviews

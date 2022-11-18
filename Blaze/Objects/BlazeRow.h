@@ -73,7 +73,15 @@ typedef NS_ENUM(NSInteger, ImageType) {
 //Methods
 -(void)updatedValue:(id)value;
 -(void)didUpdateValue:(id)value;
--(void)setAffectedObject:(id)affectedObject affectedPropertyName:(NSString *)affectedPropertyName;
+-(void)setAffectedWeakObject:(id)affectedObject affectedPropertyName:(NSString *)affectedPropertyName;
+
+/*
+    For any properties that are the viewcontroller, it should keep working as it is. The viewcontroller doesn't need a strong reference and if it gets one, it creates a retain cycle.
+    For any other properties that are created within the loop itself, it SHOULD have a strong reference, otherwise it will be gone the second the loop is done.
+    
+    Do we need to create two different methods?
+    
+*/
 
 //CompletionBlocks
 @property(nonatomic,copy) void (^cellTapped)(void);
@@ -127,9 +135,10 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic,strong) NSString *navigationTableViewControllerClassName;
 
 //Object, Cell & Possible property name (note that cell might be nil if not visible)
+@property(nonatomic,weak) id weakAffectedObject;
 @property(nonatomic,strong) id object;
 @property(nonatomic,strong) NSString *propertyName;
-@property(nonatomic,strong) BlazeTableViewCell *cell;
+@property(nonatomic,weak) BlazeTableViewCell *cell;
 
 //Additional rows for additional fields
 @property(nonatomic,strong) NSArray *additionalRows;

@@ -226,8 +226,12 @@ static NSString * const kTextAlignmentKey = @"textAlignment";
                 [self addSubview:self._placeholderTextView];
                 [self sendSubviewToBack:self._placeholderTextView];
             }
+            __weak __typeof(self)weakSelf = self;
             [UIView animateWithDuration:_fadeTime animations:^{
-                self._placeholderTextView.alpha = 1;
+                __strong typeof(self)strongSelf = weakSelf;
+                if(strongSelf) {
+                    strongSelf._placeholderTextView.alpha = 1;
+                }
             }];
         }
         else {
@@ -238,8 +242,12 @@ static NSString * const kTextAlignmentKey = @"textAlignment";
     }
     else {
         if (self.fadeTime > 0.0) {
+            __weak __typeof(self)weakSelf = self;
             [UIView animateWithDuration:_fadeTime animations:^{
-                self._placeholderTextView.alpha = 0;
+                __strong typeof(self)strongSelf = weakSelf;
+                if(strongSelf) {
+                    strongSelf._placeholderTextView.alpha = 0;
+                }
             }];
         }
         else {

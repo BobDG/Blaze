@@ -40,9 +40,12 @@
     }
     __weak __typeof(self)weakSelf = self;
     [self.imagePicker pickImageFromViewController:self.row.imagePickerViewController sourceRect:sourceRect imagePicked:^(UIImage *image) {
-        weakSelf.imagePickerImageView.image = image;
-        weakSelf.row.value = UIImagePNGRepresentation(image);
-        [weakSelf.row updatedValue:weakSelf.row.value];
+        __strong typeof(self)strongSelf = weakSelf;
+        if(strongSelf) {
+            strongSelf.imagePickerImageView.image = image;
+            strongSelf.row.value = UIImagePNGRepresentation(image);
+            [strongSelf.row updatedValue:strongSelf.row.value];
+        }
     }];
 }
 

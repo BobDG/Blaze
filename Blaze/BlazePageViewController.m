@@ -131,8 +131,11 @@
     self.currentIndex++;
     __weak typeof(self) weakSelf = self;
     [self.pageViewController setViewControllers:@[[self viewControllerAtIndex:self.currentIndex]] direction:UIPageViewControllerNavigationDirectionForward animated:animated completion:^(BOOL finished) {
-        if(weakSelf.nextCompletionBlock) {
-            weakSelf.nextCompletionBlock(finished);
+        __strong typeof(self)strongSelf = weakSelf;
+        if(strongSelf) {
+            if(strongSelf.nextCompletionBlock) {
+                strongSelf.nextCompletionBlock(finished);
+            }
         }
     }];
 }
@@ -145,8 +148,11 @@
     self.currentIndex--;
     __weak typeof(self) weakSelf = self;
     [self.pageViewController setViewControllers:@[[self viewControllerAtIndex:self.currentIndex]] direction:UIPageViewControllerNavigationDirectionReverse animated:animated completion:^(BOOL finished) {
-        if(weakSelf.previousCompletionBlock) {
-            weakSelf.previousCompletionBlock(finished);
+        __strong typeof(self)strongSelf = weakSelf;
+        if(strongSelf) {
+            if(strongSelf.previousCompletionBlock) {
+                strongSelf.previousCompletionBlock(finished);
+            }
         }
     }];
 }

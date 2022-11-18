@@ -20,6 +20,10 @@
 
 -(void)update
 {
+    if(!self.row) {
+        return;
+    }
+    
     self.inputSwitch = self.input;
     self.inputSwitch.on = [self.row.value boolValue];
     
@@ -32,6 +36,10 @@
 
 -(void)cellSwitched
 {
+    if(!self.row) {
+        return;
+    }
+    
     if(self.row.disableEditing) {
         return;
     }

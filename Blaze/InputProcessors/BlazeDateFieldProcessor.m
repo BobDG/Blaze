@@ -25,6 +25,10 @@
 
 -(void)update
 {
+    if(!self.row) {
+        return;
+    }
+    
     //Set field
     self.dateField = self.input;
     
@@ -82,10 +86,16 @@
     
     __weak __typeof(self)weakSelf = self;
     [self.dateField setDateCancelled:^{
-        [weakSelf.dateField resignFirstResponder];
+        __strong typeof(self) strongSelf = weakSelf;
+        if(strongSelf) {
+            [strongSelf.dateField resignFirstResponder];
+        }
     }];
     [self.dateField setDateSelected:^(NSDate *date) {
-        [weakSelf updateSelectedDate:date];
+        __strong typeof(self) strongSelf = weakSelf;
+        if(strongSelf) {
+            [strongSelf updateSelectedDate:date];
+        }
     }];
 }
 
@@ -96,6 +106,14 @@
 
 -(void)updateAccessoryInputView
 {
+    //Check if weak properties still exist
+    if(!self.cell) {
+        return;
+    }
+    if(!self.row) {
+        return;
+    }
+    
     //Only for default inputAccessoryView
     if(self.row.inputAccessoryViewType != InputAccessoryViewCancelSave) {
         //Get toolbar
@@ -104,13 +122,20 @@
         //Update
         __weak __typeof(self)weakSelf = self;
         [self.dateField setDateSelectionChanged:^(NSDate *date) {
-            [weakSelf updateSelectedDate:date];
+            __strong typeof(self) strongSelf = weakSelf;
+            if(strongSelf) {
+                [weakSelf updateSelectedDate:date];
+            }
         }];
     }
 }
 
 -(void)updateSelectedDate:(NSDate *)date
 {
+    if(!self.row) {
+        return;
+    }
+    
     self.date = date;
     self.row.value = date;
     if(self.dateFormatter) {
@@ -129,6 +154,10 @@
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    if(!self.row) {
+        return;
+    }
+    
     if(self.row.inputAccessoryViewType == InputAccessoryViewCancelSave) {
         return;
     }
@@ -148,6 +177,10 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
+    if(!self.row) {
+        return;
+    }
+    
     if(self.row.textFieldDidEndEditing) {
         self.row.textFieldDidEndEditing(self.dateField);
     }
