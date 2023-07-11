@@ -52,7 +52,7 @@ typedef NS_ENUM(NSInteger, RowID) {
     
     //Switch
     row = [[BlazeRow alloc] initWithXibName:kSwitchTableViewCell title:@"Show textfield row"];
-    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(showRows)]];
+    [row setAffectedWeakObject:self affectedPropertyName:[self stringForPropertyName:@selector(showRows)]];
     [row setValueChanged:^{
         [self updateRows];
     }];

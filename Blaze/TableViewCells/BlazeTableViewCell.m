@@ -70,13 +70,13 @@
     
     //Update Labels IF connected
     if(self.titleLabel) {
-        [self updateLabel:self.titleLabel withText:self.row.title attributedText:self.row.attributedTitle color:self.row.titleColor alignment:self.row.textAlignmentType];
+        [self updateLabel:self.titleLabel withText:self.row.title attributedText:self.row.attributedTitle color:self.row.titleColor alignment:self.row.textAlignmentType font:self.row.titleFont];
     }
     if(self.subtitleLabel) {
-        [self updateLabel:self.subtitleLabel withText:self.row.subtitle attributedText:self.row.attributedSubtitle color:self.row.subtitleColor alignment:self.row.textAlignmentType];
+        [self updateLabel:self.subtitleLabel withText:self.row.subtitle attributedText:self.row.attributedSubtitle color:self.row.subtitleColor alignment:self.row.textAlignmentType font:self.row.titleFont];
     }
     if(self.subsubtitleLabel) {
-        [self updateLabel:self.subsubtitleLabel withText:self.row.subsubtitle attributedText:self.row.attributedSubSubtitle color:self.row.subsubtitleColor alignment:self.row.textAlignmentType];
+        [self updateLabel:self.subsubtitleLabel withText:self.row.subsubtitle attributedText:self.row.attributedSubSubtitle color:self.row.subsubtitleColor alignment:self.row.textAlignmentType font:self.row.titleFont];
     }
     
     //Additional Labels
@@ -95,16 +95,16 @@
     
     //Update imageviews IF connected
     if(self.imageViewLeft) {
-        [self updateImageView:self.imageViewLeft withData:self.row.imageDataLeft imageURLString:self.row.imageURLStringLeft imageName:self.row.imageNameLeft contentMode:self.row.contentModeLeft renderingMode:self.row.imageRenderModeLeft tintColor:self.row.imageTintColorLeft];
+        [self updateImageView:self.imageViewLeft withData:self.row.imageDataLeft imageURLString:self.row.imageURLStringLeft imageName:self.row.imageNameLeft imageSystemName:self.row.imageSystemNameLeft contentMode:self.row.contentModeLeft renderingMode:self.row.imageRenderModeLeft tintColor:self.row.imageTintColorLeft];
     }
     if(self.imageViewCenter) {
-        [self updateImageView:self.imageViewCenter withData:self.row.imageDataCenter imageURLString:self.row.imageURLStringCenter imageName:self.row.imageNameCenter contentMode:self.row.contentModeCenter renderingMode:self.row.imageRenderModeCenter tintColor:self.row.imageTintColorCenter];
+        [self updateImageView:self.imageViewCenter withData:self.row.imageDataCenter imageURLString:self.row.imageURLStringCenter imageName:self.row.imageNameCenter imageSystemName:self.row.imageSystemNameCenter contentMode:self.row.contentModeCenter renderingMode:self.row.imageRenderModeCenter tintColor:self.row.imageTintColorCenter];
     }
     if(self.imageViewRight) {
-        [self updateImageView:self.imageViewRight withData:self.row.imageDataRight imageURLString:self.row.imageURLStringRight imageName:self.row.imageNameRight contentMode:self.row.contentModeRight renderingMode:self.row.imageRenderModeRight tintColor:self.row.imageTintColorRight];
+        [self updateImageView:self.imageViewRight withData:self.row.imageDataRight imageURLString:self.row.imageURLStringRight imageName:self.row.imageNameRight imageSystemName:self.row.imageSystemNameRight contentMode:self.row.contentModeRight renderingMode:self.row.imageRenderModeRight tintColor:self.row.imageTintColorRight];
     }
     if(self.imageViewBackground) {
-        [self updateImageView:self.imageViewBackground withData:self.row.imageDataBackground imageURLString:self.row.imageURLStringBackground imageName:self.row.imageNameBackground contentMode:self.row.contentModeBackground renderingMode:self.row.imageRenderModeBackground tintColor:self.row.imageTintColorBackground];
+        [self updateImageView:self.imageViewBackground withData:self.row.imageDataBackground imageURLString:self.row.imageURLStringBackground imageName:self.row.imageNameBackground imageSystemName:self.row.imageSystemNameBackground contentMode:self.row.contentModeBackground renderingMode:self.row.imageRenderModeBackground tintColor:self.row.imageTintColorBackground];
     }
     
     //Update buttons IF connected
@@ -179,7 +179,7 @@
 
 #pragma mark - Update default UIViews
 
--(void)updateLabel:(UILabel *)label withText:(NSString *)text attributedText:(NSAttributedString *)attributedText color:(UIColor *)color alignment:(NSNumber *)alignment
+-(void)updateLabel:(UILabel *)label withText:(NSString *)text attributedText:(NSAttributedString *)attributedText color:(UIColor *)color alignment:(NSNumber *)alignment font:(UIFont *)font
 {
     if(attributedText.length) {
         label.attributedText = attributedText;
@@ -194,6 +194,11 @@
     //Color
     if(color) {
         label.textColor = color;
+    }
+    
+    //Font
+    if(font) {
+        label.font = font;
     }
     
     //Alignment
@@ -257,7 +262,7 @@
     }
 }
 
--(void)updateImageView:(UIImageView *)imageView withData:(NSData *)imageData imageURLString:(NSString *)imageURLString imageName:(NSString *)imageName contentMode:(UIViewContentMode)contentMode renderingMode:(UIImageRenderingMode)renderingMode tintColor:(UIColor *)tintColor
+-(void)updateImageView:(UIImageView *)imageView withData:(NSData *)imageData imageURLString:(NSString *)imageURLString imageName:(NSString *)imageName imageSystemName:(NSString *)imageSystemName contentMode:(UIViewContentMode)contentMode renderingMode:(UIImageRenderingMode)renderingMode tintColor:(UIColor *)tintColor
 {
     if(imageData) {
         imageView.image = [UIImage imageWithData:imageData];
@@ -271,6 +276,9 @@
         } else {
             imageView.image = [UIImage imageNamed:imageName];
         }
+    }
+    else if(imageSystemName.length) {
+        imageView.image = [UIImage systemImageNamed:imageSystemName];
     }
     else {
         imageView.image = nil;

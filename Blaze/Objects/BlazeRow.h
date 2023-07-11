@@ -38,6 +38,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 }
 
 +(instancetype)rowWithTitle:(NSString *)title;
++(instancetype)rowWithAttributedTitle:(NSAttributedString *)title;
 +(instancetype)rowWithTitle:(NSString *)title segueIdentifier:(NSString *)segueIdentifier;
 
 //Constructors with ID
@@ -155,16 +156,19 @@ typedef NS_ENUM(NSInteger, ImageType) {
 
 //Title
 @property(nonatomic,strong) NSString *title;
+@property(nonatomic,strong) UIFont *titleFont;
 @property(nonatomic,strong) UIColor *titleColor;
 @property(nonatomic,strong) NSAttributedString *attributedTitle;
 
 //Subtitle
 @property(nonatomic,strong) NSString *subtitle;
+@property(nonatomic,strong) UIFont *subtitleFont;
 @property(nonatomic,strong) UIColor *subtitleColor;
 @property(nonatomic,strong) NSAttributedString *attributedSubtitle;
 
 //SubSubtitle
 @property(nonatomic,strong) NSString *subsubtitle;
+@property(nonatomic,strong) UIFont *subsubtitleFont;
 @property(nonatomic,strong) UIColor *subsubtitleColor;
 @property(nonatomic,strong) NSAttributedString *attributedSubSubtitle;
 
@@ -188,6 +192,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 //ImageView left
 @property(nonatomic,strong) NSData *imageDataLeft;
 @property(nonatomic,strong) NSString *imageNameLeft;
+@property(nonatomic,strong) NSString *imageSystemNameLeft;
 @property(nonatomic,strong) NSString *imageURLStringLeft;
 @property(nonatomic,strong) UIColor *imageTintColorLeft;
 @property(nonatomic) UIViewContentMode contentModeLeft;
@@ -196,6 +201,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 //ImageView center
 @property(nonatomic,strong) NSData *imageDataCenter;
 @property(nonatomic,strong) NSString *imageNameCenter;
+@property(nonatomic,strong) NSString *imageSystemNameCenter;
 @property(nonatomic,strong) NSString *imageURLStringCenter;
 @property(nonatomic,strong) UIColor *imageTintColorCenter;
 @property(nonatomic) UIViewContentMode contentModeCenter;
@@ -204,6 +210,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 //ImageView right
 @property(nonatomic,strong) NSData *imageDataRight;
 @property(nonatomic,strong) NSString *imageNameRight;
+@property(nonatomic,strong) NSString *imageSystemNameRight;
 @property(nonatomic,strong) NSString *imageURLStringRight;
 @property(nonatomic,strong) UIColor *imageTintColorRight;
 @property(nonatomic) UIViewContentMode contentModeRight;
@@ -212,6 +219,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 //ImageView background
 @property(nonatomic,strong) NSData *imageDataBackground;
 @property(nonatomic,strong) NSString *imageNameBackground;
+@property(nonatomic,strong) NSString *imageSystemNameBackground;
 @property(nonatomic,strong) NSString *imageURLStringBackground;
 @property(nonatomic,strong) UIColor *imageTintColorBackground;
 @property(nonatomic) UIViewContentMode contentModeBackground;

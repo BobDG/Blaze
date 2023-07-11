@@ -57,6 +57,10 @@
 @property(nonatomic,strong) NSString *headerXibName;
 @property(nonatomic,strong) NSString *footerXibName;
 
+//Font
+@property(nonatomic,strong) UIFont *headerFont;
+@property(nonatomic,strong) UIFont *footerFont;
+
 //Custom object
 @property(nonatomic,strong) id object;
 

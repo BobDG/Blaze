@@ -29,10 +29,18 @@
         if(self.sectionType == SectionHeader) {
             self.titleLabel.text = section.headerTitle;
             self.subtitleLabel.text = section.headerSubtitle;
+            
+            if(section.headerFont) {
+                self.titleLabel.font = section.headerFont;
+            }
         }
         else if(self.sectionType == SectionFooter) {
             self.titleLabel.text = section.footerTitle;
             self.subtitleLabel.text = section.footerSubtitle;
+            
+            if(section.footerFont) {
+                self.titleLabel.font = section.footerFont;
+            }
         }
     }
     

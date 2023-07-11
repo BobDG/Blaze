@@ -17,6 +17,11 @@
     return [[self alloc] initWithTitle:title];
 }
 
++(instancetype)rowWithAttributedTitle:(NSAttributedString *)title
+{
+    return [[self alloc] initWithAttributedTitle:title];
+}
+
 +(instancetype)rowWithTitle:(NSString *)title segueIdentifier:(NSString *)segueIdentifier
 {
     return [[self alloc] initWithTitle:title segueIdentifier:segueIdentifier];
@@ -177,25 +182,38 @@
 
 -(instancetype)initWithTitle:(NSString *)title
 {
-    return [self initWithtitle:title value:nil];
+    return [self initWithTitle:title value:nil];
 }
 
--(instancetype)initWithtitle:(NSString *)title value:(id)value
+-(instancetype)initWithAttributedTitle:(NSAttributedString *)title
 {
-    return [self initWithtitle:title value:value placeholder:nil segueIdentifier:nil];
+    self = [super init];
+    if(!self) {
+        return nil;
+    }
+    
+    self.attributedTitle = title;
+    self.floatingLabelEnabled = FloatingLabelStateUndetermined;
+    
+    return self;
 }
 
--(instancetype)initWithtitle:(NSString *)title placeholder:(NSString *)placeholder
+-(instancetype)initWithTitle:(NSString *)title value:(id)value
 {
-    return [self initWithtitle:title value:nil placeholder:placeholder segueIdentifier:nil];
+    return [self initWithTitle:title value:value placeholder:nil segueIdentifier:nil];
+}
+
+-(instancetype)initWithTitle:(NSString *)title placeholder:(NSString *)placeholder
+{
+    return [self initWithTitle:title value:nil placeholder:placeholder segueIdentifier:nil];
 }
 
 -(instancetype)initWithTitle:(NSString *)title segueIdentifier:(NSString *)segueIdentifier
 {
-    return [self initWithtitle:title value:nil placeholder:nil segueIdentifier:segueIdentifier];
+    return [self initWithTitle:title value:nil placeholder:nil segueIdentifier:segueIdentifier];
 }
 
--(instancetype)initWithtitle:(NSString *)title value:(id)value placeholder:(NSString *)placeholder segueIdentifier:(NSString *)segueIdentifier
+-(instancetype)initWithTitle:(NSString *)title value:(id)value placeholder:(NSString *)placeholder segueIdentifier:(NSString *)segueIdentifier
 {
     self = [super init];
     if(!self) {

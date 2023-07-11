@@ -658,7 +658,7 @@
 					};
 					ED933DFC1D1728A000B8155F = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 7QNX728856;
+						DevelopmentTeam = YX329C7NUQ;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -668,6 +668,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1006,13 +1007,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7QNX728856;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = YX329C7NUQ;
 				INFOPLIST_FILE = BlazeExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = template.BlazeExample;
 				PRODUCT_NAME = Blaze;
 				PROVISIONING_PROFILE = "a406715b-29c7-4b79-b024-eab2773c8c57";
 				PROVISIONING_PROFILE_SPECIFIER = "Synappz InHouse Dev";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "AnyApp Development";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1023,11 +1026,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = YX329C7NUQ;
 				INFOPLIST_FILE = BlazeExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = template.BlazeExample;
 				PRODUCT_NAME = Blaze;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "AnyApp Development";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

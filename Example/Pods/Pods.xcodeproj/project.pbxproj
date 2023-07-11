@@ -173,7 +173,7 @@
 		1936C8C8ECB973CCEA59B2031CEAA4EA /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		194172AAF0490DC91658C7B286E3C5EF /* RainbowView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RainbowView.h; path = BDGViews/BDGCircularProgressView/RainbowView.h; sourceTree = "<group>"; };
 		1AA2FED311D199B70601CAD22DA6F1CF /* NSDate+Helper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Helper.m"; path = "BDGCategories/NSDate+Helper.m"; sourceTree = "<group>"; };
-		1AF22917F3740DE1CBB9695161F63DB0 /* BDGCategories.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BDGCategories.framework; path = BDGCategories.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AF22917F3740DE1CBB9695161F63DB0 /* BDGCategories.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BDGCategories.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DDDB5CE2A7840480994D4B66D232AC2 /* Pods-BlazeExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BlazeExample.debug.xcconfig"; sourceTree = "<group>"; };
 		1F3C82C659E26CD9748A402088EF76FA /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
 		20338AEA297557BB519ECE5FA88EE470 /* UIImage+Helper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Helper.m"; path = "BDGCategories/UIImage+Helper.m"; sourceTree = "<group>"; };
@@ -181,12 +181,12 @@
 		229EC565BA292AD2EA6FD097336853E9 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
 		274FF28B1E400DEB0C49F0E611535B66 /* BDGCircularProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BDGCircularProgressView.h; path = BDGViews/BDGCircularProgressView/BDGCircularProgressView.h; sourceTree = "<group>"; };
 		279E6774E3AF65DD4F25D1EDD8A91A45 /* BDGMacros.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BDGMacros.m; sourceTree = "<group>"; };
-		29C5A52DAA7839F5EC2778AF9B2A75E2 /* BDGMacros.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BDGMacros.framework; path = BDGMacros.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29C5A52DAA7839F5EC2778AF9B2A75E2 /* BDGMacros.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BDGMacros.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B3A16259E57B1029C810C61346FD56D /* AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.xcconfig; sourceTree = "<group>"; };
 		3AA6156EA7B360B04AF8D0DEABF037AC /* AFImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFImageDownloader.h; path = "UIKit+AFNetworking/AFImageDownloader.h"; sourceTree = "<group>"; };
 		3C621830DBE6BCFDC0C3209C0BA856E3 /* BDGCategories.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BDGCategories.modulemap; sourceTree = "<group>"; };
 		3E6172F5163451B0C7E31EA1D0DCE8E1 /* AFAutoPurgingImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFAutoPurgingImageCache.m; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.m"; sourceTree = "<group>"; };
-		3EB63406630B231D70AD265356A73BFF /* Pods_BlazeExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BlazeExample.framework; path = "Pods-BlazeExample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EB63406630B231D70AD265356A73BFF /* Pods_BlazeExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlazeExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		400B49B14D7741854BFB45CCFA5FD1C7 /* NSNumberFormatter+Helper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSNumberFormatter+Helper.m"; path = "BDGCategories/NSNumberFormatter+Helper.m"; sourceTree = "<group>"; };
 		40B74729650D472E2C34A21AABC04410 /* BDGRoundedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BDGRoundedView.m; path = BDGViews/BDGRoundedView.m; sourceTree = "<group>"; };
 		42EFAE66897396903FE6D2ACE413E845 /* BDGViews-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BDGViews-prefix.pch"; sourceTree = "<group>"; };
@@ -233,11 +233,11 @@
 		8B785F8F8D3B9AB86AA708F986C4D9D5 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
 		8CC10549C0B003CA538EEF6E716C25C2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		932CE96A5303E5E85BFA08BFAAC7FC48 /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94106F318804EAEF3576D592D54C9854 /* BDGCircularView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BDGCircularView.m; path = BDGViews/BDGCircularView.m; sourceTree = "<group>"; };
 		9471BB46EC55427292D50885AD3387A5 /* BDGMacros.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BDGMacros.xcconfig; sourceTree = "<group>"; };
 		9602A8F6E18BD09B0F078B41BD5216C2 /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFAutoPurgingImageCache.h; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.h"; sourceTree = "<group>"; };
-		963E6B123882572802C821F7027F1C23 /* BDGViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BDGViews.framework; path = BDGViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		963E6B123882572802C821F7027F1C23 /* BDGViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BDGViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97FCC02E88EEA9A497E0208C7A4DF41F /* BDGMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BDGMacros.h; sourceTree = "<group>"; };
 		988E93A9513D32AB560372AADE67F2E7 /* BDGCategories.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BDGCategories.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F17F07849145754CA914A326C043E0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -247,7 +247,7 @@
 		A20EF262827DC7D410E31F21D14C22E9 /* BDGCategories-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BDGCategories-umbrella.h"; sourceTree = "<group>"; };
 		A2E57517C7BEC4A0DCE9E3E8E7DE1FE3 /* Pods-BlazeExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BlazeExample-dummy.m"; sourceTree = "<group>"; };
 		A3125CC0139FB656BE47431416F3ECF8 /* BDGBorderedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BDGBorderedView.h; path = BDGViews/BDGBorderedView.h; sourceTree = "<group>"; };
-		A6EE66080B38D20225E0BA659EEF0E13 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AFNetworking.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6EE66080B38D20225E0BA659EEF0E13 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D070CA38DB9431C4F22374AA7D6B5B /* BDGImagePicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BDGImagePicker-prefix.pch"; sourceTree = "<group>"; };
 		AABA8A598D73E1340E9F6EE21D97D5C5 /* AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-prefix.pch"; sourceTree = "<group>"; };
 		AC356494D4F341807098E62CD12AF834 /* BDGViews-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BDGViews-umbrella.h"; sourceTree = "<group>"; };
@@ -272,7 +272,7 @@
 		D53651626EA401E9BA3BC9725126FBF1 /* BDGViews.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BDGViews.xcconfig; sourceTree = "<group>"; };
 		D55E0FBD014511FE0A6AD4B8ADD1EE2A /* BDGCategories-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BDGCategories-dummy.m"; sourceTree = "<group>"; };
 		D574625EFB039B0001C650E0FC24771D /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
-		D7E5362F875C20B085C2A3FC8B2690B3 /* BDGImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BDGImagePicker.framework; path = BDGImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7E5362F875C20B085C2A3FC8B2690B3 /* BDGImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BDGImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB00AE39239BA686941AEC4D561C0411 /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
 		DC2B6D68D2824A7726685306E700A191 /* BDGImagePicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BDGImagePicker.modulemap; sourceTree = "<group>"; };
 		DD1DB8583D13CF77382B96A13645C949 /* Pods-BlazeExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BlazeExample-frameworks.sh"; sourceTree = "<group>"; };
@@ -389,7 +389,6 @@
 				E8ABE3ED554046617FBBB0389C758602 /* BDGImagePicker.m */,
 				BE7F2CBBA562CDFF1C9AFA9CCFF43D6B /* Support Files */,
 			);
-			name = BDGImagePicker;
 			path = BDGImagePicker;
 			sourceTree = "<group>";
 		};
@@ -400,7 +399,6 @@
 				279E6774E3AF65DD4F25D1EDD8A91A45 /* BDGMacros.m */,
 				AA8A286D91787977303FC290C896A99A /* Support Files */,
 			);
-			name = BDGMacros;
 			path = BDGMacros;
 			sourceTree = "<group>";
 		};
@@ -462,7 +460,6 @@
 				C951400DF03BE39D3D0CA77E929AAE4A /* Support Files */,
 				08B35AC8E66C850C42EE87A8083CDEAD /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -506,7 +503,6 @@
 				507090B18437E690F18493E7169CB756 /* RainbowView.m */,
 				32249FEFC599E49D8641645926705231 /* Support Files */,
 			);
-			name = BDGViews;
 			path = BDGViews;
 			sourceTree = "<group>";
 		};
@@ -670,7 +666,6 @@
 				69368556318732D790CB4748418D5E60 /* UIView+RoundedCorners.m */,
 				B9D434EFE49352E2704EB80B84FC44BE /* Support Files */,
 			);
-			name = BDGCategories;
 			path = BDGCategories;
 			sourceTree = "<group>";
 		};
@@ -897,6 +892,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
@@ -1103,7 +1099,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/BDGViews/BDGViews-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/BDGViews/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/BDGViews/BDGViews.modulemap";
 				PRODUCT_MODULE_NAME = BDGViews;
@@ -1134,7 +1130,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/BDGMacros/BDGMacros-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/BDGMacros/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/BDGMacros/BDGMacros.modulemap";
 				PRODUCT_MODULE_NAME = BDGMacros;
@@ -1165,7 +1161,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/BDGCategories/BDGCategories-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/BDGCategories/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/BDGCategories/BDGCategories.modulemap";
 				PRODUCT_MODULE_NAME = BDGCategories;
@@ -1196,7 +1192,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/BDGCategories/BDGCategories-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/BDGCategories/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/BDGCategories/BDGCategories.modulemap";
 				PRODUCT_MODULE_NAME = BDGCategories;
@@ -1226,7 +1222,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/BDGMacros/BDGMacros-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/BDGMacros/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/BDGMacros/BDGMacros.modulemap";
 				PRODUCT_MODULE_NAME = BDGMacros;
@@ -1256,7 +1252,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/BDGImagePicker/BDGImagePicker-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/BDGImagePicker/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/BDGImagePicker/BDGImagePicker.modulemap";
 				PRODUCT_MODULE_NAME = BDGImagePicker;
@@ -1359,8 +1355,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -1382,7 +1377,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AFNetworking/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/AFNetworking/AFNetworking.modulemap";
 				PRODUCT_MODULE_NAME = AFNetworking;
@@ -1413,7 +1408,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AFNetworking/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/AFNetworking/AFNetworking.modulemap";
 				PRODUCT_MODULE_NAME = AFNetworking;
@@ -1509,7 +1504,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/BDGViews/BDGViews-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/BDGViews/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/BDGViews/BDGViews.modulemap";
 				PRODUCT_MODULE_NAME = BDGViews;
@@ -1573,7 +1568,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/BDGImagePicker/BDGImagePicker-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/BDGImagePicker/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/BDGImagePicker/BDGImagePicker.modulemap";
 				PRODUCT_MODULE_NAME = BDGImagePicker;

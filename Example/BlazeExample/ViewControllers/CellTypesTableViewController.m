@@ -89,7 +89,7 @@
     row = [[BlazeRow alloc] initWithXibName:kImagePickerTableViewCell title:@"Pick image"];
     row.imagePickerAllowsEditing = TRUE;
     row.imagePickerViewController = self;
-    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(imageData)]];
+    [row setAffectedWeakObject:self affectedPropertyName:[self stringForPropertyName:@selector(imageData)]];
     row.cachedHeightID = @"1";
     [section addRow:row];    
     
@@ -103,7 +103,7 @@
     row.floatingTitleActiveColor = [UIColor redColor];
     row.floatingTitleFont = [UIFont italicSystemFontOfSize:12.0f];
     row.floatingTitle = @"Floating placeholder";
-    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textfieldValue)]];
+    [row setAffectedWeakObject:self affectedPropertyName:[self stringForPropertyName:@selector(textfieldValue)]];
     row.placeholder = @"Placeholder";
     [row setValueChanged:^{
         DLog(@"Text changed: %@", self.textfieldValue);
@@ -115,7 +115,7 @@
     row = [[BlazeRow alloc] initWithXibName:kFloatTextFieldTableViewCell];
     row.floatingLabelEnabled = FALSE;    
     row.placeholder = @"Textfield with numberformatter & non-editable suffix";
-    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(textFieldNumberValue)]];
+    [row setAffectedWeakObject:self affectedPropertyName:[self stringForPropertyName:@selector(textFieldNumberValue)]];
     NSNumberFormatter *nf = [NSNumberFormatter new];
     [nf setNumberStyle:NSNumberFormatterDecimalStyle];
     row.formatter = nf;
@@ -166,7 +166,7 @@
     [df setDateFormat:@"MMMM yyyy HH:mm"];
     row.dateFormatCapitalizedString = TRUE;
     row.dateFormatter = df;
-    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(date)]];
+    [row setAffectedWeakObject:self affectedPropertyName:[self stringForPropertyName:@selector(date)]];
     [row setValueChanged:^{
         DLog(@"Changed date: %@", self.date);
     }];
@@ -181,7 +181,7 @@
     row.floatingTitleActiveColor = [UIColor greenColor];
     row.floatingTitleFont = [UIFont systemFontOfSize:14.0f weight:UIFontWeightLight];
     row.floatingTitle = @"Picker set!";    
-    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(pickerValue)]];
+    [row setAffectedWeakObject:self affectedPropertyName:[self stringForPropertyName:@selector(pickerValue)]];
     row.selectorOptions = @[@"Automatic next/previous", @"buttons always work", @"Doesn't matter if you", @"use textfields", @"or datepickers", @"or pickerviews", @"or multiple sections"];
     row.cachedHeightID = @"6";
     [section addRow:row];
@@ -196,7 +196,7 @@
     row.floatingTitleFont = [UIFont systemFontOfSize:14.0f weight:UIFontWeightLight];
     row.floatingTitle = @"Picker set!";
     self.pickerIndexValue = @(NSNotFound);
-    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(pickerIndexValue)]];
+    [row setAffectedWeakObject:self affectedPropertyName:[self stringForPropertyName:@selector(pickerIndexValue)]];
     row.selectorOptions = @[@"You can", @"Use index values", @"if you want", @":)"];
     __weak __typeof(BlazeRow *)weakRow = row;
     [row setValueChanged:^{
@@ -261,7 +261,7 @@
     row.floatingTitleFont = [UIFont systemFontOfSize:12.0f weight:UIFontWeightBold];
     row.floatingTitle = @"Field 1 set!";
     row.dateFormatter = df;
-    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(differentFields1)]];
+    [row setAffectedWeakObject:self affectedPropertyName:[self stringForPropertyName:@selector(differentFields1)]];
     [row setValueChanged:^{
         DLog(@"Field 1 changed: %@", self.differentFields1);
     }];
@@ -272,7 +272,7 @@
         row2.floatingTitleActiveColor = [UIColor yellowColor];
         row2.floatingTitleFont = [UIFont italicSystemFontOfSize:14.0f];
         row2.floatingTitle = @"Field (text) 2";
-        [row2 setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(differentFields2)]];
+        [row2 setAffectedWeakObject:self affectedPropertyName:[self stringForPropertyName:@selector(differentFields2)]];
         row2.placeholder = @"Field (text) 2";
         [row2 setValueChanged:^{
             DLog(@"Field 2 changed: %@", self.differentFields2);
@@ -286,7 +286,7 @@
         row3.floatingTitleActiveColor = [UIColor greenColor];
         row3.floatingTitleFont = [UIFont systemFontOfSize:14.0f weight:UIFontWeightLight];
         row3.floatingTitle = @"Field 3 set!";
-        [row3 setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(differentFields3)]];
+        [row3 setAffectedWeakObject:self affectedPropertyName:[self stringForPropertyName:@selector(differentFields3)]];
         row3.selectorOptions = @[@"Awesome", @"Right?"];
         [row3 setValueChanged:^{
             DLog(@"Field 3 changed: %@", self.differentFields3);
@@ -326,7 +326,7 @@
     row.sliderLeftText = @"Min";
     row.sliderRightText = @"Max";
     row.sliderCenterText = @"Awesomeness scale";
-    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(sliderValue)]];
+    [row setAffectedWeakObject:self affectedPropertyName:[self stringForPropertyName:@selector(sliderValue)]];
     [row setValueChanged:^{
         DLog(@"Slider changed: %.1f", [self.sliderValue floatValue]);
     }];
@@ -340,7 +340,7 @@
     //Switch
     self.switchValue = @(TRUE);
     row = [[BlazeRow alloc] initWithXibName:kSwitchTableViewCell title:@"Switcheroo"];
-    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(switchValue)]];
+    [row setAffectedWeakObject:self affectedPropertyName:[self stringForPropertyName:@selector(switchValue)]];
     [row setValueChanged:^{
         DLog(@"Switch turned %@", [self.switchValue boolValue] ? @"ON" : @"OFF");
     }];
@@ -349,7 +349,7 @@
     
     //Checkbox
     row = [[BlazeRow alloc] initWithXibName:kCheckboxTableViewCell title:@"Checkycheck"];
-    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(checkBoxValue)]];
+    [row setAffectedWeakObject:self affectedPropertyName:[self stringForPropertyName:@selector(checkBoxValue)]];
     row.checkboxImageActive = @"Checkbox_Active";
     row.checkboxImageInactive = @"Checkbox_Inactive";
     [row setValueChanged:^{
@@ -361,7 +361,7 @@
     //Two choices
     self.twoChoicesValue = @(2);
     row = [[BlazeRow alloc] initWithXibName:kTwoChoicesTableViewCell title:@"Two choices"];
-    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(twoChoicesValue)]];
+    [row setAffectedWeakObject:self affectedPropertyName:[self stringForPropertyName:@selector(twoChoicesValue)]];
     row.checkboxImageActive = @"Checkbox_Active";
     row.checkboxImageInactive = @"Checkbox_Inactive";
     [row setValueChanged:^{
@@ -376,7 +376,7 @@
     
     //SegmentedControl
     row = [[BlazeRow alloc] initWithXibName:kSegmentedControlTableViewCell title:@"Segmented control"];
-    [row setAffectedObject:self affectedPropertyName:[self stringForPropertyName:@selector(segmentedControlValue)]];
+    [row setAffectedWeakObject:self affectedPropertyName:[self stringForPropertyName:@selector(segmentedControlValue)]];
     row.selectorOptions = @[@"This control", @"Is dynamically", @"Filled"];
     [row setValueChanged:^{
         DLog(@"Segment changed: %d", [self.segmentedControlValue intValue]);
