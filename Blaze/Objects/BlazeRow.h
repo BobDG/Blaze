@@ -66,10 +66,10 @@ typedef NS_ENUM(NSInteger, ImageType) {
 
 //Constructors with Title
 -(instancetype)initWithTitle:(NSString *)title;
--(instancetype)initWithtitle:(NSString *)title value:(id)value;
--(instancetype)initWithtitle:(NSString *)title placeholder:(NSString *)placeholder;
+-(instancetype)initWithTitle:(NSString *)title value:(id)value;
+-(instancetype)initWithTitle:(NSString *)title placeholder:(NSString *)placeholder;
 -(instancetype)initWithTitle:(NSString *)title segueIdentifier:(NSString *)segueIdentifier;
--(instancetype)initWithtitle:(NSString *)title value:(id)value placeholder:(NSString *)placeholder segueIdentifier:(NSString *)segueIdentifier;
+-(instancetype)initWithTitle:(NSString *)title value:(id)value placeholder:(NSString *)placeholder segueIdentifier:(NSString *)segueIdentifier;
 
 //Methods
 -(void)updatedValue:(id)value;
