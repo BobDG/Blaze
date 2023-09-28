@@ -293,6 +293,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic,strong) NSString *placeholder;
 @property(nonatomic,strong) NSFormatter *formatter;
 @property(nonatomic,strong) UIColor *placeholderColor;
+@property(nonatomic,strong) UIFont *textfieldFont;
 @property(nonatomic,strong) NSString *textFieldPrefix;
 @property(nonatomic,strong) NSString *textFieldSuffix;
 @property(nonatomic,strong) NSNumber *textAlignmentType;

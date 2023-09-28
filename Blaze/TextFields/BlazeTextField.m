@@ -70,6 +70,11 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
         self.placeholder = placeholder;
     }
     
+    //Font
+    if (row.textfieldFont) {
+        self.font = row.textfieldFont;
+    }
+    
     //Check first if it's enabled, row has preference
     if(row.floatingLabelEnabled == FloatingLabelStateUndetermined) {
         row.floatingLabelEnabled = self.useFloatingLabel;
