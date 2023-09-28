@@ -29,6 +29,7 @@
 
 //Floating action button
 @property(nonatomic) bool floatingActionButtonEnabled;
+@property(nonatomic) bool floatingActionButtonLeftSide;
 @property(nonatomic) float floatingActionButtonPadding;
 @property(nonatomic,strong) UIButton *floatingActionButton;
 @property(nonatomic,copy) void (^floatingActionButtonTapped)(void);
@@ -262,12 +263,12 @@
     self.floatingActionButton = nil;
 }
 
--(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)(void))tapped
+-(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding leftSide:(BOOL)leftSide tapped:(void (^)(void))tapped
 {
-    [self setupFloatingActionButtonWithImage:image padding:padding tapped:tapped animated:FALSE];
+    [self setupFloatingActionButtonWithImage:image padding:padding leftSide:leftSide tapped:tapped animated:FALSE];
 }
 
--(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)(void))tapped animated:(BOOL)animated
+-(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding leftSide:(BOOL)leftSide tapped:(void (^)(void))tapped animated:(BOOL)animated
 {
     //Clear
     if(self.floatingActionButton) {
@@ -280,6 +281,9 @@
     
     //Padding
     self.floatingActionButtonPadding = padding;
+    
+    //Left
+    self.floatingActionButtonLeftSide = leftSide;
     
     //Set completion block
     self.floatingActionButtonTapped = tapped;
@@ -1624,7 +1628,8 @@
         }
     }];
     
-    //Custom cell to configure
+    //Custom cell to configure (for example, when you have so many textfields/labels to not use the 'additionalLabels', you can set the labels here.
+    //Don't set these in willDisplayCell, that won't automatically adapt rowheights!
     if(row.configureCell) {
         row.configureCell(cell);
     }
@@ -1643,6 +1648,7 @@
     BlazeSection *section = self.tableArray[indexPath.section];
     BlazeRow *row = section.rows[indexPath.row];
     row.cell = (BlazeTableViewCell *)cell;
+    //DON'T SET texts here, it will not automatically adapt rowheight correctly. Do this earlier in configureCell!
     if(row.willDisplayCell) {
         //Necessary for correct frames
         [cell layoutIfNeeded];
@@ -1756,6 +1762,16 @@
     return proposedDestinationIndexPath;
 }
 
+-(void)replaceRow:(BlazeRow *)row withRow:(BlazeRow *)withRow animation:(UITableViewRowAnimation)animation {
+    NSIndexPath *indexPath = [self indexPathForRow:row];
+    if(!indexPath) {
+        return;
+    }
+    BlazeSection *section = self.tableArray[indexPath.section];
+    [section.rows replaceObjectAtIndex:indexPath.row withObject:withRow];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
+}
+
 #pragma mark UIScrollViewDelegate
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -1783,8 +1799,14 @@
     //Floating Action Button
     if(self.floatingActionButtonEnabled) {
         CGRect frame = self.floatingActionButton.frame;
-        frame.origin.x = scrollView.frame.size.width-self.floatingActionButtonPadding-frame.size.width;
-        frame.origin.y = scrollView.frame.size.height-self.floatingActionButtonPadding-frame.size.height;
+        if(self.floatingActionButtonLeftSide) {
+            frame.origin.x = self.floatingActionButtonPadding;
+            frame.origin.y = scrollView.frame.size.height-self.floatingActionButtonPadding*3-frame.size.height;
+        }
+        else {
+            frame.origin.x = scrollView.frame.size.width-self.floatingActionButtonPadding-frame.size.width;
+            frame.origin.y = scrollView.frame.size.height-self.floatingActionButtonPadding-frame.size.height;
+        }
         frame.origin.y += scrollView.contentOffset.y;
         self.floatingActionButton.frame = frame;
     }

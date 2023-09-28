@@ -96,8 +96,8 @@
 
 //Floating Action Button - Advise is to setup in viewdidappear to ensure correct frame and visible animation
 -(void)removeFloatingActionButton;
--(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)(void))tapped;
--(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding tapped:(void (^)(void))tapped animated:(BOOL)animated;
+-(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding leftSide:(BOOL)leftSide tapped:(void (^)(void))tapped;
+-(void)setupFloatingActionButtonWithImage:(UIImage *)image padding:(float)padding leftSide:(BOOL)leftSide tapped:(void (^)(void))tapped animated:(BOOL)animated;
 
 //Collapsing - override for example to fix iOS9 crashes...
 -(void)collapseSection:(int)sectionIndex;
@@ -133,6 +133,7 @@
 -(void)reloadCellForID:(int)rowID withRowAnimation:(UITableViewRowAnimation)animation;
 -(void)reloadCellForRow:(BlazeRow *)row withRowAnimation:(UITableViewRowAnimation)animation;
 -(void)reloadCellsForRows:(NSArray <BlazeRow *> *)rows withRowAnimation:(UITableViewRowAnimation)animation;
+-(void)replaceRow:(BlazeRow *)row withRow:(BlazeRow *)withRow animation:(UITableViewRowAnimation)animation;
 
 //Becoming first responder
 -(void)activateFirstField;

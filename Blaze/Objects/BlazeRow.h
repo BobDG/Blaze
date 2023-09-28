@@ -96,8 +96,8 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic,copy) void (^buttonCenterTapped)(void);
 @property(nonatomic,copy) void (^doneChanging)(void);
 @property(nonatomic,copy) void (^scrollImageSelected)(int index);
-@property(nonatomic,copy) void (^configureCell)(BlazeTableViewCell *cell);
-@property(nonatomic,copy) void (^willDisplayCell)(BlazeTableViewCell *cell);
+@property(nonatomic,copy) void (^configureCell)(BlazeTableViewCell *cell); //Good for setting additional labels
+@property(nonatomic,copy) void (^willDisplayCell)(BlazeTableViewCell *cell); //NOT GOOD for additional labels, won't adapt rowheight automatically!
 @property(nonatomic,copy) void (^multipleSelectionFinished)(NSMutableArray *selectedIndexPaths);
 @property(nonatomic,copy) void (^textFieldDidBeginEditing)(BlazeTextField* textField);
 @property(nonatomic,copy) void (^textFieldDidEndEditing)(BlazeTextField* textField);
@@ -287,6 +287,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic,strong) UIColor *datePickerBackgroundColor;
 
 //Label/TextField/TextView
+@property(nonatomic) bool oneTimeCode;
 @property(nonatomic) bool secureTextEntry;
 @property(nonatomic) UIKeyboardType keyboardType;
 @property(nonatomic) UITextAutocorrectionType autocorrectionType;

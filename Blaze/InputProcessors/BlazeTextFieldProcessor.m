@@ -57,6 +57,9 @@
     //Properties
     self.textField.keyboardType = self.row.keyboardType;
     self.textField.secureTextEntry = self.row.secureTextEntry;
+    if(self.row.oneTimeCode) {
+        self.textField.textContentType = UITextContentTypeOneTimeCode;
+    }
     self.textField.autocorrectionType = self.row.autocorrectionType;
     if(self.row.capitalizationType) {
         self.textField.autocapitalizationType = [self.row.capitalizationType intValue];
