@@ -1013,8 +1013,8 @@
         BlazeSection *section = self.tableArray[indexPath.section];
         
         //Row index check
-        if(indexPath.row > section.rows.count) {
-            NSLog(@"Row index is too high!");
+        if(indexPath.row >= section.rows.count) {
+            NSLog(@"deleteRows withRowAnimation -> Row index: %d, is too high for section rows count: %d", indexPath.row, section.rows.count);
             continue;
         }
         
@@ -1062,8 +1062,8 @@
     BlazeSection *section = self.tableArray[indexPath.section];
     
     //Row index check
-    if(indexPath.row > section.rows.count) {
-        NSLog(@"Row index is too high!");
+    if(indexPath.row >= section.rows.count) {
+        NSLog(@"deleteRow withRowAnimation -> Row index: %d, is too high for section rows count: %d", indexPath.row, section.rows.count);
         return;
     }
     
@@ -1204,9 +1204,9 @@
         //Get section
         BlazeSection *section = self.tableArray[indexPath.section];
         
-        //Row index check
-        if(indexPath.row > section.rows.count) {
-            NSLog(@"Row index is too high!");
+        //Row index check (here, the path is actually the starting number, so it should be the NEXT one from the current one. That's why here is the +1 added.)
+        if(indexPath.row >= section.rows.count+1) {
+            NSLog(@"addRows withRowAnimation ->Row index: %d, is too high for section rows count: %d", indexPath.row, section.rows.count);
             return;
         }
         
@@ -1231,7 +1231,7 @@
 
 -(void)addRow:(BlazeRow *)row atIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation
 {
-    //Row exists
+    //Row already exists
     NSIndexPath *existingIndexPath = [self indexPathForRow:row];
     if(existingIndexPath) {
         return;
@@ -1246,9 +1246,9 @@
     //Get section
     BlazeSection *section = self.tableArray[indexPath.section];
     
-    //Row index check
-    if(indexPath.row > section.rows.count) {
-        NSLog(@"Row index is too high!");
+    //Row index check (here, the path is actually the starting number, so it should be the NEXT one from the current one. That's why here is the +1 added.)
+    if(indexPath.row >= section.rows.count+1) {
+        NSLog(@"addRow withRowAnimation -> Row index: %d, is too high for section rows count: %d", indexPath.row, section.rows.count);
         return;
     }
     
@@ -1279,9 +1279,9 @@
     //Get section
     BlazeSection *section = self.tableArray[indexPath.section];
     
-    //Row index check
-    if(indexPath.row > section.rows.count+1) {
-        NSLog(@"Row index is too high!");
+    //Row index check (here, the path is actually the starting number, so it should be the NEXT one from the current one. That's why here is the +1 added.)
+    if(indexPath.row >= section.rows.count+1) {
+        NSLog(@"addRows startingIndexPath -> Row index: %d, is too high for section rows count: %d", indexPath.row, section.rows.count);
         return;
     }
     
@@ -1328,8 +1328,19 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BlazeSection *s = self.tableArray[indexPath.section];
-    BlazeRow *row = s.rows[indexPath.row];
+    //Get section (check if exists)
+    if(indexPath.section >= self.tableArray.count) {
+        NSLog(@"Indexpath section: %d, is too high because tablearray count = %d. Should not happen, but let's just quickly return automatic-dimension to not crash...", indexPath.section, self.tableArray.count);
+        return UITableViewAutomaticDimension;
+    }
+    BlazeSection *section = self.tableArray[indexPath.section];
+    
+    //Get row (check if exists)
+    if(indexPath.row >= section.rows.count) {
+        NSLog(@"Indexpath row: %d, is too high because section count = %d. Should not happen, but let's just quickly return automatic-dimension to not crash...", indexPath.row, section.rows.count);
+        return UITableViewAutomaticDimension;
+    }
+    BlazeRow *row = section.rows[indexPath.row];
     
     if(self.cacheRowHeights && row.cachedHeightID.length > 0) {
         if(self.cachedRowHeights[row.cachedHeightID] != nil) {
@@ -1351,21 +1362,21 @@
         if(tableView.tableFooterView != nil) {
             height -= tableView.tableFooterView.frame.size.height;
         }
-        for(BlazeSection *section in self.tableArray) {
-            if(section.headerHeight) {
-                height -= section.headerHeight.intValue;
+        for(BlazeSection *sectionC in self.tableArray) {
+            if(sectionC.headerHeight) {
+                height -= sectionC.headerHeight.intValue;
             }
-            if(section.footerHeight) {
-                height -= section.footerHeight.intValue;
+            if(sectionC.footerHeight) {
+                height -= sectionC.footerHeight.intValue;
             }
-            for(BlazeRow *row in section.rows) {
-                if(row.rowHeight) {
-                    height -= row.rowHeight.floatValue;                    
+            for(BlazeRow *rowC in sectionC.rows) {
+                if(rowC.rowHeight) {
+                    height -= rowC.rowHeight.floatValue;
                 }
-                else if(row.rowHeightRatio) {
-                    height -= row.rowHeightRatio.floatValue * tableView.frame.size.height;
+                else if(rowC.rowHeightRatio) {
+                    height -= rowC.rowHeightRatio.floatValue * tableView.frame.size.height;
                 }
-                else if(row.rowHeightDynamic) {
+                else if(rowC.rowHeightDynamic) {
                     nrOfDynamicHeights++;
                 }
             }
