@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 GraafICT. All rights reserved.
 //
 
-#import <AFNetworking/UIImageView+AFNetworking.h>
-
 //Defaults
 #import "BlazeTableViewController.h"
 
@@ -1014,7 +1012,7 @@
         
         //Row index check
         if(indexPath.row >= section.rows.count) {
-            NSLog(@"deleteRows withRowAnimation -> Row index: %d, is too high for section rows count: %d", indexPath.row, section.rows.count);
+            //NSLog(@"deleteRows withRowAnimation -> Row index: %d, is too high for section rows count: %d", indexPath.row, section.rows.count);
             continue;
         }
         
@@ -1063,7 +1061,7 @@
     
     //Row index check
     if(indexPath.row >= section.rows.count) {
-        NSLog(@"deleteRow withRowAnimation -> Row index: %d, is too high for section rows count: %d", indexPath.row, section.rows.count);
+        //NSLog(@"deleteRow withRowAnimation -> Row index: %d, is too high for section rows count: %d", indexPath.row, section.rows.count);
         return;
     }
     
@@ -1206,7 +1204,7 @@
         
         //Row index check (here, the path is actually the starting number, so it should be the NEXT one from the current one. That's why here is the +1 added.)
         if(indexPath.row >= section.rows.count+1) {
-            NSLog(@"addRows withRowAnimation ->Row index: %d, is too high for section rows count: %d", indexPath.row, section.rows.count);
+            //NSLog(@"addRows withRowAnimation ->Row index: %d, is too high for section rows count: %d", indexPath.row, section.rows.count);
             return;
         }
         
@@ -1248,7 +1246,7 @@
     
     //Row index check (here, the path is actually the starting number, so it should be the NEXT one from the current one. That's why here is the +1 added.)
     if(indexPath.row >= section.rows.count+1) {
-        NSLog(@"addRow withRowAnimation -> Row index: %d, is too high for section rows count: %d", indexPath.row, section.rows.count);
+        //NSLog(@"addRow withRowAnimation -> Row index: %d, is too high for section rows count: %d", indexPath.row, section.rows.count);
         return;
     }
     
@@ -1281,7 +1279,7 @@
     
     //Row index check (here, the path is actually the starting number, so it should be the NEXT one from the current one. That's why here is the +1 added.)
     if(indexPath.row >= section.rows.count+1) {
-        NSLog(@"addRows startingIndexPath -> Row index: %d, is too high for section rows count: %d", indexPath.row, section.rows.count);
+        //NSLog(@"addRows startingIndexPath -> Row index: %d, is too high for section rows count: %d", indexPath.row, section.rows.count);
         return;
     }
     
@@ -1330,14 +1328,14 @@
 {
     //Get section (check if exists)
     if(indexPath.section >= self.tableArray.count) {
-        NSLog(@"Indexpath section: %d, is too high because tablearray count = %d. Should not happen, but let's just quickly return automatic-dimension to not crash...", indexPath.section, self.tableArray.count);
+        //NSLog(@"Indexpath section: %d, is too high because tablearray count = %d. Should not happen, but let's just quickly return automatic-dimension to not crash...", indexPath.section, self.tableArray.count);
         return UITableViewAutomaticDimension;
     }
     BlazeSection *section = self.tableArray[indexPath.section];
     
     //Get row (check if exists)
     if(indexPath.row >= section.rows.count) {
-        NSLog(@"Indexpath row: %d, is too high because section count = %d. Should not happen, but let's just quickly return automatic-dimension to not crash...", indexPath.row, section.rows.count);
+        //NSLog(@"Indexpath row: %d, is too high because section count = %d. Should not happen, but let's just quickly return automatic-dimension to not crash...", indexPath.row, section.rows.count);
         return UITableViewAutomaticDimension;
     }
     BlazeRow *row = section.rows[indexPath.row];
@@ -1820,6 +1818,9 @@
         }
         frame.origin.y += scrollView.contentOffset.y;
         self.floatingActionButton.frame = frame;
+        
+        //Otherwise it might not be tappable if there's a cell below it, even though visually it seems above it
+        [self.tableView bringSubviewToFront:self.floatingActionButton];
     }
     
     //ZoomTableHeaderView

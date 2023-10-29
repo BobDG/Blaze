@@ -53,6 +53,7 @@
     
     //Create it
     dateFormatter = [NSDateFormatter new];
+    [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
     if(timeZone) {
         [dateFormatter setTimeZone:timeZone];
     }
@@ -102,6 +103,7 @@
     if(dateFormatter == nil)
     {
         dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
         [dateFormatter setDateFormat:format];
         [threadDictionary setObject:dateFormatter forKey:format] ;
     }
@@ -116,6 +118,7 @@
     if(dateFormatter == nil)
     {
         dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
         [dateFormatter setDateFormat:format];
         [dateFormatter setTimeZone:timeZone];
         [threadDictionary setObject:dateFormatter forKey:dfKey] ;
@@ -131,6 +134,7 @@
     if(dateFormatter == nil)
     {
         dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
         [dateFormatter setDateStyle:dateStyle];
         [threadDictionary setObject:dateFormatter forKey:dfKey] ;
     }
@@ -145,6 +149,7 @@
     if(dateFormatter == nil)
     {
         dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
         [dateFormatter setDateStyle:dateStyle];
         [dateFormatter setTimeStyle:timeStyle];
         [threadDictionary setObject:dateFormatter forKey:dfKey] ;

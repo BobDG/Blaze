@@ -60,6 +60,31 @@
         [object setValue:[self valueForKey:attributeName] forKey:attributeName];
     }
 }
+    
+-(void)copyPropertiesWithRelationshipsToObject:(NSManagedObject *)object
+{
+    NSDictionary *fromAttributes = [[self entity] attributesByName];
+    NSArray *toAttributes = [[object entity] attributesByName].allKeys;
+    for(NSString *attributeName in fromAttributes) {
+        if(![toAttributes containsObject:attributeName]) {
+            continue;
+        }
+        
+        //Set it
+        [object setValue:[self valueForKey:attributeName] forKey:attributeName];
+    }
+    
+    NSDictionary *relationships = [[self entity] relationshipsByName];
+    for(NSString *relationship in relationships) {
+        NSManagedObject *relationshipObject = (NSManagedObject *)[self valueForKey:relationship];
+        [object setValue:relationshipObject forKey:relationship];
+    }
+}
+    
+-(void)copyPropertiesToObject:(NSManagedObject *)object context:(NSManagedObjectContext *)context
+{
+    [self copyPropertiesToObject:object context:context excludeRelationships:nil];
+}
 
 -(void)copyPropertiesToObject:(NSManagedObject *)object context:(NSManagedObjectContext *)context excludeRelationships:(NSArray *)excludeRelationships
 {
@@ -94,11 +119,6 @@
         //Copy properties values
         [relationshipObject copyPropertiesToObject:copyRelationshipObject context:context excludeRelationships:excludeRelationships];
     }
-}
-
--(void)copyPropertiesToObject:(NSManagedObject *)object context:(NSManagedObjectContext *)context
-{
-    [self copyPropertiesToObject:object context:context];
 }
 
 -(void)safeSetValuesForKeysWithDictionary:(NSDictionary *)keyedValues dateFormatter:(NSDateFormatter *)dateFormatter context:(NSManagedObjectContext *)context includeArrays:(BOOL)includeArrays mappingDictionary:(NSDictionary *)mappingDictionary

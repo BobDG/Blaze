@@ -31,4 +31,11 @@
 +(BOOL)checkDateIsTheSameDay:(NSDate *)date date2:(NSDate *)date2;
 +(BOOL)date:(NSDate *)date isBetweenDate:(NSDate *)beginDate andDate:(NSDate *)endDate;
 
+//Time based methods
+-(NSDate *)setTimeFromDate:(NSDate *)date;
++(BOOL)checkTimeIsLaterThanNow:(NSDate *)date;
++(BOOL)checkTimeIsEarlierThanNow:(NSDate *)date;
++(BOOL)checkTimeIsLater:(NSDate *)date1 thanTime:(NSDate *)date2;
++(BOOL)checkTimeIsEarlier:(NSDate *)date1 thanTime:(NSDate *)date2;
+
 @end

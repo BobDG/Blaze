@@ -51,6 +51,7 @@
 		ED0297191D1729220039AA41 /* ZoomHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0297021D1729220039AA41 /* ZoomHeaderView.xib */; };
 		ED04163B1E3A0B7800A3F2CD /* FloatTwoTextFieldsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED04163A1E3A0B7800A3F2CD /* FloatTwoTextFieldsTableViewCell.xib */; };
 		ED0416401E3A118900A3F2CD /* TwoDateFieldsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED04163F1E3A118900A3F2CD /* TwoDateFieldsTableViewCell.xib */; };
+		ED0C219B2AEE68DE00874E8F /* UIImageView+Download.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0C219A2AEE66D000874E8F /* UIImageView+Download.m */; };
 		ED20758B1EE94C140092004F /* Blaze.podspec in Resources */ = {isa = PBXBuildFile; fileRef = ED20758A1EE94C140092004F /* Blaze.podspec */; };
 		ED2626B01D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2626AF1D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib */; };
 		ED3BDAD51E0BD5A500B230A6 /* ImagePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3BDAD41E0BD5A500B230A6 /* ImagePickerTableViewCell.xib */; };
@@ -159,6 +160,8 @@
 		ED0297021D1729220039AA41 /* ZoomHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZoomHeaderView.xib; sourceTree = "<group>"; };
 		ED04163A1E3A0B7800A3F2CD /* FloatTwoTextFieldsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatTwoTextFieldsTableViewCell.xib; sourceTree = "<group>"; };
 		ED04163F1E3A118900A3F2CD /* TwoDateFieldsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoDateFieldsTableViewCell.xib; sourceTree = "<group>"; };
+		ED0C21982AEE669600874E8F /* UIImageView+Download.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Download.h"; sourceTree = "<group>"; };
+		ED0C219A2AEE66D000874E8F /* UIImageView+Download.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Download.m"; sourceTree = "<group>"; };
 		ED20758A1EE94C140092004F /* Blaze.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Blaze.podspec; path = ../Blaze.podspec; sourceTree = "<group>"; };
 		ED2626AF1D17EA9B00C3A1E4 /* CheckboxTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckboxTableViewCell.xib; sourceTree = "<group>"; };
 		ED3BDAD41E0BD5A500B230A6 /* ImagePickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePickerTableViewCell.xib; sourceTree = "<group>"; };
@@ -552,6 +555,8 @@
 		ED5A16D021FA041300F5F77E /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				ED0C21982AEE669600874E8F /* UIImageView+Download.h */,
+				ED0C219A2AEE66D000874E8F /* UIImageView+Download.m */,
 				ED5A16D121FA041300F5F77E /* UIScrollView+Reload.h */,
 				ED5A16D621FA041300F5F77E /* UIScrollView+Reload.m */,
 				ED5A16D521FA041300F5F77E /* NSObject+PropertyName.h */,
@@ -737,7 +742,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BlazeExample/Pods-BlazeExample-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/BDGCategories/BDGCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/BDGImagePicker/BDGImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/BDGMacros/BDGMacros.framework",
@@ -745,7 +749,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BDGCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BDGImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BDGMacros.framework",
@@ -817,6 +820,7 @@
 				ED5A16ED21FA041400F5F77E /* BlazeImagePickerTableViewCell.m in Sources */,
 				ED933E051D1728A100B8155F /* AppDelegate.m in Sources */,
 				ED5A16F621FA041400F5F77E /* BlazeNSFetchedTableViewController.m in Sources */,
+				ED0C219B2AEE68DE00874E8F /* UIImageView+Download.m in Sources */,
 				B07D8F881E841DB6006130F5 /* PageContentViewController.m in Sources */,
 				ED5A16DE21FA041300F5F77E /* BlazePickerFieldMultipleProcessor.m in Sources */,
 				ED5A16F921FA041400F5F77E /* BlazeInputTile.m in Sources */,

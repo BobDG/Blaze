@@ -1,27 +1,11 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
-  - AFNetworking/NSURLSession (3.2.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.1)
-  - AFNetworking/Security (3.2.1)
-  - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
-    - AFNetworking/NSURLSession
-  - BDGCategories (0.0.36)
-  - BDGImagePicker (0.0.18):
+  - BDGCategories (0.0.39)
+  - BDGImagePicker (0.0.21):
     - BDGCategories
   - BDGMacros (0.0.22)
   - BDGViews (0.0.10)
 
 DEPENDENCIES:
-  - AFNetworking
   - BDGCategories
   - BDGImagePicker
   - BDGMacros
@@ -29,19 +13,17 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - AFNetworking
     - BDGCategories
     - BDGImagePicker
     - BDGMacros
     - BDGViews
 
 SPEC CHECKSUMS:
-  AFNetworking: cb604b1c2bded0871f5f61f5d53653739e841d6b
-  BDGCategories: 0b4f3a768ba6e20a416e6b9ac3a92070d2db4093
-  BDGImagePicker: ae9d4ed516d1aab45fa3071076c528384f05cc1c
+  BDGCategories: cf6cb7e50dfd0195550f0c18c77146c96337630d
+  BDGImagePicker: c9d688613a4d78c3242dd0294b7c924cdd28a4d5
   BDGMacros: 57f9ce27325b196824b134cffa35951fd42525cc
   BDGViews: f2176950ca23e79af61f96ae40ecfc58bfdc4d44
 
-PODFILE CHECKSUM: d659072089a941147ac1b0097eb64ecdb21d9d4d
+PODFILE CHECKSUM: ec03889dc636a4cc528d513f7230846b0cebed58
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.13.0

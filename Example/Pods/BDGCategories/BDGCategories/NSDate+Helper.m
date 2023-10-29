@@ -219,4 +219,71 @@
     return YES;
 }
 
+#pragma mark - Time based checks
+
+-(NSDate *)setTimeFromDate:(NSDate *)date
+{
+    //Simply update the 'self' date with the hour/minute from a given date
+    NSDateComponents *dateComps = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self];
+    NSDateComponents *dateTimeComps = [[NSCalendar currentCalendar] components:NSCalendarUnitHour|NSCalendarUnitMinute fromDate:date];
+    dateComps.hour = dateTimeComps.hour;
+    dateComps.minute = dateTimeComps.minute;
+    dateComps.second = 0;
+    return [[NSCalendar currentCalendar] dateFromComponents:dateComps];
+}
+
++(BOOL)checkTimeIsLaterThanNow:(NSDate *)date
+{
+    NSDateComponents *todayComps = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[NSDate date]];
+    
+    NSDateComponents *dateTimeComps = [[NSCalendar currentCalendar] components:NSCalendarUnitHour|NSCalendarUnitMinute fromDate:date];
+    todayComps.hour = dateTimeComps.hour;
+    todayComps.minute = dateTimeComps.minute;
+    todayComps.second = 0;
+    NSDate *todayWithUpdatedTime = [[NSCalendar currentCalendar] dateFromComponents:todayComps];
+    
+    double date1Unix = [todayWithUpdatedTime timeIntervalSince1970];
+    double date2Unix = [[NSDate date] timeIntervalSince1970];
+    if(date1Unix > date2Unix) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
++(BOOL)checkTimeIsEarlierThanNow:(NSDate *)date
+{
+    return ![self checkTimeIsLaterThanNow:date];
+}
+
++(BOOL)checkTimeIsLater:(NSDate *)date1 thanTime:(NSDate *)date2
+{
+    NSDateComponents *todayComps1 = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[NSDate date]];
+    NSDateComponents *todayComps2 = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[NSDate date]];
+    
+    NSDateComponents *date1TimeComps = [[NSCalendar currentCalendar] components:NSCalendarUnitHour|NSCalendarUnitMinute fromDate:date1];
+    todayComps1.hour = date1TimeComps.hour;
+    todayComps1.minute = date1TimeComps.minute;
+    todayComps1.second = 0;
+    
+    NSDateComponents *date2TimeComps = [[NSCalendar currentCalendar] components:NSCalendarUnitHour|NSCalendarUnitMinute fromDate:date2];
+    todayComps2.hour = date2TimeComps.hour;
+    todayComps2.minute = date2TimeComps.minute;
+    todayComps2.second = 0;
+    
+    NSDate *finalDate1 = [[NSCalendar currentCalendar] dateFromComponents:todayComps1];
+    NSDate *finalDate2 = [[NSCalendar currentCalendar] dateFromComponents:todayComps2];
+    double date1Unix = [finalDate1 timeIntervalSince1970];
+    double date2Unix = [finalDate2 timeIntervalSince1970];
+    
+    if(date1Unix > date2Unix) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
++(BOOL)checkTimeIsEarlier:(NSDate *)date1 thanTime:(NSDate *)date2
+{
+    return ![self checkTimeIsLater:date1 thanTime:date2];
+}
+
 @end

@@ -7,8 +7,6 @@ target 'BlazeExample' do
     pod 'BDGMacros'
     pod 'BDGCategories'
     pod 'BDGImagePicker'
-    
-    pod 'AFNetworking'    
 end
 
 post_install do |installer|

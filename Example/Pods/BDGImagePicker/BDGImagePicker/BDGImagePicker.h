@@ -35,10 +35,13 @@
 //Optional properties
 @property(nonatomic) bool video;
 @property(nonatomic) bool frontCamera;
-@property(nonatomic) bool allowsEditing;
+@property(nonatomic) bool allowsEditingForCamera;
+@property(nonatomic) bool allowsEditingForLibrary;
 @property(nonatomic) bool statusBarHidden;
 @property(nonatomic) bool saveInCameraRoll;
+@property(nonatomic) bool modalPresentFullScreen;
 @property(nonatomic) UIStatusBarStyle statusBarStyle;
+@property(nonatomic) UIAlertControllerStyle alertStyle;
 
 //Optional references
 @property(nonatomic,strong) NSString *title;

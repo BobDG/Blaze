@@ -6,8 +6,6 @@
 //  Copyright © 2016 GraafICT. All rights reserved.
 //
 
-#import <AFNetworking/UIImageView+AFNetworking.h>
-
 #import "BlazeTextView.h"
 #import "BlazeTextField.h"
 #import "BlazeTableViewCell.h"
@@ -21,6 +19,8 @@
 #import "BlazePickerFieldProcessor.h"
 #import "BlazePickerViewMultipleField.h"
 #import "BlazePickerFieldMultipleProcessor.h"
+
+#import "UIImageView+Download.h"
 
 @implementation BlazeTableViewCell
 
@@ -235,7 +235,7 @@
 -(void)updateImageView:(UIImageView *)imageView imageURLString:(NSString *)imageURLString
 {
     if(imageURLString.length) {
-        [imageView setImageWithURL:[NSURL URLWithString:imageURLString] placeholderImage:[UIImage new]];
+        [imageView setImageWithURLString:imageURLString placeholderImage:[UIImage new]];
     }
     else {
         imageView.image = nil;
@@ -268,7 +268,7 @@
         imageView.image = [UIImage imageWithData:imageData];
     }
     else if(imageURLString.length) {
-        [imageView setImageWithURL:[NSURL URLWithString:imageURLString] placeholderImage:[UIImage new]];
+        [imageView setImageWithURLString:imageURLString placeholderImage:[UIImage new]];
     }
     else if(imageName.length) {
         if(self.bundle) {

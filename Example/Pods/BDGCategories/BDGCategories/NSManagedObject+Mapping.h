@@ -18,6 +18,7 @@
 
 
 -(void)copyPropertiesToObject:(NSManagedObject *)object;
+-(void)copyPropertiesWithRelationshipsToObject:(NSManagedObject *)object;
 -(void)copyPropertiesToObject:(NSManagedObject *)object context:(NSManagedObjectContext *)context;
 -(void)copyPropertiesToObject:(NSManagedObject *)object context:(NSManagedObjectContext *)context excludeRelationships:(NSArray *)excludeRelationships;
 

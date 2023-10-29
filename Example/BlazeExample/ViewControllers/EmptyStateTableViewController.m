@@ -27,7 +27,7 @@
     
     //Floating action button
     __weak __typeof(self)weakSelf = self;
-    [self setupFloatingActionButtonWithImage:[UIImage imageNamed:@"Button_FAB_Red"] padding:32.0f tapped:^{
+    [self setupFloatingActionButtonWithImage:[UIImage imageNamed:@"Button_FAB_Red"] padding:32.0f leftSide:FALSE tapped:^{
         [weakSelf actionButtonTapped];
     } animated:TRUE];
 }
