@@ -183,10 +183,8 @@
     if(self.row.doneChanging) { 
         self.row.doneChanging();
     }
-    if(self.cell) {
-        if(self.cell.nextField) {
-            [self.cell nextField:nil];
-        }
+    if(self.cell && self.cell.nextField) {
+        [self.cell nextField:nil];
     }
     else {
         [textField resignFirstResponder];
