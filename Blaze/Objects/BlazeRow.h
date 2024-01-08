@@ -13,7 +13,8 @@ typedef NS_ENUM(NSInteger, InputAccessoryViewType) {
     InputAccessoryViewArrowsLeftRight,
     InputAccessoryViewArrowsUpDown,
     InputAccessoryViewStrings,
-    InputAccessoryViewCancelSave
+    InputAccessoryViewCancelSave,
+    InputAccessoryViewNone
 };
 
 typedef NS_ENUM(NSInteger, FloatingLabelEnabledState) {

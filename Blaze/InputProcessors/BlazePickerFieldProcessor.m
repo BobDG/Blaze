@@ -121,7 +121,10 @@
         return;
     }
     
-    //Only for default inputAccessoryView
+    //InputAccessoryView
+    if(self.row.inputAccessoryViewType != InputAccessoryViewNone) {
+        return;
+    }
     if(self.row.inputAccessoryViewType != InputAccessoryViewCancelSave) {
         //Get toolbar
         self.pickerField.inputAccessoryView = [self.cell defaultInputAccessoryView];

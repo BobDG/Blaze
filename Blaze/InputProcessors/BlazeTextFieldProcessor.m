@@ -142,6 +142,9 @@
     if(self.row.textFieldDidEndEditing) {
         self.row.textFieldDidEndEditing(self.textField);
     }
+    else if(self.row.doneChanging) {
+        self.row.doneChanging();
+    }
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string

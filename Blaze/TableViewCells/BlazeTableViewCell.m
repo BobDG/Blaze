@@ -361,7 +361,12 @@
     fixedSpaceBB.width = 20.0f;
     UIBarButtonItem *flexibleSpaceBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *doneBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneField:)];
-    [toolBar setItems:@[previousBB, fixedSpaceBB, nextBB, flexibleSpaceBB, doneBB]]; 
+    if(self.row.inputAccessoryViewType == InputAccessoryViewNone) {
+        [toolBar setItems:@[flexibleSpaceBB, doneBB]];
+    }
+    else {
+        [toolBar setItems:@[previousBB, fixedSpaceBB, nextBB, flexibleSpaceBB, doneBB]];
+    }
     [toolBar sizeToFit];
     
     //In case of a special additional accessoryview button

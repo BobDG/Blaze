@@ -1566,7 +1566,7 @@
     }
     
     //Possibly overwrite default accessoryview type
-    if(self.defaultInputAccessoryViewType && row.inputAccessoryViewType != InputAccessoryViewCancelSave) {
+    if(self.defaultInputAccessoryViewType && row.inputAccessoryViewType != InputAccessoryViewCancelSave && row.inputAccessoryViewType != InputAccessoryViewNone) {
         row.inputAccessoryViewType = (InputAccessoryViewType)[self.defaultInputAccessoryViewType intValue];
     }
     
