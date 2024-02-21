@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 GraafICT. All rights reserved.
 //
 
+#import "BlazeRow.h"
 #import "BlazeSection.h"
 
 @implementation BlazeSection
@@ -117,8 +118,9 @@
     return self;
 }
 
--(void)addRow:(id)row
+-(void)addRow:(BlazeRow *)row
 {
+    row.section = self;
     [self.rows addObject:row];
 }
 

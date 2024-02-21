@@ -30,6 +30,7 @@ typedef NS_ENUM(NSInteger, ImageType) {
     ImageFromBlazeMediaData
 };
 
+@class BlazeSection;
 @class BlazeTextField;
 @class BlazeTableViewCell;
 
@@ -112,6 +113,9 @@ typedef NS_ENUM(NSInteger, ImageType) {
 @property(nonatomic) bool enableReordering;
 @property(nonatomic) bool rowHeightDynamic;
 @property(nonatomic) bool disableFirstResponderOnCellTap;
+
+//Section reference for quick access
+@property(nonatomic,weak) BlazeSection *section;
 
 //Heights
 @property(nonatomic,strong) NSNumber *rowHeight;

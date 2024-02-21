@@ -23,7 +23,7 @@
 +(instancetype)sectionWithHeaderXibName:(NSString *)headerXibName headerTitle:(NSString *)headerTitle;
 
 //Constructors
--(void)addRow:(id)row;
+-(void)addRow:(BlazeRow *)row;
 -(id)initWithHeaderTitle:(NSString *)headerTitle;
 -(id)initWithRowsXibName:(NSString *)rowsXibName;
 -(id)initWithHeaderXibName:(NSString *)headerXibName;
